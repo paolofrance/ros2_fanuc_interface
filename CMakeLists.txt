@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(fanuc_ros_interface)
+project(ros2_fanuc_interface)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -28,7 +28,7 @@ install(DIRECTORY scripts launch config
 ament_python_install_package(${PROJECT_NAME})
 # Install Python executables
 install(PROGRAMS
-  scripts/ros2_robot_control.py
+  scripts/ros2_fanuc_interface.py
   scripts/joint_state_pub.py
   DESTINATION lib/${PROJECT_NAME}
 )

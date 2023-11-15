@@ -1,4 +1,4 @@
-fanuc_ros_inteface:
+ros2_fanuc_interface:
   ros__parameters:
     buffer_length_param: 8
     control_time: 0.04

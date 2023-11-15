@@ -5,15 +5,15 @@ from launch_ros.actions import Node
 def generate_launch_description():
     ld = LaunchDescription()
     config = os.path.join(
-        get_package_share_directory('fanuc_ros_interface'),
+        get_package_share_directory('ros2_fanuc_interface'),
         'config',
         'params.yaml'
         )
         
     node=Node(
-        package = 'fanuc_ros_interface',
-        name = 'fanuc_ros_inteface',
-        executable = 'ros2_robot_control.py',
+        package = 'ros2_fanuc_interface',
+        name = 'ros2_fanuc_interface',
+        executable = 'ros2_fanuc_interface.py',
         parameters = [config]
     )
     ld.add_action(node)
