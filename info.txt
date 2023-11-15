@@ -1,0 +1,3 @@
+compile with this version of setuptools to allow fanuc_ros2_driver to be imported
+
+$ pip install setuptools==58.2.0
