@@ -13,13 +13,13 @@ class MinimalPublisher(Node):
         super().__init__('minimal_publisher')
         self.publisher_ = self.create_publisher(JointState, 'cmd_j_pos', 10)
         self.timer_period = 0.04
-        self.timer = self.create_timer(self.timer_period, self.timer_callback)
+        # self.timer = self.create_timer(self.timer_period, self.timer_callback)
         self.t = 0
         self.init_g1 = False
         self.g1_base=0
         
-        self.amplitude = 90.0
-        self.freq = 0.3
+        self.amplitude = 20.0
+        self.freq = 0.6
         
         self.subscription = self.create_subscription(
             JointState,
@@ -28,16 +28,21 @@ class MinimalPublisher(Node):
             10)
         self.reach = False
         
+        rate = self.create_rate(25)
+
         
-    def timer_callback(self):
-        self.t += self.timer_period
-        g1 = self.g1_base + self.amplitude*np.sin(self.freq * self.t)
-        # g1 = self.g1_base + 90
-        msg = JointState()
-        msg.name = ["J1", "J2", "J3", "J4", "J5", "J6" ]
-        msg.position = np.deg2rad([g1, 0, 0.0, 0.0, -90.0, 0.0])
         
-        self.publisher_.publish(msg)
+    # def timer_callback(self):
+        while rclpy.ok():
+            self.t += self.timer_period
+            g1 = self.g1_base + self.amplitude*np.sin(self.freq * self.t)
+            # g1 = self.g1_base + 90
+            msg = JointState()
+            msg.name = ["J1", "J2", "J3", "J4", "J5", "J6" ]
+            msg.position = np.deg2rad([g1, 0, 0.0, 0.0, -90.0, 0.0])
+            
+            self.publisher_.publish(msg)
+            rate.sleep()
     
     def callback(self, msg):
         if not self.init_g1:

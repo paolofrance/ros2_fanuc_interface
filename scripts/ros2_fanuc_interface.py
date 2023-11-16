@@ -54,17 +54,11 @@ class FanucRosInterface(Node):
         self.pr_number += 1
         
         j_pos = np.array(msg.position)
-        # self.r.PRNumber = (self.pr_number % self.buffer_length) + 1
-        # self.r.write_joint_pose(np.rad2deg(j_pos))
-        # self.get_logger().info("callback writing into register " + str(self.r.PRNumber) + " target j pose to : " + str(j_pos))
-
-        # for i in range(3):
-            # self.r.PRNumber = i + 1
-            # self.r.write_joint_pose(np.rad2deg(j_pos))
-
-        self.r.PRNumber = 1
+        self.r.PRNumber = (self.pr_number % self.buffer_length) + 1
         self.r.write_joint_pose(np.rad2deg(j_pos))
-    
+
+        self.get_logger().debug("writing into register " + str(self.r.PRNumber) + " target pose : " + str(j_pos))    
+
     def fb_joint_pose_callback(self):
         msg = JointState()
         
@@ -83,7 +77,7 @@ class FanucRosInterface(Node):
         for i in range(self.buffer_length):
             self.r.PRNumber = i + 1
             self.r.write_joint_pose(cp)
-            self.get_logger().info("writing into register " + str(self.r.PRNumber) + " current pose as target : " + str(cp))
+            self.get_logger().debug("writing into register " + str(self.r.PRNumber) + " current pose as target : " + str(cp))
 
             
     def destroy_node(self):
