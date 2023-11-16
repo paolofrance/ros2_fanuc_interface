@@ -19,7 +19,7 @@ $ ros2 launch ros2_fanuc_interface test.launch.py
 
 then to test joint commands
 ```console
-$ ros2 topic pub /position_commands std_msgs/msg/Float64MultiArray "{data: [1.0, 0.0, 0.0, 0.0, 0.0, 0.0],layout: {dim:[], data_offset: 1"}}
+$ ros2 topic pub /position_commands std_msgs/msg/Float64MultiArray "{data: [1.0, 0.0, 0.0, 0.0, -1.5707, 0.0],layout: {dim:[], data_offset: 1"}}
 ```
 
 
@@ -37,3 +37,4 @@ $ ros2 run ros2_fanuc_interface joint_state_pub.py
 ```
 
 
+ros2 topic pub  /fb_j_pos sensor_msgs/msg/JointState "{name: ['J1', 'J2', 'J3', 'J4', 'J5', 'J6'], position: [1.0, 0.0, 0.0, 0.0, 1.5707, 0.0], velocity: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], effort: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}"

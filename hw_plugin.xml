@@ -1,16 +1,9 @@
-<library path="fanuc_hw">
-  <class name="fanuc_hw/RobotSystem"
-         type="fanuc_hw::RobotSystem"
+<library path="fanuc">
+  <class name="fanuc/FanucTopic"
+         type="fanuc::FanucTopic"
          base_class_type="hardware_interface::SystemInterface">
     <description>
-      Robot hardware plugin for 6 dof robot tutorial.
-    </description>
-  </class>
-  <class name="fanuc_hw/RobotController"
-         type="fanuc_hw::RobotController"
-         base_class_type="controller_interface::ControllerInterface">
-    <description>
-      Robot controller plugin for 6 dof robot tutorial.
+      Topic hardware plugin for fanu-ros drive topic interface.
     </description>
   </class>
 </library>
