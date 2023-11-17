@@ -78,23 +78,11 @@ CallbackReturn FanucTopic::on_init(const hardware_interface::HardwareInfo & info
     return CallbackReturn::ERROR;
   }
 
-  // initialize_storage_vectors(joint_commands_, joint_states_, standard_interfaces_, info_.joints);
-  
-
   joint_position_.assign(6, 0);
   joint_velocities_.assign(6, 0);
   joint_position_command_.assign(6, 0);
 
-  // for (auto i = 0u; i < info_.joints.size(); i++)
-  // {
-  //   for (auto j = 0u; j < standard_interfaces_.size(); j++)
-  //   {
-  //     if (std::isnan(joint_states_[j][i]))
-  //     {
-  //       joint_states_[j][i] = 0.0;
-  //     }
-  //   }
-  // }
+ 
 
   joint_names_.resize(joint_position_.size());
   for (size_t j = 0; j < joint_position_.size(); ++j)
@@ -158,20 +146,6 @@ std::vector<hardware_interface::CommandInterface> FanucTopic::export_command_int
   command_interfaces.emplace_back(info_.joints[4].name, "position", &joint_position_command_[4]);
   command_interfaces.emplace_back(info_.joints[5].name, "position", &joint_position_command_[5]);
 
-  // for (size_t i = 0; i < info_.joints.size(); ++i)
-  // {
-  //   const auto & joint = info_.joints[i];
-  //   for (const auto & interface : joint.command_interfaces)
-  //   {
-  //     if (!get_interface(joint.name, standard_interfaces_, interface.name, i, joint_commands_, command_interfaces))
-  //     {
-  //         throw std::runtime_error(
-  //           "Interface is not found in the standard nor other list. "
-  //           "This should never happen!");
-  //     }
-  //   }
-  // }
-
   return command_interfaces;
 }
 
@@ -196,83 +170,7 @@ return_type FanucTopic::write(const rclcpp::Time & /*time*/, const rclcpp::Durat
   return return_type::OK;
 }
 
-// Private methods
-template <typename HandleType>
-bool FanucTopic::get_interface(
-  const std::string & name, const std::vector<std::string> & interface_list,
-  const std::string & interface_name, const size_t vector_index,
-  std::vector<std::vector<double>> & values, std::vector<HandleType> & interfaces)
-{
-  auto it = std::find(interface_list.begin(), interface_list.end(), interface_name);
-  if (it != interface_list.end())
-  {
-    auto j = std::distance(interface_list.begin(), it);
-    interfaces.emplace_back(name, *it, &values[j][vector_index]);
-    return true;
-  }
-  return false;
-}
 
-void FanucTopic::initialize_storage_vectors(
-  std::vector<std::vector<double>> & commands, std::vector<std::vector<double>> & states,
-  const std::vector<std::string> & interfaces,
-  const std::vector<hardware_interface::ComponentInfo> & component_infos)
-{
-  // Initialize storage for all joints, regardless of their existence
-  commands.resize(interfaces.size());
-  states.resize(interfaces.size());
-  for (auto i = 0u; i < interfaces.size(); i++)
-  {
-    commands[i].resize(component_infos.size(), std::numeric_limits<double>::quiet_NaN());
-    states[i].resize(component_infos.size(), std::numeric_limits<double>::quiet_NaN());
-  }
-
-  // Initialize with values from URDF
-  for (auto i = 0u; i < component_infos.size(); i++)
-  {
-    const auto & component = component_infos[i];
-    for (const auto & interface : component.state_interfaces)
-    {
-      auto it = std::find(interfaces.begin(), interfaces.end(), interface.name);
-
-      // If interface name is found in the interfaces list
-      if (it != interfaces.end())
-      {
-        auto index = std::distance(interfaces.begin(), it);
-
-        // Check the initial_value param is used
-        if (!interface.initial_value.empty())
-        {
-          states[index][i] = parse_double(interface.initial_value);
-        }
-      }
-    }
-  }
-}
-
-template <typename InterfaceType>
-bool FanucTopic::populate_interfaces(
-  const std::vector<hardware_interface::ComponentInfo> & components,
-  std::vector<std::string> & interface_names, std::vector<std::vector<double>> & storage,
-  std::vector<InterfaceType> & target_interfaces, bool using_state_interfaces)
-{
-  for (auto i = 0u; i < components.size(); i++)
-  {
-    const auto & component = components[i];
-    const auto interfaces =
-      (using_state_interfaces) ? component.state_interfaces : component.command_interfaces;
-    for (const auto & interface : interfaces)
-    {
-      if (!get_interface(
-            component.name, interface_names, interface.name, i, storage, target_interfaces))
-      {
-        return false;
-      }
-    }
-  }
-
-  return true;
-}
 }  // namespace mock_components
 
 #include "pluginlib/class_list_macros.hpp"

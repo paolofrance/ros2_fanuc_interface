@@ -27,18 +27,19 @@ manipulator_controller:
     state_interfaces:
       - position
       - velocity
-    state_publish_rate: 100.0
-    action_monitor_rate: 20.0
-    allow_partial_joints_goal: false
+    open_loop_control: true
+    # state_publish_rate: 100.0
+    # action_monitor_rate: 20.0
+    # allow_partial_joints_goal: false
     constraints:
-      stopped_velocity_tolerance: 0.2
+    #   stopped_velocity_tolerance: 0.2
       goal_time: 0.0
-      J1: { trajectory: 0.2, goal: 0.1 }
-      J2: { trajectory: 0.2, goal: 0.1 }
-      J3: { trajectory: 0.2, goal: 0.1 }
-      J4: { trajectory: 0.2, goal: 0.1 }
-      J5: { trajectory: 0.2, goal: 0.1 }
-      J6: { trajectory: 0.2, goal: 0.1 }
+      # J1: { trajectory: 0.02, goal: 0.01 }
+      # J2: { trajectory: 0.02, goal: 0.01 }
+      # J3: { trajectory: 0.02, goal: 0.01 }
+      # J4: { trajectory: 0.02, goal: 0.01 }
+      # J5: { trajectory: 0.02, goal: 0.01 }
+      # J6: { trajectory: 0.02, goal: 0.01 }
 
 
 forward_position_controller:
