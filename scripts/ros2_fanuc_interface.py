@@ -26,8 +26,17 @@ class FanucRosInterface(Node):
         self.pr_number=0
         self.timer = self.create_timer(self.control_time, self.fb_joint_pose_callback)
         
+        self.j23_factor = 1
+        
+        
         self.r.allow_motion(False)
         self.set_current_pose_to_target()
+        
+        cp = self.r.get_current_joint_pos()
+
+        self.j2_offset = np.deg2rad(cp[1])
+        # self.j2_offset = 0.301147
+        
         self.get_logger().info(str(self.r.get_current_joint_pos()))
         
         self.r.allow_motion(True)
@@ -50,27 +59,36 @@ class FanucRosInterface(Node):
         
         self.jp_prev = self.r.get_current_joint_pos()
 
+        
+        
+        
+
     def cmd_joint_pos_callback(self, msg):
         self.pr_number += 1
         
-        j_pos = np.array(msg.position)
-        self.r.PRNumber = (self.pr_number % self.buffer_length) + 1
-        self.r.write_joint_pose(np.rad2deg(j_pos))
+        cmd_j_pos = np.array(msg.position) # rad
+        
+        self.adjust_j3_pos(j_pos=cmd_j_pos, j23_factor=-self.j23_factor)
 
-        self.get_logger().debug("writing into register " + str(self.r.PRNumber) + " target pose : " + str(j_pos))    
+        self.r.PRNumber = (self.pr_number % self.buffer_length) + 1
+        self.r.write_joint_pose(np.rad2deg(cmd_j_pos))
+
+        self.get_logger().debug("writing into register " + str(self.r.PRNumber) + " target pose : " + str(cmd_j_pos))    
 
     def fb_joint_pose_callback(self):
         msg = JointState()
         
-        jp_cur = np.deg2rad(self.r.get_current_joint_pos())
+        fb_j_pos = np.deg2rad(self.r.get_current_joint_pos()) # rad
+
+        self.adjust_j3_pos(j_pos=fb_j_pos, j23_factor=self.j23_factor)
         
         msg.header.stamp = self.get_clock().now().to_msg()
         msg.name = ["J1", "J2", "J3", "J4", "J5", "J6" ]
-        msg.position = jp_cur.tolist()
-        msg.velocity = ( (jp_cur-self.jp_prev)/self.control_time ).tolist()
+        msg.position = fb_j_pos.tolist()
+        msg.velocity = ( (fb_j_pos-self.jp_prev)/self.control_time ).tolist()
         self.publisher_.publish(msg)
         
-        self.jp_prev = jp_cur
+        self.jp_prev = fb_j_pos
         
     def set_current_pose_to_target(self):
         cp = self.r.get_current_joint_pos()
@@ -79,7 +97,10 @@ class FanucRosInterface(Node):
             self.r.write_joint_pose(cp)
             self.get_logger().debug("writing into register " + str(self.r.PRNumber) + " current pose as target : " + str(cp))
 
-            
+    def adjust_j3_pos(self,j_pos,j23_factor):
+        j_pos[2] += j23_factor * ( j_pos[1])
+        
+
     def destroy_node(self):
         super().destroy_node()
         self.r.allow_motion(False)

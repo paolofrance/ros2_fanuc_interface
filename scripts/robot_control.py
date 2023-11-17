@@ -34,6 +34,13 @@ class robot:
         """! Updates the robots joint position list.
         """
         self.CurJointPosList = FANUCethernetipDriver.returnJointCurrentPosition(self.robot_IP)
+        return self.CurJointPosList
+
+    def read_current_cart_position(self):
+        """! Updates the robots joint position list.
+        """
+        self.CurJointPosList = FANUCethernetipDriver.returnJointCurrentPosition(self.robot_IP)
+        return self.CurCartesianPosList
 
     def read_register_n(self, n):
         """! reads register number n
