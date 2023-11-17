@@ -66,8 +66,8 @@ class FanucRosInterface(Node):
         
         msg.header.stamp = self.get_clock().now().to_msg()
         msg.name = ["J1", "J2", "J3", "J4", "J5", "J6" ]
-        msg.position = jp_cur
-        msg.velocity = (jp_cur-self.jp_prev)/self.control_time
+        msg.position = jp_cur.tolist()
+        msg.velocity = ( (jp_cur-self.jp_prev)/self.control_time ).tolist()
         self.publisher_.publish(msg)
         
         self.jp_prev = jp_cur

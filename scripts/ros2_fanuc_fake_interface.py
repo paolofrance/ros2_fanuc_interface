@@ -24,7 +24,7 @@ class FanucRosInterface(Node):
         self.publisher_ = self.create_publisher(JointState, 'fb_j_pos', 10)
         self.subscription = self.create_subscription(JointState, 'cmd_j_pos', self.cmd_joint_pos_callback, 10)
         
-        self.command = np.zeros(6)
+        self.command = np.zeros(6).astype(np.float32)
         self.jp_prev = self.command
 
     def cmd_joint_pos_callback(self, msg):
@@ -36,12 +36,14 @@ class FanucRosInterface(Node):
         
         jp_cur = self.command
         
-        self.get_logger().info(str(jp_cur))
+        self.get_logger().info("jp_cur: "+str(jp_cur))
         
         msg.header.stamp = self.get_clock().now().to_msg()
         msg.name = ["J1", "J2", "J3", "J4", "J5", "J6" ]
-        msg.position = jp_cur
-        msg.velocity = (jp_cur-self.jp_prev)/self.control_time
+        msg.position = jp_cur.tolist()
+        msg.velocity = ( (jp_cur-self.jp_prev)/self.control_time ).tolist()
+        # msg.position = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        # msg.velocity = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
         self.publisher_.publish(msg)
         
         self.jp_prev = jp_cur
