@@ -8,6 +8,7 @@ import numpy as np
 
 from robot_control import robot
 from sensor_msgs.msg import JointState
+from std_msgs.msg import Int16
 
 class FanucRosInterface(Node):
 
@@ -17,10 +18,16 @@ class FanucRosInterface(Node):
         self.declare_parameter("buffer_length_param", 8)
         self.declare_parameter("control_time", 0.04)
         self.declare_parameter("robot_ip", "10.11.31.111")
+        self.declare_parameter("read_only", False)
 
         self.buffer_length = self.get_parameter("buffer_length_param").value
         self.control_time = self.get_parameter("control_time").value
         robot_ip = self.get_parameter("robot_ip").value
+        self.read_only = self.get_parameter("read_only").value
+        
+        self.get_logger().info("read_only: " + str(self.read_only))
+        self.get_logger().info("robot_ip: " + str(robot_ip))
+        
         self.r = robot(robot_ip)
 
         self.pr_number=0
@@ -29,33 +36,42 @@ class FanucRosInterface(Node):
         self.j23_factor = 1
         
         
+        
         self.r.allow_motion(False)
         self.set_current_pose_to_target()
         
         cp = self.r.get_current_joint_pos()
 
         self.j2_offset = np.deg2rad(cp[1])
-        # self.j2_offset = 0.301147
         
         self.get_logger().info(str(self.r.get_current_joint_pos()))
         
         self.r.allow_motion(True)
         self.get_logger().info("register is now: " + str(self.r.read_register_n(1)))
         
-        while self.r.read_register_n(1) is not 1:
-            self.get_logger().info("waiting for start register to be set to one")
-            self.r.allow_motion(True)
-            time.sleep(0.5)
+        self.r.set_speed(100)
+        
+        if not self.read_only:
+            while self.r.read_register_n(1) != 1:
+                self.get_logger().info("waiting for start register to be set to one")
+                self.r.allow_motion(True)
+                time.sleep(0.5)
         
         self.get_logger().info("starting motion allowed")
 
-        self.publisher_ = self.create_publisher(JointState, 'fb_j_pos', 10)
+        self.publisher_ = self.create_publisher(JointState, 'fb_j_pos', 1)
         self.subscription = self.create_subscription(
             JointState,
             'cmd_j_pos',
             self.cmd_joint_pos_callback,
-            10)
+            1)
         self.subscription  # prevent unused variable warning
+        
+        self.speed_ovr_subscription = self.create_subscription(
+            Int16,
+            '/speed_ovr',
+            self.speed_ovr_callback,
+            1)
         
         self.jp_prev = self.r.get_current_joint_pos()
 
@@ -64,17 +80,20 @@ class FanucRosInterface(Node):
         
 
     def cmd_joint_pos_callback(self, msg):
-        self.pr_number += 1
         
-        cmd_j_pos = np.array(msg.position) # rad
+        if not self.read_only:
         
-        self.adjust_j3_pos(j_pos=cmd_j_pos, j23_factor=-self.j23_factor)
+            self.pr_number += 1
+            
+            cmd_j_pos = np.array(msg.position) # rad
+            
+            self.adjust_j3_pos(j_pos=cmd_j_pos, j23_factor=-self.j23_factor)
 
-        self.r.PRNumber = (self.pr_number % self.buffer_length) + 1
-        self.r.write_joint_pose(np.rad2deg(cmd_j_pos))
+            self.r.PRNumber = (self.pr_number % self.buffer_length) + 1
+            self.r.write_joint_pose(np.rad2deg(cmd_j_pos))
 
-        self.get_logger().debug("writing into register " + str(self.r.PRNumber) + " target pose : " + str(cmd_j_pos))    
-
+            self.get_logger().debug("writing into register " + str(self.r.PRNumber) + " target pose : " + str(cmd_j_pos))
+        
     def fb_joint_pose_callback(self):
         msg = JointState()
         
@@ -90,12 +109,21 @@ class FanucRosInterface(Node):
         
         self.jp_prev = fb_j_pos
         
+    
+    def speed_ovr_callback(self, msg):
+        
+        self.r.set_speed(msg.data)
+        # self.r.set_bin_speed_registers(msg.data)
+
+        
     def set_current_pose_to_target(self):
-        cp = self.r.get_current_joint_pos()
-        for i in range(self.buffer_length):
-            self.r.PRNumber = i + 1
-            self.r.write_joint_pose(cp)
-            self.get_logger().debug("writing into register " + str(self.r.PRNumber) + " current pose as target : " + str(cp))
+        if not self.read_only:
+            
+            cp = self.r.get_current_joint_pos()
+            for i in range(self.buffer_length):
+                self.r.PRNumber = i + 1
+                self.r.write_joint_pose(cp)
+                self.get_logger().debug("writing into register " + str(self.r.PRNumber) + " current pose as target : " + str(cp))
 
     def adjust_j3_pos(self,j_pos,j23_factor):
         j_pos[2] += j23_factor * ( j_pos[1])

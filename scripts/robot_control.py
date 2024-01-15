@@ -23,6 +23,8 @@ class robot:
         self.sync_register = 2
         self.sync_value = 1
         self.speed_register = 5
+        
+        self.speed_ovr_bin_start_register = 100
 
     # Joint movement functions
     
@@ -223,6 +225,23 @@ class robot:
         FANUCethernetipDriver.writeCartesianPositionRegister(self.robot_IP, self.PRNumber, newPositionList)
 
     # Utility Functions
+    
+
+    def set_bin_speed_registers(self, value):
+        """! Set speed override of robot in %
+        @param value        speed in mm/s
+        """
+        x = bin(value)
+        l=x.replace('0b', '')
+        L = [*l]
+        lint=[int(i) for i in L]
+        
+        for i in range(8):
+            FANUCethernetipDriver.writeR_Register(self.robot_IP, self.speed_ovr_bin_start_register+i, lint[i])
+            
+        FANUCethernetipDriver.writeR_Register(self.robot_IP, self.speed_ovr_bin_start_register+10, lint[i])
+            
+
 
     # write R[5] to set Speed in mm/sec
     def set_speed(self, value):

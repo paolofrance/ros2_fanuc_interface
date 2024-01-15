@@ -9,20 +9,31 @@ from launch.actions import GroupAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from ament_index_python import get_package_share_directory
 import os
-
+import xacro
 
 def generate_launch_description():
+    
+    declared_arguments = []
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "use_mock_hardware",
+            default_value="false",
+            description="False to use the standard mock of ros2",
+            choices=["true", "false"],
+        )
+    )
 
 
     description_package = "crx_description"
-
+    use_mock_hardware = LaunchConfiguration("use_mock_hardware")
     robot_description_content = Command(
         [
             PathJoinSubstitution([FindExecutable(name="xacro")]),
-            " ",PathJoinSubstitution([FindPackageShare(description_package), "crx20/urdf/", "crx20ia_l.xacro"]),
+            " ",PathJoinSubstitution([FindPackageShare(description_package), "urdf/crx20ia_l/", "crx20ia_l.xacro"]),
+            " ", "use_mock_hardware:=", use_mock_hardware,
         ]
     )
-
+    
     robot_description = {"robot_description": robot_description_content}    
     robot_state_publisher_node = Node(
         package="robot_state_publisher",
@@ -60,18 +71,8 @@ def generate_launch_description():
     controller_spawner_started = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["manipulator_controller", "-c", "/controller_manager"],
-        # arguments=["joint_trajectory_controller", "-c", "/controller_manager"],
-        # arguments=["forward_position_controller", "-c", "/controller_manager"],
+        arguments=["forward_position_controller", "-c", "/controller_manager"],
     )
-    controller_spawner_stopped = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["manipulator_controller", "-c", "/controller_manager"],
-        # arguments=["joint_trajectory_controller", "-c", "/controller_manager"],
-        # arguments=["forward_position_controller", "-c", "/controller_manager"],
-    )
-    
     rviz_config_file = PathJoinSubstitution([FindPackageShare(description_package), "config", "config.rviz"])
     rviz_node = Node(
         package="rviz2",
@@ -80,21 +81,16 @@ def generate_launch_description():
         output="log",
         arguments=["-d", rviz_config_file],
     )
-    move_group = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('crx20_moveit_config'),'launch', 'move_group.launch.py')]),)
-    
-    moveit_rviz = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('crx20_moveit_config'),'launch', 'moveit_rviz.launch.py')]),)
     
     nodes_to_start = [
         rviz_node,
         control_node,
         joint_state_broadcaster_spawner,
         controller_spawner_started,
-        # controller_spawner_stopped,
         robot_state_publisher_node,
-        move_group,
-        moveit_rviz,
     ]
 
-    return LaunchDescription( nodes_to_start)
+    return LaunchDescription( declared_arguments + nodes_to_start )
+
+
+

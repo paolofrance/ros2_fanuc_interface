@@ -25,6 +25,7 @@ class FanucRosInterface(Node):
         self.subscription = self.create_subscription(JointState, 'cmd_j_pos', self.cmd_joint_pos_callback, 10)
         
         self.command = np.zeros(6).astype(np.float32)
+        self.command[4]=-1.5707
         self.jp_prev = self.command
 
     def cmd_joint_pos_callback(self, msg):

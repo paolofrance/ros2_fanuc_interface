@@ -20,7 +20,7 @@
 namespace fanuc
 {
 
-JointComms::JointComms() : Node("joint_comms")
+JointComms::JointComms() : Node("fanuc_topic_hw")
   {
     first_feedback_received_ = false;
     cmd_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("/cmd_j_pos",10);

@@ -64,7 +64,6 @@ ament_python_install_package(${PROJECT_NAME})
 install(PROGRAMS
   scripts/ros2_fanuc_interface.py
   scripts/ros2_fanuc_fake_interface.py
-  scripts/joint_state_pub.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
