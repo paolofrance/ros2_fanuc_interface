@@ -71,8 +71,18 @@ def generate_launch_description():
     controller_spawner_started = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["forward_position_controller", "-c", "/controller_manager"],
+        arguments=["manipulator_controller", "-c", "/controller_manager"],
+        # arguments=["joint_trajectory_controller", "-c", "/controller_manager"],
+        # arguments=["forward_position_controller", "-c", "/controller_manager"],
     )
+    controller_spawner_stopped = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["manipulator_controller", "-c", "/controller_manager"],
+        # arguments=["joint_trajectory_controller", "-c", "/controller_manager"],
+        # arguments=["forward_position_controller", "-c", "/controller_manager"],
+    )
+    
     rviz_config_file = PathJoinSubstitution([FindPackageShare(description_package), "config", "config.rviz"])
     rviz_node = Node(
         package="rviz2",
@@ -81,13 +91,21 @@ def generate_launch_description():
         output="log",
         arguments=["-d", rviz_config_file],
     )
+    move_group = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('crx20_moveit_config'),'launch', 'move_group.launch.py')]),)
+    
+    moveit_rviz = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('crx20_moveit_config'),'launch', 'moveit_rviz.launch.py')]),)
     
     nodes_to_start = [
-        rviz_node,
+        # rviz_node,
         control_node,
         joint_state_broadcaster_spawner,
         controller_spawner_started,
+        # controller_spawner_stopped,
         robot_state_publisher_node,
+        move_group,
+        moveit_rviz,
     ]
 
     return LaunchDescription( declared_arguments + nodes_to_start )
