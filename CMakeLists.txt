@@ -25,7 +25,7 @@ set(HW_IF_INCLUDE_DEPENDS
 include_directories(include)
 
 add_library(fanuc SHARED
-  src/fanuc_topic.cpp
+  src/fanuc_hw.cpp
 )
 
 target_compile_features(fanuc PUBLIC cxx_std_17)

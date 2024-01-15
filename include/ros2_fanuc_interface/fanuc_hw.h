@@ -59,7 +59,7 @@ class JointComms : public rclcpp::Node
 
 
 
-class HARDWARE_INTERFACE_PUBLIC FanucTopic : public hardware_interface::SystemInterface
+class HARDWARE_INTERFACE_PUBLIC FanucHw : public hardware_interface::SystemInterface
 {
 public:
   CallbackReturn on_init(const hardware_interface::HardwareInfo & info) override;
@@ -87,7 +87,7 @@ protected:
   std::vector<double> joint_velocities_;
 
 private:
-  rclcpp::Logger logger_ = rclcpp::get_logger("fanuc_topic_hw");
+  rclcpp::Logger logger_ = rclcpp::get_logger("fanuc_hw");
   rclcpp::executors::SingleThreadedExecutor executor_;
   std::shared_ptr<JointComms> comms_;
   std::vector<std::string> joint_names_; 
@@ -112,6 +112,6 @@ private:
 
 };
 
-typedef FanucTopic GenericRobot;
+typedef FanucHw GenericRobot;
 
 }  // namespace mock_components

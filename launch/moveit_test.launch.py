@@ -98,7 +98,7 @@ def generate_launch_description():
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('crx20_moveit_config'),'launch', 'moveit_rviz.launch.py')]),)
     
     nodes_to_start = [
-        rviz_node,
+        # rviz_node,
         control_node,
         joint_state_broadcaster_spawner,
         controller_spawner_started,

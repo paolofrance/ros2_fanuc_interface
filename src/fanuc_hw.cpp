@@ -1,4 +1,4 @@
-#include "ros2_fanuc_interface/fanuc_topic.h"
+#include "ros2_fanuc_interface/fanuc_hw.h"
 
 #include <algorithm>
 #include <charconv>
@@ -20,7 +20,7 @@
 namespace fanuc
 {
 
-JointComms::JointComms() : Node("fanuc_topic_hw")
+JointComms::JointComms() : Node("fanuc_hw")
   {
     first_feedback_received_ = false;
     cmd_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("/cmd_j_pos",10);
@@ -64,10 +64,10 @@ double parse_double(const std::string & text)
   return 0.0;
 }
 
-CallbackReturn FanucTopic::on_init(const hardware_interface::HardwareInfo & info)
+CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
 {
 
-  RCLCPP_INFO(logger_, "init fanuc_topic_hw");
+  RCLCPP_INFO(logger_, "init fanuc_hw");
   
   comms_ = std::make_shared<JointComms>();
   executor_.add_node(comms_);
@@ -113,7 +113,7 @@ CallbackReturn FanucTopic::on_init(const hardware_interface::HardwareInfo & info
   return CallbackReturn::SUCCESS;
 }
 
-std::vector<hardware_interface::StateInterface> FanucTopic::export_state_interfaces()
+std::vector<hardware_interface::StateInterface> FanucHw::export_state_interfaces()
 {
   std::vector<hardware_interface::StateInterface> state_interfaces;
   state_interfaces.emplace_back(info_.joints[0].name, "position", &joint_position_[0]);
@@ -133,7 +133,7 @@ std::vector<hardware_interface::StateInterface> FanucTopic::export_state_interfa
   return state_interfaces;
 }
 
-std::vector<hardware_interface::CommandInterface> FanucTopic::export_command_interfaces()
+std::vector<hardware_interface::CommandInterface> FanucHw::export_command_interfaces()
 {
 
   std::vector<hardware_interface::CommandInterface> command_interfaces;
@@ -149,7 +149,7 @@ std::vector<hardware_interface::CommandInterface> FanucTopic::export_command_int
   return command_interfaces;
 }
 
-return_type FanucTopic::read(const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
+return_type FanucHw::read(const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
 {
   std::vector<double> jp = comms_->getPosition();
   std::vector<double> jv = comms_->getVelocity();
@@ -164,7 +164,7 @@ return_type FanucTopic::read(const rclcpp::Time & /*time*/, const rclcpp::Durati
   return return_type::OK;
 }
 
-return_type FanucTopic::write(const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
+return_type FanucHw::write(const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
 {
   comms_->sendCommand(joint_names_, joint_position_command_);
   return return_type::OK;
@@ -174,4 +174,4 @@ return_type FanucTopic::write(const rclcpp::Time & /*time*/, const rclcpp::Durat
 }  // namespace mock_components
 
 #include "pluginlib/class_list_macros.hpp"
-PLUGINLIB_EXPORT_CLASS(fanuc::FanucTopic, hardware_interface::SystemInterface)
+PLUGINLIB_EXPORT_CLASS(fanuc::FanucHw, hardware_interface::SystemInterface)
