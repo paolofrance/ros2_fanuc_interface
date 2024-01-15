@@ -8,50 +8,39 @@ using eipScanner::MessageRouter;
 using namespace eipScanner::cip;
 using namespace eipScanner::utils;
 
-// class FanucEIPDriver {
-//     public:
-//     std::string robot_ip;
-//     SessionInfo si = std::make_shared<SessionInfo>(robot_ip, 0xAF12);
-//     MessageRouter messageRouter = std::make_shared<MessageRouter>();
-    
-//     FanucEIPDriver(int ip) {robot_ip = ip;}
+class fanuc_eth_ip
+{
+private:
+    std::string ip_;
+    std::shared_ptr< eipScanner::SessionInfo > si_;
+    std::shared_ptr< eipScanner::MessageRouter > messageRouter_ = std::make_shared< eipScanner::MessageRouter >();
 
-//     void read_value(){
-//         auto response = messageRouter->sendRequest(si, ServiceCodes::GET_ATTRIBUTE_SINGLE,
-//                                                         EPath(0x7E, 0x01, 0x01));
+public:
+    fanuc_eth_ip(std::string ip);
+    ~fanuc_eth_ip();
+    std::vector<double> get_current_joint_pos();
+    void write_register(int val, int reg = 1);
+    void write_pos_register(std::vector<double> j_vals, int reg = 1);
+};
 
-//         if (response.getGeneralStatusCode() == GeneralStatusCodes::SUCCESS) {
-//                 Buffer buffer(response.getData());
-//                 CipUint vendorId;
-//                 buffer >> vendorId;
+fanuc_eth_ip::fanuc_eth_ip(std::string ip)
+{
+    ip_=ip;
+    si_.reset( new eipScanner::SessionInfo( ip_, 0xAF12 ) );
 
-//                 Logger(LogLevel::INFO) << "Vendor ID is " << vendorId;
-//         }
-//     };
+}
 
-//     };
-
-
-int main() {
-    Logger::setLogLevel(LogLevel::DEBUG);
-    // FanucEIPDriver driver();
-
-    std::string ip = "10.11.31.111";
-    auto si = std::make_shared<SessionInfo>(ip, 0xAF12);
-    MessageRouter messageRouter;
-    
-    auto response = messageRouter.sendRequest(si, ServiceCodes::GET_ATTRIBUTE_SINGLE, EPath(0x7E, 0x01, 0x01));
+fanuc_eth_ip::~fanuc_eth_ip()
+{
+}
+std::vector<double> fanuc_eth_ip::get_current_joint_pos()
+{
+    auto response = messageRouter_->sendRequest(si_, ServiceCodes::GET_ATTRIBUTE_SINGLE, EPath(0x7E, 0x01, 0x01));
 
     std::vector<uint8_t> myList = response.getData();
-
-    for (uint8_t l : myList)
-    {
-        std::cout << l << std::endl;
-    }
-
     int numArrays = myList.size() / 4;
 
-    std::vector<double> full;
+    std::vector<float> full;
 
     for (int j = 0; j < numArrays; ++j) 
     {
@@ -61,49 +50,65 @@ int main() {
         }
         float floatValue;
         std::memcpy(&floatValue, byteArray, sizeof(float));
-        std::cout << "Valore convertito: " << floatValue << std::endl;
         full.push_back(floatValue);
     }
 
     std::vector<double> j_val(full.begin()+1, full.begin() + 7);
-    std::cout << "j_val[ " << std::endl;
-    for(double j:j_val)
-        std::cout << ", " << j << std::endl;
-    std::cout << "] " << std::endl;
+    return j_val;
+}
 
-    std::cout << full[1] << std::endl;
-    full[1] += 25;
-    std::cout << full[1] << std::endl;
-    std::cout << full.size() << std::endl;
+// WRITEs value on a REGULAR REGISTER 
+void fanuc_eth_ip::write_register(int val, int reg)
+{
+    Buffer buffer;
+    CipDint arg = val;
+    buffer << arg;
+    std::cout << buffer.data().size() << std::endl;
+
+    auto response3 = messageRouter_->sendRequest(si_, ServiceCodes::SET_ATTRIBUTE_SINGLE, EPath(0x6B, 0x01, reg), buffer.data());
+
+}
 
 
-
-    std::vector<unsigned char> myByteArray;
-    for(auto val : full)
-    {
-        float floatValue = val;
-        std::vector<unsigned char> byteVector(sizeof(float));
-        std::memcpy(byteVector.data(), &floatValue, sizeof(float));
-        myByteArray.insert(myByteArray.end(), byteVector.begin(), byteVector.end());
-    }
-
+// WRITEs value on a POSITION REGISTER 
+void fanuc_eth_ip::write_pos_register(std::vector<double> j_vals, int reg)
+{
     
-    std::cout << myByteArray.size() << std::endl;
-    std::cout << response.getData().size() << std::endl;
-
-    std::cout << response.getGeneralStatusCode() << std::endl;
-
+    Buffer buffer;
+    buffer  << CipReal(  0.0  )
+            << CipReal( static_cast<float>( j_vals[0] ) )
+            << CipReal( static_cast<float>( j_vals[1] ) )
+            << CipReal( static_cast<float>( j_vals[2] ) )
+            << CipReal( static_cast<float>( j_vals[3] ) )
+            << CipReal( static_cast<float>( j_vals[4] ) )
+            << CipReal( static_cast<float>( j_vals[5] ) )
+            << CipReal(  0.0  )
+            << CipReal(  0.0  )
+            << CipReal(  0.0  ) ;
     
-    auto response2 = messageRouter.sendRequest(si, ServiceCodes::SET_ATTRIBUTE_SINGLE, EPath(0x7C, 0x01, 0x01), response.getData());
+    std::cout << buffer.data().size() << std::endl;
 
-    std::cout << std::hex << response2.getGeneralStatusCode() << std::endl;
+    auto response2 = messageRouter_->sendRequest(si_, 0X10, EPath(0x7C, 0x01, reg), buffer.data());
+}
 
-  if (response2.getGeneralStatusCode() == GeneralStatusCodes::SUCCESS) {
-    Logger(LogLevel::INFO) << "Writing is successful";
-  } else {
-    Logger(LogLevel::ERROR) << "We got error=0x" << std::hex << response2.getGeneralStatusCode();
-  }
 
+int main() {
+    
+    // creates the driver object
+    fanuc_eth_ip driver("10.11.31.111");
+
+    // reads joint position
+    std::vector<double> j_pos = driver.get_current_joint_pos();
+
+    for(auto j:j_pos)
+        Logger(LogLevel::ERROR) << "jpos: " << j;
+
+
+    // writes on a register
+    driver.write_register(55,7);
+
+    // writes on a position register
+    driver.write_pos_register(j_pos);
 
 
     return 0;

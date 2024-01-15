@@ -130,6 +130,13 @@ The schematic view of the framework implementing the fake interface is visible i
 
 ## TODO
 list of known todos and desiderata:  
-1. implementation of the Fanuc DPM to allow faster control  --> WIP (to test it you must also esit the FANUCethernetipDriver from the [fanuc_ros2_driver](https://github.com/UofI-CDACS/fanuc_ros2_drivers) repository.)
+1. implementation of the Fanuc DPM to allow faster control  --> WIP (to test it you must also edit the FANUCethernetipDriver from the [fanuc_ros2_driver](https://github.com/UofI-CDACS/fanuc_ros2_drivers) repository.)
 2. implementation of the Fanuc RMI to remove the need for TP programs
 3. cpp implementation of the interface with the robot controller to avoid the Python interface --> WIP
+
+## Contacts
+paolo.franceschi@supsi.ch  
+vincenzo.pomponi@supsi.ch  
+stefano.baraldo@supsi.ch  
+
+
