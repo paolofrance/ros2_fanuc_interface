@@ -28,7 +28,7 @@ $ pip install pycomm3
 To install the current package just
 ```console
 $ cd <to-your-src>
-$ git clone https://gitlab-core.supsi.ch/dti-isteps/armlab/fluently/ros2_fanuc_interface
+$ git clone https://github.com/paolofrance/ros2_fanuc_interface
 $ git clone https://github.com/UofI-CDACS/fanuc_ros2_drivers
 ```
 you should be ready to test the basic ros2-fanuc interface by publishing topics.
@@ -36,8 +36,8 @@ you should be ready to test the basic ros2-fanuc interface by publishing topics.
 To use it with the [ros2_control](https://control.ros.org/master/index.html) framework, additional Moveit! and description packages are required. 
 Download them
 ```console
-$ git clone https://gitlab-core.supsi.ch/dti-isteps/armlab/fluently/crx20_moveit_config
-$ git clone https://gitlab-core.supsi.ch/dti-isteps/armlab/fluently/crx_description
+$ git clone https://github.com/paolofrance/crx20_moveit_config
+$ git clone https://github.com/paolofrance/crx_description
 $ cd ..
 $ colcon build --symlink-install
 ```
