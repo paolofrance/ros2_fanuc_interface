@@ -3,7 +3,7 @@ ros2_fanuc_interface:
     buffer_length_param: 1
     control_time: 0.04
     robot_ip: "10.11.31.111"
-    read_only: true
+    read_only: false
 
 
 

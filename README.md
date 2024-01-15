@@ -63,7 +63,7 @@ To use it open a terminal and do the following command:
 $ ros2 launch ros2_fanuc_interface ros2_fanuc_interface.launch.py
 ```
 
-To test with Moveit and ros_control pipelines, [crx_description](https://gitlab-core.supsi.ch/dti-isteps/armlab/fluently/crx_description) and the  [crx20_moveit_config](https://gitlab-core.supsi.ch/dti-isteps/armlab/fluently/crx20_moveit_config) packages are required. 
+To test with Moveit and ros_control pipelines, [crx_description](https://github.com/paolofrance/crx_description) and the  [crx20_moveit_config](https://github.com/paolofrance/crx20_moveit_config) packages are required. 
 On a new terminal
 ```console
 $ ros2 launch ros2_fanuc_interface moveit_test.launch.py
@@ -130,6 +130,6 @@ The schematic view of the framework implementing the fake interface is visible i
 
 ## TODO
 list of known todos and desiderata:  
-1. implementation of the Fanuc DPM to allow faster control 
+1. implementation of the Fanuc DPM to allow faster control  --> WIP (to test it you must also esit the FANUCethernetipDriver from the [fanuc_ros2_driver](https://github.com/UofI-CDACS/fanuc_ros2_drivers) repository.)
 2. implementation of the Fanuc RMI to remove the need for TP programs
-3. cpp implementation of the interface with the robot controller to avoid the Python interface
+3. cpp implementation of the interface with the robot controller to avoid the Python interface --> WIP

@@ -338,6 +338,9 @@ class robot:
         """
         start_register = FANUCethernetipDriver.readR_Register(self.robot_IP, self.start_register)
         return start_register
+    
+    def write_digital_input(self, value: bool, input_number=0):
+        FANUCethernetipDriver.writeDigitalInput(self.robot_IP, input_number, value)
 
 
 

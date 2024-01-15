@@ -29,6 +29,11 @@ class FanucRosInterface(Node):
         self.get_logger().info("robot_ip: " + str(robot_ip))
         
         self.r = robot(robot_ip)
+        
+        
+        self.r.write_digital_input(4)
+        
+        
 
         self.pr_number=0
         self.timer = self.create_timer(self.control_time, self.fb_joint_pose_callback)
@@ -111,7 +116,7 @@ class FanucRosInterface(Node):
         
     
     def speed_ovr_callback(self, msg):
-        
+        # TODO: in general, should set the velocity scalinig at robot controller level. Requires Local setup no copmatible?
         self.r.set_speed(msg.data)
         # self.r.set_bin_speed_registers(msg.data)
 
