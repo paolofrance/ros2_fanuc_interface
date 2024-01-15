@@ -21,33 +21,86 @@ namespace fanuc
 {
 
 JointComms::JointComms() : Node("fanuc_hw")
+{
+  cmd_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("/cmd_j_pos",10);
+  fb_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("/fb_j_pos",10);
+}
+
+
+
+
+
+fanuc_eth_ip::fanuc_eth_ip(std::string ip)
+{ 
+  Logger::setLogLevel(LogLevel::ERROR);
+  ip_=ip;
+  si_.reset( new eipScanner::SessionInfo( ip_, 0xAF12 ) );
+}
+
+fanuc_eth_ip::~fanuc_eth_ip()
+{
+}
+std::vector<double> fanuc_eth_ip::get_current_joint_pos()
+{
+  auto response = messageRouter_->sendRequest(si_, ServiceCodes::GET_ATTRIBUTE_SINGLE, EPath(0x7E, 0x01, 0x01));
+
+  std::vector<uint8_t> myList = response.getData();
+  int numArrays = myList.size() / 4;
+
+  std::vector<float> full;
+
+  for (int j = 0; j < numArrays; ++j) 
   {
-    first_feedback_received_ = false;
-    cmd_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("/cmd_j_pos",10);
-    fb_sub_ = this->create_subscription<sensor_msgs::msg::JointState>("/fb_j_pos",10,std::bind(&JointComms::stateCB, this, std::placeholders::_1));
+      unsigned char byteArray[4];
+      for (int i = 0; i < 4; ++i) {
+          byteArray[i] = myList[j * 4 + i];
+      }
+      float floatValue;
+      std::memcpy(&floatValue, byteArray, sizeof(float));
+      full.push_back(floatValue);
   }
 
-  void JointComms::stateCB(const sensor_msgs::msg::JointState state)
-  {
-    first_feedback_received_ = true;
+  std::vector<double> j_val(full.begin()+1, full.begin() + 7);
+    
+  for (int i=0;i<j_val.size();i++)
+    j_val.at(i) *= M_PI/180.0;
 
-    pos_ = state.position;
-    vel_ = state.velocity;
-    for(size_t i=0;i<pos_.size();i++)
-      RCLCPP_DEBUG_STREAM(this->get_logger(),pos_[i]);
-  };
+  j_val.at(2) += ( j_val[1]);
 
-  void JointComms::sendCommand(std::vector<std::string> joint_names, std::vector<double> joint_pos)
-  {
-    auto msg = sensor_msgs::msg::JointState();
-    msg.header.stamp = this->get_clock()->now();
-    msg.name = joint_names;
-    msg.position = joint_pos;
-    cmd_pub_->publish(msg);
-  }
+  return j_val;
+}
+// WRITEs value on a REGULAR REGISTER 
+void fanuc_eth_ip::write_register(int val, int reg)
+{
+    Buffer buffer;
+    CipDint arg = val;
+    buffer << arg;
+    auto response3 = messageRouter_->sendRequest(si_, ServiceCodes::SET_ATTRIBUTE_SINGLE, EPath(0x6B, 0x01, reg), buffer.data());
+}
+// WRITEs value on a POSITION REGISTER 
+void fanuc_eth_ip::write_pos_register(std::vector<double> j_vals, int reg)
+{
+  for (int i=0;i<j_vals.size();i++)
+    j_vals.at(i) *= 180.0/M_PI;
 
-  std::vector<double> JointComms::getPosition(){return pos_;};
-  std::vector<double> JointComms::getVelocity(){return vel_;};
+  j_vals.at(2) -= ( j_vals[1]);
+
+  Buffer buffer;
+  buffer  << CipReal(  0.0  )
+          << CipReal( static_cast<float>( j_vals[0] ) )
+          << CipReal( static_cast<float>( j_vals[1] ) )
+          << CipReal( static_cast<float>( j_vals[2] ) )
+          << CipReal( static_cast<float>( j_vals[3] ) )
+          << CipReal( static_cast<float>( j_vals[4] ) )
+          << CipReal( static_cast<float>( j_vals[5] ) )
+          << CipReal(  0.0  )
+          << CipReal(  0.0  )
+          << CipReal(  0.0  ) ;
+
+  auto response2 = messageRouter_->sendRequest(si_, 0X10, EPath(0x7C, 0x01, reg), buffer.data());
+}
+
+
 
 
 
@@ -69,10 +122,13 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
 
   RCLCPP_INFO(logger_, "init fanuc_hw");
   
-  comms_ = std::make_shared<JointComms>();
-  executor_.add_node(comms_);
-  std::thread([this]() { executor_.spin(); }).detach();
-    
+  //TODO:: must from params
+  std::string robot_ip = "10.11.31.111";
+  
+  EIP_driver_.reset( new fanuc_eth_ip (robot_ip) );
+
+  RCLCPP_INFO_STREAM(logger_,"Initialized robot driver at ip: " << robot_ip );
+  
   if (hardware_interface::SystemInterface::on_init(info) != CallbackReturn::SUCCESS)
   {
     return CallbackReturn::ERROR;
@@ -80,9 +136,7 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
 
   joint_position_.assign(6, 0);
   joint_velocities_.assign(6, 0);
-  joint_position_command_.assign(6, 0);
-
- 
+  joint_position_command_.assign(6, 0); 
 
   joint_names_.resize(joint_position_.size());
   for (size_t j = 0; j < joint_position_.size(); ++j)
@@ -91,25 +145,21 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
     RCLCPP_DEBUG_STREAM(logger_,info_.joints[j].name);
   }
 
-  unsigned int second = 1000000;
-  while (!comms_->first_feedback_received_)
-  {
-    RCLCPP_WARN_THROTTLE(logger_,*comms_->get_clock(), 2000,"waitng for first feedback message");
-    usleep(second);
-  }
-
-  std::vector<double> jp = comms_->getPosition();
+  std::vector<double> j_pos = EIP_driver_->get_current_joint_pos();
 
   for(size_t i=0;i<joint_position_.size();i++)
   {
-    joint_position_command_.at(i) = jp.at(i);
+    joint_position_command_.at(i) = j_pos.at(i);
     RCLCPP_DEBUG_STREAM(logger_,joint_position_command_.at(i));
   }
+    
+  EIP_driver_->write_register(1,1);
+  EIP_driver_->write_pos_register(joint_position_command_);
   
-  comms_->sendCommand(joint_names_, joint_position_command_);
+  comms_ = std::make_shared<JointComms>();
+  executor_.add_node(comms_);
+  std::thread([this]() { executor_.spin(); }).detach();
 
-  
-  
   return CallbackReturn::SUCCESS;
 }
 
@@ -151,22 +201,37 @@ std::vector<hardware_interface::CommandInterface> FanucHw::export_command_interf
 
 return_type FanucHw::read(const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
 {
-  std::vector<double> jp = comms_->getPosition();
-  std::vector<double> jv = comms_->getVelocity();
+  std::vector<double> jp = EIP_driver_->get_current_joint_pos();
+
+
   for (size_t j = 0; j < joint_position_command_.size(); ++j)
   {
     joint_position_[j] = jp[j];
-    joint_velocities_[j] = jv[j];
+    joint_velocities_[j] = 0.0; // TODO: not implemented yet
 
     RCLCPP_DEBUG_STREAM(logger_,jp[j]);
-  }
+  }  
+  
+  auto msg = sensor_msgs::msg::JointState();
+  msg.header.stamp = comms_->get_clock()->now();
+  msg.name = joint_names_;
+  msg.position = joint_position_;
+  msg.velocity = joint_velocities_;
+  comms_->fb_pub_->publish(msg);
   
   return return_type::OK;
 }
 
 return_type FanucHw::write(const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
 {
-  comms_->sendCommand(joint_names_, joint_position_command_);
+  EIP_driver_->write_pos_register(joint_position_command_);
+  
+  auto msg = sensor_msgs::msg::JointState();
+  msg.header.stamp = comms_->get_clock()->now();
+  msg.name = joint_names_;
+  msg.position = joint_position_command_;
+  comms_->cmd_pub_->publish(msg);
+
   return return_type::OK;
 }
 
