@@ -101,7 +101,7 @@ int main() {
     driver.write_pos_register(j_pos);
 
     // writes on a Digital Input
-    std::vector<int> v = {1, 2, 3, 4};
+    std::vector<int> v = {1, 2, 3, 4, 5, 6};
     driver.write_DI(v);
 
 

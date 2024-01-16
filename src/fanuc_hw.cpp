@@ -129,20 +129,20 @@ double parse_double(const std::string & text)
 
 CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
 {
-
   RCLCPP_INFO(logger_, "init fanuc_hw");
+  if (hardware_interface::SystemInterface::on_init(info) != CallbackReturn::SUCCESS)
+  {
+    return CallbackReturn::ERROR;
+  }
   
-  //TODO:: must from params
-  std::string robot_ip = "10.11.31.111";
+
+  std::string robot_ip = info_.hardware_parameters["robot_ip"];
+  RCLCPP_INFO_STREAM( logger_,"\n\n\nIP : "<< robot_ip << "\n\n\n\n "  );
   
   EIP_driver_.reset( new fanuc_eth_ip (robot_ip) );
 
   RCLCPP_INFO_STREAM(logger_,"Initialized robot driver at ip: " << robot_ip );
   
-  if (hardware_interface::SystemInterface::on_init(info) != CallbackReturn::SUCCESS)
-  {
-    return CallbackReturn::ERROR;
-  }
 
   joint_position_.assign(6, 0);
   joint_velocities_.assign(6, 0);

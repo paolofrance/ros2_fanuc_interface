@@ -22,15 +22,25 @@ def generate_launch_description():
             choices=["true", "false"],
         )
     )
+    
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "robot_ip",
+            default_value="10.11.31.111",
+            description="the IP of the controlled robot",
+        )
+    )
 
 
     description_package = "crx_description"
     use_mock_hardware = LaunchConfiguration("use_mock_hardware")
+    robot_ip = LaunchConfiguration("robot_ip")
     robot_description_content = Command(
         [
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",PathJoinSubstitution([FindPackageShare(description_package), "urdf/crx20ia_l/", "crx20ia_l.xacro"]),
             " ", "use_mock_hardware:=", use_mock_hardware,
+            " ", "robot_ip:=", robot_ip,
         ]
     )
     
