@@ -75,7 +75,7 @@ void fanuc_eth_ip::write_register(int val, int reg)
     Buffer buffer;
     CipDint arg = val;
     buffer << arg;
-    auto response3 = messageRouter_->sendRequest(si_, ServiceCodes::SET_ATTRIBUTE_SINGLE, EPath(0x6B, 0x01, reg), buffer.data());
+    auto response = messageRouter_->sendRequest(si_, ServiceCodes::SET_ATTRIBUTE_SINGLE, EPath(0x6B, 0x01, reg), buffer.data());
 }
 // WRITEs value on a POSITION REGISTER 
 void fanuc_eth_ip::write_pos_register(std::vector<double> j_vals, int reg)
@@ -98,6 +98,16 @@ void fanuc_eth_ip::write_pos_register(std::vector<double> j_vals, int reg)
           << CipReal(  0.0  ) ;
 
   auto response2 = messageRouter_->sendRequest(si_, 0X10, EPath(0x7C, 0x01, reg), buffer.data());
+}
+void fanuc_eth_ip::write_DI(const std::vector<int> vals)
+{
+    Buffer buffer;
+
+    for(auto v:vals)
+        buffer  << CipInt( v );
+
+    auto response = messageRouter_->sendRequest(si_, ServiceCodes::SET_ATTRIBUTE_SINGLE, EPath(0x04, 151, 0x03), buffer.data());
+
 }
 
 

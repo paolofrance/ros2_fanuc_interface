@@ -70,6 +70,7 @@ public:
     std::vector<double> get_current_joint_pos();
     void write_register(int val, int reg = 1);
     void write_pos_register(std::vector<double> j_vals, int reg = 1);
+    void write_DI(const std::vector<int> vals);
 };
 
 

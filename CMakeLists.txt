@@ -64,8 +64,6 @@ install(DIRECTORY launch config
 )
 
 add_executable(fanuc_eth_ip src/fanuc_eth_ip.cpp)
-
-# include_directories(/usr/local/include/EIPScanner)
 target_link_libraries(fanuc_eth_ip EIPScanner)
 
 install(TARGETS

@@ -1,6 +1,6 @@
 #include <ros2_fanuc_interface/fanuc_eth_ip.h>
 #include <iostream>
-
+#include <cassert>
 fanuc_eth_ip::fanuc_eth_ip(std::string ip)
 { 
     Logger(LogLevel::ERROR) << "quiiiiiii: " ;
@@ -65,9 +65,20 @@ void fanuc_eth_ip::write_pos_register(std::vector<double> j_vals, int reg)
             << CipReal(  0.0  )
             << CipReal(  0.0  ) ;
     
-    std::cout << buffer.data().size() << std::endl;
+    std::cout << "[fanuc_eth_ip::write_pos_register] buffer size: " << buffer.data().size() << std::endl;
 
-    auto response2 = messageRouter_->sendRequest(si_, 0X10, EPath(0x7C, 0x01, reg), buffer.data());
+    auto response2 = messageRouter_->sendRequest(si_, ServiceCodes::SET_ATTRIBUTE_SINGLE, EPath(0x7C, 0x01, reg), buffer.data());
+}
+// WRITEs value on a Digital Input
+void fanuc_eth_ip::write_DI(const std::vector<int> vals)
+{
+    Buffer buffer;
+
+    for(auto v:vals)
+        buffer  << CipInt( v );
+
+    std::cout << "[fanuc_eth_ip::write_DI] buffer size: " << buffer.data().size() << std::endl;
+    auto response2 = messageRouter_->sendRequest(si_, ServiceCodes::SET_ATTRIBUTE_SINGLE, EPath(0x04, 151, 0x03), buffer.data());
 }
 
 
@@ -88,6 +99,10 @@ int main() {
 
     // writes on a position register
     driver.write_pos_register(j_pos);
+
+    // writes on a Digital Input
+    std::vector<int> v = {1, 2, 3, 4};
+    driver.write_DI(v);
 
 
     return 0;
