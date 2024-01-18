@@ -75,7 +75,7 @@ void fanuc_eth_ip::write_register(int val, int reg)
     Buffer buffer;
     CipDint arg = val;
     buffer << arg;
-    auto response3 = messageRouter_->sendRequest(si_, ServiceCodes::SET_ATTRIBUTE_SINGLE, EPath(0x6B, 0x01, reg), buffer.data());
+    auto response = messageRouter_->sendRequest(si_, ServiceCodes::SET_ATTRIBUTE_SINGLE, EPath(0x6B, 0x01, reg), buffer.data());
 }
 // WRITEs value on a POSITION REGISTER 
 void fanuc_eth_ip::write_pos_register(std::vector<double> j_vals, int reg)
@@ -99,6 +99,16 @@ void fanuc_eth_ip::write_pos_register(std::vector<double> j_vals, int reg)
 
   auto response2 = messageRouter_->sendRequest(si_, 0X10, EPath(0x7C, 0x01, reg), buffer.data());
 }
+void fanuc_eth_ip::write_DI(const std::vector<int> vals)
+{
+    Buffer buffer;
+
+    for(auto v:vals)
+        buffer  << CipInt( v );
+
+    auto response = messageRouter_->sendRequest(si_, ServiceCodes::SET_ATTRIBUTE_SINGLE, EPath(0x04, 151, 0x03), buffer.data());
+
+}
 
 
 
@@ -119,20 +129,20 @@ double parse_double(const std::string & text)
 
 CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
 {
-
   RCLCPP_INFO(logger_, "init fanuc_hw");
+  if (hardware_interface::SystemInterface::on_init(info) != CallbackReturn::SUCCESS)
+  {
+    return CallbackReturn::ERROR;
+  }
   
-  //TODO:: must from params
-  std::string robot_ip = "10.11.31.111";
+
+  std::string robot_ip = info_.hardware_parameters["robot_ip"];
+  RCLCPP_INFO_STREAM( logger_,"\n\n\nIP : "<< robot_ip << "\n\n\n\n "  );
   
   EIP_driver_.reset( new fanuc_eth_ip (robot_ip) );
 
   RCLCPP_INFO_STREAM(logger_,"Initialized robot driver at ip: " << robot_ip );
   
-  if (hardware_interface::SystemInterface::on_init(info) != CallbackReturn::SUCCESS)
-  {
-    return CallbackReturn::ERROR;
-  }
 
   joint_position_.assign(6, 0);
   joint_velocities_.assign(6, 0);
