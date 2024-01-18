@@ -35,6 +35,7 @@ def generate_launch_description():
     description_package = "crx_description"
     use_mock_hardware = LaunchConfiguration("use_mock_hardware")
     robot_ip = LaunchConfiguration("robot_ip")
+    
     robot_description_content = Command(
         [
             PathJoinSubstitution([FindExecutable(name="xacro")]),

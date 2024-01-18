@@ -3,8 +3,8 @@
 This package implements ros2 hardware interface for the CRX family Fanuc robots. 
 
 
+## Installation on the remote PC
 
-## Installation guidelines
 
 ### Prerequisites - EIPScanner
 The communication between the external pc and the Fanuc controller happens by means of the [Ethernet/IP](https://en.wikipedia.org/wiki/EtherNet/IP) protocol. 
@@ -40,16 +40,22 @@ $ sudo apt install ros-<distro>-ros2-control
 $ sudo apt install ros-<distro>-ros2-controllers
 ```
 
+## Installation on the robot controller
+
 ### TP program installation
 
 To actually move the robot, an easy teach-pendant (TP) program is required. The current version of the driver does not include it, but will be included in future releases.
+
+### DPM input setup (optional)
+
+To use the DPM (Dynamic Path Modification) module provided by the Fanuc robots, it is necessary to configure 6 Group Inputs and map them to the DPM settings.
 
 ## Usage
 
 To use it open a terminal and do the following command:
 
 ```console
-$ ros2 launch ros2_fanuc_interface robot_bringup.launch.py 
+$ ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_ip:=your.robot.ip.address
 ```
 
 
@@ -57,7 +63,7 @@ $ ros2 launch ros2_fanuc_interface robot_bringup.launch.py
 
 To test this with mock components just add the "use_mock_hardware:=true" param to your launch command
 ```console
-$ ros2 launch ros2_fanuc_interface moveit_test.launch.py use_mock_hardware:=false
+$ ros2 launch ros2_fanuc_interface robot_bringup.launch.py use_mock_hardware:=true
 ```
 
 
@@ -74,4 +80,7 @@ Ros developer: paolo.franceschi@supsi.ch
 TP fanuc developer: stefano.baraldo@supsi.ch  
 Tester and user: vincenzo.pomponi@supsi.ch  
 
+### Acknowledgements
+This package is developed by the [ARM (Automation Robotics and Machines Laboratory)](https://sites.supsi.ch/isteps_en/Laboratories/gruppo1.html) at SUPSI, Lugano, CH.
+The EU project [Fluently](https://www.fluently-horizonproject.eu/) partially funded the development of this package.
 
