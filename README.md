@@ -58,14 +58,25 @@ To use it open a terminal and do the following command:
 $ ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_ip:=your.robot.ip.address
 ```
 
-
-
-
 To test this with mock components just add the "use_mock_hardware:=true" param to your launch command
 ```console
 $ ros2 launch ros2_fanuc_interface robot_bringup.launch.py use_mock_hardware:=true
 ```
 
+### Trajectory execution velocity scaling
+
+It is also possible to control the robot allowing dynamic velocity scaling of the trajectory under execution.
+This feature is unrelated to this package but is a useful tool that can be used for example to dynamically scale the velocity according to the distance between human and robot.
+
+To test the velocity scaling controller you have to download the [scaled_fjt_controller](https://github.com/paolofrance/scaled_fjt_controller). 
+
+If you want to test it along with the velocity scaler controller, open a terminal and 
+
+```console
+ros2 launch ros2_fanuc_interface robot_bringup.launch.py controllers_file:=scaled_velocity_controller.yaml
+```
+
+You should now see the "/speed_ovr" topic, where you can publish the desired velocity (as a percentage of the maximum velocity). See the documentation [here](https://github.com/paolofrance/scaled_fjt_controller).
 
 ## Known issues
 1. execution delay of about 0.2 seconds - reduced compared to the previous version with python

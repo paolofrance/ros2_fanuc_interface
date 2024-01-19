@@ -7,8 +7,8 @@ controller_manager:
       type: joint_state_broadcaster/JointStateBroadcaster
 
     manipulator_controller:
-      type: joint_trajectory_controller/JointTrajectoryController
-
+      type: scaled_fjt_controller/ScaledFjtController
+      
     forward_position_controller:
       type: position_controllers/JointGroupPositionController
 
