@@ -18,7 +18,11 @@ public:
     fanuc_eth_ip(std::string ip);
     ~fanuc_eth_ip();
     std::vector<double> get_current_joint_pos();
-    void write_register(int val, int reg = 1);
-    void write_pos_register(std::vector<double> j_vals, int reg = 1);
-    void write_DI(const std::vector<int> vals);
+    void write_register(const int val, const int reg = 1);
+    void write_pos_register(const std::vector<double> j_vals, const int reg = 1);
+    bool write_DI(const Buffer buffer);
+    void activateDPM(const bool activate = true);
+    void deactivateDPM();
+    bool writeDPM(const std::vector<int> vals);
+
 };

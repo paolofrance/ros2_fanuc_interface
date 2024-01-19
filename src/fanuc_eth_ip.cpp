@@ -1,12 +1,15 @@
 #include <ros2_fanuc_interface/fanuc_eth_ip.h>
 #include <iostream>
 #include <cassert>
+ 
+#include <unistd.h>
+ 
+
+
 fanuc_eth_ip::fanuc_eth_ip(std::string ip)
 { 
-    Logger(LogLevel::ERROR) << "quiiiiiii: " ;
     ip_=ip;
     si_.reset( new eipScanner::SessionInfo( ip_, 0xAF12 ) );
-    Logger(LogLevel::ERROR) << "quiiiiiii22222222222: " ;
 }
 
 fanuc_eth_ip::~fanuc_eth_ip()
@@ -37,7 +40,7 @@ std::vector<double> fanuc_eth_ip::get_current_joint_pos()
 }
 
 // WRITEs value on a REGULAR REGISTER 
-void fanuc_eth_ip::write_register(int val, int reg)
+void fanuc_eth_ip::write_register(const int val, const int reg)
 {
     Buffer buffer;
     CipDint arg = val;
@@ -50,7 +53,7 @@ void fanuc_eth_ip::write_register(int val, int reg)
 
 
 // WRITEs value on a POSITION REGISTER 
-void fanuc_eth_ip::write_pos_register(std::vector<double> j_vals, int reg)
+void fanuc_eth_ip::write_pos_register(const std::vector<double> j_vals, const int reg)
 {
     
     Buffer buffer;
@@ -69,17 +72,41 @@ void fanuc_eth_ip::write_pos_register(std::vector<double> j_vals, int reg)
 
     auto response2 = messageRouter_->sendRequest(si_, ServiceCodes::SET_ATTRIBUTE_SINGLE, EPath(0x7C, 0x01, reg), buffer.data());
 }
-// WRITEs value on a Digital Input
-void fanuc_eth_ip::write_DI(const std::vector<int> vals)
+// WRITEs value on Digital Inputs - 151+, mapped with the DPM, activate DPM
+bool fanuc_eth_ip::write_DI(const Buffer buffer)
 {
+    std::cout << "[fanuc_eth_ip::write_DI] buffer size: " << buffer.data().size() << std::endl;
+    auto response2 = messageRouter_->sendRequest(si_, ServiceCodes::SET_ATTRIBUTE_SINGLE, EPath(0x04, 151, 0x03), buffer.data());
+}
+
+// write DPM values
+bool fanuc_eth_ip::writeDPM(const std::vector<int> vals)
+{
+    if(vals.size()!=6)
+    {
+        Logger(LogLevel::ERROR) << "expected vector of size 6! got: " << vals.size();
+        return false;
+    }   
     Buffer buffer;
 
     for(auto v:vals)
         buffer  << CipInt( v );
+    buffer  << CipInt( 1 );
+    write_DI(buffer);
 
-    std::cout << "[fanuc_eth_ip::write_DI] buffer size: " << buffer.data().size() << std::endl;
-    auto response2 = messageRouter_->sendRequest(si_, ServiceCodes::SET_ATTRIBUTE_SINGLE, EPath(0x04, 151, 0x03), buffer.data());
+    return true;
 }
+// Activate DPM
+void fanuc_eth_ip::activateDPM(const bool activate)
+{
+    Buffer buffer;
+    for(int i=0;i<6;i++)
+        buffer  << CipInt( 0 );
+    buffer  << CipInt( 0 );
+    write_DI(buffer);
+}
+// Deactivate DPM
+void fanuc_eth_ip::deactivateDPM(){activateDPM(false);}
 
 
 int main() {
@@ -100,10 +127,26 @@ int main() {
     // writes on a position register
     driver.write_pos_register(j_pos);
 
-    // writes on a Digital Input
-    std::vector<int> v = {1, 2, 3, 4, 5, 6};
-    driver.write_DI(v);
+    driver.activateDPM();
 
+
+    {
+        std::vector<int> v = {1, 0, 0, 0, 0, 0};
+        driver.writeDPM(v);
+    }
+
+    {
+        int delta_x = 1;
+        double cycle_time = 0.008;
+        std::vector<int> v = {delta_x, 0, 0, 0, 0, 0};
+        for (int i = 0; i< 200/delta_x; i++)
+        {
+            driver.writeDPM(v);
+            sleep(cycle_time);
+        }
+    }
+
+    driver.deactivateDPM();
 
     return 0;
 }

@@ -12,7 +12,7 @@ import os
 import xacro
 
 def generate_launch_description():
-    
+
     declared_arguments = []
     declared_arguments.append(
         DeclareLaunchArgument(
@@ -25,16 +25,24 @@ def generate_launch_description():
     
     declared_arguments.append(
         DeclareLaunchArgument(
+        "controllers_file",
+        default_value="controllers.yaml"
+        )
+    )
+    
+    declared_arguments.append(
+        DeclareLaunchArgument(
             "robot_ip",
             default_value="10.11.31.111",
             description="the IP of the controlled robot",
         )
     )
 
-
     description_package = "crx_description"
     use_mock_hardware = LaunchConfiguration("use_mock_hardware")
     robot_ip = LaunchConfiguration("robot_ip")
+    controllers_file = LaunchConfiguration("controllers_file")
+    
     
     robot_description_content = Command(
         [
@@ -57,10 +65,10 @@ def generate_launch_description():
         [
             FindPackageShare("ros2_fanuc_interface"),
             "config",
-            "controllers.yaml",
+            controllers_file,
         ]
     )
-
+    
     control_node = Node(
         package="controller_manager",
         executable="ros2_control_node",
@@ -83,25 +91,8 @@ def generate_launch_description():
         package="controller_manager",
         executable="spawner",
         arguments=["manipulator_controller", "-c", "/controller_manager"],
-        # arguments=["joint_trajectory_controller", "-c", "/controller_manager"],
-        # arguments=["forward_position_controller", "-c", "/controller_manager"],
-    )
-    controller_spawner_stopped = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["manipulator_controller", "-c", "/controller_manager"],
-        # arguments=["joint_trajectory_controller", "-c", "/controller_manager"],
-        # arguments=["forward_position_controller", "-c", "/controller_manager"],
     )
     
-    rviz_config_file = PathJoinSubstitution([FindPackageShare(description_package), "config", "config.rviz"])
-    rviz_node = Node(
-        package="rviz2",
-        executable="rviz2",
-        name="rviz2",
-        output="log",
-        arguments=["-d", rviz_config_file],
-    )
     move_group = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('crx20_moveit_config'),'launch', 'move_group.launch.py')]),)
     
@@ -109,11 +100,9 @@ def generate_launch_description():
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('crx20_moveit_config'),'launch', 'moveit_rviz.launch.py')]),)
     
     nodes_to_start = [
-        # rviz_node,
         control_node,
         joint_state_broadcaster_spawner,
         controller_spawner_started,
-        # controller_spawner_stopped,
         robot_state_publisher_node,
         move_group,
         moveit_rviz,
