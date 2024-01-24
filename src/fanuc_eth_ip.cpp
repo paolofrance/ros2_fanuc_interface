@@ -122,7 +122,7 @@ int main() {
 
 
     // writes on a register
-    driver.write_register(55,7);
+    driver.write_register(2,1);
 
     // writes on a position register
     driver.write_pos_register(j_pos);

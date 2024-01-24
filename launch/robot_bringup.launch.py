@@ -65,7 +65,7 @@ def generate_launch_description():
         [
             FindPackageShare("ros2_fanuc_interface"),
             "config",
-            controllers_file,
+            "controllers.yaml",
         ]
     )
     
