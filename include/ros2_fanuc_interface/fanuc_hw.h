@@ -13,11 +13,7 @@
 #include <rclcpp/executors.hpp>
 #include "sensor_msgs/msg/joint_state.hpp"
 
-// #include <ros2_fanuc_interface/fanuc_eth_ip.h>
-#include <EIPScanner/MessageRouter.h>
-#include <EIPScanner/utils/Logger.h>
-#include <EIPScanner/utils/Buffer.h>
-
+#include <ros2_fanuc_interface/fanuc_eth_ip.h>
 
 using hardware_interface::return_type;
 
@@ -29,16 +25,6 @@ static constexpr size_t POSITION_INTERFACE_INDEX = 0;
 static constexpr size_t VELOCITY_INTERFACE_INDEX = 1;
 
 
-// class PubSubNode : public rclcpp::Node
-// {
-//   public:
-//     PubSubNode();
-//     void publishData();
-
-//   private:
-//     rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr cmd_publisher_;
-
-// };
 
 
 class JointComms : public rclcpp::Node
@@ -50,29 +36,6 @@ class JointComms : public rclcpp::Node
     rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr fb_pub_;
   private:
 };
-
-using eipScanner::SessionInfo;
-using eipScanner::MessageRouter;
-using namespace eipScanner::cip;
-using namespace eipScanner::utils;
-
-class fanuc_eth_ip
-{
-private:
-    std::string ip_;
-    std::shared_ptr< eipScanner::SessionInfo > si_;
-    std::shared_ptr< eipScanner::MessageRouter > messageRouter_ = std::make_shared< eipScanner::MessageRouter >();
-
-public:
-    fanuc_eth_ip(std::string ip);
-    ~fanuc_eth_ip();
-    std::vector<double> get_current_joint_pos();
-    void write_register(int val, int reg = 1);
-    void write_pos_register(std::vector<double> j_vals, int reg = 1);
-    void write_DI(const std::vector<int> vals);
-};
-
-
 
 
 
@@ -92,10 +55,8 @@ public:
 protected:
 
   const std::vector<std::string> standard_interfaces_ = {
-    hardware_interface::HW_IF_POSITION, hardware_interface::HW_IF_VELOCITY,
-    hardware_interface::HW_IF_ACCELERATION, hardware_interface::HW_IF_EFFORT};
-
-  // /// The size of this vector is (standard_interfaces_.size() x nr_joints)
+  hardware_interface::HW_IF_POSITION, hardware_interface::HW_IF_VELOCITY,
+  hardware_interface::HW_IF_ACCELERATION, hardware_interface::HW_IF_EFFORT};
 
   std::vector<double> joint_position_command_;
   std::vector<double> joint_position_;
