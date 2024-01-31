@@ -30,6 +30,10 @@ add_library(fanuc SHARED
   src/fanuc_hw.cpp
 )
 
+add_library(fanuc_eth_ip SHARED
+  src/fanuc_eth_ip.cpp
+)
+
 target_compile_features(fanuc PUBLIC cxx_std_17)
 target_include_directories(fanuc PUBLIC
 $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
@@ -38,9 +42,10 @@ $<INSTALL_INTERFACE:include/fanuc>
 ament_target_dependencies(
   fanuc 
   ${HW_IF_INCLUDE_DEPENDS}
-  )
+)
 
-target_link_libraries(fanuc EIPScanner)
+target_link_libraries(fanuc_eth_ip EIPScanner)
+target_link_libraries(fanuc fanuc_eth_ip)  
   
 
 pluginlib_export_plugin_description_file(hardware_interface hw_plugin.xml)
@@ -48,6 +53,10 @@ pluginlib_export_plugin_description_file(hardware_interface hw_plugin.xml)
 install(
   DIRECTORY include/
   DESTINATION include/fanuc
+)
+install(
+  DIRECTORY include/
+  DESTINATION include/fanuc_eth_ip
 )
 
 install(TARGETS fanuc
@@ -57,17 +66,25 @@ install(TARGETS fanuc
   RUNTIME DESTINATION bin
 )
 
+install(TARGETS fanuc_eth_ip
+  EXPORT fanuc_eth_ip
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+)
+
+ament_export_targets(fanuc_eth_ip HAS_LIBRARY_TARGET)
 ament_export_targets(fanuc HAS_LIBRARY_TARGET)
 
 install(DIRECTORY launch config
   DESTINATION share/${PROJECT_NAME}
 )
 
-add_executable(fanuc_eth_ip src/fanuc_eth_ip.cpp)
-target_link_libraries(fanuc_eth_ip EIPScanner)
+add_executable(dpm src/dpm.cpp)
+target_link_libraries(dpm fanuc_eth_ip)
 
 install(TARGETS
-fanuc_eth_ip
+dpm
 DESTINATION lib/${PROJECT_NAME})
 
 
