@@ -16,6 +16,8 @@
 
 #include<unistd.h>
 
+#include <boost/algorithm/string.hpp>
+
 
 namespace fanuc
 {
@@ -47,9 +49,16 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
     return CallbackReturn::ERROR;
   }
   
+  std::string ro = info_.hardware_parameters["read_only"];
+  boost::algorithm::to_lower(ro);
+  RCLCPP_INFO_STREAM(logger_,"\n RO::" << ro);
+  read_only_ = ( ro =="true") ? true : false;
+  if(read_only_)
+    RCLCPP_INFO_STREAM(logger_,"\n read only mode active. the robot can be moved from this hardware interface " );
 
   std::string robot_ip = info_.hardware_parameters["robot_ip"];
   RCLCPP_INFO_STREAM( logger_,"\n\n\nIP : "<< robot_ip << "\n\n\n\n "  );
+
   
   EIP_driver_.reset( new fanuc_eth_ip (robot_ip) );
 
@@ -146,7 +155,8 @@ return_type FanucHw::read(const rclcpp::Time & /*time*/, const rclcpp::Duration 
 
 return_type FanucHw::write(const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
 {
-  EIP_driver_->write_pos_register(joint_position_command_);
+  if(!read_only_)
+    EIP_driver_->write_pos_register(joint_position_command_);
   
   auto msg = sensor_msgs::msg::JointState();
   msg.header.stamp = comms_->get_clock()->now();

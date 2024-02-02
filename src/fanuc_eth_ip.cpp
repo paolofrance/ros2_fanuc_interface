@@ -84,6 +84,7 @@ bool fanuc_eth_ip::write_DI(const Buffer buffer)
 {
   // std::cout << "[fanuc_eth_ip::write_DI] buffer size: " << buffer.data().size() << std::endl;
   auto response2 = messageRouter_->sendRequest(si_, ServiceCodes::SET_ATTRIBUTE_SINGLE, EPath(0x04, 151, 0x03), buffer.data());
+  return true;
 }
 
 // write DPM values
@@ -98,7 +99,7 @@ bool fanuc_eth_ip::writeDPM(const std::vector<int> vals)
 
   for(auto v:vals)
     buffer  << CipInt( v );
-  buffer  << CipInt( 1 );
+  buffer  << CipInt( 0 );
   write_DI(buffer);
 
   return true;
@@ -106,10 +107,11 @@ bool fanuc_eth_ip::writeDPM(const std::vector<int> vals)
 // Activate DPM
 void fanuc_eth_ip::activateDPM(const bool activate)
 {
+  int act = (activate) ? 0 : 1;
   Buffer buffer;
   for(int i=0;i<6;i++)
     buffer  << CipInt( 0 );
-  buffer  << CipInt( 0 );
+  buffer  << CipInt( act );
   write_DI(buffer);
 }
 // Deactivate DPM

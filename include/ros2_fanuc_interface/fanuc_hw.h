@@ -69,6 +69,7 @@ private:
   std::vector<std::string> joint_names_; 
   std::vector<double>      joint_pos_  ;
   std::shared_ptr<fanuc_eth_ip> EIP_driver_;
+  bool read_only_;
 
   template <typename HandleType>
   bool get_interface(
