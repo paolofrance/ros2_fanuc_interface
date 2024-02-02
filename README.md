@@ -52,18 +52,34 @@ To use the DPM (Dynamic Path Modification) module provided by the Fanuc robots, 
 
 ## Usage
 
+This section explains what this package allows at the current status
+
+#### Real robot
+
 To use it open a terminal and do the following command:
 
 ```console
 $ ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_ip:=your.robot.ip.address
 ```
+#### Real robot - read only
+
+It is sometimes necessary to move the robot from the Teach Pendant, or via manual guidance, but still required to read the joint states (e,g,. Kinestetic teaching). This feature requires no programs running on the TP, and an additional parameter during launch. 
+To use it open a terminal and do the following command:
+
+```console
+$ ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_ip:=your.robot.ip.address read_only:=true
+```
+
+**NOTE**: with some version of the robot controller software we had some issues related to loss of communication. It is still unclear the reason. 
+
+#### Fake robot
 
 To test this with mock components just add the "use_mock_hardware:=true" param to your launch command
 ```console
 $ ros2 launch ros2_fanuc_interface robot_bringup.launch.py use_mock_hardware:=true
 ```
 
-### Trajectory execution velocity scaling
+#### Trajectory execution velocity scaling
 
 It is also possible to control the robot allowing dynamic velocity scaling of the trajectory under execution.
 This feature is unrelated to this package but is a useful tool that can be used for example to dynamically scale the velocity according to the distance between human and robot.
