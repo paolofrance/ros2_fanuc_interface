@@ -30,6 +30,8 @@ manipulator_controller:
     open_loop_control: true
     constraints:
       goal_time: 0.0
+    
+    speed_ovr_topic: "speed_ovr"
 
 
 forward_position_controller:
