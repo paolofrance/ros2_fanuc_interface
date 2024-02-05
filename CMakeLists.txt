@@ -14,6 +14,11 @@ find_package(pluginlib REQUIRED)
 find_package(rcpputils REQUIRED)
 find_package(hardware_interface REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+
+
+find_package(urdf REQUIRED) # TODO: remove when cart_dpm ok
+find_package(kdl_parser REQUIRED) # same here
 
 include_directories(/usr/local/include/EIPScanner)
 
@@ -83,8 +88,28 @@ install(DIRECTORY launch config
 add_executable(dpm src/dpm.cpp)
 target_link_libraries(dpm fanuc_eth_ip)
 
+ament_target_dependencies(
+  dpm 
+  ${HW_IF_INCLUDE_DEPENDS}
+  geometry_msgs
+)
 install(TARGETS
 dpm
+DESTINATION lib/${PROJECT_NAME})
+
+
+add_executable(cart_wrench_dpm src/cart_wrench_dpm.cpp)
+target_link_libraries(cart_wrench_dpm fanuc_eth_ip)
+
+ament_target_dependencies(
+  cart_wrench_dpm
+  ${HW_IF_INCLUDE_DEPENDS}
+  geometry_msgs
+  urdf
+  kdl_parser
+)
+install(TARGETS
+cart_wrench_dpm
 DESTINATION lib/${PROJECT_NAME})
 
 

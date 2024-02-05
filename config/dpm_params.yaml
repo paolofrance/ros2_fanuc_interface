@@ -1,0 +1,6 @@
+cart_wrench_dpm:
+  ros__parameters:
+  
+    robot_base_link: base_link
+    end_effector_link: flange
+    wrench_topic: /robotiq_force_torque_sensor_broadcaster/wrench
