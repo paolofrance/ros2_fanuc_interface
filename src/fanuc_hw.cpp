@@ -8,6 +8,7 @@
 #include <set>
 #include <string>
 #include <vector>
+#include <chrono>
 
 #include "hardware_interface/component_parser.hpp"
 #include "hardware_interface/types/hardware_interface_type_values.hpp"
@@ -132,8 +133,9 @@ std::vector<hardware_interface::CommandInterface> FanucHw::export_command_interf
 
 return_type FanucHw::read(const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
 {
-  std::vector<double> jp = EIP_driver_->get_current_joint_pos();
 
+  std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+  std::vector<double> jp = EIP_driver_->get_current_joint_pos();
 
   for (size_t j = 0; j < joint_position_command_.size(); ++j)
   {
@@ -150,11 +152,17 @@ return_type FanucHw::read(const rclcpp::Time & /*time*/, const rclcpp::Duration 
   msg.velocity = joint_velocities_;
   comms_->fb_pub_->publish(msg);
   
+
+  std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+  RCLCPP_DEBUG_STREAM(logger_,"READ time:  = " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << "[microseconds]" );
+
   return return_type::OK;
 }
 
 return_type FanucHw::write(const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
 {
+  
+  std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
   if(!read_only_)
     EIP_driver_->write_pos_register(joint_position_command_);
   
@@ -163,6 +171,8 @@ return_type FanucHw::write(const rclcpp::Time & /*time*/, const rclcpp::Duration
   msg.name = joint_names_;
   msg.position = joint_position_command_;
   comms_->cmd_pub_->publish(msg);
+  std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+  RCLCPP_DEBUG_STREAM(logger_,"WRITE time:  = " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << "[microseconds]" );
 
   return return_type::OK;
 }

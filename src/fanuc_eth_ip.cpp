@@ -16,7 +16,11 @@ fanuc_eth_ip::~fanuc_eth_ip()
 }
 std::vector<double> fanuc_eth_ip::get_current_joint_pos()
 {
+  std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
   auto response = messageRouter_->sendRequest(si_, ServiceCodes::GET_ATTRIBUTE_SINGLE, EPath(0x7E, 0x01, 0x01));
+
+  std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+  // std::cout << "READ time:  = " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << "[microseconds]" << std::endl <<std::flush;
 
   std::vector<uint8_t> myList = response.getData();
   int numArrays = myList.size() / 4;
@@ -76,7 +80,11 @@ void fanuc_eth_ip::write_pos_register(std::vector<double> j_vals, const int reg)
   
   // std::cout << "[fanuc_eth_ip::write_pos_register] buffer size: " << buffer.data().size() << std::endl;
 
+  std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
   auto response2 = messageRouter_->sendRequest(si_, ServiceCodes::SET_ATTRIBUTE_SINGLE, EPath(0x7C, 0x01, reg), buffer.data());
+
+  std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+  // std::cout << "WRITE time:  = " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << "[microseconds]"  << std::endl <<std::flush;
 }
 
 // WRITEs value on Digital Inputs - 151+, mapped with the DPM, activate DPM
@@ -88,6 +96,7 @@ bool fanuc_eth_ip::write_DI(const Buffer buffer)
 }
 
 // write DPM values
+// TODO:: multiply by the scaling value to make it ok with the dpm mm/rad
 bool fanuc_eth_ip::writeDPM(const std::vector<int> vals)
 {
   if(vals.size()!=6)
