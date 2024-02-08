@@ -94,20 +94,55 @@ ros2 launch ros2_fanuc_interface robot_bringup.launch.py controllers_file:=scale
 
 You should now see the "/speed_ovr" topic, where you can publish the desired velocity (as a percentage of the maximum velocity). See the documentation [here](https://github.com/paolofrance/scaled_fjt_controller).
 
+## DPM
+
+This package allows the use of the Dynamic Path Modification (DPM) mode from Fanuc.
+
+The DPM communication is implemented in a ROS node.
+The DPM node subscribes a topic with message type [std_msgs/msg/Int64MultiArray.msg](https://docs.ros2.org/foxy/api/std_msgs/msg/Int64MultiArray.html). The message required is in the form [x,y,z,rx,ry,rz].
+
+To run the node
+
+```console
+ros2 launch ros2_fanuc_interface dpm_example.launch.py
+```
+
+Then the DPM can be activated via a service [std_srvs/SetBool.srv](https://docs.ros.org/en/noetic/api/std_srvs/html/srv/SetBool.html)
+
+To activate the dpm, after running the node
+```console
+ros2 service call /activate_dpm std_srvs/srv/SetBool {"data: true"}
+```
+
+To move the robot from command line
+```console
+ ros2 topic pub /dpm_move std_msgs/msg/Int64MultiArray {"data:[-10,0,0,0,0,0]"}
+```
+This command will move the robot in negative x direction.  
+
+to stop the DPM
+```console
+ros2 service call /activate_dpm std_srvs/srv/SetBool {"data: false"}
+```
+
+NOTE: The DPM is not directly integrated into the Ros2 control framework since it requires Cartesian relative commands. If you want to contribute, please let us know. 
+
 ## Known issues
 1. execution delay of about 0.2 seconds - reduced compared to the previous version with python
 
 ## TODO
 list of known todos and desiderata:  
-1. implementation of the Fanuc DPM to allow faster control for contact tasks
-2. implementation of the Fanuc RMI to remove the need for TP programs
+1. integration of the Fanuc DPM into the ros control framework
+2. implementation of the Fanuc RMI to remove the need for TP programs (the RMI driver already exists)
 
 ## Contacts
-Ros developer: paolo.franceschi@supsi.ch  
-TP fanuc developer: stefano.baraldo@supsi.ch  
+Hardware Interface & Ethernet/IP driver: paolo.franceschi@supsi.ch  
+RMI driver: matteo.lavit@stiima.cnr.it  
+TP fanuc : stefano.baraldo@supsi.ch  
 Tester and user: vincenzo.pomponi@supsi.ch  
 
 ### Acknowledgements
-This package is developed by the [ARM (Automation Robotics and Machines Laboratory)](https://sites.supsi.ch/isteps_en/Laboratories/gruppo1.html) at SUPSI, Lugano, CH.
+This package is developed by the [ARM (Automation Robotics and Machines Laboratory)](https://sites.supsi.ch/isteps_en/Laboratories/gruppo1.html) at SUPSI, Lugano, CH. 
+This package also uses components developed by CNR-SIIMA, Lecco.   
 The EU project [Fluently](https://www.fluently-horizonproject.eu/) partially funded the development of this package.
 

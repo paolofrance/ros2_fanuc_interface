@@ -8,6 +8,7 @@
 #include <set>
 #include <string>
 #include <vector>
+#include <chrono>
 
 #include "hardware_interface/component_parser.hpp"
 #include "hardware_interface/types/hardware_interface_type_values.hpp"
@@ -56,18 +57,45 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
   if(read_only_)
     RCLCPP_INFO_STREAM(logger_,"\n read only mode active. the robot can be moved from this hardware interface " );
 
+
+  // TODO:: add RMI from params when it will be ready
+  useRMI_ = false;
+
+  // std::string rmi = info_.hardware_parameters["use_rmi"];
+  // boost::algorithm::to_lower(rmi);
+  // RCLCPP_INFO_STREAM(logger_,"\n RMI::" << rmi);  
+  // useRMI_ = ( rmi =="true") ? true : false;
+
+
+
+  if(useRMI_)
+    RCLCPP_INFO_STREAM(logger_,"\n Using RMI to control the robot !   " );
+  else
+    RCLCPP_INFO_STREAM(logger_,"\n Using Ethernet/IP to control the robot !   " );
+
+
   std::string robot_ip = info_.hardware_parameters["robot_ip"];
   RCLCPP_INFO_STREAM( logger_,"\n\n\nIP : "<< robot_ip << "\n\n\n\n "  );
 
   
-  EIP_driver_.reset( new fanuc_eth_ip (robot_ip) );
 
-  RCLCPP_INFO_STREAM(logger_,"Initialized robot driver at ip: " << robot_ip );
+  if(useRMI_)
+  {
+    if (!rmi_driver_.init(robot_ip, 6))
+      RCLCPP_ERROR_STREAM(logger_,"RMI non initialized. Robot ip: "<<robot_ip);
+    RCLCPP_INFO_STREAM(logger_,"RMI  initialized. Robot ip: "<<robot_ip);
+  }
+  else
+  {  
+    EIP_driver_.reset( new fanuc_eth_ip (robot_ip) );
+    RCLCPP_INFO_STREAM(logger_,"Initialized EIP driver at ip: " << robot_ip );
+  }
+
+  std::vector<double> j_pos={0,0,0,0,0,0};
   
-
-  joint_position_.assign(6, 0);
-  joint_velocities_.assign(6, 0);
-  joint_position_command_.assign(6, 0); 
+  joint_position_.resize(6);
+  joint_velocities_.resize(6);
+  joint_position_command_.resize(6); 
 
   joint_names_.resize(joint_position_.size());
   for (size_t j = 0; j < joint_position_.size(); ++j)
@@ -76,17 +104,32 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
     RCLCPP_DEBUG_STREAM(logger_,info_.joints[j].name);
   }
 
-  std::vector<double> j_pos = EIP_driver_->get_current_joint_pos();
+  if(useRMI_)
+  {
+    j_pos = rmi_driver_.getPosition();
+
+    for(size_t i=0;i<j_pos.size();i++)
+      RCLCPP_WARN_STREAM(logger_,j_pos.at(i));
+  }
+  else
+  {
+    j_pos = EIP_driver_->get_current_joint_pos();
+  }
 
   for(size_t i=0;i<joint_position_.size();i++)
   {
     joint_position_command_.at(i) = j_pos.at(i);
-    RCLCPP_DEBUG_STREAM(logger_,joint_position_command_.at(i));
   }
-    
-  EIP_driver_->write_register(1,1);
-  EIP_driver_->write_pos_register(joint_position_command_);
   
+  if(useRMI_)
+  {
+    rmi_driver_.setTargetPosition(joint_position_command_);
+  }
+  else
+  {
+    EIP_driver_->write_register(1,1);
+    EIP_driver_->write_pos_register(joint_position_command_);
+  }
   comms_ = std::make_shared<JointComms>();
   executor_.add_node(comms_);
   std::thread([this]() { executor_.spin(); }).detach();
@@ -132,8 +175,15 @@ std::vector<hardware_interface::CommandInterface> FanucHw::export_command_interf
 
 return_type FanucHw::read(const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
 {
-  std::vector<double> jp = EIP_driver_->get_current_joint_pos();
 
+  std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+  std::vector<double> jp;
+  jp.resize(6);
+
+  if(useRMI_) 
+    jp = rmi_driver_.getPosition();
+  else
+    jp = EIP_driver_->get_current_joint_pos();
 
   for (size_t j = 0; j < joint_position_command_.size(); ++j)
   {
@@ -150,19 +200,33 @@ return_type FanucHw::read(const rclcpp::Time & /*time*/, const rclcpp::Duration 
   msg.velocity = joint_velocities_;
   comms_->fb_pub_->publish(msg);
   
+
+  std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+  RCLCPP_DEBUG_STREAM(logger_,"READ time:  = " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << "[microseconds]" );
+
   return return_type::OK;
 }
 
 return_type FanucHw::write(const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
 {
+  
+  std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
   if(!read_only_)
-    EIP_driver_->write_pos_register(joint_position_command_);
+  {
+    if(useRMI_) 
+      rmi_driver_.setTargetPosition(joint_position_command_);
+    else        
+      EIP_driver_->write_pos_register(joint_position_command_);
+  }
+
   
   auto msg = sensor_msgs::msg::JointState();
   msg.header.stamp = comms_->get_clock()->now();
   msg.name = joint_names_;
   msg.position = joint_position_command_;
   comms_->cmd_pub_->publish(msg);
+  std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+  RCLCPP_DEBUG_STREAM(logger_,"WRITE time:  = " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << "[microseconds]" );
 
   return return_type::OK;
 }
