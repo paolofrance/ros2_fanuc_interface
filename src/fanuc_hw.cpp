@@ -57,12 +57,14 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
   if(read_only_)
     RCLCPP_INFO_STREAM(logger_,"\n read only mode active. the robot can be moved from this hardware interface " );
 
+
+  // TODO:: add RMI from params when it will be ready
+  useRMI_ = false;
+
   // std::string rmi = info_.hardware_parameters["use_rmi"];
   // boost::algorithm::to_lower(rmi);
-  // RCLCPP_INFO_STREAM(logger_,"\n RMI::" << rmi);
-  
+  // RCLCPP_INFO_STREAM(logger_,"\n RMI::" << rmi);  
   // useRMI_ = ( rmi =="true") ? true : false;
-  useRMI_ = true;
 
 
 
@@ -85,7 +87,7 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
   }
   else
   {  
-    // EIP_driver_.reset( new fanuc_eth_ip (robot_ip) );
+    EIP_driver_.reset( new fanuc_eth_ip (robot_ip) );
     RCLCPP_INFO_STREAM(logger_,"Initialized EIP driver at ip: " << robot_ip );
   }
 
@@ -109,8 +111,10 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
     for(size_t i=0;i<j_pos.size();i++)
       RCLCPP_WARN_STREAM(logger_,j_pos.at(i));
   }
-  // else
-    // j_pos = EIP_driver_->get_current_joint_pos();
+  else
+  {
+    j_pos = EIP_driver_->get_current_joint_pos();
+  }
 
   for(size_t i=0;i<joint_position_.size();i++)
   {
@@ -118,12 +122,14 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
   }
   
   if(useRMI_)
+  {
     rmi_driver_.setTargetPosition(joint_position_command_);
-  // else
-  // {
-    // EIP_driver_->write_register(1,1);
-    // EIP_driver_->write_pos_register(joint_position_command_);
-  // }
+  }
+  else
+  {
+    EIP_driver_->write_register(1,1);
+    EIP_driver_->write_pos_register(joint_position_command_);
+  }
   comms_ = std::make_shared<JointComms>();
   executor_.add_node(comms_);
   std::thread([this]() { executor_.spin(); }).detach();
@@ -174,12 +180,10 @@ return_type FanucHw::read(const rclcpp::Time & /*time*/, const rclcpp::Duration 
   std::vector<double> jp;
   jp.resize(6);
 
-  if(useRMI_)
-  {
+  if(useRMI_) 
     jp = rmi_driver_.getPosition();
-  }
-  // else
-    // jp = EIP_driver_->get_current_joint_pos();
+  else
+    jp = EIP_driver_->get_current_joint_pos();
 
   for (size_t j = 0; j < joint_position_command_.size(); ++j)
   {
@@ -209,10 +213,10 @@ return_type FanucHw::write(const rclcpp::Time & /*time*/, const rclcpp::Duration
   std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
   if(!read_only_)
   {
-    // if(useRMI_)
+    if(useRMI_) 
       rmi_driver_.setTargetPosition(joint_position_command_);
-    // else
-      // EIP_driver_->write_pos_register(joint_position_command_);
+    else        
+      EIP_driver_->write_pos_register(joint_position_command_);
   }
 
   
