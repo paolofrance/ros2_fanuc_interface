@@ -14,20 +14,20 @@ import xacro
 def generate_launch_description():
 
     declared_arguments = []
-    declared_arguments.append(
-        DeclareLaunchArgument(
-            "wrench_topic",
-            default_value="/robotiq_ft_wrench",
-        )
+    
+    dpm_params = PathJoinSubstitution(
+        [
+            FindPackageShare("ros2_fanuc_interface"),
+            "config",
+            "dpm_params.yaml",
+        ]
     )
-    wrench_topic = LaunchConfiguration("wrench_topic")
     
     dpm_node = Node(
         package="ros2_fanuc_interface",
         executable="dpm",
-        parameters=[
-            {"wrench_topic": wrench_topic}
-        ]
+        name="dpm_subscriber",
+        parameters=[dpm_params],
     )
     
     nodes_to_start = [

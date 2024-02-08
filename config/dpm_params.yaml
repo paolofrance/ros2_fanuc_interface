@@ -1,13 +1,8 @@
-cart_wrench_dpm:
+dpm_subscriber:
   ros__parameters:
   
-    robot_base_link: base_link
-    end_effector_link: flange
-    wrench_topic: /robotiq_force_torque_sensor_broadcaster/wrench
-    joint_names:
-      - J1
-      - J2
-      - J3
-      - J4
-      - J5
-      - J6
+    robot_ip: "10.11.31.111"
+    deformation_topic: /dpm_move
+    rate: 1.0
+
+    

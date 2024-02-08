@@ -24,5 +24,7 @@ public:
     void activateDPM(const bool activate = true);
     void deactivateDPM();
     bool writeDPM(const std::vector<int> vals);
+    bool writeDPMScaled(const std::vector<double> vals, const double scale = 0.01);
+    void setCurrentPos();
 
 };

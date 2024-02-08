@@ -113,9 +113,33 @@ bool fanuc_eth_ip::writeDPM(const std::vector<int> vals)
 
   return true;
 }
+bool fanuc_eth_ip::writeDPMScaled(const std::vector<double> vals, const double scale)
+{
+  if(vals.size()!=6)
+  {
+    Logger(LogLevel::ERROR) << "expected vector of size 6! got: " << vals.size();
+    return false;
+  }
+
+  std::vector<int> v(6);
+  for (int i=0;i<vals.size();i++)
+    v.at(i)=vals.at(i)/scale;
+
+  writeDPM(v);
+
+  return true;
+}
 // Activate DPM
 void fanuc_eth_ip::activateDPM(const bool activate)
 {
+  
+  setCurrentPos();
+  
+  if(activate)
+    write_register(2,1);
+  else
+    write_register(1,1);
+
   int act = (activate) ? 0 : 1;
   Buffer buffer;
   for(int i=0;i<6;i++)
@@ -126,6 +150,7 @@ void fanuc_eth_ip::activateDPM(const bool activate)
 // Deactivate DPM
 void fanuc_eth_ip::deactivateDPM(){activateDPM(false);}
 
+void fanuc_eth_ip::setCurrentPos() {write_pos_register(get_current_joint_pos());}
 
 
 

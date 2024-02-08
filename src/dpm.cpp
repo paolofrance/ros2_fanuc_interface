@@ -8,136 +8,132 @@ This example shows how to listen to a FT sensor and generate motion accordingly
 
 #include <unistd.h>
 #include "rclcpp/rclcpp.hpp"
-#include "geometry_msgs/msg/wrench_stamped.hpp"
-#include <kdl/frames.hpp>
-#include "std_msgs/msg/float32.hpp"
- 
+#include <std_msgs/msg/int64_multi_array.hpp>
+#include <std_srvs/srv/set_bool.hpp> 
+#include <sensor_msgs/msg/joint_state.hpp> 
 
 
-class WrenchSubscriber : public rclcpp::Node
+class DPMSubscriber : public rclcpp::Node
 {
   public:
     
-    WrenchSubscriber();
-    void topic_callback(const geometry_msgs::msg::WrenchStamped::SharedPtr msg);
-
-    bool wrench_init_;
-    std::vector<double> meas_wrench_={0,0,0,0,0,0};
-
-    rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr cmd_publisher_;
-    rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr fb_publisher_;
+    DPMSubscriber();
+    ~ DPMSubscriber();
+    std::shared_ptr<fanuc_eth_ip> EIP_driver_;
+    rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr fb_publisher_;
+    double rate_;
 
   private:
-    rclcpp::Subscription<geometry_msgs::msg::WrenchStamped>::SharedPtr subscription_;
+    void Callback(const std_msgs::msg::Int64MultiArray::SharedPtr msg);
+    void ActivateDPM(const std::shared_ptr<std_srvs::srv::SetBool::Request> request,
+                    const std::shared_ptr<std_srvs::srv::SetBool::Response> response);
+    rclcpp::Subscription<std_msgs::msg::Int64MultiArray>::SharedPtr subscription_;
+    rclcpp::Service<std_srvs::srv::SetBool>::SharedPtr activate_dpm_srv_;
 };
 
-WrenchSubscriber::WrenchSubscriber(): Node("wrench_subscriber")
+DPMSubscriber::DPMSubscriber(): Node("dpm_subscriber")
 {
+  this->declare_parameter("robot_ip","10.11.31.111");
+  std::string robot_ip = this->get_parameter("robot_ip").as_string();
+  this->declare_parameter("deformation_topic","/dpm_move");
+  std::string deformation_topic = this->get_parameter("deformation_topic").as_string();
+  this->declare_parameter("rate",10.0);
+  rate_ = this->get_parameter("rate").as_double();
+  RCLCPP_INFO_STREAM(this->get_logger(), "Feedback publish rate: " << rate_ );
 
-  this->declare_parameter("wrench_topic","/wrench");
-  std::string wrench_topic = this->get_parameter("wrench_topic").as_string();
+  RCLCPP_INFO_STREAM(this->get_logger(), "subscribed to: " << deformation_topic );
 
-  RCLCPP_INFO_STREAM(this->get_logger(), "subscribed to: " << wrench_topic );
+  subscription_ = this->create_subscription<std_msgs::msg::Int64MultiArray>( deformation_topic,
+                                                                        10,
+                                                                        std::bind(&DPMSubscriber::Callback,
+                                                                        this, 
+                                                                        std::placeholders::_1));
 
-  wrench_init_ = false;
+  activate_dpm_srv_ = create_service<std_srvs::srv::SetBool>(
+      "activate_dpm", std::bind(&DPMSubscriber::ActivateDPM, this,
+                              std::placeholders::_1, std::placeholders::_2));
 
-  subscription_ = this->create_subscription<geometry_msgs::msg::WrenchStamped>(
-  wrench_topic, 10, std::bind(&WrenchSubscriber::topic_callback, this, std::placeholders::_1));
-  cmd_publisher_ = this->create_publisher<std_msgs::msg::Float32>("dpm_cmd", 10);
-  fb_publisher_ = this->create_publisher<std_msgs::msg::Float32>("dpm_fb", 10);
+  fb_publisher_ = this->create_publisher<sensor_msgs::msg::JointState>("dpm_fb", 10);
+
+  EIP_driver_.reset( new fanuc_eth_ip (robot_ip) );
+  RCLCPP_INFO_STREAM(this->get_logger(),"Initialized EIP driver at ip: " << robot_ip );
+
 }
 
-void WrenchSubscriber::topic_callback(const geometry_msgs::msg::WrenchStamped::SharedPtr msg) 
+DPMSubscriber::~ DPMSubscriber()
 {
-  if (!wrench_init_)
-    wrench_init_ = true;
-
-  RCLCPP_DEBUG_STREAM(this->get_logger(), "\n" << geometry_msgs::msg::to_yaml(msg->wrench) );
-
-  meas_wrench_.at(0) = msg->wrench.force.x;
-  meas_wrench_.at(1) = msg->wrench.force.y;
-  meas_wrench_.at(2) = msg->wrench.force.z;
-  meas_wrench_.at(3) = msg->wrench.torque.x;
-  meas_wrench_.at(4) = msg->wrench.torque.y;
-  meas_wrench_.at(5) = msg->wrench.torque.z;
+  EIP_driver_->deactivateDPM();
 }
+
+void DPMSubscriber::ActivateDPM(
+      const std::shared_ptr<std_srvs::srv::SetBool::Request> request,
+      const std::shared_ptr<std_srvs::srv::SetBool::Response> response)
+{
+  if (request->data==true)
+  {
+    EIP_driver_->activateDPM();
+    RCLCPP_INFO_STREAM(this->get_logger()," DPM activated! ");
+  }
+  else
+  {
+    EIP_driver_->deactivateDPM();
+    RCLCPP_INFO_STREAM(this->get_logger()," DPM de activated! ");
+  }
+
+  response->success = true;
+}
+
+
+void DPMSubscriber::Callback(const std_msgs::msg::Int64MultiArray::SharedPtr msg) 
+{
+  RCLCPP_DEBUG_STREAM(this->get_logger(), "\n" << std_msgs::msg::to_yaml(*msg) );
+
+  std::vector<int> dpm_deformation(6);
+  dpm_deformation.at(0) = msg->data[0];
+  dpm_deformation.at(1) = msg->data[1];
+  dpm_deformation.at(2) = msg->data[2];
+  dpm_deformation.at(3) = msg->data[3];
+  dpm_deformation.at(4) = msg->data[4];
+  dpm_deformation.at(5) = msg->data[5];
+
+  EIP_driver_->writeDPM(dpm_deformation);
+
+}
+
 
 
 int main(int argc, char * argv[]) 
 {
   
   rclcpp::init(argc, argv);
-  std::shared_ptr< WrenchSubscriber > node = std::make_shared<WrenchSubscriber>();
+  std::shared_ptr< DPMSubscriber > node = std::make_shared<DPMSubscriber>();
 
   rclcpp::executors::SingleThreadedExecutor executor;
   executor.add_node(node);
   std::thread([&executor]() { executor.spin(); }).detach();
 
+  std::vector<std::string> j_names = {"j1","j2","j3","j4","j5","j6"};
 
-  std::vector<double> wrench_0={0,0,0,0,0,0};
-  rclcpp::Clock clock;
-  rclcpp::Rate rate(1);
-  while (!node->wrench_init_)
+
+
+  rclcpp::Rate rate(node->rate_);
+  while (rclcpp::ok())
   {
-    RCLCPP_INFO_THROTTLE(node->get_logger(),clock,1000,"waiting for first wrench message");
-    rate.sleep();
-  }
+    std::vector<double> jp = node->EIP_driver_->get_current_joint_pos();
+    sensor_msgs::msg::JointState js_msg;
 
-   wrench_0=node->meas_wrench_;
-
-  for (auto w: wrench_0)
-    RCLCPP_INFO_STREAM(node->get_logger(),"wrench_0: " << w);
-  
-
-  // creates the driver object
-  fanuc_eth_ip driver("10.11.31.111");
-
-  // reads joint position
-  std::vector<double> j_pos = driver.get_current_joint_pos();
-
-  for(auto j:j_pos)
-    Logger(LogLevel::INFO) << "jpos [rad]: " << j;
-  
-  std::vector<double> j_deg(6);
-  for (int i=0;i<j_pos.size();i++)
-    j_deg.at(i) = j_pos.at(i) / 3.1415/180.0;
-  j_deg.at(2) -= ( j_deg[1]);
-
-  for(auto j:j_deg)
-    Logger(LogLevel::INFO) << "jpos [deg]: " << j;
-
-  // writes on a register
-  driver.write_register(2,1);
-
-  // writes on a position register
-  // driver.write_pos_register(j_pos);
-
-
-  driver.activateDPM();
-  std_msgs::msg::Float32 msg_c,msg_f;
-  rclcpp::Rate dpm_rate(250);
-  {
-    while (rclcpp::ok())
+    for(int i=0;i<j_names.size();i++)
     {
-      std::vector<double> w = {node->meas_wrench_[0]-wrench_0[0], 0, 0, 0, 0, 0};
-      std::vector<int> cmd = {w[0], 0, 0, 0, 0, 0};
-      RCLCPP_INFO_STREAM_THROTTLE(node->get_logger(),clock,500,"v: " << w[0] << ", cmd: " << cmd[0]);
-      driver.writeDPM(cmd);
-
-
-      j_pos = driver.get_current_joint_pos();
-
-      msg_c.data=cmd[0];
-      msg_f.data=j_pos[0]*100;
-
-      node->cmd_publisher_->publish(msg_c);
-      node->fb_publisher_->publish(msg_f);
-
-      dpm_rate.sleep();
+      js_msg.name.push_back(j_names.at(i));
+      js_msg.position.push_back(jp.at(i));
     }
-  }
+    js_msg.header.stamp = node->get_clock()->now();
 
-  driver.deactivateDPM();
+    node->fb_publisher_->publish(js_msg);
+
+    rate.sleep();    
+  }
+  node->EIP_driver_->deactivateDPM();
 
   rclcpp::shutdown();
 
