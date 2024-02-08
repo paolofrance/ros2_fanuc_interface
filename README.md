@@ -99,7 +99,10 @@ You should now see the "/speed_ovr" topic, where you can publish the desired vel
 This package allows the use of the Dynamic Path Modification (DPM) mode from Fanuc.
 
 The DPM communication is implemented in a ROS node.
-The DPM node subscribes a topic with message type [std_msgs/msg/Int64MultiArray.msg](https://docs.ros2.org/foxy/api/std_msgs/msg/Int64MultiArray.html). The message required is in the form [x,y,z,rx,ry,rz].
+The DPM node subscribes a topic with message type [std_msgs/msg/Int64MultiArray.msg](https://docs.ros2.org/foxy/api/std_msgs/msg/Int64MultiArray.html). The message required is in the form [x, y, z,rx, ry, rz].  
+**NOTE**: The values are integers because the DPM allows integers only as inputs. 
+In the proposed case, the integers are mapped as 0.01 mm, and a conversion factor is implemented on the robot controller side. See the DPM manual for more info.
+
 
 To run the node
 
@@ -125,7 +128,9 @@ to stop the DPM
 ros2 service call /activate_dpm std_srvs/srv/SetBool {"data: false"}
 ```
 
-NOTE: The DPM is not directly integrated into the Ros2 control framework since it requires Cartesian relative commands. If you want to contribute, please let us know. 
+In the [dpm_params.yaml](https://github.com/paolofrance/ros2_fanuc_interface/blob/main/config/dpm_params.yaml) it is possible to set some parameters.
+
+**NOTE**: The DPM is not directly integrated into the Ros2 control framework since it requires Cartesian relative commands. If you want to contribute, please let us know. 
 
 ## Known issues
 1. execution delay of about 0.2 seconds - reduced compared to the previous version with python
