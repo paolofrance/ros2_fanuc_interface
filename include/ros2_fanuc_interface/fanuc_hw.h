@@ -14,6 +14,7 @@
 #include "sensor_msgs/msg/joint_state.hpp"
 
 #include <ros2_fanuc_interface/fanuc_eth_ip.h>
+#include <ros2_fanuc_interface/rmi_driver.h>
 
 using hardware_interface::return_type;
 
@@ -69,6 +70,10 @@ private:
   std::vector<std::string> joint_names_; 
   std::vector<double>      joint_pos_  ;
   std::shared_ptr<fanuc_eth_ip> EIP_driver_;
+  rmi::RMIDriver rmi_driver_;
+
+  bool useRMI_;
+
   bool read_only_;
 
   template <typename HandleType>

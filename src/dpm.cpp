@@ -133,8 +133,6 @@ int main(int argc, char * argv[])
       node->cmd_publisher_->publish(msg_c);
       node->fb_publisher_->publish(msg_f);
 
-
-
       dpm_rate.sleep();
     }
   }
