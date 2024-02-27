@@ -3,6 +3,6 @@ dpm_subscriber:
   
     robot_ip: "10.11.31.111"
     deformation_topic: /dpm_move
-    rate: 1.0
+    rate: 100.0
 
     

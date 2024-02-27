@@ -59,7 +59,7 @@ def generate_launch_description():
             " ",PathJoinSubstitution([FindPackageShare(description_package), "urdf/crx20ia_l/", "crx20ia_l.xacro"]),
             " ", "use_mock_hardware:=", use_mock_hardware,
             " ", "robot_ip:=", robot_ip,
-            " ", "read_only:=", read_only,
+            # " ", "read_only:=", read_only,
         ]
     )
     

@@ -18,6 +18,7 @@ public:
     fanuc_eth_ip(std::string ip);
     ~fanuc_eth_ip();
     std::vector<double> get_current_joint_pos();
+    std::vector<double> get_current_pose();
     void write_register(const int val, const int reg = 1);
     void write_pos_register(const std::vector<double> j_vals, const int reg = 1);
     bool write_DI(const Buffer buffer);

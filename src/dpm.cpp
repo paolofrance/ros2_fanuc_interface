@@ -11,7 +11,9 @@ This example shows how to listen to a FT sensor and generate motion accordingly
 #include <std_msgs/msg/int64_multi_array.hpp>
 #include <std_srvs/srv/set_bool.hpp> 
 #include <sensor_msgs/msg/joint_state.hpp> 
+#include <geometry_msgs/msg/pose_stamped.hpp>
 
+#include <mutex> 
 
 class DPMSubscriber : public rclcpp::Node
 {
@@ -21,8 +23,14 @@ class DPMSubscriber : public rclcpp::Node
     ~ DPMSubscriber();
     std::shared_ptr<fanuc_eth_ip> EIP_driver_;
     rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr fb_publisher_;
+    rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr cart_fb_publisher_;
     double rate_;
+    std::mutex mtx_;
+    // geometry_msgs::Quaternion quaternionFromRPY(double roll, double pitch, double yaw)
 
+    std::vector<double> GetCurrentJPos();
+    std::vector<double> GetCurrentPose();
+  
   private:
     void Callback(const std_msgs::msg::Int64MultiArray::SharedPtr msg);
     void ActivateDPM(const std::shared_ptr<std_srvs::srv::SetBool::Request> request,
@@ -54,6 +62,7 @@ DPMSubscriber::DPMSubscriber(): Node("dpm_subscriber")
                               std::placeholders::_1, std::placeholders::_2));
 
   fb_publisher_ = this->create_publisher<sensor_msgs::msg::JointState>("dpm_fb", 10);
+  cart_fb_publisher_ = this->create_publisher<sensor_msgs::msg::JointState>("cart_dpm_fb", 10);
 
   EIP_driver_.reset( new fanuc_eth_ip (robot_ip) );
   RCLCPP_INFO_STREAM(this->get_logger(),"Initialized EIP driver at ip: " << robot_ip );
@@ -62,7 +71,9 @@ DPMSubscriber::DPMSubscriber(): Node("dpm_subscriber")
 
 DPMSubscriber::~ DPMSubscriber()
 {
+  mtx_.lock();
   EIP_driver_->deactivateDPM();
+  mtx_.unlock();
 }
 
 void DPMSubscriber::ActivateDPM(
@@ -71,12 +82,16 @@ void DPMSubscriber::ActivateDPM(
 {
   if (request->data==true)
   {
+    mtx_.lock();
     EIP_driver_->activateDPM();
+    mtx_.unlock();
     RCLCPP_INFO_STREAM(this->get_logger()," DPM activated! ");
   }
   else
   {
+    mtx_.lock();
     EIP_driver_->deactivateDPM();
+    mtx_.unlock();
     RCLCPP_INFO_STREAM(this->get_logger()," DPM de activated! ");
   }
 
@@ -96,11 +111,43 @@ void DPMSubscriber::Callback(const std_msgs::msg::Int64MultiArray::SharedPtr msg
   dpm_deformation.at(4) = msg->data[4];
   dpm_deformation.at(5) = msg->data[5];
 
+  mtx_.lock();
   EIP_driver_->writeDPM(dpm_deformation);
+  mtx_.unlock();
 
 }
 
+std::vector<double> DPMSubscriber::GetCurrentJPos()
+{
+  mtx_.lock();
+  std::vector<double> ret = EIP_driver_->get_current_joint_pos();
+  mtx_.unlock();
+  return ret;
+}
 
+std::vector<double> DPMSubscriber::GetCurrentPose()
+{
+  mtx_.lock();
+  std::vector<double> ret = EIP_driver_->get_current_pose();
+  mtx_.unlock();
+
+  for (int i=0;i<3;i++)
+    ret.at(i) /= 1000;
+
+  for (int i=3;i<6;i++)
+    ret.at(i) *= 0.0174533;
+
+  return ret;
+}
+
+// TODO: implement conversion and cartesian feedback via geometry_msgs::Pose
+// geometry_msgs::Quaternion DPMSubscriber::quaternionFromRPY(double roll, double pitch, double yaw)
+// {
+//   tf2::Quaternion quaternion_tf2;
+//   quaternion_tf2.setRPY(roll, pitch, yaw);
+//   geometry_msgs::Quaternion quaternion = tf2::toMsg(quaternion_tf2);
+//   return quaternion;
+// }
 
 int main(int argc, char * argv[]) 
 {
@@ -113,13 +160,24 @@ int main(int argc, char * argv[])
   std::thread([&executor]() { executor.spin(); }).detach();
 
   std::vector<std::string> j_names = {"j1","j2","j3","j4","j5","j6"};
+  std::vector<std::string> c_names = {"x","y","z","r","p","y"};
 
 
 
   rclcpp::Rate rate(node->rate_);
   while (rclcpp::ok())
   {
-    std::vector<double> jp = node->EIP_driver_->get_current_joint_pos();
+    std::vector<double> jp = node->GetCurrentJPos();
+    std::vector<double> cp = node->GetCurrentPose();
+
+    sensor_msgs::msg::JointState c_msg;
+    for(int i=0;i<c_names.size();i++)
+    {  
+      c_msg.name.push_back(c_names.at(i));
+      c_msg.position.push_back(cp.at(i)/1000);
+    }
+
+
     sensor_msgs::msg::JointState js_msg;
 
     for(int i=0;i<j_names.size();i++)
@@ -127,9 +185,12 @@ int main(int argc, char * argv[])
       js_msg.name.push_back(j_names.at(i));
       js_msg.position.push_back(jp.at(i));
     }
+
     js_msg.header.stamp = node->get_clock()->now();
+    c_msg.header.stamp = node->get_clock()->now();
 
     node->fb_publisher_->publish(js_msg);
+    node->cart_fb_publisher_->publish(c_msg);
 
     rate.sleep();    
   }

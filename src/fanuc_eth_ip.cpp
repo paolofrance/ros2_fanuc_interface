@@ -7,7 +7,9 @@
 fanuc_eth_ip::fanuc_eth_ip(std::string ip)
 { 
   ip_=ip;
+    Logger(LogLevel::ERROR) << "qui " << __LINE__;
   si_.reset( new eipScanner::SessionInfo( ip_, 0xAF12 ) );
+    Logger(LogLevel::ERROR) << "qui " << __LINE__;
   Logger::setLogLevel(LogLevel::ERROR);
 }
 
@@ -46,6 +48,34 @@ std::vector<double> fanuc_eth_ip::get_current_joint_pos()
   j_val.at(2) += ( j_val[1]);
 
   return j_val;
+}
+std::vector<double> fanuc_eth_ip::get_current_pose()
+{
+  std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+  auto response = messageRouter_->sendRequest(si_, ServiceCodes::GET_ATTRIBUTE_SINGLE, EPath(0x7D, 0x01, 0x01));
+
+  std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+  // std::cout << "READ time:  = " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << "[microseconds]" << std::endl <<std::flush;
+
+  std::vector<uint8_t> myList = response.getData();
+  int numArrays = myList.size() / 4;
+
+  std::vector<float> full;
+
+  for (int j = 0; j < numArrays; ++j) 
+  {
+    unsigned char byteArray[4];
+    for (int i = 0; i < 4; ++i)
+      byteArray[i] = myList[j * 4 + i];
+
+    float floatValue;
+    std::memcpy(&floatValue, byteArray, sizeof(float));
+    full.push_back(floatValue);
+  }
+
+  std::vector<double> cart_val(full.begin()+1, full.begin() + 7);
+      
+  return cart_val;
 }
 
 // WRITEs value on a REGULAR REGISTER 

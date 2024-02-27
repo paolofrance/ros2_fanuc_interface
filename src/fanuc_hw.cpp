@@ -44,6 +44,7 @@ double parse_double(const std::string & text)
 
 CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
 {
+  RCLCPP_FATAL_STREAM(logger_,"\n QUIQUI\n");
   RCLCPP_INFO(logger_, "init fanuc_hw");
   if (hardware_interface::SystemInterface::on_init(info) != CallbackReturn::SUCCESS)
   {
@@ -81,13 +82,17 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
 
   if(useRMI_)
   {
-    if (!rmi_driver_.init(robot_ip, 6))
-      RCLCPP_ERROR_STREAM(logger_,"RMI non initialized. Robot ip: "<<robot_ip);
-    RCLCPP_INFO_STREAM(logger_,"RMI  initialized. Robot ip: "<<robot_ip);
+    RCLCPP_ERROR_STREAM(logger_,"RMI driver not working");
+
+    // if (!rmi_driver_.init(robot_ip, 6))
+      // RCLCPP_ERROR_STREAM(logger_,"RMI non initialized. Robot ip: "<<robot_ip);
+    // RCLCPP_INFO_STREAM(logger_,"RMI  initialized. Robot ip: "<<robot_ip);
   }
   else
   {  
+  RCLCPP_FATAL_STREAM(logger_,"\n QUIQUI: "<< __LINE__ <<"\n");
     EIP_driver_.reset( new fanuc_eth_ip (robot_ip) );
+  RCLCPP_FATAL_STREAM(logger_,"\n QUIQUI: "<< __LINE__ <<"\n");
     RCLCPP_INFO_STREAM(logger_,"Initialized EIP driver at ip: " << robot_ip );
   }
 
@@ -106,7 +111,7 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
 
   if(useRMI_)
   {
-    j_pos = rmi_driver_.getPosition();
+    // j_pos = rmi_driver_.getPosition();
 
     for(size_t i=0;i<j_pos.size();i++)
       RCLCPP_WARN_STREAM(logger_,j_pos.at(i));
@@ -123,7 +128,8 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
   
   if(useRMI_)
   {
-    rmi_driver_.setTargetPosition(joint_position_command_);
+    // rmi_driver_.setTargetPosition(joint_position_command_);
+    RCLCPP_ERROR_STREAM(logger_,"RMI driver not working");
   }
   else
   {
@@ -134,6 +140,7 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
   executor_.add_node(comms_);
   std::thread([this]() { executor_.spin(); }).detach();
 
+  RCLCPP_FATAL_STREAM(logger_,"\n QUIQUI\n");
   return CallbackReturn::SUCCESS;
 }
 
@@ -181,7 +188,8 @@ return_type FanucHw::read(const rclcpp::Time & /*time*/, const rclcpp::Duration 
   jp.resize(6);
 
   if(useRMI_) 
-    jp = rmi_driver_.getPosition();
+    RCLCPP_ERROR_STREAM(logger_,"RMI driver not working");
+    // jp = rmi_driver_.getPosition();
   else
     jp = EIP_driver_->get_current_joint_pos();
 
@@ -213,8 +221,9 @@ return_type FanucHw::write(const rclcpp::Time & /*time*/, const rclcpp::Duration
   std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
   if(!read_only_)
   {
-    if(useRMI_) 
-      rmi_driver_.setTargetPosition(joint_position_command_);
+    if(useRMI_)
+      RCLCPP_ERROR_STREAM(logger_,"RMI driver not working");
+      // rmi_driver_.setTargetPosition(joint_position_command_);
     else        
       EIP_driver_->write_pos_register(joint_position_command_);
   }
