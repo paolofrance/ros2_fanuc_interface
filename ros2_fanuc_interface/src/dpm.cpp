@@ -4,7 +4,7 @@ This example shows how to listen to a FT sensor and generate motion accordingly
 */
 
 
-#include <ros2_fanuc_interface/fanuc_eth_ip.h>
+#include <fanuc_eth_ip/fanuc_eth_ip.hpp>
 
 #include <unistd.h>
 #include "rclcpp/rclcpp.hpp"
@@ -160,8 +160,13 @@ int main(int argc, char * argv[])
   std::thread([&executor]() { executor.spin(); }).detach();
 
   std::vector<std::string> j_names = {"j1","j2","j3","j4","j5","j6"};
-  std::vector<std::string> c_names = {"x","y","z","r","p","y"};
+  std::vector<std::string> c_names = {"1x","2y","3z","4r","5p","6y"};
 
+
+
+  RCLCPP_INFO_STREAM(node->get_logger(), "setting flag"  );
+  node->EIP_driver_->write_flag(true,10);
+  RCLCPP_INFO_STREAM(node->get_logger(), "flag set?"  );
 
 
   rclcpp::Rate rate(node->rate_);
@@ -174,7 +179,7 @@ int main(int argc, char * argv[])
     for(int i=0;i<c_names.size();i++)
     {  
       c_msg.name.push_back(c_names.at(i));
-      c_msg.position.push_back(cp.at(i)/1000);
+      c_msg.position.push_back(cp.at(i));
     }
 
 

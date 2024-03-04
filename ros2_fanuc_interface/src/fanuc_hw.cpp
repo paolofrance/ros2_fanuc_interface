@@ -44,7 +44,6 @@ double parse_double(const std::string & text)
 
 CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
 {
-  RCLCPP_FATAL_STREAM(logger_,"\n QUIQUI\n");
   RCLCPP_INFO(logger_, "init fanuc_hw");
   if (hardware_interface::SystemInterface::on_init(info) != CallbackReturn::SUCCESS)
   {
@@ -90,9 +89,7 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
   }
   else
   {  
-  RCLCPP_FATAL_STREAM(logger_,"\n QUIQUI: "<< __LINE__ <<"\n");
     EIP_driver_.reset( new fanuc_eth_ip (robot_ip) );
-  RCLCPP_FATAL_STREAM(logger_,"\n QUIQUI: "<< __LINE__ <<"\n");
     RCLCPP_INFO_STREAM(logger_,"Initialized EIP driver at ip: " << robot_ip );
   }
 
@@ -140,7 +137,6 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
   executor_.add_node(comms_);
   std::thread([this]() { executor_.spin(); }).detach();
 
-  RCLCPP_FATAL_STREAM(logger_,"\n QUIQUI\n");
   return CallbackReturn::SUCCESS;
 }
 

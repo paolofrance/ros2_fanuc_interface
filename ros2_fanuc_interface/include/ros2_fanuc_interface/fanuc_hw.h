@@ -13,7 +13,7 @@
 #include <rclcpp/executors.hpp>
 #include "sensor_msgs/msg/joint_state.hpp"
 
-#include <ros2_fanuc_interface/fanuc_eth_ip.h>
+#include <fanuc_eth_ip/fanuc_eth_ip.hpp>
 // #include <ros2_fanuc_interface/rmi_driver.h>
 
 using hardware_interface::return_type;
