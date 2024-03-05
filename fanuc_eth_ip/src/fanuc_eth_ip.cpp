@@ -88,6 +88,23 @@ std::vector<double> fanuc_eth_ip::get_current_pose()
   return cart_val;
 }
 
+int fanuc_eth_ip::read_register(const int& reg)
+{
+  auto response = messageRouter_->sendRequest(si_, ServiceCodes::GET_ATTRIBUTE_SINGLE, EPath(0x6b, 0x01, reg));
+
+  std::vector<uint8_t> myList = response.getData();
+  int numArrays = myList.size() / 4;
+  unsigned char byteArray[4];
+
+  for (int i = 0; i < 4; ++i)
+    byteArray[i] = myList[i];
+
+  int intValue;
+  std::memcpy(&intValue, byteArray, sizeof(int));
+
+  return intValue;
+}
+
 // WRITEs value on a REGULAR REGISTER 
 void fanuc_eth_ip::write_register(const int val, const int reg)
 {
@@ -204,13 +221,12 @@ bool fanuc_eth_ip::writeDPMScaled(const std::vector<double> vals, const double s
 // Activate DPM
 void fanuc_eth_ip::activateDPM(const bool activate)
 {
-  
   setCurrentPos();
   
   if(activate)
-    write_register(2,1);
+    write_register(StatusEnum::Dpm, RegisterEnum::MotionStatus );
   else
-    write_register(1,1);
+    write_register(StatusEnum::Ros, RegisterEnum::MotionStatus );
 
   int act = (activate) ? 0 : 1;
   Buffer buffer;
@@ -218,6 +234,10 @@ void fanuc_eth_ip::activateDPM(const bool activate)
     buffer  << CipInt( 0 );
   buffer  << CipInt( act );
   write_DI(buffer);
+  write_register(act, RegisterEnum::DpmStatus);
+  
+    Logger(LogLevel::ERROR) << "\033[1;31m \n\n\n DPM activate: "<< act <<" \n\n\n\033[0m\n";
+
 }
 // Deactivate DPM
 void fanuc_eth_ip::deactivateDPM(){activateDPM(false);}

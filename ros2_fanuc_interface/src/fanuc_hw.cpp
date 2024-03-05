@@ -217,11 +217,21 @@ return_type FanucHw::write(const rclcpp::Time & /*time*/, const rclcpp::Duration
   std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
   if(!read_only_)
   {
-    if(useRMI_)
-      RCLCPP_ERROR_STREAM(logger_,"RMI driver not working");
-      // rmi_driver_.setTargetPosition(joint_position_command_);
-    else        
+    if(EIP_driver_->read_register(RegisterEnum::MotionStatus) == StatusEnum::Ros )
+    {
+      RCLCPP_DEBUG_STREAM(logger_,"DPM INACTIVE");
+      if(useRMI_)
+        RCLCPP_ERROR_STREAM(logger_,"RMI driver not working");
+        // rmi_driver_.setTargetPosition(joint_position_command_);
+      else        
+        EIP_driver_->write_pos_register(joint_position_command_);
+    }
+    else
+    {
+      joint_position_command_ = joint_position_;
       EIP_driver_->write_pos_register(joint_position_command_);
+      RCLCPP_DEBUG_STREAM(logger_,"DPM ACTIVE");
+    }
   }
 
   

@@ -162,12 +162,7 @@ int main(int argc, char * argv[])
   std::vector<std::string> j_names = {"j1","j2","j3","j4","j5","j6"};
   std::vector<std::string> c_names = {"1x","2y","3z","4r","5p","6y"};
 
-
-
-  RCLCPP_INFO_STREAM(node->get_logger(), "setting flag"  );
-  node->EIP_driver_->write_flag(true,10);
-  RCLCPP_INFO_STREAM(node->get_logger(), "flag set?"  );
-
+  node->EIP_driver_->read_register(RegisterEnum::DpmStatus);
 
   rclcpp::Rate rate(node->rate_);
   while (rclcpp::ok())
