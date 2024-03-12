@@ -116,6 +116,7 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
   else
   {
     j_pos = EIP_driver_->get_current_joint_pos();
+    EIP_driver_->setCurrentPos();
   }
 
   for(size_t i=0;i<joint_position_.size();i++)
@@ -131,7 +132,7 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
   else
   {
     EIP_driver_->write_register(1,1);
-    EIP_driver_->write_pos_register(joint_position_command_);
+    // EIP_driver_->write_pos_register(joint_position_command_);
   }
   comms_ = std::make_shared<JointComms>();
   executor_.add_node(comms_);
