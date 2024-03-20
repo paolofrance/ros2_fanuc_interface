@@ -5,7 +5,17 @@ R[11]: gripper position
 R[12]: gripper speed
 R[13]: gripper force
 
-R[21] cheange tool
+R[21] get tool
+R[22] tool id
+
+R[30] SD screw
+R[31] SD force
+R[32] SD screw length
+R[33] SD wait
+
+R[35] SD moveshank
+R[36] SD position
+R[37] SD wait
 
 R[99] de-activate collaborative
 */
@@ -18,6 +28,8 @@ R[99] de-activate collaborative
 
 #include <fanuc_srvs_msgs/srv/gripper_move.hpp>
 #include <fanuc_srvs_msgs/srv/tool_change.hpp>
+#include <fanuc_srvs_msgs/srv/screwdriver_move.hpp>
+#include <fanuc_srvs_msgs/srv/screwdriver_screw.hpp>
 #include <std_srvs/srv/set_bool.hpp>
 
 #include <mutex> 
@@ -40,9 +52,15 @@ class FanucSrvs : public rclcpp::Node
                     const std::shared_ptr<fanuc_srvs_msgs::srv::ToolChange::Response> response);
     void DeActivateCollab(const std::shared_ptr<std_srvs::srv::SetBool::Request> request,
                           const std::shared_ptr<std_srvs::srv::SetBool::Response> response);
+    void SdScrew(const std::shared_ptr<fanuc_srvs_msgs::srv::ScrewdriverScrew::Request> request,
+                 const std::shared_ptr<fanuc_srvs_msgs::srv::ScrewdriverScrew::Response> response);
+    void SdMoveShank(const std::shared_ptr<fanuc_srvs_msgs::srv::ScrewdriverMove::Request> request,
+                     const std::shared_ptr<fanuc_srvs_msgs::srv::ScrewdriverMove::Response> response);
     rclcpp::Service<std_srvs::srv::SetBool>::SharedPtr activate_gripper_srv_;
     rclcpp::Service<fanuc_srvs_msgs::srv::GripperMove>::SharedPtr move_gripper_srv_;
     rclcpp::Service<fanuc_srvs_msgs::srv::ToolChange>::SharedPtr tool_change_srv_;
+    rclcpp::Service<fanuc_srvs_msgs::srv::ScrewdriverScrew>::SharedPtr sd_screw_srv_;
+    rclcpp::Service<fanuc_srvs_msgs::srv::ScrewdriverMove>::SharedPtr sd_move_srv_;
     rclcpp::Service<std_srvs::srv::SetBool>::SharedPtr deactivate_collab_srv_;
 
 };
@@ -63,6 +81,12 @@ FanucSrvs::FanucSrvs(): Node("fanuc_srvs")
                               std::placeholders::_1, std::placeholders::_2));
   deactivate_collab_srv_ = create_service<std_srvs::srv::SetBool>(
       "deactivate_collab", std::bind(&FanucSrvs::DeActivateCollab, this,
+                              std::placeholders::_1, std::placeholders::_2));
+  sd_screw_srv_ = create_service<fanuc_srvs_msgs::srv::ScrewdriverScrew>(
+      "sd_screw", std::bind(&FanucSrvs::SdScrew, this,
+                              std::placeholders::_1, std::placeholders::_2));
+  sd_move_srv_ = create_service<fanuc_srvs_msgs::srv::ScrewdriverMove>(
+      "sd_move", std::bind(&FanucSrvs::SdMoveShank, this,
                               std::placeholders::_1, std::placeholders::_2));
 
   EIP_driver_.reset( new fanuc_eth_ip (robot_ip) );
@@ -110,18 +134,44 @@ void FanucSrvs::MoveGripper(
 
 }
 
+void FanucSrvs::SdScrew(
+      const std::shared_ptr<fanuc_srvs_msgs::srv::ScrewdriverScrew::Request> request,
+      const std::shared_ptr<fanuc_srvs_msgs::srv::ScrewdriverScrew::Response> response)
+{
+  mtx_.lock();
+  this->EIP_driver_->write_register(request->force,31);
+  this->EIP_driver_->write_register(request->screw_length,32);
+  this->EIP_driver_->write_register(request->wait,33);
+  this->EIP_driver_->write_register(1,30);
+  mtx_.unlock();
+  RCLCPP_INFO_STREAM(this->get_logger()," screwdriver screwing ");
+  response->success = true;
+}
+
+void FanucSrvs::SdMoveShank(
+      const std::shared_ptr<fanuc_srvs_msgs::srv::ScrewdriverMove::Request> request,
+      const std::shared_ptr<fanuc_srvs_msgs::srv::ScrewdriverMove::Response> response)
+{
+  mtx_.lock();
+  this->EIP_driver_->write_register(request->position,36);
+  this->EIP_driver_->write_register(request->wait,37);
+  this->EIP_driver_->write_register(1,35);
+  mtx_.unlock();
+  RCLCPP_INFO_STREAM(this->get_logger()," moving screwdriver shank ");
+  response->success = true;
+}
+
 void FanucSrvs::ToolChange(
       const std::shared_ptr<fanuc_srvs_msgs::srv::ToolChange::Request> request,
       const std::shared_ptr<fanuc_srvs_msgs::srv::ToolChange::Response> response)
 {
   mtx_.lock();
-  this->EIP_driver_->write_register(request->position_id,21);
-  this->EIP_driver_->write_register(request->get,22);
+  this->EIP_driver_->write_register(request->position_id,22);
+  this->EIP_driver_->write_register(request->get,21);
   mtx_.unlock();
   RCLCPP_INFO_STREAM(this->get_logger()," cahnging tool ");
   response->success = true;
   gripper_activated_=false;
-
 }
 
 
@@ -130,7 +180,7 @@ void FanucSrvs::DeActivateCollab(
       const std::shared_ptr<std_srvs::srv::SetBool::Response> response)
 {
   mtx_.lock();
-  EIP_driver_->write_register(request->data ,99);
+  EIP_driver_->write_register(request->data, 99);
   mtx_.unlock();
   RCLCPP_INFO_STREAM(this->get_logger()," collaborative mode "<< !request->data <<"! ");
   gripper_activated_=true;

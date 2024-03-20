@@ -16,6 +16,8 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
 "srv/GripperMove.srv"
 "srv/ToolChange.srv"
+"srv/ScrewdriverMove.srv"
+"srv/ScrewdriverScrew.srv"
 DEPENDENCIES std_msgs
 )
 
