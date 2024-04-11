@@ -11,6 +11,7 @@ find_package(rclcpp REQUIRED)
 find_package(rclpy REQUIRED)
 
 find_package(fanuc_eth_ip REQUIRED)
+find_package(fanuc_rmi REQUIRED)
 
 find_package(pluginlib REQUIRED)
 find_package(rcpputils REQUIRED)
@@ -30,10 +31,10 @@ set(HW_IF_INCLUDE_DEPENDS
   rcpputils
   hardware_interface
   fanuc_eth_ip
+  fanuc_rmi
 )
 
-add_library(fanuc             SHARED  src/fanuc_hw.cpp)
-add_library(rmi_communication SHARED  src/rmi_communication.cpp)
+add_library(fanuc SHARED  src/fanuc_hw.cpp)
 
 target_compile_features(fanuc PUBLIC cxx_std_17)
 target_include_directories(fanuc PUBLIC
@@ -46,19 +47,11 @@ ament_target_dependencies(
   ${HW_IF_INCLUDE_DEPENDS}
 )
 
-target_link_libraries(rmi_communication   ${rclcpp_LIBRARIES})
-
-ament_target_dependencies(rmi_communication rclcpp)
-
 pluginlib_export_plugin_description_file(hardware_interface hw_plugin.xml)
 
 install(
   DIRECTORY include/
   DESTINATION include/fanuc
-)
-install(
-  DIRECTORY include/
-  DESTINATION include/rmi_communication
 )
 
 install(TARGETS fanuc
@@ -67,16 +60,6 @@ install(TARGETS fanuc
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
 )
-
-install(TARGETS rmi_communication
-  EXPORT rmi_communication
-  ARCHIVE DESTINATION lib
-  LIBRARY DESTINATION lib
-  RUNTIME DESTINATION bin
-)
-
-ament_export_targets(fanuc HAS_LIBRARY_TARGET)
-ament_export_targets(rmi_communication HAS_LIBRARY_TARGET)
 
 install(DIRECTORY launch config
   DESTINATION share/${PROJECT_NAME}
@@ -93,5 +76,19 @@ install(TARGETS
 dpm
 DESTINATION lib/${PROJECT_NAME})
 
+add_executable(rmi src/rmi.cpp)
+
+ament_target_dependencies(
+  rmi
+  ${HW_IF_INCLUDE_DEPENDS}
+  )
+install(TARGETS
+rmi
+DESTINATION lib/${PROJECT_NAME})
+
+
+ament_export_targets(fanuc HAS_LIBRARY_TARGET)
+ament_export_include_directories(include)
+ament_export_dependencies(${HW_IF_INCLUDE_DEPENDS})
 
 ament_package()

@@ -1,4 +1,4 @@
-#include <ros2_fanuc_interface/rmi_communication.h>
+#include <fanuc_rmi/rmi_communication.h>
 #include <rclcpp/rclcpp.hpp>
 
 namespace rmi {

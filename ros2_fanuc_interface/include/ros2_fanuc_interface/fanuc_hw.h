@@ -14,7 +14,7 @@
 #include "sensor_msgs/msg/joint_state.hpp"
 
 #include <fanuc_eth_ip/fanuc_eth_ip.hpp>
-// #include <ros2_fanuc_interface/rmi_driver.h>
+#include <fanuc_rmi/rmi_driver.h>
 
 using hardware_interface::return_type;
 
@@ -35,6 +35,7 @@ class JointComms : public rclcpp::Node
 
     rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr cmd_pub_;
     rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr fb_pub_;
+    rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr cart_fb_pub_;
   private:
 };
 
@@ -70,7 +71,7 @@ private:
   std::vector<std::string> joint_names_; 
   std::vector<double>      joint_pos_  ;
   std::shared_ptr<fanuc_eth_ip> EIP_driver_;
-  // rmi::RMIDriver rmi_driver_;
+  rmi::RMIDriver rmi_driver_;
 
   bool useRMI_;
 

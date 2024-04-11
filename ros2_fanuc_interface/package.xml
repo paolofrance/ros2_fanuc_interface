@@ -29,6 +29,7 @@
   <depend>std_srvs</depend>
   <depend>std_msgs</depend>
   <depend>fanuc_eth_ip</depend>
+  <depend>fanuc_rmi</depend>
 
   <buildtool_depend>rosidl_default_generators</buildtool_depend>
   <exec_depend>rosidl_default_runtime</exec_depend>

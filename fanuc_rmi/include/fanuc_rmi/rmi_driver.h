@@ -23,7 +23,7 @@
 #include <queue>
 #include <atomic>
 #include <memory>
-#include <ros2_fanuc_interface/rmi_communication.h>
+#include <fanuc_rmi/rmi_communication.h>
 
 namespace rmi {
 class RMIDriver {
@@ -45,6 +45,10 @@ class RMIDriver {
     void setState(State state);
     void setTargetPosition(std::vector<double> pos_target_);
     void setTargetPosVel(std::vector<double> pos_target_, int vel_target_, bool fine_motion_);
+
+    bool instruction_parsed_=false;
+    bool read_joint_angles_ok_ = false;
+    std::mutex mtx_ja_;
 
   protected:
 

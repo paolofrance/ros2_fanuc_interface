@@ -43,6 +43,8 @@ namespace rmi {
     READY,
     INITIALIZED,
     RESET,
+    VOID,
+    ABORT,
     ERROR
   } State;
 

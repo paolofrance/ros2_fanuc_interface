@@ -27,6 +27,7 @@ JointComms::JointComms() : Node("fanuc_hw")
 {
   cmd_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("/cmd_j_pos",10);
   fb_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("/fb_j_pos",10);
+  cart_fb_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("/fb_c_pos",10);
 }
 
 
@@ -63,7 +64,7 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
 
   // std::string rmi = info_.hardware_parameters["use_rmi"];
   // boost::algorithm::to_lower(rmi);
-  // RCLCPP_INFO_STREAM(logger_,"\n RMI::" << rmi);  
+  // RCLCPP_FATAL_STREAM(logger_,"\n using RMI" << rmi);  
   // useRMI_ = ( rmi =="true") ? true : false;
 
 
@@ -81,11 +82,9 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
 
   if(useRMI_)
   {
-    RCLCPP_ERROR_STREAM(logger_,"RMI driver not working");
-
-    // if (!rmi_driver_.init(robot_ip, 6))
-      // RCLCPP_ERROR_STREAM(logger_,"RMI non initialized. Robot ip: "<<robot_ip);
-    // RCLCPP_INFO_STREAM(logger_,"RMI  initialized. Robot ip: "<<robot_ip);
+    if (!rmi_driver_.init(robot_ip, 6))
+      RCLCPP_ERROR_STREAM(logger_,"RMI non initialized. Robot ip: "<<robot_ip);
+    RCLCPP_INFO_STREAM(logger_,"RMI  initialized. Robot ip: "<<robot_ip);
   }
   else
   {  
@@ -108,7 +107,7 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
 
   if(useRMI_)
   {
-    // j_pos = rmi_driver_.getPosition();
+    j_pos = rmi_driver_.getPosition();
 
     for(size_t i=0;i<j_pos.size();i++)
       RCLCPP_WARN_STREAM(logger_,j_pos.at(i));
@@ -126,8 +125,7 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
   
   if(useRMI_)
   {
-    // rmi_driver_.setTargetPosition(joint_position_command_);
-    RCLCPP_ERROR_STREAM(logger_,"RMI driver not working");
+    rmi_driver_.setTargetPosition(joint_position_command_);
   }
   else
   {
@@ -183,12 +181,18 @@ return_type FanucHw::read(const rclcpp::Time & /*time*/, const rclcpp::Duration 
   std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
   std::vector<double> jp;
   jp.resize(6);
+  std::vector<double> cp;
+  cp.resize(6);
 
   if(useRMI_) 
-    RCLCPP_ERROR_STREAM(logger_,"RMI driver not working");
-    // jp = rmi_driver_.getPosition();
+  {
+    jp = rmi_driver_.getPosition();
+  }
   else
+  {
     jp = EIP_driver_->get_current_joint_pos();
+    cp = EIP_driver_->get_current_pose();
+  }
 
   for (size_t j = 0; j < joint_position_command_.size(); ++j)
   {
@@ -198,13 +202,22 @@ return_type FanucHw::read(const rclcpp::Time & /*time*/, const rclcpp::Duration 
     RCLCPP_DEBUG_STREAM(logger_,jp[j]);
   }  
   
-  auto msg = sensor_msgs::msg::JointState();
-  msg.header.stamp = comms_->get_clock()->now();
-  msg.name = joint_names_;
-  msg.position = joint_position_;
-  msg.velocity = joint_velocities_;
-  comms_->fb_pub_->publish(msg);
-  
+  {  
+    auto msg = sensor_msgs::msg::JointState();
+    msg.header.stamp = comms_->get_clock()->now();
+    msg.name = joint_names_;
+    msg.position = joint_position_;
+    msg.velocity = joint_velocities_;
+    comms_->fb_pub_->publish(msg);
+  }
+  {
+    auto msg = sensor_msgs::msg::JointState();
+    msg.header.stamp = comms_->get_clock()->now();
+    std::vector<std::string> n = {"x","y","z","Rx","Ry","Rz"};
+    msg.name = n;
+    msg.position = cp;
+    comms_->cart_fb_pub_->publish(msg);
+  }
 
   std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
   RCLCPP_DEBUG_STREAM(logger_,"READ time:  = " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() << "[microseconds]" );
@@ -218,20 +231,23 @@ return_type FanucHw::write(const rclcpp::Time & /*time*/, const rclcpp::Duration
   std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
   if(!read_only_)
   {
-    if(EIP_driver_->read_register(RegisterEnum::MotionStatus) == StatusEnum::Ros )
+    if(useRMI_)
     {
-      RCLCPP_DEBUG_STREAM(logger_,"DPM INACTIVE");
-      if(useRMI_)
-        RCLCPP_ERROR_STREAM(logger_,"RMI driver not working");
-        // rmi_driver_.setTargetPosition(joint_position_command_);
-      else        
-        EIP_driver_->write_pos_register(joint_position_command_);
+      rmi_driver_.setTargetPosition(joint_position_command_);
     }
     else
     {
-      joint_position_command_ = joint_position_;
-      EIP_driver_->write_pos_register(joint_position_command_);
-      RCLCPP_DEBUG_STREAM(logger_,"DPM ACTIVE");
+      if(EIP_driver_->read_register(RegisterEnum::MotionStatus) == StatusEnum::Ros )
+      {
+        RCLCPP_DEBUG_STREAM(logger_,"DPM INACTIVE");
+          EIP_driver_->write_pos_register(joint_position_command_);
+      }
+      else
+      {
+        joint_position_command_ = joint_position_;
+        EIP_driver_->write_pos_register(joint_position_command_);
+        RCLCPP_DEBUG_STREAM(logger_,"DPM ACTIVE");
+      }
     }
   }
 
