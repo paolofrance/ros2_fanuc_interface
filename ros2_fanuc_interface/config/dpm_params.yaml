@@ -1,0 +1,8 @@
+dpm_subscriber:
+  ros__parameters:
+  
+    robot_ip: "10.11.31.111"
+    deformation_topic: /dpm_move
+    rate: 100.0
+
+    
