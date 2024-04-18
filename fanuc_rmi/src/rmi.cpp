@@ -39,7 +39,7 @@ int main(int argc, char * argv[])
   std::shared_ptr< RMI > node = std::make_shared<RMI>();
 
   int joint_number = 6;
-  std::string robot_ip = "10.11.31.111";
+  std::string robot_ip = "10.11.31.101";
   
   rmi::RMIDriver rmi_driver_;
 
@@ -60,17 +60,24 @@ int main(int argc, char * argv[])
   rclcpp::Rate rate(25);
   rclcpp::Rate rate2(100);
 
+  sleep(1);
+  jpos[0]-=0.01;
   rmi_driver_.setTargetPosition(jpos);
   while (!rmi_driver_.instruction_parsed_ && rclcpp::ok())
   {
-    rate2.sleep();
+    rate.sleep();
     // RCLCPP_INFO_STREAM_THROTTLE(node->get_logger(),*node->get_clock(),1000,  "...");
   }
   rmi_driver_.instruction_parsed_=false;
   
+  int cnt =0;
+
   while (rclcpp::ok())
-  {    std::cin.get();
-    jpos[0]-=0.01;
+  {    
+    cnt++;
+    // std::cin.get();
+    // jpos[0]+=0.01;
+    jpos[0]-=0.01*sin(0.5*cnt);
     // delta*=delta;
     // jpos[0]+=delta;
 
@@ -78,6 +85,11 @@ int main(int argc, char * argv[])
     std_msgs::msg::Float32 cmd;
     cmd.data=jpos[0];
     node->cmd_pub_->publish(cmd);
+
+    std::vector<double> jpos_fb = rmi_driver_.getPosition();
+    std_msgs::msg::Float32 fb;
+    fb.data=jpos_fb[0];
+    node->fb_pub_->publish(fb);
     while (!rmi_driver_.instruction_parsed_ && rclcpp::ok())
     {
       rate2.sleep();
@@ -85,13 +97,6 @@ int main(int argc, char * argv[])
     }
     rmi_driver_.instruction_parsed_=false;
 
-    std::vector<double> jpos_fb = rmi_driver_.getPosition();
-    std_msgs::msg::Float32 fb;
-    fb.data=jpos_fb[0];
-    node->fb_pub_->publish(fb);
-
-
-    RCLCPP_FATAL_STREAM(node->get_logger(),  "LOOPING");
     rate.sleep();
 
   }

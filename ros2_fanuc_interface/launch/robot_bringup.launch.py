@@ -45,12 +45,20 @@ def generate_launch_description():
             description="if the robot is read only . ",
         )
     )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "use_rmi",
+            default_value="false",
+            description="if the robot is read only . ",
+        )
+    )
 
     description_package = "crx_description"
     use_mock_hardware = LaunchConfiguration("use_mock_hardware")
     robot_ip = LaunchConfiguration("robot_ip")
     controllers_file = LaunchConfiguration("controllers_file")
     read_only = LaunchConfiguration("read_only")
+    use_rmi = LaunchConfiguration("use_rmi")
     
     
     robot_description_content = Command(
@@ -59,7 +67,8 @@ def generate_launch_description():
             " ",PathJoinSubstitution([FindPackageShare(description_package), "urdf/crx20ia_l/", "crx20ia_l.xacro"]),
             " ", "use_mock_hardware:=", use_mock_hardware,
             " ", "robot_ip:=", robot_ip,
-            # " ", "read_only:=", read_only,
+            " ", "read_only:=", read_only,
+            " ", "use_rmi:=", use_rmi,
         ]
     )
     

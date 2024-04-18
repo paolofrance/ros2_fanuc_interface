@@ -60,12 +60,12 @@ CallbackReturn FanucHw::on_init(const hardware_interface::HardwareInfo & info)
 
 
   // TODO:: add RMI from params when it will be ready
-  useRMI_ = false;
+  // useRMI_ = true;
 
-  // std::string rmi = info_.hardware_parameters["use_rmi"];
-  // boost::algorithm::to_lower(rmi);
-  // RCLCPP_FATAL_STREAM(logger_,"\n using RMI" << rmi);  
-  // useRMI_ = ( rmi =="true") ? true : false;
+  std::string rmi = info_.hardware_parameters["use_rmi"];
+  boost::algorithm::to_lower(rmi);
+  RCLCPP_FATAL_STREAM(logger_,"\n using RMI" << rmi);  
+  useRMI_ = ( rmi =="true") ? true : false;
 
 
 
@@ -187,6 +187,13 @@ return_type FanucHw::read(const rclcpp::Time & /*time*/, const rclcpp::Duration 
   if(useRMI_) 
   {
     jp = rmi_driver_.getPosition();
+
+    rclcpp::Rate rate2(100);
+    while (!rmi_driver_.instruction_parsed_ && rclcpp::ok())
+    {
+      rate2.sleep();
+    }
+    rmi_driver_.instruction_parsed_=false;
   }
   else
   {

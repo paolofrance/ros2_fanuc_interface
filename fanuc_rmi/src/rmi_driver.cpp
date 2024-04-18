@@ -204,13 +204,13 @@ bool RMIDriver::init(std::string ip_, int joint_number_)
 
 
 State RMIDriver::getState() {return state;}
-
-
 Mode RMIDriver::getMode() {return mode;}
+void RMIDriver::getRmiStatus(){sendRequest(rmi_comm.cmd_GetStatus());}
 
 
 std::vector<double> RMIDriver::getPosition()
 {
+  // sendRequest(rmi_comm.cmd_ReadJointAngles());
   pthread_mutex_lock(&lock);
   current_pos.at(0) = double(joint_position.joint_angle_.jnt_1_*pi/180);
   current_pos.at(1) = double(joint_position.joint_angle_.jnt_2_*pi/180);
@@ -322,18 +322,26 @@ void RMIDriver::sendingThreadFunction()
 {
   rclcpp::Clock c;
   rclcpp::Time start = c.now();
+  bool read=true;
   while (alive) {
     if (state == State::INITIALIZED) {
       if (c.now()-start > rclcpp::Duration(0,35000000)) {
         start = c.now();
-        // if(read_joint_angles_ok_)
+        sendRequest(rmi_comm.cmd_ReadJointAngles());
+
+        // std::cout<<"\033[1;31m[RMI DRIVER]: ---------------------------...\033[0m"<<std::endl;
+        // mtx_ja_.lock();
+        // read = read_joint_angles_ok_;
+        // mtx_ja_.unlock();
+        
+        // if(read)
         // {
-        //   sendRequest(rmi_comm.cmd_ReadJointAngles());
         //   mtx_ja_.lock();
         //   read_joint_angles_ok_ = false;
         //   mtx_ja_.unlock();
         // }
-        std::this_thread::sleep_for(std::chrono::milliseconds(40));
+        
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
       }
       if (instruction_list.size() > 0) {
         try {
@@ -347,7 +355,7 @@ void RMIDriver::sendingThreadFunction()
         }
         if(snd_seq_id - rcv_seq_id < 8) {
           sendRequest(instruction_list.front());
-          std::cout<<"\033[1;33minstruction_list.front(): "<<instruction_list.front()<<".\033[0m"<<std::endl;
+          std::cout<<"\033[1;33minstruction_list.front(): "<<instruction_list.front()<<".\033[0m"<<std::endl; // debug
           instruction_list.pop();
           std::this_thread::sleep_for(std::chrono::milliseconds(5));
         }
@@ -402,15 +410,15 @@ int RMIDriver::initSocket(int port_number_)
 
 bool RMIDriver::sendRequest(const std::string msg_out)
 { 
-  std::cout<<"[sendRequest]: request :" <<msg_out<<std::endl<<std::flush;
+  std::cout<<"[sendRequest]: request :" <<msg_out<<std::endl<<std::flush; //debug
   ssize_t sent = ::sendto(socket_descriptor_, msg_out.c_str(), msg_out.length()+1, 0, (const sockaddr *)&socket_address_, socket_address_length_);
   if (sent > 0) 
   {  
-    std::cout<<"[sendRequest]: SENT "<<std::endl<<std::flush;
+    std::cout<<"[sendRequest]: SENT "<<std::endl<<std::flush; // debug
     return true;
   }
   else {
-    std::cout<<"[sendRequest]: NOT SENT "<<std::endl<<std::flush;
+    std::cout<<"[sendRequest]: NOT SENT "<<std::endl<<std::flush;  // debug
     return false;
   }
 }
@@ -472,7 +480,7 @@ bool RMIDriver::parseCommunication(std::string msg_in)
 
 bool RMIDriver::parseCommand(std::string msg_in)
 {
-  std::cout<<"\033[1;32m[parseCommand]: response :" <<msg_in<<"\033[0m"<<std::endl<<std::flush;
+  std::cout<<"\033[1;32m[parseCommand]: response :" <<msg_in<<"\033[0m"<<std::endl<<std::flush;  // debug
   
   if (msg_in.find("FRC_Initialize") != std::string::npos) {
     return parseInitialize(msg_in);
@@ -545,7 +553,7 @@ bool RMIDriver::parseCommand(std::string msg_in)
 
 bool RMIDriver::parseInstruction(std::string msg_in)
 {
-  std::cout<<"\033[1;31[parseInstruction]: "<< msg_in <<".\033[0m"<<std::endl<<std::flush;
+  std::cout<<"\033[1;31[parseInstruction]: "<< msg_in <<".\033[0m"<<std::endl<<std::flush; // debug
   int error_id = std::stoi(msg_in.substr(msg_in.find("ErrorID")+strlen("ErrorID")+4));
   if (error_id != 0) {
     state = State::ERROR;

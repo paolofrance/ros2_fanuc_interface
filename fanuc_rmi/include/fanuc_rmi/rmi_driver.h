@@ -37,6 +37,8 @@ class RMIDriver {
 
     State getState();
     Mode getMode();
+    void getRmiStatus();
+    
     std::vector<double> getPosition();
     std::vector<double> getVelocity();
     std::vector<double> getEffort();

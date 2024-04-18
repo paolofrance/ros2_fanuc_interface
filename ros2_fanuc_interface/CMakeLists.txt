@@ -76,17 +76,6 @@ install(TARGETS
 dpm
 DESTINATION lib/${PROJECT_NAME})
 
-add_executable(rmi src/rmi.cpp)
-
-ament_target_dependencies(
-  rmi
-  ${HW_IF_INCLUDE_DEPENDS}
-  )
-install(TARGETS
-rmi
-DESTINATION lib/${PROJECT_NAME})
-
-
 ament_export_targets(fanuc HAS_LIBRARY_TARGET)
 ament_export_include_directories(include)
 ament_export_dependencies(${HW_IF_INCLUDE_DEPENDS})

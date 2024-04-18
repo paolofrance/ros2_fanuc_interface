@@ -605,6 +605,8 @@ const std::string RMICommunication::ins_JointMotionJRep(int sequence_id_, Motion
   }
   msg.append(std::to_string(term_info_.term_value_));
   //TODO: Add optional parameters
+  msg.append(",\"NoBlend\":\"ON\"");
+  
   msg.append("}\r\n");
   return msg;
 }
@@ -622,7 +624,7 @@ const std::string RMICommunication::ins_LinearMotionJRep(int sequence_id_, Motio
     RCLCPP_ERROR( rclcpp::get_logger("RMI"),"Invalid MotionType requested. Supported values are ABS or REL.");
   }
   msg.append(std::to_string(sequence_id_));
-  msg.append(",\"JointAngle\":{\"J1\":");
+  msg.append(",\"JointAngles\":{\"J1\":");
   msg.append(std::to_string(joint_angle_.jnt_1_));
   msg.append(",\"J2\":");
   msg.append(std::to_string(joint_angle_.jnt_2_));
