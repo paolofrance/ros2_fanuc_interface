@@ -166,7 +166,7 @@ In the [dpm_params.yaml](https://github.com/paolofrance/ros2_fanuc_interface/blo
 
 ## Known issues
 1. execution delay of about 0.2 seconds with Ethernet/IP - reduced compared to the previous version with python
-2. execution/feedback delay of about 0.2 seconds with RMI - To be tested
+2. execution/feedback delay of about 0.6 seconds with RMI - To be tested
 
 ## TODO
 list of known todos and desiderata:  

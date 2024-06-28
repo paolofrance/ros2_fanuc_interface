@@ -49,6 +49,7 @@ RMIDriver::~RMIDriver(){}
 void RMIDriver::closeConnection()
 {
   sendRequest(rmi_comm.cmd_Abort());
+  parseResponse();
   while (state != State::ABORT) {
     auto start = std::chrono::steady_clock::now();
     if ((std::chrono::steady_clock::now()-start) < timeout) {
@@ -71,6 +72,7 @@ void RMIDriver::closeConnection()
     }
   }
   sendRequest(rmi_comm.cmc_Disconnect());
+  parseResponse();
   std::cout<<"\033[1;31m[RMI DRIVER]: disconnect: "<<rmi_comm.cmc_Disconnect()<<"\033[0m"<<std::endl;
   auto start = std::chrono::steady_clock::now();
   while (state != State::DISCONNECTED) {
@@ -112,6 +114,7 @@ bool RMIDriver::init(std::string ip_, int joint_number_)
   //ask RMI for the communication port and connect to it
   if (initSocket(16001) == 0) {
     sendRequest(rmi_comm.cmc_Connect());
+    parseResponse();
     auto start = std::chrono::steady_clock::now();
     while (state != State::CONNECTED) {
       if ((std::chrono::steady_clock::now()-start) < timeout) {
@@ -143,6 +146,7 @@ bool RMIDriver::init(std::string ip_, int joint_number_)
   }
   //check RMI status
   sendRequest(rmi_comm.cmd_GetStatus());
+  parseResponse();
   auto start = std::chrono::steady_clock::now();
   while (state != State::READY) {
     if ((std::chrono::steady_clock::now()-start) < timeout) {
@@ -150,6 +154,7 @@ bool RMIDriver::init(std::string ip_, int joint_number_)
         if(state == State::NOT_READY) {
           state = State::RESET;
           sendRequest(rmi_comm.cmd_Reset());
+          parseResponse();
           std::cout<<"\033[1;33m[RMI DRIVER]: A reset request has been sent.\033[0m"<<std::endl;
         }
         else {
@@ -171,6 +176,7 @@ bool RMIDriver::init(std::string ip_, int joint_number_)
   }
   //command RMI initialization
   sendRequest(rmi_comm.cmd_Initialize());
+  parseResponse();
   start = std::chrono::steady_clock::now();
   while (state != State::INITIALIZED) {
     if ((std::chrono::steady_clock::now()-start) < timeout) {
@@ -192,6 +198,7 @@ bool RMIDriver::init(std::string ip_, int joint_number_)
   }
   std::cout<<"\033[1;32m[RMI DRIVER]: Connection successfully estabilished on "<<connection.ip_address_<<" port "<<connection.port_number_<<"!\033[0m"<<std::endl;
   sendRequest(rmi_comm.cmd_ReadJointAngles());
+  parseResponse();
   while (!read_joint_angles_ok_) {
   std::this_thread::sleep_for(std::chrono::milliseconds(10));
   }
@@ -210,7 +217,9 @@ void RMIDriver::getRmiStatus(){sendRequest(rmi_comm.cmd_GetStatus());}
 
 std::vector<double> RMIDriver::getPosition()
 {
-  // sendRequest(rmi_comm.cmd_ReadJointAngles());
+  sendRequest(rmi_comm.cmd_ReadJointAngles());
+  parseResponse();
+
   pthread_mutex_lock(&lock);
   current_pos.at(0) = double(joint_position.joint_angle_.jnt_1_*pi/180);
   current_pos.at(1) = double(joint_position.joint_angle_.jnt_2_*pi/180);
@@ -262,7 +271,7 @@ void RMIDriver::setTargetPosition(std::vector<double> pos_target_)
     ja.jnt_9_ = float(0.0);
     cmd_seq_id++;
     instruction_list.push(rmi_comm.ins_JointMotionJRep(cmd_seq_id, MotionType::ABS, ja, si, ti));
-    // std::cout<<"\033[1;34m[setTargetPosition] "<<instruction_list.front()<<"\033[0m"<<std::endl<<std::flush;
+    // std::cout<<"\033[1;34m[setTargetPosition] "<<instruction_list.front()<<"\033[0m"<<std::endl<<std::flush; // debug
   }
   else {
     std::cout<<"\033[1;31m[RMI DRIVER]: Requested joint positions is different from set joint number.\033[0m"<<std::endl;
@@ -307,61 +316,62 @@ void RMIDriver::setTargetPosVel(std::vector<double> pos_target_, int vel_target_
 
 void RMIDriver::parsingThreadFunction()
 {
-  while (alive) {
-    parseResponse();
-    if (state == State::ERROR && !shutdown_flag) {
-      shutdown_flag = true;
-      std::cout<<"\033[1;31m[RMI DRIVER]: Error detected, requesting details...\033[0m"<<std::endl;
-      sendRequest(rmi_comm.cmd_ReadError());
-    }
-    std::this_thread::sleep_for(std::chrono::milliseconds(10));
-  }
+  // while (alive) {
+  //   // parseResponse();
+  //   if (state == State::ERROR && !shutdown_flag) {
+  //     shutdown_flag = true;
+  //     std::cout<<"\033[1;31m[RMI DRIVER]: Error detected, requesting details...\033[0m"<<std::endl;
+  //     sendRequest(rmi_comm.cmd_ReadError());
+  //   }
+  //   std::this_thread::sleep_for(std::chrono::milliseconds(10));
+  // }
 }
 
 void RMIDriver::sendingThreadFunction()
 {
-  rclcpp::Clock c;
-  rclcpp::Time start = c.now();
-  bool read=true;
-  while (alive) {
-    if (state == State::INITIALIZED) {
-      if (c.now()-start > rclcpp::Duration(0,35000000)) {
-        start = c.now();
-        sendRequest(rmi_comm.cmd_ReadJointAngles());
+  // rclcpp::Clock c;
+  // rclcpp::Time start = c.now();
+  // bool read=true;
+  // while (alive) {
+  //   if (state == State::INITIALIZED) {
+  //     if (c.now()-start > rclcpp::Duration(0,35000000)) {
+  //       start = c.now();
+  //       // sendRequest(rmi_comm.cmd_ReadJointAngles());
 
-        // std::cout<<"\033[1;31m[RMI DRIVER]: ---------------------------...\033[0m"<<std::endl;
-        // mtx_ja_.lock();
-        // read = read_joint_angles_ok_;
-        // mtx_ja_.unlock();
+  //       // sendRequest(rmi_comm.cmd_GetStatus());
+  //       // std::cout<<"\033[1;31m[RMI DRIVER]: ---------------------------...\033[0m"<<std::endl;
+  //       // mtx_ja_.lock();
+  //       // read = read_joint_angles_ok_;
+  //       // mtx_ja_.unlock();
         
-        // if(read)
-        // {
-        //   mtx_ja_.lock();
-        //   read_joint_angles_ok_ = false;
-        //   mtx_ja_.unlock();
-        // }
+  //       // if(read)
+  //       // {
+  //       //   mtx_ja_.lock();
+  //       //   read_joint_angles_ok_ = false;
+  //       //   mtx_ja_.unlock();
+  //       // }
         
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-      }
-      if (instruction_list.size() > 0) {
-        try {
-          snd_seq_id = std::stoi(instruction_list.front().substr(instruction_list.front().find("SequenceID")+strlen("SequenceID")+2));
-        }
-        catch (std::invalid_argument) {
-          std::cout<<"\033[1;33m[RMI DRIVER]: STOI error.\033[0m"<<std::endl;
-        }
-        catch (std::out_of_range) {
-          std::cout<<"\033[1;33m[RMI DRIVER]: Out of range error.\033[0m"<<std::endl;
-        }
-        if(snd_seq_id - rcv_seq_id < 8) {
-          sendRequest(instruction_list.front());
-          std::cout<<"\033[1;33minstruction_list.front(): "<<instruction_list.front()<<".\033[0m"<<std::endl; // debug
-          instruction_list.pop();
-          std::this_thread::sleep_for(std::chrono::milliseconds(5));
-        }
-      }
-    }
-  }
+  //       std::this_thread::sleep_for(std::chrono::milliseconds(100));
+  //     }
+  //     if (instruction_list.size() > 0) {
+  //       try {
+  //         snd_seq_id = std::stoi(instruction_list.front().substr(instruction_list.front().find("SequenceID")+strlen("SequenceID")+2));
+  //       }
+  //       catch (std::invalid_argument) {
+  //         std::cout<<"\033[1;33m[RMI DRIVER]: STOI error.\033[0m"<<std::endl;
+  //       }
+  //       catch (std::out_of_range) {
+  //         std::cout<<"\033[1;33m[RMI DRIVER]: Out of range error.\033[0m"<<std::endl;
+  //       }
+  //       if(snd_seq_id - rcv_seq_id < 8) {
+  //         // sendRequest(instruction_list.front());
+  //         // std::cout<<"\033[1;33minstruction_list.front(): "<<instruction_list.front()<<".\033[0m"<<std::endl; // debug
+  //         instruction_list.pop();
+  //         std::this_thread::sleep_for(std::chrono::milliseconds(5));
+  //       }
+  //     }
+  //   }
+  // }
   std::queue<std::string> empty;
   std::swap(instruction_list,empty);
 }
@@ -410,15 +420,16 @@ int RMIDriver::initSocket(int port_number_)
 
 bool RMIDriver::sendRequest(const std::string msg_out)
 { 
-  std::cout<<"[sendRequest]: request :" <<msg_out<<std::endl<<std::flush; //debug
+  // if (msg_out.find("Instruction") != std::string::npos)
+    std::cout<<"[sendRequest]: request :" <<msg_out<<std::endl<<std::flush; //debug
   ssize_t sent = ::sendto(socket_descriptor_, msg_out.c_str(), msg_out.length()+1, 0, (const sockaddr *)&socket_address_, socket_address_length_);
   if (sent > 0) 
   {  
-    std::cout<<"[sendRequest]: SENT "<<std::endl<<std::flush; // debug
+    // std::cout<<"[sendRequest]: SENT "<<std::endl<<std::flush; // debug
     return true;
   }
   else {
-    std::cout<<"[sendRequest]: NOT SENT "<<std::endl<<std::flush;  // debug
+    // std::cout<<"[sendRequest]: NOT SENT "<<std::endl<<std::flush;  // debug
     return false;
   }
 }
@@ -428,7 +439,11 @@ bool RMIDriver::parseResponse()
   char msg[1000];
   bool ret = false;
   ssize_t received = ::recvfrom(socket_descriptor_, msg, sizeof(msg), 0, (sockaddr *)&socket_address_, &socket_address_length_);
-
+  while ( !(received > 0)) 
+  {
+    received = ::recvfrom(socket_descriptor_, msg, sizeof(msg), 0, (sockaddr *)&socket_address_, &socket_address_length_);
+      std::cout<<"\033[1;33m[RMI DRIVER]: ---------------------------.\033[0m"<<std::endl;
+  }
   if (received > 0) {
     std::string msg_in(msg,received-3);
     // std::cout<<"\033[1;33m[parseResponse]: msg in :" <<msg_in<<"\033[0m"<<std::endl<<std::flush;
@@ -480,7 +495,7 @@ bool RMIDriver::parseCommunication(std::string msg_in)
 
 bool RMIDriver::parseCommand(std::string msg_in)
 {
-  std::cout<<"\033[1;32m[parseCommand]: response :" <<msg_in<<"\033[0m"<<std::endl<<std::flush;  // debug
+  // std::cout<<"\033[1;32m[parseCommand]: response :" <<msg_in<<"\033[0m"<<std::endl<<std::flush;  // debug
   
   if (msg_in.find("FRC_Initialize") != std::string::npos) {
     return parseInitialize(msg_in);

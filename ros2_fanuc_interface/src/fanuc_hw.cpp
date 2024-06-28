@@ -241,6 +241,14 @@ return_type FanucHw::write(const rclcpp::Time & /*time*/, const rclcpp::Duration
     if(useRMI_)
     {
       rmi_driver_.setTargetPosition(joint_position_command_);
+
+      // rclcpp::Rate rate2(100);
+      // while (!rmi_driver_.instruction_parsed_ && rclcpp::ok())
+      // {
+      //   rate2.sleep();
+      //   RCLCPP_INFO_STREAM(logger_,  "quiii...");
+      // }
+      // rmi_driver_.instruction_parsed_=false;
     }
     else
     {
@@ -269,6 +277,15 @@ return_type FanucHw::write(const rclcpp::Time & /*time*/, const rclcpp::Duration
 
   return return_type::OK;
 }
+
+
+// CallbackReturn FanucHw::on_cleanup(const rclcpp_lifecycle::State & previous_state)
+// {
+//   if (useRMI_)
+//     rmi_driver_.closeConnection();
+// };
+  
+  
 
 
 }  // namespace mock_components

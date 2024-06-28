@@ -63,6 +63,7 @@ int main(int argc, char * argv[])
   sleep(1);
   jpos[0]-=0.01;
   rmi_driver_.setTargetPosition(jpos);
+  rmi_driver_.parseResponse();
   while (!rmi_driver_.instruction_parsed_ && rclcpp::ok())
   {
     rate.sleep();
@@ -82,6 +83,8 @@ int main(int argc, char * argv[])
     // jpos[0]+=delta;
 
     rmi_driver_.setTargetPosition(jpos);
+    rmi_driver_.parseResponse();
+
     std_msgs::msg::Float32 cmd;
     cmd.data=jpos[0];
     node->cmd_pub_->publish(cmd);

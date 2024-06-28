@@ -54,6 +54,8 @@ public:
 
   return_type write(const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/) override;
 
+  // CallbackReturn on_cleanup(const rclcpp_lifecycle::State & previous_state) override;
+
 protected:
 
   const std::vector<std::string> standard_interfaces_ = {

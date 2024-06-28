@@ -52,6 +52,11 @@ class RMIDriver {
     bool read_joint_angles_ok_ = false;
     std::mutex mtx_ja_;
 
+    RMICommunication rmi_comm;
+    
+    bool sendRequest(const std::string msg_out);
+    bool parseResponse();
+
   protected:
 
     void parsingThreadFunction();
@@ -73,7 +78,6 @@ class RMIDriver {
     std::atomic<State> state;
     std::atomic<Mode> mode;
 
-    RMICommunication rmi_comm;
     Connection connection;
     Status status;
     FrameInfo frame_info;
@@ -97,8 +101,6 @@ class RMIDriver {
 
     int initSocket(int port_number_);
     int initSocketNew(int port_number_);
-    bool sendRequest(const std::string msg_out);
-    bool parseResponse();
     bool parseCommunication(std::string msg_in);
     bool parseCommand(std::string msg_in);
     bool parseInstruction(std::string msg_in);
