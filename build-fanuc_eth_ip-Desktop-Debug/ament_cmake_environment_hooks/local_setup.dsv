@@ -1,0 +1,3 @@
+source;share/fanuc_eth_ip/environment/ament_prefix_path.sh
+source;share/fanuc_eth_ip/environment/library_path.sh
+source;share/fanuc_eth_ip/environment/path.sh

@@ -7,10 +7,13 @@
 fanuc_eth_ip::fanuc_eth_ip(std::string ip)
 { 
   ip_=ip;
+  int port = 0xAF12;
 
   try
   {
-    si_.reset( new eipScanner::SessionInfo( ip_, 0xAF12 ) );
+    std::string msg = "Attempting connection with IP address " + ip_ + " : " + std::to_string(port);
+    Logger(LogLevel::ERROR) << msg;
+    si_.reset( new eipScanner::SessionInfo( ip_,  port) );
   }
   catch(const std::exception& e)
   {
