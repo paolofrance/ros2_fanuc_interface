@@ -2,14 +2,18 @@
 
 This package implements ros2 hardware interface for the CRX family Fanuc robots. 
 
+NOTE: this current version is tested for ROS humble. In the branch rolling there is the latest version, always under development. 
 
 ## Installation on the remote PC
 
 
 ### Prerequisites - EIPScanner
+
+This assumes you have the EtherNet/IP Adapter Option loaded on the robot controller, otherwise, you will get connection refused error.
+
 The communication between the external pc and the Fanuc controller happens by means of the [Ethernet/IP](https://en.wikipedia.org/wiki/EtherNet/IP) protocol. 
 In particular, this package relies on the implementation provided in [EIPScanner](https://eipscanner.readthedocs.io/en/latest/).  
-Please, follow the instructoins [here](https://eipscanner.readthedocs.io/en/latest/getting_started.html#installing) to install it.
+Please, download it from [here](https://github.com/nimbuscontrols/EIPScanner), and follow the instructions [here](https://eipscanner.readthedocs.io/en/latest/getting_started.html#installing) to install it.
 
 NOTE: a previous version of this driver used a python driver for the Ethernet/IP communication. Please refer to the [python-driver](https://github.com/paolofrance/ros2_fanuc_interface/tree/python-driver) branch.
 
@@ -36,9 +40,32 @@ If some error appears, please check the Moveit! and ros2_control installation.
 $ sudo apt update
 $ sudo apt upgrade
 $ sudo apt install ros-<distro>-moveit
+$ sudo apt install ros-<distro>-moveit-planners-chomp
 $ sudo apt install ros-<distro>-ros2-control
 $ sudo apt install ros-<distro>-ros2-controllers
 ```
+
+## Content
+
+### fanuc_eth_ip
+
+This package contains the implementation of the communication via Ethernet/IP between the remote PC and the Fanuc controller
+
+### fanuc_rmi
+
+This package contains the implementation of the communication via Remote Motion Interface (RMI) between the remote PC and the Fanuc controller
+
+### fanuc_srvs
+
+This package contains the implementation of several services that permit useful calls to TP programs and interaction with the Fanuc controller.
+Most of the services require TP programs to be written and running as Background Logics, that read Registers to start an action.
+More details will be added in future releases.
+
+### ros2_fanuc_interface
+
+This package implements the Hardware Interface compliant with the Ros2 control framework.
+Allows for controlling the robot via Ethernet/IP and RMI.
+
 
 ## Installation on the robot controller
 
@@ -61,6 +88,16 @@ To use it open a terminal and do the following command:
 ```console
 $ ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_ip:=your.robot.ip.address
 ```
+
+Available parameters are:  
+- "use_mock_hardware" [true/false]: if the real robot is controlled or a virtual one   
+- "controllers_file" ["file location"]: where the list of available ros2_controllers is  
+- "robot_ip" [int]: the IP of the actual robot  
+- "read_only" [true/false]: useful for recording a trajectory under manual guidance  
+- "use_rmi" [true/false]: allows to select the communication method. If true, RMI is used. Otherwise Ethernet/IP.
+
+
+
 #### Real robot - read only
 
 It is sometimes necessary to move the robot from the Teach Pendant, or via manual guidance, but still required to read the joint states (e,g,. Kinestetic teaching). This feature requires no programs running on the TP, and an additional parameter during launch. 
@@ -133,17 +170,17 @@ In the [dpm_params.yaml](https://github.com/paolofrance/ros2_fanuc_interface/blo
 **NOTE**: The DPM is not directly integrated into the Ros2 control framework since it requires Cartesian relative commands. If you want to contribute, please let us know. 
 
 ## Known issues
-1. execution delay of about 0.2 seconds - reduced compared to the previous version with python
+1. execution delay of about 0.2 seconds with Ethernet/IP - reduced compared to the previous version with python
+2. execution/feedback delay of about 0.6 seconds with RMI - To be tested
 
 ## TODO
 list of known todos and desiderata:  
 1. integration of the Fanuc DPM into the ros control framework
-2. implementation of the Fanuc RMI to remove the need for TP programs (the RMI driver already exists)
 
 ## Contacts
 Hardware Interface & Ethernet/IP driver: paolo.franceschi@supsi.ch  
 RMI driver: matteo.lavit@stiima.cnr.it  
-TP fanuc : stefano.baraldo@supsi.ch  
+TP fanuc and services: stefano.baraldo@supsi.ch, andrea.bussolan@supsi.ch  
 Tester and user: vincenzo.pomponi@supsi.ch  
 
 ### Acknowledgements
