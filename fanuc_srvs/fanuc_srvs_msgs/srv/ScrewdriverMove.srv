@@ -1,4 +1,0 @@
-int64 position
-int64 wait
----
-bool success
