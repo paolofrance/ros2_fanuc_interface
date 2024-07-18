@@ -9,6 +9,7 @@ find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_python REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclpy REQUIRED)
+find_package(std_msgs REQUIRED)
 
 find_package(rcpputils REQUIRED)
 
@@ -18,6 +19,7 @@ include_directories(include)
 set(HW_IF_INCLUDE_DEPENDS
   rcpputils
   rclcpp
+  std_msgs
 )
 
 add_library(rmi_communication SHARED  src/rmi_communication.cpp)

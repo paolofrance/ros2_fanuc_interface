@@ -23,8 +23,12 @@ find_package(std_msgs REQUIRED)
 
 find_package(rosidl_default_generators REQUIRED)
 
+find_package(Boost REQUIRED)
+
+
 include_directories(/usr/local/include/EIPScanner)
 include_directories(include srv)
+include_directories( ${Boost_INCLUDE_DIRS} )
 
 set(HW_IF_INCLUDE_DEPENDS
   pluginlib
@@ -32,6 +36,7 @@ set(HW_IF_INCLUDE_DEPENDS
   hardware_interface
   fanuc_eth_ip
   fanuc_rmi
+  Boost
 )
 
 add_library(fanuc SHARED  src/fanuc_hw.cpp)

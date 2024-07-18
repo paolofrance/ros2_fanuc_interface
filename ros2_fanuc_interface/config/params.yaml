@@ -1,6 +1,6 @@
 ros2_fanuc_interface:
   ros__parameters:
-    robot_ip: "10.11.31.111"
+    robot_ip: "192.168.150.1"
     read_only: false
 
 
