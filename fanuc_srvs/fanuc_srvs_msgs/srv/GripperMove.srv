@@ -1,5 +1,0 @@
-int64 position
-int64 velocity
-int64 effort
----
-bool success

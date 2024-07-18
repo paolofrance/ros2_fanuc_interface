@@ -1,5 +1,0 @@
-int64 force
-int64 screw_length
-int64 wait
----
-bool success
