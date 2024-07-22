@@ -1,0 +1,6 @@
+[IPL_FANUC_PLGINS]UNINIT_STR  Storage: UNINIT_DRAM  Access: RW  : STRING[10] = Uninitialized
+
+[IPL_FANUC_PLGINS]MSG_SEVERITY  Storage: CMOS  Access: RW  : INTEGER = Uninitialized
+
+[IPL_FANUC_PLGINS]DCS_ALARM_CODE  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+

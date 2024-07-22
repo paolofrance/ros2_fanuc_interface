@@ -1,0 +1,36 @@
+[IRC_STLABEL]ATTACH_FILES  Storage: DRAM  Access: RW  : ARRAY[3] OF STRING[64]
+  [1] = Uninitialized
+  [2] = Uninitialized
+  [3] = Uninitialized
+
+[IRC_STLABEL]CUR_TIME  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[IRC_STLABEL]CUR_TIME_STR  Storage: DRAM  Access: RW  : STRING[24] = Uninitialized
+
+[IRC_STLABEL]DBG_RC  Storage: DRAM  Access: RW  : BOOLEAN = Uninitialized
+
+[IRC_STLABEL]FILE_NAME  Storage: DRAM  Access: RW  : STRING[64] = Uninitialized
+
+[IRC_STLABEL]IRC_GNRC  Storage: DRAM  Access: RW  : IRC_GNRC_T = 
+   Field: IRC_GNRC.DOSTIME Access: RW: INTEGER = Uninitialized
+   Field: IRC_GNRC.MSGTYPE Access: RW: INTEGER = Uninitialized
+   Field: IRC_GNRC.INT1 Access: RW: INTEGER = Uninitialized
+   Field: IRC_GNRC.INT2 Access: RW: INTEGER = Uninitialized
+   Field: IRC_GNRC.STR1 Access: RW: STRING[128] = Uninitialized
+   Field: IRC_GNRC.STR2 Access: RW: STRING[128] = Uninitialized
+   Field: IRC_GNRC.STR3 Access: RW: STRING[128] = Uninitialized
+
+[IRC_STLABEL]PKRCXMLFILE  Storage: DRAM  Access: RW  : STRING[64] = Uninitialized
+
+[IRC_STLABEL]SEND_EMAIL  Storage: DRAM  Access: RW  : BOOLEAN = Uninitialized
+
+[IRC_STLABEL]SND_PRIORITY  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[IRC_STLABEL]STATUS  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[IRC_STLABEL]THR_DURATION  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[IRC_STLABEL]THR_PRVTIME  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[IRC_STLABEL]TPP_GENCALL  Storage: DRAM  Access: RW  : BOOLEAN = Uninitialized
+

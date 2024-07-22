@@ -1,0 +1,42 @@
+[COMSET]SEARCHCASE  Storage: DRAM  Access: RW  : BOOLEAN = Uninitialized
+
+[COMSET]IFC  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[COMSET]URL  Storage: DRAM  Access: RW  : STRING[128] = Uninitialized
+
+[COMSET]RESPFILE  Storage: DRAM  Access: RW  : STRING[40] = Uninitialized
+
+[COMSET]SCOMMENT  Storage: DRAM  Access: RW  : STRING[128] = Uninitialized
+
+[COMSET]SINDX  Storage: DRAM  Access: RW  : STRING[128] = Uninitialized
+
+[COMSET]SREALFLAG  Storage: DRAM  Access: RW  : STRING[128] = Uninitialized
+
+[COMSET]SFC  Storage: DRAM  Access: RW  : STRING[128] = Uninitialized
+
+[COMSET]SVALUE  Storage: DRAM  Access: RW  : STRING[254] = Uninitialized
+
+[COMSET]SCOPYSTR  Storage: DRAM  Access: RW  : STRING[254] = Uninitialized
+
+[COMSET]N_STATUS  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[COMSET]ICOMMENT_LEN  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[COMSET]IRETSIZE  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[COMSET]FRVRC  Storage: DRAM  Access: RW  : BOOLEAN = Uninitialized
+
+[COMSET]SEARCHFILE  Storage: DRAM  Access: RW  : STRING[40] = Uninitialized
+
+[COMSET]SEARCHCANCEL  Storage: DRAM  Access: RW  : BOOLEAN = Uninitialized
+
+[COMSET]REG_ALMFC  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[COMSET]PREG_ALMFC  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[COMSET]DI_ALMFC  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[COMSET]DO_ALMFC  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[COMSET]FLAG_ALMFC  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+

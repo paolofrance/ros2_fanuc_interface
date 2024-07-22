@@ -1,0 +1,6 @@
+[SET_WCG]CURWCGNO  Storage: CMOS  Access: RW  : INTEGER = Uninitialized
+
+[SET_WCG]REALVAL  Storage: DRAM  Access: RW  : REAL = Uninitialized
+
+[SET_WCG]STRINGVAL  Storage: DRAM  Access: RW  : STRING[21] = Uninitialized
+

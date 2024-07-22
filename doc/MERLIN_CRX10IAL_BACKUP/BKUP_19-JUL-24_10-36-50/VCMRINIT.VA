@@ -1,0 +1,90 @@
+[VCMRINIT]VDETECT_VAR  Storage: CMOS  Access: RW  : VCAL_VD_T = 
+   Field: VDETECT_VAR.VPROG_NAME Access: RW: STRING[36] = Uninitialized
+   Field: VDETECT_VAR.CAMERA_NAME Access: RW: STRING[34] = Uninitialized
+   Field: VDETECT_VAR.TOOL_TYPE Access: RW: INTEGER = Uninitialized
+   Field: VDETECT_VAR.DETECT_TYPE Access: RW: INTEGER = Uninitialized
+   Field: VDETECT_VAR.EXPO_TIME Access: RW: INTEGER = Uninitialized
+   Field: VDETECT_VAR.NUM_MUL_EXPO Access: RW: INTEGER = Uninitialized
+   Field: VDETECT_VAR.NUM_MEP_USB Access: RW: INTEGER = Uninitialized
+   Field: VDETECT_VAR.VIS_XYZ Access: RW: XYZWPR = Uninitialized
+   Field: VDETECT_VAR.LOG_PORT Access: RW: INTEGER = Uninitialized
+   Field: VDETECT_VAR.FOCAL_DIST Access: RW: REAL = Uninitialized
+   Field: VDETECT_VAR.GRID_SPACING Access: RW: REAL = Uninitialized
+   Field: VDETECT_VAR.DISTORT  ARRAY[2] OF REAL
+    [1] = Uninitialized
+    [2] = Uninitialized
+   Field: VDETECT_VAR.OVRRD_FOCUS Access: RW: BOOLEAN = Uninitialized
+   Field: VDETECT_VAR.NUM_RETRY Access: RW: INTEGER = Uninitialized
+   Field: VDETECT_VAR.TRIM_RATIO Access: RW: REAL = Uninitialized
+     Field: VDETECT_VAR.FDOT_T.NUM_ITERATIO Access: RW: INTEGER = Uninitialized
+     Field: VDETECT_VAR.FDOT_T.EQUAL_THRES Access: RW: REAL = Uninitialized
+     Field: VDETECT_VAR.FDOT_T.AREA_THRES Access: RW: REAL = Uninitialized
+     Field: VDETECT_VAR.FDOT_T.ANGLE_THRES Access: RW: REAL = Uninitialized
+     Field: VDETECT_VAR.FDOT_T.DIFF_PITCH Access: RW: REAL = Uninitialized
+     Field: VDETECT_VAR.FDOT_T.CONV_THRES Access: RW: REAL = Uninitialized
+     Field: VDETECT_VAR.FDOT_T.W_P_RATE Access: RW: REAL = Uninitialized
+     Field: VDETECT_VAR.FDOT_T.RESIDUAL_ERR Access: RW: REAL = Uninitialized
+   Field: VDETECT_VAR.LED_TYPE Access: RW: INTEGER = Uninitialized
+   Field: VDETECT_VAR.LED_INTENSIT Access: RW: INTEGER = Uninitialized
+   Field: VDETECT_VAR.$DUMMY18 Access: RW: BYTE = 255
+   Field: VDETECT_VAR.$DUMMY19 Access: RW: BYTE = 255
+
+[VCMRINIT]VFB_VAR  Storage: CMOS  Access: RW  : VCAL_VF_T = 
+   Field: VFB_VAR.TRGT_VAL_VT Access: RW: REAL = Uninitialized
+   Field: VFB_VAR.TRGT_VAL_HZ Access: RW: REAL = Uninitialized
+   Field: VFB_VAR.TRGT_VAL_S Access: RW: REAL = Uninitialized
+   Field: VFB_VAR.VFB_MAT  ARRAY[3,3] OF REAL
+      [1,1] = Uninitialized
+      [1,2] = Uninitialized
+      [1,3] = Uninitialized
+      [2,1] = Uninitialized
+      [2,2] = Uninitialized
+      [2,3] = Uninitialized
+      [3,1] = Uninitialized
+      [3,2] = Uninitialized
+      [3,3] = Uninitialized
+   Field: VFB_VAR.MAT_SIZE Access: RW: REAL = Uninitialized
+   Field: VFB_VAR.VFB_TOL Access: RW: REAL = Uninitialized
+   Field: VFB_VAR.VFB_LIMIT Access: RW: REAL = Uninitialized
+   Field: VFB_VAR.MAX_LOOP Access: RW: INTEGER = Uninitialized
+   Field: VFB_VAR.HAND_EYE Access: RW: BOOLEAN = Uninitialized
+
+[VCMRINIT]MOVE_VAR  Storage: CMOS  Access: RW  : VCAL_MV_T = 
+   Field: MOVE_VAR.ROB_GROUP Access: RW: INTEGER = Uninitialized
+   Field: MOVE_VAR.COMMAND_POS Access: RW: POSITION = Uninitialized
+   Field: MOVE_VAR.VS_SPEED Access: RW: REAL = Uninitialized
+   Field: MOVE_VAR.MAX_RDELAY Access: RW: INTEGER = Uninitialized
+   Field: MOVE_VAR.ROB_AXIS Access: RW: REAL = 8.265251e-40
+   Field: MOVE_VAR.MOTYPE Access: RW: INTEGER = Uninitialized
+
+[VCMRINIT]VTCP_VAR  Storage: CMOS  Access: RW  : VTCPSET_T = 
+   Field: VTCP_VAR.MOVE_DIST_XY Access: RW: REAL = Uninitialized
+   Field: VTCP_VAR.MOVE_DIST_Z Access: RW: REAL = Uninitialized
+   Field: VTCP_VAR.MOVE_DIST_R Access: RW: REAL = Uninitialized
+   Field: VTCP_VAR.MOVE_DIST_W Access: RW: REAL = Uninitialized
+   Field: VTCP_VAR.MOVE_DIST_P Access: RW: REAL = Uninitialized
+   Field: VTCP_VAR.MOVE_DIST_FW Access: RW: REAL = Uninitialized
+   Field: VTCP_VAR.MOVE_DIST_FP Access: RW: REAL = Uninitialized
+   Field: VTCP_VAR.DIV_NUM_Z Access: RW: INTEGER = Uninitialized
+   Field: VTCP_VAR.DIV_NUM_R Access: RW: INTEGER = Uninitialized
+   Field: VTCP_VAR.DIV_NUM_WP Access: RW: INTEGER = Uninitialized
+   Field: VTCP_VAR.DIV_NUM_FWP Access: RW: INTEGER = Uninitialized
+
+[VCMRINIT]SELECT_GRP  Storage: CMOS  Access: RW  : INTEGER = 1
+
+[VCMRINIT]ARG_STR  Storage: DRAM  Access: RW  : STRING[40] = Uninitialized
+
+[VCMRINIT]DATA_TYPE  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[VCMRINIT]DMY_INT  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[VCMRINIT]DMY_REAL  Storage: DRAM  Access: RW  : REAL = Uninitialized
+
+[VCMRINIT]DMY_STR  Storage: DRAM  Access: RW  : STRING[40] = Uninitialized
+
+[VCMRINIT]DMY_STAT  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[VCMRINIT]PARAM_VAL  Storage: DRAM  Access: RW  : STRING[20] = Uninitialized
+
+[VCMRINIT]PRM_SET_DONE  Storage: DRAM  Access: RW  : BOOLEAN = Uninitialized
+

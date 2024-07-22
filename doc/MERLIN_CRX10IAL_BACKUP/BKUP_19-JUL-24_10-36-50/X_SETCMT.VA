@@ -1,0 +1,22 @@
+[X_SETCMT]FILE_NAM2  Storage: DRAM  Access: RW  : STRING[254] = Uninitialized
+
+[X_SETCMT]SILLTERM  Storage: DRAM  Access: RW  : STRING[100] = Uninitialized
+
+[X_SETCMT]IDATATYPE  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[X_SETCMT]INT_VAL  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[X_SETCMT]REAL_VAL  Storage: DRAM  Access: RW  : REAL = Uninitialized
+
+[X_SETCMT]STR_VAL  Storage: DRAM  Access: RW  : STRING[254] = Uninitialized
+
+[X_SETCMT]G_DMY_STAT  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[X_SETCMT]SMYNAME  Storage: DRAM  Access: RW  : STRING[36] = Uninitialized
+
+[X_SETCMT]CHK_TASKNAME  Storage: DRAM  Access: RW  : STRING[36] = Uninitialized
+
+[X_SETCMT]IDEFSRIDX  Storage: CMOS  Access: RW  : INTEGER = Uninitialized
+
+[X_SETCMT]IMAXSREGNUM  Storage: UNINIT_DRAM  Access: RW  : INTEGER = Uninitialized
+

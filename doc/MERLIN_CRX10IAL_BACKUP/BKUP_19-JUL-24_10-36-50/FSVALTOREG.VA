@@ -1,0 +1,38 @@
+[FSVALTOREG]REG  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSVALTOREG]OP  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSVALTOREG]STATUS  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSVALTOREG]STAT  Storage: DRAM  Access: RW  : ARRAY[2] OF INTEGER
+  [1] = Uninitialized
+  [2] = Uninitialized
+
+[FSVALTOREG]ENTRY  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSVALTOREG]IDX  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSVALTOREG]II  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSVALTOREG]STR_VAL  Storage: DRAM  Access: RW  : STRING[5] = Uninitialized
+
+[FSVALTOREG]DATA_TYPE  Storage: DRAM  Access: RW  : ARRAY[2] OF INTEGER
+  [1] = Uninitialized
+  [2] = Uninitialized
+
+[FSVALTOREG]ARG_INT  Storage: DRAM  Access: RW  : ARRAY[2] OF INTEGER
+  [1] = Uninitialized
+  [2] = Uninitialized
+
+[FSVALTOREG]REAL_VAL  Storage: DRAM  Access: RW  : REAL = Uninitialized
+
+[FSVALTOREG]VAL_FS  Storage: DRAM  Access: RW  : ARRAY[6] OF REAL
+  [1] = Uninitialized
+  [2] = Uninitialized
+  [3] = Uninitialized
+  [4] = Uninitialized
+  [5] = Uninitialized
+  [6] = Uninitialized
+
+[FSVALTOREG]MAX_REG_NUM  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+

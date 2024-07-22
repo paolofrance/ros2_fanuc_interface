@@ -1,0 +1,2256 @@
+F Number: E169511
+VERSION : LR HandlingTool      
+$VERSION: V9.40341      1/17/2024
+DATE:     05-MAR-24 02:18 
+DCS Version: V4.5.8
+
+--- Robot setup ------------------------
+                                  Status
+Number of groups: 1                 CHGD
+Scan time: 8 msec                    OK 
+---------- Group 1 ----------       
+Robot: CRX-10iA/L                   CHGD
+Number of axes: 6                   CHGD
+J1: Servo card - Axis 1             CHGD
+J2: Servo card - Axis 2             CHGD
+J3: Servo card - Axis 3             CHGD
+J4: Servo card - Axis 4             CHGD
+J5: Servo card - Axis 5             CHGD
+J6: Servo card - Axis 6             CHGD
+
+
+--- Mastering parameter ----------------
+    Axis  Position  Master count  Status
+---------- Group 1 ----------       
+J1       0.000 deg    75175989      CHGD
+J2       0.000 deg    -2082482      CHGD
+J3       0.000 deg    20091699      CHGD
+J4       0.000 deg   -28449374      CHGD
+J5       0.000 deg    39550183      CHGD
+J6       0.000 deg    -8575159      CHGD
+
+--- Collaborative robot ----------------
+Enable/Disable: ENABLE             CHGD
+Force sensor
+  Serial number:               0    OK 
+Group:                        1    CHGD
+Force Limit 1:          150.00[N]  CHGD
+  Disabling input:       ---[  0]   OK 
+  Payload Error Margin:  60.00[N]   OK 
+Force Limit 2:            0.00[N]   OK 
+  Disabling input:       ---[  0]   OK 
+  Payload Error Margin:  60.00[N]   OK 
+Force Limit 3:            0.00[N]   OK 
+  Disabling input:       ---[  0]   OK 
+  Payload Error Margin:  60.00[N]   OK 
+Force Limit 4:            0.00[N]   OK 
+  Disabling input:       ---[  0]   OK 
+  Payload Error Margin:  60.00[N]   OK 
+Escape:    300.00                  CHGD
+Force Limit Sensitivity:   INST     OK 
+Payload change distance (mm)
+                 +Limit  -Limit 
+             X:    0.00    0.00     OK 
+             Y:    0.00    0.00     OK 
+             Z:    0.00    0.00     OK 
+Rotation limit(deg):         .20   CHGD
+      Enabling input:       [  0]   CHGD
+Password for CONFIRM:   ENABLE     CHGD
+CONFIRM by DI:          DISABLE     OK 
+Speed limit:    750.00 [mm/s]      CHGD
+Use Payload Comp:       DISABLE     OK 
+  Enabling input:            [  0]   OK 
+  Contact Stop enable:   ---[  0]   OK 
+  SAFE:                  ---[  0]   OK 
+  STOP:                  ---[  0]   OK 
+  ESCP:                  ---[  0]   OK 
+  In Payload chg dist:   ---[  0]   OK 
+  Check During moving:  DISABLE     OK 
+  Flex time limit:      DISABLE     OK 
+DCS parameters:
+  Push to Escape:       ENABLE      OK 
+  Retract after Contact:ENABLE      OK 
+  Auto Resume:          DISABLE     OK 
+Use DCS parameters:
+  Push to Escape:       DISABLE     OK 
+  Retract after Contact:DISABLE     OK 
+  Auto Resume:          DISABLE     OK 
+--- Payload setup ----------------------
+PAYLOAD   1
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD   2
+  PAYLOAD   [kg]           10.00   CHGD
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD   3
+  PAYLOAD   [kg]           10.00   CHGD
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD   4
+  PAYLOAD   [kg]           10.00   CHGD
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD   5
+  PAYLOAD   [kg]           10.00   CHGD
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD   6
+  PAYLOAD   [kg]           10.00   CHGD
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD   7
+  PAYLOAD   [kg]           10.00   CHGD
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD   8
+  PAYLOAD   [kg]           10.00   CHGD
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD   9
+  PAYLOAD   [kg]           10.00   CHGD
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  10
+  PAYLOAD   [kg]           10.00   CHGD
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  11
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  12
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  13
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  14
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  15
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  16
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  17
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  18
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  19
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  20
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  21
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  22
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  23
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  24
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  25
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  26
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  27
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  28
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  29
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  30
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  31
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  32
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  33
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  34
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  35
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  36
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  37
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  38
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  39
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  40
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  41
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  42
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  43
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  44
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  45
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  46
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  47
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  48
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  49
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  50
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  51
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  52
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  53
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  54
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  55
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  56
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  57
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  58
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  59
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  60
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  61
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  62
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  63
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  64
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  65
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  66
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  67
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  68
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  69
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  70
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  71
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  72
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  73
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  74
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  75
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  76
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  77
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  78
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  79
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  80
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  81
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  82
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  83
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  84
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  85
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  86
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  87
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  88
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  89
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  90
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  91
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  92
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  93
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  94
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  95
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  96
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  97
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  98
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  99
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  100
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  101
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  102
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  103
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  104
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  105
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  106
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  107
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  108
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  109
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  110
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  111
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  112
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  113
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  114
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  115
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  116
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  117
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  118
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  119
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  120
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  121
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  122
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  123
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  124
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  125
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  126
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  127
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  128
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  129
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  130
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  131
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  132
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  133
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  134
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  135
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  136
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  137
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  138
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  139
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  140
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  141
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  142
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  143
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  144
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  145
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  146
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  147
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  148
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  149
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  150
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  151
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  152
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  153
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  154
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  155
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  156
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  157
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  158
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  159
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  160
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  161
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  162
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  163
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  164
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  165
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  166
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  167
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  168
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  169
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  170
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  171
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  172
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  173
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  174
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  175
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  176
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  177
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  178
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  179
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  180
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  181
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  182
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  183
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  184
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  185
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  186
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  187
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  188
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  189
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  190
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  191
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  192
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  193
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  194
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  195
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  196
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  197
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  198
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  199
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  200
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  201
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  202
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  203
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  204
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  205
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  206
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  207
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  208
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  209
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  210
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  211
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  212
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  213
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  214
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  215
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  216
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  217
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  218
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  219
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  220
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  221
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  222
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  223
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  224
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  225
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  226
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  227
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  228
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  229
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  230
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  231
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  232
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  233
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  234
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  235
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  236
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  237
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  238
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  239
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  240
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  241
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  242
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  243
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  244
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  245
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  246
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  247
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  248
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  249
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  250
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  251
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  252
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  253
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  254
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  255
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+PAYLOAD  256
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+  INERTIA X [kg cm^2]       0.00    OK 
+  INERTIA Y [kg cm^2]       0.00    OK 
+  INERTIA Z [kg cm^2]       0.00    OK 
+ARM LOAD #4
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]           27.00   CHGD
+  CENTER Z  [cm]            0.00    OK 
+ARM LOAD #2
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]          -35.50   CHGD
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]           21.80   CHGD
+ARM LOAD #0
+  PAYLOAD   [kg]            0.00    OK 
+  CENTER X  [cm]            0.00    OK 
+  CENTER Y  [cm]            0.00    OK 
+  CENTER Z  [cm]            0.00    OK 
+Gravity vector
+    X  [mm/(s*s)]           0.00   CHGD
+    Y  [mm/(s*s)]           0.00    OK 
+    Z  [mm/(s*s)]        9800.00   CHGD
+Speed limit for push to escape
+    J1 [deg/s]             18.00   CHGD
+    J2 [deg/s]             18.00   CHGD
+    J3 [deg/s]             37.13   CHGD
+Monitor inverval(ms):        500   CHGD
+Vibration limit(N):        30.00   CHGD
+PayloadErrMargin Lim(N):   60.00   CHGD
+Status chk error lim(N):   60.00   CHGD
+Status chk time lim(s):    90.00   CHGD
+filter length(ms):            32   CHGD
+
+--- Safe I/O device --------------------
+  1 Safe I/O process: I/O connect   OK 
+  2 SFDO Pulse check: ENABLE(PL e) CHGD
+  3 TP Enabling Dev Reset: DISABLE  OK 
+ Configuration                    status
+   ---- Device 1 -------------
+  4 Type:Mini Main board           OK 
+  5 Robot number: 1                 OK 
+  6 Input:  SPI[  1 -   8](PL e)    OK 
+  7 Output: SPO[  0 -   0](PL e)    OK 
+   ---- Device 2 -------------
+  8 Type:Torque Sensor             OK 
+  9 Robot number: 0                 OK 
+ 10 Input:  SPI[  0 -   0](PL e)    OK 
+ 11 Output: SPO[  0 -   0](PL e)    OK 
+   ---- Device 3 -------------
+ 12 Type:Torque Sensor             OK 
+ 13 Robot number: 0                 OK 
+ 14 Input:  SPI[  0 -   0](PL e)    OK 
+ 15 Output: SPO[  0 -   0](PL e)    OK 
+   ---- Device 4 -------------
+ 16 Type:Torque Sensor             OK 
+ 17 Robot number: 0                 OK 
+ 18 Input:  SPI[  0 -   0](PL e)    OK 
+ 19 Output: SPO[  0 -   0](PL e)    OK 
+   ---- Device 5 -------------
+ 20 Type:Torque Sensor             OK 
+ 21 Robot number: 0                 OK 
+ 22 Input:  SPI[  0 -   0](PL e)    OK 
+ 23 Output: SPO[  0 -   0](PL e)    OK 
+   ---- Device 6 -------------
+ 24 Type:Torque Sensor             OK 
+ 25 Robot number: 0                 OK 
+ 26 Input:  SPI[  0 -   0](PL e)    OK 
+ 27 Output: SPO[  0 -   0](PL e)    OK 
+   ---- Device 7 -------------
+ 28 Type:Torque Sensor             OK 
+ 29 Robot number: 0                 OK 
+ 30 Input:  SPI[  0 -   0](PL e)    OK 
+ 31 Output: SPO[  0 -   0](PL e)    OK 
+   ---- Device 8 -------------
+ 32 Type:Torque Sensor             OK 
+ 33 Robot number: 0                 OK 
+ 34 Input:  SPI[  0 -   0](PL e)    OK 
+ 35 Output: SPO[  0 -   0](PL e)    OK 
+   ---- Device 9 -------------
+ 36 Type:Torque Sensor             OK 
+ 37 Robot number: 0                 OK 
+ 38 Input:  SPI[  0 -   0](PL e)    OK 
+ 39 Output: SPO[  0 -   0](PL e)    OK 
+   ---- Device 10 -------------
+ 40 Type:Torque Sensor             OK 
+ 41 Robot number: 0                 OK 
+ 42 Input:  SPI[  0 -   0](PL e)    OK 
+ 43 Output: SPO[  0 -   0](PL e)    OK 
+   ---- Device 11 -------------
+ 44 Type:Torque Sensor             OK 
+ 45 Robot number: 0                 OK 
+ 46 Input:  SPI[  0 -   0](PL e)    OK 
+ 47 Output: SPO[  0 -   0](PL e)    OK 
+   ---- Device 12 -------------
+ 48 Type:Torque Sensor             OK 
+ 49 Robot number: 0                 OK 
+ 50 Input:  SPI[  0 -   0](PL e)    OK 
+ 51 Output: SPO[  0 -   0](PL e)    OK 
+   ---- Device 13 -------------
+ 52 Type:No device                 OK 
+ 53 Robot number: 0                 OK 
+ 54 Input:  SPI[  0 -   0](PL e)    OK 
+ 55 Output: SPO[  0 -   0](PL e)    OK 
+   ---- Device 14 -------------
+ 56 Type:No device                 OK 
+ 57 Robot number: 0                 OK 
+ 58 Input:  SPI[  0 -   0](PL e)    OK 
+ 59 Output: SPO[  0 -   0](PL e)    OK 
+   ---- Device 15 -------------
+ 60 Type:No device                 OK 
+ 61 Robot number: 0                 OK 
+ 62 Input:  SPI[  0 -   0](PL e)    OK 
+ 63 Output: SPO[  0 -   0](PL e)    OK 
+   ---- Device 16 -------------
+ 64 Type:No device                 OK 
+ 65 Robot number: 0                 OK 
+ 66 Input:  SPI[  0 -   0](PL e)    OK 
+ 67 Output: SPO[  0 -   0](PL e)    OK 
+
+--- Signature number (Dec) -------------
+                Current        Latch
+1 Total:        1238058297            0
+  Time:05-MAR-24 02:18              None
+2 Base:        -2091681616            0
+  Time:05-MAR-24 02:18              None
+   Mastering:  -1192054843
+   Robot:        905039960
+   Other:      -1838689637
+3 Pos./Speed:  -1128030488            0
+  Time:05-MAR-24 00:43              None
+4 I/O connect:  -103070267            0
+  Time:05-MAR-24 02:18              None
+

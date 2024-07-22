@@ -1,0 +1,115 @@
+Func       Date      Time    Tick       NavID              Text
+NAV  150 10-JUL-24 18:04:50  ef94 /wizard/guided/netchoice2/setupok 
+KEY   72 10-JUL-24 18:04:50  ef95 /wizard/network/steps Network Setup
+KEY   72 10-JUL-24 18:04:52  f274 /wizard/network/steps Network Setup
+NAV  150 10-JUL-24 18:04:56  f9cd /wizard/network/steps/Port 
+KEY   72 10-JUL-24 18:04:56  f9cd /wizard/network/steps Network Setup
+KEY   72 10-JUL-24 18:04:56  fac7 /wizard/network/steps Network Setup
+NAV  150 10-JUL-24 18:04:58  fe0c /wizard/network/steps/settingsp1 
+KEY   72 10-JUL-24 18:04:58  fe0c /wizard/network/steps Network Setup
+KEY   72 10-JUL-24 18:04:58  ff06 /wizard/network/steps Network Setup
+KEY   72 10-JUL-24 18:05:12  1a41 /wizard/network/steps Network Setup
+KEY   72 10-JUL-24 18:05:12  1a72 /wizard/network/steps Network Setup
+EXIT  72 10-JUL-24 18:05:12  1a73 1631 3 
+KEY   72 10-JUL-24 18:05:34  439d /wizard/network/steps Network Setup
+EXIT  72 10-JUL-24 18:05:34  439d 1631 3 
+KEY   72 10-JUL-24 18:05:54  6bee /wizard/network/steps Network Setup
+EXIT  72 10-JUL-24 18:05:54  6bef 381 115 
+HOME  72 10-JUL-24 18:31:44  3e8d flexuif_home_c Hardkey 
+KEY   72 10-JUL-24 18:31:44  3f8d /nav/core/home HOME
+KEY   72 10-JUL-24 18:31:46  43dd /nav/core/home HOME
+EXIT  72 10-JUL-24 18:31:46  43de 195 1 
+HOME  72 10-JUL-24 18:32:38  a819 flexuif_home_c Hardkey 
+KEY   72 10-JUL-24 18:32:38  a89e /nav/core/home HOME
+KEY   72 10-JUL-24 18:32:40  ae0e /nav/core/home HOME
+EXIT  72 10-JUL-24 18:32:40  ae0f 195 1 
+ERR  150 17-JUL-24 10:41:16  2d4c [fluisoft] must be UIF task 
+KEY   72 17-JUL-24 10:41:18  2ee0 /wizard/guided/steps Initial Setup
+NAV  150 17-JUL-24 10:41:22  3645 /wizard/guided/steps/access 
+KEY   72 17-JUL-24 10:41:22  3646 /wizard/guided/steps Initial Setup
+KEY   72 17-JUL-24 10:41:22  373f /wizard/guided/steps Initial Setup
+NAV  150 17-JUL-24 10:41:24  3b96 /wizard/guided/steps/NetDone 
+KEY   72 17-JUL-24 10:41:24  3b96 /wizard/guided/steps Initial Setup
+KEY   72 17-JUL-24 10:41:24  3c90 /wizard/guided/steps Initial Setup
+NAV  150 17-JUL-24 10:41:26  3e14 /wizard/guided/netchoice2/setupok 
+KEY   72 17-JUL-24 10:41:26  3e14 /wizard/guided/steps Initial Setup
+NOTE  72 17-JUL-24 10:41:26  3f52  Ethernet cable is not connected please check the connection 
+NOOF  72 17-JUL-24 10:41:26  3f52  Ethernet cable is not connected please check the connection 
+NOTE  72 17-JUL-24 10:41:26  40d6  Ethernet cable is not connected please check the connection 
+NOOF  72 17-JUL-24 10:41:26  40d6  Ethernet cable is not connected please check the connection 
+KEY   72 17-JUL-24 10:41:26  40df /wizard/network/steps Network Setup
+NAV  150 17-JUL-24 10:41:42  5d2e /wizard/network/steps/NetTest 
+KEY   72 17-JUL-24 10:41:42  5d2e /wizard/network/steps Network Setup
+NOTE  72 17-JUL-24 10:41:42  5d5a  Ethernet cable is not connected please check the connection 
+KEY   72 17-JUL-24 10:41:42  5e28 /wizard/network/steps/NetTest Robot Web Server
+KEY   72 17-JUL-24 10:41:56  7bb5 /nav/core/wizardkeys/f2 CANCEL
+KEY   72 17-JUL-24 10:42:04  8992 /nav/core/wizardkeys/f2 CANCEL
+KEY   72 17-JUL-24 10:42:08  8fee /wizard/guided/steps Initial Setup
+EXIT  72 17-JUL-24 10:42:08  8fef 195 1 
+KEY   72 17-JUL-24 11:05:06  136e /wizard/guided/steps Initial Setup
+NAV  150 17-JUL-24 11:06:48  dca2 /wizard/guided/netchoice2/setupok 
+KEY   72 17-JUL-24 11:06:48  dca2 /wizard/guided/steps Initial Setup
+NOOF  72 17-JUL-24 11:06:48  dde7  Ethernet cable is not connected please check the connection 
+KEY   72 17-JUL-24 11:06:50  dfbf /wizard/network/steps Network Setup
+NAV  150 17-JUL-24 11:06:56  ece1 /wizard/network/steps/Security 
+KEY   72 17-JUL-24 11:06:56  ece1 /wizard/network/steps Network Setup
+KEY   72 17-JUL-24 11:06:58  eddb /wizard/network/steps Network Setup
+NAV  150 17-JUL-24 11:06:58  ee85 /wizard/network/steps/Intro 
+KEY   72 17-JUL-24 11:06:58  ee86 /wizard/network/steps Network Setup
+KEY   72 17-JUL-24 11:06:58  ef7f /wizard/network/steps Network Setup
+NAV  150 17-JUL-24 11:06:58  f160 /wizard/network/steps/Security 
+KEY   72 17-JUL-24 11:06:58  f161 /wizard/network/steps Network Setup
+KEY   72 17-JUL-24 11:07:00  f25a /wizard/network/steps Network Setup
+NAV  150 17-JUL-24 11:07:06  fe01 /wizard/network/steps/Port 
+KEY   72 17-JUL-24 11:07:06  fe01 /wizard/network/steps Network Setup
+KEY   72 17-JUL-24 11:07:06  fefb /wizard/network/steps Network Setup
+NAV  150 17-JUL-24 11:07:12   cc5 /wizard/network/steps/method 
+KEY   72 17-JUL-24 11:07:12   cc6 /wizard/network/steps Network Setup
+KEY   72 17-JUL-24 11:07:14   dbf /wizard/network/steps Network Setup
+NAV  150 17-JUL-24 11:07:20  191e /wizard/network/steps/Port 
+KEY   72 17-JUL-24 11:07:20  191e /wizard/network/steps Network Setup
+KEY   72 17-JUL-24 11:07:20  1a18 /wizard/network/steps Network Setup
+NAV  150 17-JUL-24 11:07:24  2189 /wizard/network/steps/method 
+KEY   72 17-JUL-24 11:07:24  218a /wizard/network/steps Network Setup
+KEY   72 17-JUL-24 11:07:24  2283 /wizard/network/steps Network Setup
+NAV  150 17-JUL-24 11:07:24  2362 /wizard/network/steps/settingsp1 
+KEY   72 17-JUL-24 11:07:24  2362 /wizard/network/steps Network Setup
+KEY   72 17-JUL-24 11:07:26  245c /wizard/network/steps Network Setup
+NAV  150 17-JUL-24 11:08:12  812c /wizard/network/steps/settingsp1/router 192.168.150.1
+KEY   72 17-JUL-24 11:08:12  812d /wizard/network/steps Network Setup
+NAV  150 17-JUL-24 11:08:12  814d /wizard/network/steps/settingsp1/router 192.168.150.1
+KEY   72 17-JUL-24 11:08:14  8226 /wizard/network/steps Network Setup
+NAV  150 17-JUL-24 11:08:20  8e39 /wizard/network/steps/settingsp1/ipadd 192.168.150.2
+KEY   72 17-JUL-24 11:08:20  8e39 /wizard/network/steps Network Setup
+KEY   72 17-JUL-24 11:08:20  8f33 /wizard/network/steps Network Setup
+NAV  150 17-JUL-24 11:08:28  9f70 /wizard/network/steps/Summary 
+KEY   72 17-JUL-24 11:08:28  9f71 /wizard/network/steps Network Setup
+KEY   72 17-JUL-24 11:08:28  a06a /wizard/network/steps Network Setup
+KEY   72 17-JUL-24 11:08:34  ac4c /wizard/network/steps/NetTest Robot Web Server
+NAV  150 17-JUL-24 11:08:34  aca6 /wizard/network/steps/NetTest 
+KEY   72 17-JUL-24 11:08:34  aca6 /wizard/network/steps/NetTest Robot Web Server
+KEY   72 17-JUL-24 11:08:36  ada0 /wizard/network/steps/NetTest Robot Web Server
+KEY   72 17-JUL-24 11:09:48  3d92 /wizard/guided/steps Initial Setup
+KEY   72 17-JUL-24 11:09:48  3db3 /wizard/guided/steps Initial Setup
+EXIT  72 17-JUL-24 11:09:48  3db4 381 115 
+HOME  72 17-JUL-24 11:41:36  cb31 flexuif_home_c Hardkey 
+KEY   72 17-JUL-24 11:41:36  cbc5 /nav/core/home HOME
+KEY   72 17-JUL-24 11:42:56  66ed /nav/core/home HOME
+KEY   72 17-JUL-24 11:42:58  6a01 /nav/core/home HOME
+KEY   72 17-JUL-24 11:58:40  9a11 /nav/core/home HOME
+EXIT  72 17-JUL-24 11:58:40  9a12 64 1 
+POWR  72 17-JUL-24 13:40:28  5c6b Power Cycle 
+POWR  72 18-JUL-24 12:11:00  5faf Power Cycle 
+KEY   72 18-JUL-24 12:11:38  a531 /nav/core/home HOME
+KEY   72 18-JUL-24 12:17:16  3a48 /nav/core/home HOME
+KEY   72 18-JUL-24 12:17:16  3a49 /nav/core/home HOME
+KEY   72 18-JUL-24 12:17:16  3a6d /nav/core/home HOME
+EXIT  72 18-JUL-24 12:17:16  3a6e 1631 1 
+KEY   72 18-JUL-24 12:17:18  3c99 /nav/core/home HOME
+KEY   72 18-JUL-24 12:17:22  43dd /nav/core/home HOME
+KEY   72 18-JUL-24 12:17:22  43ec /nav/core/home HOME
+EXIT  72 18-JUL-24 12:17:22  43ed 74 1 
+HOME  72 18-JUL-24 12:23:46  3342 flexuif_home_c Hardkey 
+KEY   72 18-JUL-24 12:23:46  33e8 /nav/core/home HOME
+KEY   72 18-JUL-24 12:23:54  410c /nav/core/home HOME
+EXIT  72 18-JUL-24 12:23:54  410d 37 1 

@@ -1,0 +1,40 @@
+F Number: E169511
+VERSION : LR HandlingTool      
+$VERSION: V9.40341      1/17/2024
+DATE:     19-JUL-24 10:37 
+
+IO CONFIGURATION::
+
+DIN   81  -  88   RACK:  48   SLOT:   1   PORT:  13
+DIN  101  - 112   RACK:  48   SLOT:   1   PORT:   1
+DOUT   81  -  84   RACK:  48   SLOT:   1   PORT:  13
+DOUT  101  - 112   RACK:  48   SLOT:   1   PORT:   1
+UI[   1] *IMSTP
+UI    1  -   1   RACK:  35   SLOT:   1   PORT:   1
+UI[   2] *Hold
+UI    2  -   2   RACK:  48   SLOT:   1   PORT:  13
+UI[   3] *SFSPD
+UI    3  -   3   RACK:  35   SLOT:   1   PORT:   1
+UI[   4] Cycle stop
+UI    4  -   4   RACK:  48   SLOT:   1   PORT:  14
+UI[   5] Fault reset
+UI    5  -   5   RACK:  48   SLOT:   1   PORT:  14
+UI[   6] Start
+UI    6  -   6   RACK:  48   SLOT:   1   PORT:  15
+UI[   8] Enable
+UI    8  -   8   RACK:  48   SLOT:   1   PORT:  16
+UI[   9] RSR1/PNS1/STYLE1
+UI[  10] RSR2/PNS2/STYLE2
+UI[  11] RSR3/PNS3/STYLE3
+UI[  12] RSR4/PNS4/STYLE4
+UI    9  -  12   RACK:  48   SLOT:   1   PORT:  17
+UI[  17] PNS strobe
+UI   17  -  17   RACK:  48   SLOT:   1   PORT:  15
+UO[   1] Cmd enabled
+UO    1  -   1   RACK:  48   SLOT:   1   PORT:  13
+UO[   6] Fault
+UO    6  -   6   RACK:  48   SLOT:   1   PORT:  14
+UO[   9] Batt alarm
+UO    9  -   9   RACK:  48   SLOT:   1   PORT:  15
+UO[  10] Busy
+UO   10  -  10   RACK:  48   SLOT:   1   PORT:  16

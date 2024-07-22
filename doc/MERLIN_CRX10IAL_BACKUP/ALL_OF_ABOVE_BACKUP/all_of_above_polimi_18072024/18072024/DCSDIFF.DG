@@ -1,0 +1,21 @@
+F Number: E169511
+VERSION : LR HandlingTool      
+$VERSION: V9.40341      1/17/2024
+DATE:     18-JUL-24 12:28 
+DCS Version: V4.5.8
+
+
+--- Signature number (Dec) -------------
+                Current        Latch
+1 Total:         623485650            0
+  Time:26-MAR-24 12:10              None
+2 Base:         -380485076            0
+  Time:26-MAR-24 12:10              None
+   Mastering:  -1192054843
+   Robot:        905039960
+   Other:       2144525643
+3 Pos./Speed:  -1128030488            0
+  Time:05-MAR-24 00:43              None
+4 I/O connect:  -103070267            0
+  Time:05-MAR-24 02:18              None
+

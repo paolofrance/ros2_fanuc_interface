@@ -1,0 +1,103 @@
+<?xml version='1.0'?>
+<!-- WinTPE Custom Toolbar -->
+
+<!-- Require Spot Softpart -->
+<TOOLBAR>
+<BUTTON pos='10'
+REQUIRE='SPPG'
+TEXT='ISO CONT'
+TEXTKN='ºÝÀ¸À'
+IMAGE='iso_cont.png'
+LINE='ISO CONTACTOR[OPEN];'
+/>
+<BUTTON pos='10'
+REQUIRE='SPPG'
+TEXT='GUN CONT'
+TEXTKN='¶ÞÝ ºÝÀ¸À'
+IMAGE='gun_cont.png'
+LINE='GUN CONTACTOR[OPEN];'
+/>
+<BUTTON pos='10'
+REQUIRE='SPPG'
+TEXT='RST STEP'
+TEXTKN='½Ã¯Êß Ø¾¯Ä'
+IMAGE='r_step.png'
+LINE='RESET STEPPER[WC=1,SN=1,SV=0];'
+/>
+<BUTTON pos='10'
+REQUIRE='SPPG'
+TEXT='RST WELDER'
+TEXTKN='Ö³¾Â· Ø¾¯Ä'
+IMAGE='r_welder.png'
+LINE='RESET WELDER[WC=1];'
+/>
+<BUTTON pos='10'
+REQUIRE='SPPG'
+TEXT='RST WATER'
+TEXTKN='Ú²·¬¸· Ø¾¯Ä'
+IMAGE='r_water.png'
+LINE='RESET WATER SAVER;'
+/>
+<BUTTON pos='10'
+REQUIRE='SPPG'
+TEXT='SPOT[...]'
+TEXTKN='½Îß¯Ä[...]'
+IMAGE='spot.png'
+LINE='SPOT[S=1];'
+/>
+<BUTTON pos='10'
+REQUIRE='SPPG'
+TEXT='TIPDRESS'
+LINE='TIPDRESS[SD=1,P=1,TD=1,ED=1]'
+/>
+
+<!-- Require Arc Softpart -->
+<BUTTON pos='10'
+REQUIRE='AWSP'
+TEXT='WELDSTRT'
+TEXTKN='Ö³¾Â¶²¼'
+IMAGE='arc_strt.png'
+LINE='Weld Start[...,...]'
+/>
+<BUTTON pos='10'
+REQUIRE='AWSP'
+TEXT='WELDEND'
+TEXTKN='Ö³µ¾ÂµÜØ'
+IMAGE='arc_end.png'
+LINE='Weld End[...,...]'
+/>
+<BUTTON pos='10'
+REQUIRE='AWSP'
+TEXT='WS[,V,I,s]'
+IMAGE='arcpstrt.png'
+LINE='Weld Start[0, 0.00Volts, 0.0Amps, 0.0s]'
+/>
+<BUTTON pos='10'
+REQUIRE='AWSP'
+TEXT='WE[,V,I,s]'
+IMAGE='arcpend.png'
+LINE='Weld End[0, 0.00Volts, 0.0Amps, 0.0s]'
+/>
+
+<!-- Arithmetic -->
+<BUTTON pos='14'
+TEXT='R[...]'
+TEXTKN='Ú¼Þ[...]'
+IMAGE='reg_r.png'
+LINE='R[...]=...'
+/>
+
+<BUTTON pos='15'
+TEXT='JMP - LBL'
+TEXTKN='¼Þ¬ÝÌß - ×ÍÞÙ'
+IMAGE='jmp_jmp1.png'
+LINE='JMP LBL[...]; LBL[...]'
+/>
+<BUTTON pos='15'
+TEXT='LBL - JMP'
+TEXTKN='×ÍÞÙ - ¼Þ¬ÝÌß'
+IMAGE='jmp_lbl3.png'
+LINE='LBL[...]; JMP LBL[...]'
+/>
+
+</TOOLBAR>

@@ -1,0 +1,10 @@
+[FSSETHAND]DATA_TYPE  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSSETHAND]INT_VAL  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSSETHAND]REAL_VAL  Storage: DRAM  Access: RW  : REAL = Uninitialized
+
+[FSSETHAND]STRING_VAL  Storage: DRAM  Access: RW  : STRING[40] = Uninitialized
+
+[FSSETHAND]STATUS  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+

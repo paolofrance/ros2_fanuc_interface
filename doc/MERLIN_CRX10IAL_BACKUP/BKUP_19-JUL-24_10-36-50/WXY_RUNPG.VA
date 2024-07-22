@@ -1,0 +1,16 @@
+[WXY_RUNPG]BINITDONE  Storage: UNINIT_DRAM  Access: RW  : BOOLEAN = TRUE
+
+[WXY_RUNPG]NUM_COLD_PROGRAMS  Storage: DRAM  Access: RW  : INTEGER = 0
+
+[WXY_RUNPG]COLD_PROGRAMS  Storage: DRAM  Access: RW  : ARRAY[10] OF STRING[40]
+  [1] = Uninitialized
+  [2] = Uninitialized
+  [3] = Uninitialized
+  [4] = Uninitialized
+  [5] = Uninitialized
+  [6] = Uninitialized
+  [7] = Uninitialized
+  [8] = Uninitialized
+  [9] = Uninitialized
+  [10] = Uninitialized
+

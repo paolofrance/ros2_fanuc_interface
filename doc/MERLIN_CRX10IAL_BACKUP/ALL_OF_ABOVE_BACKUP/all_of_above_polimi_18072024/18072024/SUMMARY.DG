@@ -1,0 +1,1263 @@
+<H2><A NAME="1">Version Information</A></H2>
+<PRE><A HREF="#TOP">[TOP]</A><br>
+F Number: E169511
+VERSION : LR HandlingTool      
+$VERSION: V9.40341      1/17/2024
+DATE:     18-JUL-24 12:27 
+
+VERSION INFORMATION::
+SOFTWARE:              ID:
+LR HandlingTool       7DF5/55
+S/W Serial No.      : 88340     
+Controller ID       : 8240347   
+Robot No.           : E169511
+Manufacturing ID    : E169511
+Default Personality (from FD) 
+CRX-10iA/L            V9.40P/55 
+Servo Code          : V14.00    
+Cart. Mot. Parameter: V3.00
+JNT. Mot. Parameter : V3.00
+DCS                 : V4.5.8
+Stop pattern        : D
+Software Edition No.: V9.40P/55 
+Update Version      : None
+Customization Ver.  : None
+Root Version        : V9.40341  
+Boot MONITOR        : V9.40P/26
+Teach Pendant       : 7D0A/01P
+Browser Plugins     : 
+TP Core Firmware    : 
+TP Operating System : 
+HTML5 Browser       : N/A
+FPGA Version        : 15
+Media from FRL        01/19/2024
+
+CONFIG::
+FEATURE:              ORD NO:
+LR HandlingTool       H551
+English Dictionary    H521
+4D Standard           R782
+Analog I/O            H550
+Angle Shift           J614
+Auto Software Update  ATUP
+Automatic Backup      J545
+Background Editing    J616
+Camera I/F            VCAM
+Common calib UIF      CUIF
+Condition Monitor     J628
+Control Reliable      CNRE
+DHCP                  R526
+Data Acquisition      R631
+Diagnostic log        RSCH
+Displaying License    LICE
+Document Viewer       DOCV
+Dual Check Safety UIF DCSU
+Enhanced UIF          R869
+Enhanced User Frame   J604
+Ext. DIO Config       EIOC
+Extended Error Log    R542
+Extended User Frames  R696
+External DI BWD       ESET
+FCTN Menu Save        J516
+FTP Interface         J716
+GigE Interface        R681
+Group Mask Exchange   MASK
+HTTP Proxy Svr        PRXY
+High-Speed Skip       J627
+Host Communications   HOCO
+Hour Meter            J513
+I/O Interconnect 2    J542
+Incr Instruction      J510
+Incremental Jog       J637
+KAREL Cmd. Language   J650
+KAREL Run-Time Env    J539
+Kernel + Basic S/W    H510
+License Checker       LCHK
+LogBook(System)       OPLG
+MACROs, Skip/Offset   J503
+MH Core               MHCR
+MMR Motion log        PSLG
+Mate controller       MATE
+MechStop Protection   MCSP
+Mirror Shift          J506
+Mixed logic           J554
+Mode Switch           MDSW
+Motion Diag. Core     MDCO
+Motion Optm. Core     OPCO
+Motion Profiler       MPRO
+Motion logger         R637
+Multi-Tasking         J600
+PCM function          PCMF
+Palletizing           J500
+Position Registers    J514
+Print Function        J507
+Prog Num Selection    J515
+Program Adjust        J517
+Program Shift         J505
+Program Status        PRST
+Program Viewer        J697
+RDM Robot Discovery   FRDM
+Realtime Freq Anlys   FREQ
+Remote Conn Standard  RMCN
+Robot Servo Code      H930
+SNPX basic            SNBA
+SNTP Client           R610
+Shift Library         SHLB
+Shift and Mirror Lib  SMLB
+Socket Messaging      R636
+TCP Auto Set          J520
+TCP/IP Interface      HTCP
+TMILIB Interface      TMIL
+TP Firmware           R789
+TP Menu Accounting    TPAC
+TPTX                  TPTX
+Telnet Interface      TELN
+Tool Offset           J509
+Torque Simulator I/F  J882
+Touch Panel           R781
+Trouble Diag. & Prev. J958
+Tutorial              TUTO
+USR EVNT              UEVT
+Unexcepted motn Check UECK
+User Frame            UFRM
+VCalibration Common   VCCM
+Vision Core           VCOR
+Vision Library        VIPL
+Vision SP CSCX        CSCX
+Vision SP CSGE        CSGE
+Vision SP CSUI        CSUI
+Web Plus              WEBP
+Web Server            HTTP
+Web Svr Enhancements  R626
+ZDT Application       R882
+ZDT EOAT Setup        ATUI
+iPendant              CGTP
+iPendant Grid Display IGUI
+iPendant Setup        IPGS
+iRCalib. Standard     IRCL
+iRDiag Core           DGCO
+CRX-10iA/L            H705
+All Smooth Stop       J651
+AutoSingularityAvoidM R512
+Constant Path         R663
+Customer Reg          J508
+Cycle Time Priority   J523
+DCS Basic Pos. check  J556
+DCS Joint Pos check   DCSJ
+DCS Joint Speed check J555
+DCS Safe I/O connect  J568
+DCS collabo Robot     CLLB
+Domain Name Serv.     J755
+Dyn Path Modifier     R739
+Enhanced PMC Editor   S501
+FRL Params            R651
+Gravity Compensation  J649
+HMI Device (SNPX)     R553
+Internet Conn/Custo   R558
+Jog in Auto Mode      R694
+Maint Reminder Plus   J766
+Maintenance Reminder  J771
+Mini Controller       S526
+PC Interface          R641
+Password Protection   J541
+ROS Ethernet Packets  R603
+Remote Motion         R912
+Singularity Avoidance R792
+Smooth Stop Upgrade   J548
+Tablet TP             S527
+Wrist down motion     WNSP
+Zero Down Time Option R854
+iRDiagnostics         R765
+iRProgrammer          J767
+64MB DRAM             D064
+64MB FROM             F064
+Auto SingularityAvoid RTSA
+CR Flight Data        CRDT
+CRX standard options  CRXO
+Cell I/O              CLIO
+Common shell          R645
+Common shell core     CMSC
+Common softpanel      CMSP
+Common style select   STYL
+Corner Region         R654
+Cycle time Opt.       CTOP
+DCS Pos./speed common DCSC
+Demo Control          R769
+Disp 2nd analog port  R528
+EMAIL Enhancements    JNN8
+Email Client          JNN7
+Enhanced Rob Serv Req ORSR
+Enhanced T1 Mode      R680
+FC Basic Common       FCBC
+FC FsMonitor          FCFM
+FC Help               FCHP
+FC Robot Type         FCRT
+FCwithIntegratedSns   FCIS
+Force Control Core    FCCR
+Include Remote TP     JCGT
+MCMGR                 MCMG
+MPG jog               MPGJ
+MR Standard           MRST
+Motion Stream         R584
+NetFront              NETF
+No memory card        NOMC
+OPC-UA                OPCU
+OPT TP Ins            OPIS
+PC Send Macros        SEND
+Plugin API            PAPI
+Plugin Installer      PLUG
+Prod Status Display   R868
+Real Simple Syn.(RSS) R679
+Requires CP           CPRQ
+Robot Library Setup   RLCM
+Robot Service Request SRSR
+SIMPLE FC UI          CCSU
+SMB Client            R677
+SSPC error text       ETSS
+Smooth Stop common    SMSC
+Space Check           J609
+TCPP Extention        TCPE
+Tablet UI Path Teach  TEDT
+Tool Interface        S601
+Track Instruction     TOAW
+Tracking Softpart     TRAK
+iHMI Inst             INST
+iHMI UIF Components   IHCP
+istdpnl               IPNL
+
+CONFIG2::
+DEMO. FEATURE:        ORD NO:
+
+MOTOR::
+    GR: AX:     MOTOR ID AND INFO:
+     1   1     biS1/6000-B 40A H1 DSP1-S1
+     1   2     biS1/6000-B 40A H2 DSP1-S2
+     1   3     biS1/6000-B 40A H3 DSP1-S3
+     1   4   biS0.3/6000-B 10A H4 DSP1-S4
+     1   5   biS0.3/6000-B 10A H5 DSP1-S5
+     1   6   biS0.3/6000-B 10A H6 DSP1-S6
+
+SERVO::
+GROUP: AXIS:  SERVO PARAM ID:
+     1   1    P01.03
+     1   2    P01.03
+     1   3    P01.03
+     1   4    P01.03
+     1   5    P01.03
+     1   6    P01.03
+
+
+</PRE><H2><A NAME="2">Memory Detail</A></H2>
+<PRE><A HREF="#TOP">[TOP]</A><P>
+
+MEMORY USAGE::
+
+MEMORY DETAIL (MAIN):
+Pools        TOTAL     AVAILABLE      LARGEST
+TPP         1000.0KB     918.9KB     918.8KB
+PERM        3002.0KB     963.5KB     962.2KB
+SYSTEM     14095.8KB       2.2KB       2.2KB
+SHADOW      3349.2KB    1874.9KB      32.0KB
+PAGE      724990.8KB  608061.6KB  608061.6KB
+TEMP      269085.4KB  240218.5KB  218297.5KB
+FROM      236922.0KB  134511.5KB
+
+HARDWARE
+FROM     240MB
+DRAM    1024MB
+SRAM       3MB
+
+MEMORY DETAIL (MAIN - TASKS):
+TASK        TOTAL     AVAILABLE     LARGEST   REALLOC
+   1       62.8KB        23.2KB      21.3KB      0
+   2       62.8KB        40.6KB      40.6KB      0
+   3       62.8KB        40.9KB      40.9KB      0
+   4       62.8KB        36.6KB      36.6KB      0
+   5      126.8KB        88.5KB      87.9KB      0
+   6       62.8KB        40.9KB      40.9KB      0
+   7       62.8KB        40.9KB      40.9KB      0
+   8       62.8KB        40.9KB      40.9KB      0
+   9       62.8KB        40.9KB      40.9KB      0
+  10       62.8KB        32.9KB      32.9KB      0
+  34       62.8KB        62.8KB      62.8KB      0
+  35     2398.8KB       589.8KB     507.8KB      0
+  36     1518.8KB       979.6KB     978.6KB      0
+  37       62.8KB        62.1KB      62.1KB      0
+  38     2062.8KB       124.1KB     124.1KB      0
+  39     4586.5KB      4521.9KB     346.4KB     13
+  40       62.8KB        62.1KB      62.1KB      0
+  41      134.8KB        49.6KB      43.8KB      1
+  42      126.8KB        59.9KB      59.8KB      0
+  43       62.8KB        62.8KB      62.8KB      0
+  46      126.8KB        57.8KB      57.8KB      0
+  47      270.8KB       204.1KB     204.1KB      0
+  51       62.8KB        61.1KB      61.1KB      0
+  52     7998.8KB      7811.7KB    7811.4KB      0
+  54       62.8KB        49.9KB      49.9KB      0
+  55       62.8KB        60.0KB      60.0KB      0
+  63       62.8KB        57.6KB      57.5KB      0
+  71      126.8KB       125.9KB      78.3KB      0
+  72     4274.6KB      4225.6KB     348.0KB     11
+  73       62.8KB        62.1KB      62.1KB      0
+  74       62.8KB        62.0KB      62.0KB      0
+  76      254.8KB       172.2KB      73.4KB      0
+  77       62.8KB        51.0KB      51.0KB      0
+  78      254.8KB       234.0KB     234.0KB      0
+  79       62.8KB        62.1KB      62.1KB      0
+  99       62.8KB        62.1KB      62.1KB      0
+ 100       62.8KB        60.5KB      60.5KB      0
+ 101       62.8KB        53.9KB      53.9KB      0
+ 102       94.8KB        94.1KB      94.1KB      0
+ 103       94.8KB        94.1KB      94.1KB      0
+ 104       94.8KB        94.1KB      94.1KB      0
+ 105       94.8KB        94.1KB      94.1KB      0
+ 106       94.8KB        94.1KB      94.1KB      0
+ 107       94.8KB        94.1KB      94.1KB      0
+ 108       94.8KB        20.0KB      20.0KB      0
+ 109      958.8KB       860.5KB     564.4KB      0
+ 111     9862.8KB        66.1KB      66.1KB      0
+ 112     6158.8KB      3578.6KB    3578.6KB      0
+ 113       62.8KB        62.1KB      62.1KB      0
+ 114       62.8KB        62.1KB      62.1KB      0
+ 115       62.8KB        62.0KB      62.0KB      0
+ 119      254.8KB       230.0KB     230.0KB      0
+ 125       62.8KB        62.1KB      62.1KB      0
+ 136       62.8KB        52.7KB      52.7KB      0
+ 138       62.8KB        62.1KB      62.1KB      0
+ 139       62.8KB        62.1KB      62.1KB      0
+ 150      382.8KB       368.2KB     368.2KB      0
+ 153       62.8KB        61.2KB      61.2KB      0
+ 159     4094.8KB      2325.1KB    2325.1KB      0
+ 170      894.5KB       893.7KB      64.0KB     13
+ 171       62.8KB        57.1KB      57.1KB      0
+ 182      126.8KB        84.0KB      82.4KB      0
+ 186      126.8KB       116.2KB     116.2KB      0
+ 188       62.8KB        62.4KB      62.4KB      0
+ 189       62.8KB        62.4KB      62.4KB      0
+ 190       62.8KB        62.4KB      62.4KB      0
+ 191       62.8KB        62.4KB      62.4KB      0
+ 193       62.8KB        60.6KB      60.6KB      0
+ 196      210.8KB        45.1KB      18.0KB      2
+ 198       62.8KB        62.0KB      62.0KB      0
+ 199       62.8KB        62.4KB      62.4KB      0
+ 203       62.8KB        62.0KB      62.0KB      0
+ 204       62.8KB        53.5KB      53.5KB      0
+ 207       62.8KB        62.1KB      62.1KB      0
+ 209       62.8KB        61.2KB      60.5KB      0
+ 210       62.8KB        43.6KB      43.6KB      0
+ 211       62.8KB        61.9KB      61.9KB      0
+ 214     1278.8KB      1278.1KB    1278.1KB      0
+ 217       62.8KB        12.3KB      12.3KB      0
+ 221       62.8KB        54.6KB      54.6KB      0
+ 224      574.6KB       547.8KB      64.0KB      8
+ 225       62.8KB        62.0KB      62.0KB      0
+ 231       62.8KB        35.9KB      35.9KB      0
+ 232       62.8KB        62.1KB      62.1KB      0
+ 239      126.8KB       126.1KB     126.1KB      0
+ 240      262.8KB       199.0KB     196.6KB      0
+ 241     1534.8KB        57.1KB      57.1KB      0
+ 252       62.8KB        59.6KB      59.6KB      0
+ 256       62.8KB        62.8KB      62.8KB      0
+ 257       62.8KB        62.8KB      62.8KB      0
+ 258       62.8KB        62.8KB      62.8KB      0
+ 259       62.8KB        62.8KB      62.8KB      0
+ 260       62.8KB        62.8KB      62.8KB      0
+ 261       62.8KB        62.8KB      62.8KB      0
+ 262       62.8KB        62.8KB      62.8KB      0
+ 263       62.8KB        62.8KB      62.8KB      0
+ 264       62.8KB        62.8KB      62.8KB      0
+ 265       62.8KB        62.8KB      62.8KB      0
+ 297      338.8KB       262.9KB     262.9KB      0
+ 300       62.8KB        43.3KB      33.0KB      0
+ 317       62.8KB        62.1KB      62.1KB      0
+ 322     9618.8KB      8866.0KB    7593.7KB      0
+ 323       62.8KB        62.1KB      62.1KB      0
+ 332       62.8KB        59.8KB      59.8KB      0
+ 336       62.8KB        62.1KB      62.1KB      0
+ 337      490.8KB         4.3KB       3.4KB      0
+ 341       62.8KB        62.1KB      62.1KB      0
+ 347       62.8KB        62.1KB      62.1KB      0
+
+MEMORY DETAIL (COMM):
+Pools        TOTAL     AVAILABLE      LARGEST
+TPP            0.0KB       0.0KB       0.0KB
+PERM          48.0KB      47.7KB      47.7KB
+SYSTEM      5632.0KB    4927.3KB    4927.3KB
+SHADOW      3349.2KB    1874.9KB      32.0KB
+TEMP        8736.4KB    6343.4KB    6170.3KB
+TEACH PENDANT:
+Total -    0.0KB   Current -   0.0KB    Minimum -    0.0KB
+</PRE><H2><A NAME="3">Program Status Information</A></H2>
+<PRE><A HREF="#TOP">[TOP]</A><P>
+
+TASK STATES:
+
+1      SWIMSET status = ABORTED
+
+******  History Data  ******
+Routine depth: 0  Routine: SWIMSET                             
+Line:   348       Program: SWIMSET                               Type: PC    
+
+2       FSDTCH status = ABORTED
+
+******  History Data  ******
+Routine depth: 0  Routine: FSDTCH                              
+Line:    76       Program: FSDTCH                                Type: PC    
+
+3  ZDTMSGTYPES status = ABORTED
+
+******  History Data  ******
+Routine depth: 0  Routine: ZDTMSGTYPES                         
+Line:   599       Program: ZDTMSGTYPES                           Type: PC    
+
+4     CRXCONFG status = ABORTED
+
+******  History Data  ******
+Routine depth: 0  Routine: CRXCONFG                            
+Line:   241       Program: CRXCONFG                              Type: PC    
+
+5      CRXINIT status = ABORTED
+
+******  History Data  ******
+Routine depth: 0  Routine: CRXINIT                             
+Line:    92       Program: CRXINIT                               Type: PC    
+
+6  WXY_COLDRUN status = ABORTED
+
+******  History Data  ******
+Routine depth: 0  Routine: WXY_COLDRUN                         
+Line:   940       Program: WXY_COLDRUN                           Type: PC    
+
+7     USR_EVT2 status = ABORTED
+
+******  History Data  ******
+Routine depth: 0  Routine: USR_EVT2                            
+Line:   223       Program: USR_EVT2                              Type: PC    
+
+8       PSCOLD status = ABORTED
+
+******  History Data  ******
+Routine depth: 0  Routine: PSCOLD                              
+Line:    93       Program: PSCOLD                                Type: PC    
+
+9     SYRSRUTL status = ABORTED
+
+******  History Data  ******
+Routine depth: 0  Routine: SYRSRUTL                            
+Line:    63       Program: SYRSRUTL                              Type: PC    
+
+10      ATSHELL RUNNING @ 1069 in ATSHELL of ATSHELL
+
+******  History Data  ******
+Routine depth: 0  Routine: ATSHELL                             
+Line:  1069       Program: ATSHELL                               Type: PC    
+
+
+</PRE><H2><A NAME="4">I/O status information</A></H2>
+<PRE><A HREF="#TOP"></A><P>
+
+IO STATUS::
+
+DIN[  81] OFF  
+DIN[  82] OFF  
+DIN[  83] OFF  
+DIN[  84] OFF  
+DIN[  85] OFF  
+DIN[  86] OFF  
+DIN[  87] OFF  
+DIN[  88] OFF  
+DIN[ 101] OFF  
+DIN[ 102] OFF  
+DIN[ 103] OFF  
+DIN[ 104] OFF  
+DIN[ 105] OFF  
+DIN[ 106] OFF  
+DIN[ 107] OFF  
+DIN[ 108] OFF  
+DIN[ 109] OFF  
+DIN[ 110] OFF  
+DIN[ 111] OFF  
+DIN[ 112] OFF  
+DOUT[  81] OFF  
+DOUT[  82] OFF  
+DOUT[  83] OFF  
+DOUT[  84] OFF  
+DOUT[ 101] OFF  
+DOUT[ 102] OFF  
+DOUT[ 103] OFF  
+DOUT[ 104] OFF  
+DOUT[ 105] OFF  
+DOUT[ 106] OFF  
+DOUT[ 107] OFF  
+DOUT[ 108] OFF  
+DOUT[ 109] OFF  
+DOUT[ 110] OFF  
+DOUT[ 111] OFF  
+DOUT[ 112] OFF  
+UI[   1]  ON  *IMSTP
+UI[   2] OFF  *Hold
+UI[   3]  ON  *SFSPD
+UI[   4] OFF  Cycle stop
+UI[   5] OFF  Fault reset
+UI[   6] OFF  Start
+UI[   8] OFF  Enable
+UI[   9] OFF  RSR1/PNS1/STYLE1
+UI[  10] OFF  RSR2/PNS2/STYLE2
+UI[  11] OFF  RSR3/PNS3/STYLE3
+UI[  12] OFF  RSR4/PNS4/STYLE4
+UI[  17] OFF  PNS strobe
+UO[   1] OFF  Cmd enabled
+UO[   6] OFF  Fault
+UO[   9] OFF  Batt alarm
+UO[  10] OFF  Busy
+SI[   1] OFF  Fault reset
+SI[   2] OFF  Remote
+SI[   3]  ON  Hold
+SI[   4] OFF  
+SI[   5] OFF  
+SI[   6] OFF  Cycle start
+SI[   7] OFF  
+SI[   8]  ON  CE/CR Select b0
+SI[   9]  ON  CE/CR Select b1
+SI[  10] OFF  
+SI[  11] OFF  
+SI[  12] OFF  
+SI[  13] OFF  
+SI[  14] OFF  
+SI[  15] OFF  
+SI[  16]  ON  
+SO[   1] OFF  Cycle start
+SO[   2] OFF  Hold
+SO[   3] OFF  Fault LED
+SO[   4] OFF  Batt alarm
+SO[   5] OFF  
+SO[   6] OFF  
+SO[   7] OFF  TP enabled
+SO[   8] OFF  
+SO[   9] OFF  
+SO[  10] OFF  
+SO[  11] OFF  
+SO[  12] OFF  
+SO[  13] OFF  
+SO[  14] OFF  
+SO[  15] OFF  
+SO[  16] OFF  
+RI[   1] OFF  
+RI[   2] OFF  
+RI[   3] OFF  
+RI[   4] OFF  
+RI[   5] OFF  
+RI[   6] OFF  
+RI[   7] OFF  
+RI[   8] OFF  
+RO[   1] OFF  Vacuum Off
+RO[   2] OFF  Vacuum On
+RO[   3] OFF  
+RO[   4] OFF  
+RO[   5] OFF  
+RO[   6] OFF  
+RO[   7] OFF  
+RO[   8] OFF  
+FLG[   1] OFF                            FLG[ 513] OFF                          
+FLG[   2] OFF                            FLG[ 514] OFF                          
+FLG[   3] OFF                            FLG[ 515] OFF                          
+FLG[   4] OFF                            FLG[ 516] OFF                          
+FLG[   5] OFF                            FLG[ 517] OFF                          
+FLG[   6] OFF                            FLG[ 518] OFF                          
+FLG[   7] OFF                            FLG[ 519] OFF                          
+FLG[   8] OFF                            FLG[ 520] OFF                          
+FLG[   9] OFF                            FLG[ 521] OFF                          
+FLG[  10] OFF                            FLG[ 522] OFF                          
+FLG[  11] OFF                            FLG[ 523] OFF                          
+FLG[  12] OFF                            FLG[ 524] OFF                          
+FLG[  13] OFF                            FLG[ 525] OFF                          
+FLG[  14] OFF                            FLG[ 526] OFF                          
+FLG[  15] OFF                            FLG[ 527] OFF                          
+FLG[  16] OFF                            FLG[ 528] OFF                          
+FLG[  17] OFF                            FLG[ 529] OFF                          
+FLG[  18] OFF                            FLG[ 530] OFF                          
+FLG[  19] OFF                            FLG[ 531] OFF                          
+FLG[  20] OFF                            FLG[ 532] OFF                          
+FLG[  21] OFF                            FLG[ 533] OFF                          
+FLG[  22] OFF                            FLG[ 534] OFF                          
+FLG[  23] OFF                            FLG[ 535] OFF                          
+FLG[  24] OFF                            FLG[ 536] OFF                          
+FLG[  25] OFF                            FLG[ 537] OFF                          
+FLG[  26] OFF                            FLG[ 538] OFF                          
+FLG[  27] OFF                            FLG[ 539] OFF                          
+FLG[  28] OFF                            FLG[ 540] OFF                          
+FLG[  29] OFF                            FLG[ 541] OFF                          
+FLG[  30] OFF                            FLG[ 542] OFF                          
+FLG[  31] OFF                            FLG[ 543] OFF                          
+FLG[  32] OFF                            FLG[ 544] OFF                          
+FLG[  33] OFF                            FLG[ 545] OFF                          
+FLG[  34] OFF                            FLG[ 546] OFF                          
+FLG[  35] OFF                            FLG[ 547] OFF                          
+FLG[  36] OFF                            FLG[ 548] OFF                          
+FLG[  37] OFF                            FLG[ 549] OFF                          
+FLG[  38] OFF                            FLG[ 550] OFF                          
+FLG[  39] OFF                            FLG[ 551] OFF                          
+FLG[  40] OFF                            FLG[ 552] OFF                          
+FLG[  41] OFF                            FLG[ 553] OFF                          
+FLG[  42] OFF                            FLG[ 554] OFF                          
+FLG[  43] OFF                            FLG[ 555] OFF                          
+FLG[  44] OFF                            FLG[ 556] OFF                          
+FLG[  45] OFF                            FLG[ 557] OFF                          
+FLG[  46] OFF                            FLG[ 558] OFF                          
+FLG[  47] OFF                            FLG[ 559] OFF                          
+FLG[  48] OFF                            FLG[ 560] OFF                          
+FLG[  49] OFF                            FLG[ 561] OFF                          
+FLG[  50] OFF                            FLG[ 562] OFF                          
+FLG[  51] OFF                            FLG[ 563] OFF                          
+FLG[  52] OFF                            FLG[ 564] OFF                          
+FLG[  53] OFF                            FLG[ 565] OFF                          
+FLG[  54] OFF                            FLG[ 566] OFF                          
+FLG[  55] OFF                            FLG[ 567] OFF                          
+FLG[  56] OFF                            FLG[ 568] OFF                          
+FLG[  57] OFF                            FLG[ 569] OFF                          
+FLG[  58] OFF                            FLG[ 570] OFF                          
+FLG[  59] OFF                            FLG[ 571] OFF                          
+FLG[  60] OFF                            FLG[ 572] OFF                          
+FLG[  61] OFF                            FLG[ 573] OFF                          
+FLG[  62] OFF                            FLG[ 574] OFF                          
+FLG[  63] OFF                            FLG[ 575] OFF                          
+FLG[  64] OFF                            FLG[ 576] OFF                          
+FLG[  65] OFF                            FLG[ 577] OFF                          
+FLG[  66] OFF                            FLG[ 578] OFF                          
+FLG[  67] OFF                            FLG[ 579] OFF                          
+FLG[  68] OFF                            FLG[ 580] OFF                          
+FLG[  69] OFF                            FLG[ 581] OFF                          
+FLG[  70] OFF                            FLG[ 582] OFF                          
+FLG[  71] OFF                            FLG[ 583] OFF                          
+FLG[  72] OFF                            FLG[ 584] OFF                          
+FLG[  73] OFF                            FLG[ 585] OFF                          
+FLG[  74] OFF                            FLG[ 586] OFF                          
+FLG[  75] OFF                            FLG[ 587] OFF                          
+FLG[  76] OFF                            FLG[ 588] OFF                          
+FLG[  77] OFF                            FLG[ 589] OFF                          
+FLG[  78] OFF                            FLG[ 590] OFF                          
+FLG[  79] OFF                            FLG[ 591] OFF                          
+FLG[  80] OFF                            FLG[ 592] OFF                          
+FLG[  81] OFF                            FLG[ 593] OFF                          
+FLG[  82] OFF                            FLG[ 594] OFF                          
+FLG[  83] OFF                            FLG[ 595] OFF                          
+FLG[  84] OFF                            FLG[ 596] OFF                          
+FLG[  85] OFF                            FLG[ 597] OFF                          
+FLG[  86] OFF                            FLG[ 598] OFF                          
+FLG[  87] OFF                            FLG[ 599] OFF                          
+FLG[  88] OFF                            FLG[ 600] OFF                          
+FLG[  89] OFF                            FLG[ 601] OFF                          
+FLG[  90] OFF                            FLG[ 602] OFF                          
+FLG[  91] OFF                            FLG[ 603] OFF                          
+FLG[  92] OFF                            FLG[ 604] OFF                          
+FLG[  93] OFF                            FLG[ 605] OFF                          
+FLG[  94] OFF                            FLG[ 606] OFF                          
+FLG[  95] OFF                            FLG[ 607] OFF                          
+FLG[  96] OFF                            FLG[ 608] OFF                          
+FLG[  97] OFF                            FLG[ 609] OFF                          
+FLG[  98] OFF                            FLG[ 610] OFF                          
+FLG[  99] OFF                            FLG[ 611] OFF                          
+FLG[ 100] OFF                            FLG[ 612] OFF                          
+FLG[ 101] OFF                            FLG[ 613] OFF                          
+FLG[ 102] OFF                            FLG[ 614] OFF                          
+FLG[ 103] OFF                            FLG[ 615] OFF                          
+FLG[ 104] OFF                            FLG[ 616] OFF                          
+FLG[ 105] OFF                            FLG[ 617] OFF                          
+FLG[ 106] OFF                            FLG[ 618] OFF                          
+FLG[ 107] OFF                            FLG[ 619] OFF                          
+FLG[ 108] OFF                            FLG[ 620] OFF                          
+FLG[ 109] OFF                            FLG[ 621] OFF                          
+FLG[ 110] OFF                            FLG[ 622] OFF                          
+FLG[ 111] OFF                            FLG[ 623] OFF                          
+FLG[ 112] OFF                            FLG[ 624] OFF                          
+FLG[ 113] OFF                            FLG[ 625] OFF                          
+FLG[ 114] OFF                            FLG[ 626] OFF                          
+FLG[ 115] OFF                            FLG[ 627] OFF                          
+FLG[ 116] OFF                            FLG[ 628] OFF                          
+FLG[ 117] OFF                            FLG[ 629] OFF                          
+FLG[ 118] OFF                            FLG[ 630] OFF                          
+FLG[ 119] OFF                            FLG[ 631] OFF                          
+FLG[ 120] OFF                            FLG[ 632] OFF                          
+FLG[ 121] OFF                            FLG[ 633] OFF                          
+FLG[ 122] OFF                            FLG[ 634] OFF                          
+FLG[ 123] OFF                            FLG[ 635] OFF                          
+FLG[ 124] OFF                            FLG[ 636] OFF                          
+FLG[ 125] OFF                            FLG[ 637] OFF                          
+FLG[ 126] OFF                            FLG[ 638] OFF                          
+FLG[ 127] OFF                            FLG[ 639] OFF                          
+FLG[ 128] OFF                            FLG[ 640] OFF                          
+FLG[ 129] OFF                            FLG[ 641] OFF                          
+FLG[ 130] OFF                            FLG[ 642] OFF                          
+FLG[ 131] OFF                            FLG[ 643] OFF                          
+FLG[ 132] OFF                            FLG[ 644] OFF                          
+FLG[ 133] OFF                            FLG[ 645] OFF                          
+FLG[ 134] OFF                            FLG[ 646] OFF                          
+FLG[ 135] OFF                            FLG[ 647] OFF                          
+FLG[ 136] OFF                            FLG[ 648] OFF                          
+FLG[ 137] OFF                            FLG[ 649] OFF                          
+FLG[ 138] OFF                            FLG[ 650] OFF                          
+FLG[ 139] OFF                            FLG[ 651] OFF                          
+FLG[ 140] OFF                            FLG[ 652] OFF                          
+FLG[ 141] OFF                            FLG[ 653] OFF                          
+FLG[ 142] OFF                            FLG[ 654] OFF                          
+FLG[ 143] OFF                            FLG[ 655] OFF                          
+FLG[ 144] OFF                            FLG[ 656] OFF                          
+FLG[ 145] OFF                            FLG[ 657] OFF                          
+FLG[ 146] OFF                            FLG[ 658] OFF                          
+FLG[ 147] OFF                            FLG[ 659] OFF                          
+FLG[ 148] OFF                            FLG[ 660] OFF                          
+FLG[ 149] OFF                            FLG[ 661] OFF                          
+FLG[ 150] OFF                            FLG[ 662] OFF                          
+FLG[ 151] OFF                            FLG[ 663] OFF                          
+FLG[ 152] OFF                            FLG[ 664] OFF                          
+FLG[ 153] OFF                            FLG[ 665] OFF                          
+FLG[ 154] OFF                            FLG[ 666] OFF                          
+FLG[ 155] OFF                            FLG[ 667] OFF                          
+FLG[ 156] OFF                            FLG[ 668] OFF                          
+FLG[ 157] OFF                            FLG[ 669] OFF                          
+FLG[ 158] OFF                            FLG[ 670] OFF                          
+FLG[ 159] OFF                            FLG[ 671] OFF                          
+FLG[ 160] OFF                            FLG[ 672] OFF                          
+FLG[ 161] OFF                            FLG[ 673] OFF                          
+FLG[ 162] OFF                            FLG[ 674] OFF                          
+FLG[ 163] OFF                            FLG[ 675] OFF                          
+FLG[ 164] OFF                            FLG[ 676] OFF                          
+FLG[ 165] OFF                            FLG[ 677] OFF                          
+FLG[ 166] OFF                            FLG[ 678] OFF                          
+FLG[ 167] OFF                            FLG[ 679] OFF                          
+FLG[ 168] OFF                            FLG[ 680] OFF                          
+FLG[ 169] OFF                            FLG[ 681] OFF                          
+FLG[ 170] OFF                            FLG[ 682] OFF                          
+FLG[ 171] OFF                            FLG[ 683] OFF                          
+FLG[ 172] OFF                            FLG[ 684] OFF                          
+FLG[ 173] OFF                            FLG[ 685] OFF                          
+FLG[ 174] OFF                            FLG[ 686] OFF                          
+FLG[ 175] OFF                            FLG[ 687] OFF                          
+FLG[ 176] OFF                            FLG[ 688] OFF                          
+FLG[ 177] OFF                            FLG[ 689] OFF                          
+FLG[ 178] OFF                            FLG[ 690] OFF                          
+FLG[ 179] OFF                            FLG[ 691] OFF                          
+FLG[ 180] OFF                            FLG[ 692] OFF                          
+FLG[ 181] OFF                            FLG[ 693] OFF                          
+FLG[ 182] OFF                            FLG[ 694] OFF                          
+FLG[ 183] OFF                            FLG[ 695] OFF                          
+FLG[ 184] OFF                            FLG[ 696] OFF                          
+FLG[ 185] OFF                            FLG[ 697] OFF                          
+FLG[ 186] OFF                            FLG[ 698] OFF                          
+FLG[ 187] OFF                            FLG[ 699] OFF                          
+FLG[ 188] OFF                            FLG[ 700] OFF                          
+FLG[ 189] OFF                            FLG[ 701] OFF                          
+FLG[ 190] OFF                            FLG[ 702] OFF                          
+FLG[ 191] OFF                            FLG[ 703] OFF                          
+FLG[ 192] OFF                            FLG[ 704] OFF                          
+FLG[ 193] OFF                            FLG[ 705] OFF                          
+FLG[ 194] OFF                            FLG[ 706] OFF                          
+FLG[ 195] OFF                            FLG[ 707] OFF                          
+FLG[ 196] OFF                            FLG[ 708] OFF                          
+FLG[ 197] OFF                            FLG[ 709] OFF                          
+FLG[ 198] OFF                            FLG[ 710] OFF                          
+FLG[ 199] OFF                            FLG[ 711] OFF                          
+FLG[ 200] OFF                            FLG[ 712] OFF                          
+FLG[ 201] OFF                            FLG[ 713] OFF                          
+FLG[ 202] OFF                            FLG[ 714] OFF                          
+FLG[ 203] OFF                            FLG[ 715] OFF                          
+FLG[ 204] OFF                            FLG[ 716] OFF                          
+FLG[ 205] OFF                            FLG[ 717] OFF                          
+FLG[ 206] OFF                            FLG[ 718] OFF                          
+FLG[ 207] OFF                            FLG[ 719] OFF                          
+FLG[ 208] OFF                            FLG[ 720] OFF                          
+FLG[ 209] OFF                            FLG[ 721] OFF                          
+FLG[ 210] OFF                            FLG[ 722] OFF                          
+FLG[ 211] OFF                            FLG[ 723] OFF                          
+FLG[ 212] OFF                            FLG[ 724] OFF                          
+FLG[ 213] OFF                            FLG[ 725] OFF                          
+FLG[ 214] OFF                            FLG[ 726] OFF                          
+FLG[ 215] OFF                            FLG[ 727] OFF                          
+FLG[ 216] OFF                            FLG[ 728] OFF                          
+FLG[ 217] OFF                            FLG[ 729] OFF                          
+FLG[ 218] OFF                            FLG[ 730] OFF                          
+FLG[ 219] OFF                            FLG[ 731] OFF                          
+FLG[ 220] OFF                            FLG[ 732] OFF                          
+FLG[ 221] OFF                            FLG[ 733] OFF                          
+FLG[ 222] OFF                            FLG[ 734] OFF                          
+FLG[ 223] OFF                            FLG[ 735] OFF                          
+FLG[ 224] OFF                            FLG[ 736] OFF                          
+FLG[ 225] OFF                            FLG[ 737] OFF                          
+FLG[ 226] OFF                            FLG[ 738] OFF                          
+FLG[ 227] OFF                            FLG[ 739] OFF                          
+FLG[ 228] OFF                            FLG[ 740] OFF                          
+FLG[ 229] OFF                            FLG[ 741] OFF                          
+FLG[ 230] OFF                            FLG[ 742] OFF                          
+FLG[ 231] OFF                            FLG[ 743] OFF                          
+FLG[ 232] OFF                            FLG[ 744] OFF                          
+FLG[ 233] OFF                            FLG[ 745] OFF                          
+FLG[ 234] OFF                            FLG[ 746] OFF                          
+FLG[ 235] OFF                            FLG[ 747] OFF                          
+FLG[ 236] OFF                            FLG[ 748] OFF                          
+FLG[ 237] OFF                            FLG[ 749] OFF                          
+FLG[ 238] OFF                            FLG[ 750] OFF                          
+FLG[ 239] OFF                            FLG[ 751] OFF                          
+FLG[ 240] OFF                            FLG[ 752] OFF                          
+FLG[ 241] OFF                            FLG[ 753] OFF                          
+FLG[ 242] OFF                            FLG[ 754] OFF                          
+FLG[ 243] OFF                            FLG[ 755] OFF                          
+FLG[ 244] OFF                            FLG[ 756] OFF                          
+FLG[ 245] OFF                            FLG[ 757] OFF                          
+FLG[ 246] OFF                            FLG[ 758] OFF                          
+FLG[ 247] OFF                            FLG[ 759] OFF                          
+FLG[ 248] OFF                            FLG[ 760] OFF                          
+FLG[ 249] OFF                            FLG[ 761] OFF                          
+FLG[ 250] OFF                            FLG[ 762] OFF                          
+FLG[ 251] OFF                            FLG[ 763] OFF                          
+FLG[ 252] OFF                            FLG[ 764] OFF                          
+FLG[ 253] OFF                            FLG[ 765] OFF                          
+FLG[ 254] OFF                            FLG[ 766] OFF                          
+FLG[ 255] OFF                            FLG[ 767] OFF                          
+FLG[ 256] OFF                            FLG[ 768] OFF                          
+FLG[ 257] OFF                            FLG[ 769] OFF                          
+FLG[ 258] OFF                            FLG[ 770] OFF                          
+FLG[ 259] OFF                            FLG[ 771] OFF                          
+FLG[ 260] OFF                            FLG[ 772] OFF                          
+FLG[ 261] OFF                            FLG[ 773] OFF                          
+FLG[ 262] OFF                            FLG[ 774] OFF                          
+FLG[ 263] OFF                            FLG[ 775] OFF                          
+FLG[ 264] OFF                            FLG[ 776] OFF                          
+FLG[ 265] OFF                            FLG[ 777] OFF                          
+FLG[ 266] OFF                            FLG[ 778] OFF                          
+FLG[ 267] OFF                            FLG[ 779] OFF                          
+FLG[ 268] OFF                            FLG[ 780] OFF                          
+FLG[ 269] OFF                            FLG[ 781] OFF                          
+FLG[ 270] OFF                            FLG[ 782] OFF                          
+FLG[ 271] OFF                            FLG[ 783] OFF                          
+FLG[ 272] OFF                            FLG[ 784] OFF                          
+FLG[ 273] OFF                            FLG[ 785] OFF                          
+FLG[ 274] OFF                            FLG[ 786] OFF                          
+FLG[ 275] OFF                            FLG[ 787] OFF                          
+FLG[ 276] OFF                            FLG[ 788] OFF                          
+FLG[ 277] OFF                            FLG[ 789] OFF                          
+FLG[ 278] OFF                            FLG[ 790] OFF                          
+FLG[ 279] OFF                            FLG[ 791] OFF                          
+FLG[ 280] OFF                            FLG[ 792] OFF                          
+FLG[ 281] OFF                            FLG[ 793] OFF                          
+FLG[ 282] OFF                            FLG[ 794] OFF                          
+FLG[ 283] OFF                            FLG[ 795] OFF                          
+FLG[ 284] OFF                            FLG[ 796] OFF                          
+FLG[ 285] OFF                            FLG[ 797] OFF                          
+FLG[ 286] OFF                            FLG[ 798] OFF                          
+FLG[ 287] OFF                            FLG[ 799] OFF                          
+FLG[ 288] OFF                            FLG[ 800] OFF                          
+FLG[ 289] OFF                            FLG[ 801] OFF                          
+FLG[ 290] OFF                            FLG[ 802] OFF                          
+FLG[ 291] OFF                            FLG[ 803] OFF                          
+FLG[ 292] OFF                            FLG[ 804] OFF                          
+FLG[ 293] OFF                            FLG[ 805] OFF                          
+FLG[ 294] OFF                            FLG[ 806] OFF                          
+FLG[ 295] OFF                            FLG[ 807] OFF                          
+FLG[ 296] OFF                            FLG[ 808] OFF                          
+FLG[ 297] OFF                            FLG[ 809] OFF                          
+FLG[ 298] OFF                            FLG[ 810] OFF                          
+FLG[ 299] OFF                            FLG[ 811] OFF                          
+FLG[ 300] OFF                            FLG[ 812] OFF                          
+FLG[ 301] OFF                            FLG[ 813] OFF                          
+FLG[ 302] OFF                            FLG[ 814] OFF                          
+FLG[ 303] OFF                            FLG[ 815] OFF                          
+FLG[ 304] OFF                            FLG[ 816] OFF                          
+FLG[ 305] OFF                            FLG[ 817] OFF                          
+FLG[ 306] OFF                            FLG[ 818] OFF                          
+FLG[ 307] OFF                            FLG[ 819] OFF                          
+FLG[ 308] OFF                            FLG[ 820] OFF                          
+FLG[ 309] OFF                            FLG[ 821] OFF                          
+FLG[ 310] OFF                            FLG[ 822] OFF                          
+FLG[ 311] OFF                            FLG[ 823] OFF                          
+FLG[ 312] OFF                            FLG[ 824] OFF                          
+FLG[ 313] OFF                            FLG[ 825] OFF                          
+FLG[ 314] OFF                            FLG[ 826] OFF                          
+FLG[ 315] OFF                            FLG[ 827] OFF                          
+FLG[ 316] OFF                            FLG[ 828] OFF                          
+FLG[ 317] OFF                            FLG[ 829] OFF                          
+FLG[ 318] OFF                            FLG[ 830] OFF                          
+FLG[ 319] OFF                            FLG[ 831] OFF                          
+FLG[ 320] OFF                            FLG[ 832] OFF                          
+FLG[ 321] OFF                            FLG[ 833] OFF                          
+FLG[ 322] OFF                            FLG[ 834] OFF                          
+FLG[ 323] OFF                            FLG[ 835] OFF                          
+FLG[ 324] OFF                            FLG[ 836] OFF                          
+FLG[ 325] OFF                            FLG[ 837] OFF                          
+FLG[ 326] OFF                            FLG[ 838] OFF                          
+FLG[ 327] OFF                            FLG[ 839] OFF                          
+FLG[ 328] OFF                            FLG[ 840] OFF                          
+FLG[ 329] OFF                            FLG[ 841] OFF                          
+FLG[ 330] OFF                            FLG[ 842] OFF                          
+FLG[ 331] OFF                            FLG[ 843] OFF                          
+FLG[ 332] OFF                            FLG[ 844] OFF                          
+FLG[ 333] OFF                            FLG[ 845] OFF                          
+FLG[ 334] OFF                            FLG[ 846] OFF                          
+FLG[ 335] OFF                            FLG[ 847] OFF                          
+FLG[ 336] OFF                            FLG[ 848] OFF                          
+FLG[ 337] OFF                            FLG[ 849] OFF                          
+FLG[ 338] OFF                            FLG[ 850] OFF                          
+FLG[ 339] OFF                            FLG[ 851] OFF                          
+FLG[ 340] OFF                            FLG[ 852] OFF                          
+FLG[ 341] OFF                            FLG[ 853] OFF                          
+FLG[ 342] OFF                            FLG[ 854] OFF                          
+FLG[ 343] OFF                            FLG[ 855] OFF                          
+FLG[ 344] OFF                            FLG[ 856] OFF                          
+FLG[ 345] OFF                            FLG[ 857] OFF                          
+FLG[ 346] OFF                            FLG[ 858] OFF                          
+FLG[ 347] OFF                            FLG[ 859] OFF                          
+FLG[ 348] OFF                            FLG[ 860] OFF                          
+FLG[ 349] OFF                            FLG[ 861] OFF                          
+FLG[ 350] OFF                            FLG[ 862] OFF                          
+FLG[ 351] OFF                            FLG[ 863] OFF                          
+FLG[ 352] OFF                            FLG[ 864] OFF                          
+FLG[ 353] OFF                            FLG[ 865] OFF                          
+FLG[ 354] OFF                            FLG[ 866] OFF                          
+FLG[ 355] OFF                            FLG[ 867] OFF                          
+FLG[ 356] OFF                            FLG[ 868] OFF                          
+FLG[ 357] OFF                            FLG[ 869] OFF                          
+FLG[ 358] OFF                            FLG[ 870] OFF                          
+FLG[ 359] OFF                            FLG[ 871] OFF                          
+FLG[ 360] OFF                            FLG[ 872] OFF                          
+FLG[ 361] OFF                            FLG[ 873] OFF                          
+FLG[ 362] OFF                            FLG[ 874] OFF                          
+FLG[ 363] OFF                            FLG[ 875] OFF                          
+FLG[ 364] OFF                            FLG[ 876] OFF                          
+FLG[ 365] OFF                            FLG[ 877] OFF                          
+FLG[ 366] OFF                            FLG[ 878] OFF                          
+FLG[ 367] OFF                            FLG[ 879] OFF                          
+FLG[ 368] OFF                            FLG[ 880] OFF                          
+FLG[ 369] OFF                            FLG[ 881] OFF                          
+FLG[ 370] OFF                            FLG[ 882] OFF                          
+FLG[ 371] OFF                            FLG[ 883] OFF                          
+FLG[ 372] OFF                            FLG[ 884] OFF                          
+FLG[ 373] OFF                            FLG[ 885] OFF                          
+FLG[ 374] OFF                            FLG[ 886] OFF                          
+FLG[ 375] OFF                            FLG[ 887] OFF                          
+FLG[ 376] OFF                            FLG[ 888] OFF                          
+FLG[ 377] OFF                            FLG[ 889] OFF                          
+FLG[ 378] OFF                            FLG[ 890] OFF                          
+FLG[ 379] OFF                            FLG[ 891] OFF                          
+FLG[ 380] OFF                            FLG[ 892] OFF                          
+FLG[ 381] OFF                            FLG[ 893] OFF                          
+FLG[ 382] OFF                            FLG[ 894] OFF                          
+FLG[ 383] OFF                            FLG[ 895] OFF                          
+FLG[ 384] OFF                            FLG[ 896] OFF                          
+FLG[ 385] OFF                            FLG[ 897] OFF                          
+FLG[ 386] OFF                            FLG[ 898] OFF                          
+FLG[ 387] OFF                            FLG[ 899] OFF                          
+FLG[ 388] OFF                            FLG[ 900] OFF                          
+FLG[ 389] OFF                            FLG[ 901] OFF                          
+FLG[ 390] OFF                            FLG[ 902] OFF                          
+FLG[ 391] OFF                            FLG[ 903] OFF                          
+FLG[ 392] OFF                            FLG[ 904] OFF                          
+FLG[ 393] OFF                            FLG[ 905] OFF                          
+FLG[ 394] OFF                            FLG[ 906] OFF                          
+FLG[ 395] OFF                            FLG[ 907] OFF                          
+FLG[ 396] OFF                            FLG[ 908] OFF                          
+FLG[ 397] OFF                            FLG[ 909] OFF                          
+FLG[ 398] OFF                            FLG[ 910] OFF                          
+FLG[ 399] OFF                            FLG[ 911] OFF                          
+FLG[ 400] OFF                            FLG[ 912] OFF                          
+FLG[ 401] OFF                            FLG[ 913] OFF                          
+FLG[ 402] OFF                            FLG[ 914] OFF                          
+FLG[ 403] OFF                            FLG[ 915] OFF                          
+FLG[ 404] OFF                            FLG[ 916] OFF                          
+FLG[ 405] OFF                            FLG[ 917] OFF                          
+FLG[ 406] OFF                            FLG[ 918] OFF                          
+FLG[ 407] OFF                            FLG[ 919] OFF                          
+FLG[ 408] OFF                            FLG[ 920] OFF                          
+FLG[ 409] OFF                            FLG[ 921] OFF                          
+FLG[ 410] OFF                            FLG[ 922] OFF                          
+FLG[ 411] OFF                            FLG[ 923] OFF                          
+FLG[ 412] OFF                            FLG[ 924] OFF                          
+FLG[ 413] OFF                            FLG[ 925] OFF                          
+FLG[ 414] OFF                            FLG[ 926] OFF                          
+FLG[ 415] OFF                            FLG[ 927] OFF                          
+FLG[ 416] OFF                            FLG[ 928] OFF                          
+FLG[ 417] OFF                            FLG[ 929] OFF                          
+FLG[ 418] OFF                            FLG[ 930] OFF                          
+FLG[ 419] OFF                            FLG[ 931] OFF                          
+FLG[ 420] OFF                            FLG[ 932] OFF                          
+FLG[ 421] OFF                            FLG[ 933] OFF                          
+FLG[ 422] OFF                            FLG[ 934] OFF                          
+FLG[ 423] OFF                            FLG[ 935] OFF                          
+FLG[ 424] OFF                            FLG[ 936] OFF                          
+FLG[ 425] OFF                            FLG[ 937] OFF                          
+FLG[ 426] OFF                            FLG[ 938] OFF                          
+FLG[ 427] OFF                            FLG[ 939] OFF                          
+FLG[ 428] OFF                            FLG[ 940] OFF                          
+FLG[ 429] OFF                            FLG[ 941] OFF                          
+FLG[ 430] OFF                            FLG[ 942] OFF                          
+FLG[ 431] OFF                            FLG[ 943] OFF                          
+FLG[ 432] OFF                            FLG[ 944] OFF                          
+FLG[ 433] OFF                            FLG[ 945] OFF                          
+FLG[ 434] OFF                            FLG[ 946] OFF                          
+FLG[ 435] OFF                            FLG[ 947] OFF                          
+FLG[ 436] OFF                            FLG[ 948] OFF                          
+FLG[ 437] OFF                            FLG[ 949] OFF                          
+FLG[ 438] OFF                            FLG[ 950] OFF                          
+FLG[ 439] OFF                            FLG[ 951] OFF                          
+FLG[ 440] OFF                            FLG[ 952] OFF                          
+FLG[ 441] OFF                            FLG[ 953] OFF                          
+FLG[ 442] OFF                            FLG[ 954] OFF                          
+FLG[ 443] OFF                            FLG[ 955] OFF                          
+FLG[ 444] OFF                            FLG[ 956] OFF                          
+FLG[ 445] OFF                            FLG[ 957] OFF                          
+FLG[ 446] OFF                            FLG[ 958] OFF                          
+FLG[ 447] OFF                            FLG[ 959] OFF                          
+FLG[ 448] OFF                            FLG[ 960] OFF                          
+FLG[ 449] OFF                            FLG[ 961] OFF                          
+FLG[ 450] OFF                            FLG[ 962] OFF                          
+FLG[ 451] OFF                            FLG[ 963] OFF                          
+FLG[ 452] OFF                            FLG[ 964] OFF                          
+FLG[ 453] OFF                            FLG[ 965] OFF                          
+FLG[ 454] OFF                            FLG[ 966] OFF                          
+FLG[ 455] OFF                            FLG[ 967] OFF                          
+FLG[ 456] OFF                            FLG[ 968] OFF                          
+FLG[ 457] OFF                            FLG[ 969] OFF                          
+FLG[ 458] OFF                            FLG[ 970] OFF                          
+FLG[ 459] OFF                            FLG[ 971] OFF                          
+FLG[ 460] OFF                            FLG[ 972] OFF                          
+FLG[ 461] OFF                            FLG[ 973] OFF                          
+FLG[ 462] OFF                            FLG[ 974] OFF                          
+FLG[ 463] OFF                            FLG[ 975] OFF                          
+FLG[ 464] OFF                            FLG[ 976] OFF                          
+FLG[ 465] OFF                            FLG[ 977] OFF                          
+FLG[ 466] OFF                            FLG[ 978] OFF                          
+FLG[ 467] OFF                            FLG[ 979] OFF                          
+FLG[ 468] OFF                            FLG[ 980] OFF                          
+FLG[ 469] OFF                            FLG[ 981] OFF                          
+FLG[ 470] OFF                            FLG[ 982] OFF                          
+FLG[ 471] OFF                            FLG[ 983] OFF                          
+FLG[ 472] OFF                            FLG[ 984] OFF                          
+FLG[ 473] OFF                            FLG[ 985] OFF                          
+FLG[ 474] OFF                            FLG[ 986] OFF                          
+FLG[ 475] OFF                            FLG[ 987] OFF                          
+FLG[ 476] OFF                            FLG[ 988] OFF                          
+FLG[ 477] OFF                            FLG[ 989] OFF                          
+FLG[ 478] OFF                            FLG[ 990] OFF                          
+FLG[ 479] OFF                            FLG[ 991] OFF                          
+FLG[ 480] OFF                            FLG[ 992] OFF                          
+FLG[ 481] OFF                            FLG[ 993] OFF                          
+FLG[ 482] OFF                            FLG[ 994] OFF                          
+FLG[ 483] OFF                            FLG[ 995] OFF                          
+FLG[ 484] OFF                            FLG[ 996] OFF                          
+FLG[ 485] OFF                            FLG[ 997] OFF                          
+FLG[ 486] OFF                            FLG[ 998] OFF                          
+FLG[ 487] OFF                            FLG[ 999] OFF                          
+FLG[ 488] OFF                            FLG[1000] OFF                          
+FLG[ 489] OFF                            FLG[1001] OFF                          
+FLG[ 490] OFF                            FLG[1002] OFF                          
+FLG[ 491] OFF                            FLG[1003] OFF                          
+FLG[ 492] OFF                            FLG[1004] OFF                          
+FLG[ 493] OFF                            FLG[1005] OFF                          
+FLG[ 494] OFF                            FLG[1006] OFF                          
+FLG[ 495] OFF                            FLG[1007] OFF                          
+FLG[ 496] OFF                            FLG[1008] OFF                          
+FLG[ 497] OFF                            FLG[1009] OFF                          
+FLG[ 498] OFF                            FLG[1010] OFF                          
+FLG[ 499] OFF                            FLG[1011] OFF                          
+FLG[ 500] OFF                            FLG[1012] OFF                          
+FLG[ 501] OFF                            FLG[1013] OFF                          
+FLG[ 502] OFF                            FLG[1014] OFF                          
+FLG[ 503] OFF                            FLG[1015] OFF                          
+FLG[ 504] OFF                            FLG[1016] OFF                          
+FLG[ 505] OFF                            FLG[1017] OFF                          
+FLG[ 506] OFF                            FLG[1018] OFF                          
+FLG[ 507] OFF                            FLG[1019] OFF                          
+FLG[ 508] OFF                            FLG[1020] OFF                          
+FLG[ 509] OFF                            FLG[1021] OFF                          
+FLG[ 510] OFF                            FLG[1022] OFF                          
+FLG[ 511] OFF                            FLG[1023] OFF                          
+FLG[ 512] OFF                            FLG[1024] OFF                          
+
+</PRE><H2><A NAME="5">I/O Configuration Information</A></H2>
+<PRE><A HREF="#TOP">[TOP]</A><P>
+IO CONFIGURATION::
+
+DIN   81  -  88   RACK:  48   SLOT:   1   PORT:  13
+DIN  101  - 112   RACK:  48   SLOT:   1   PORT:   1
+DOUT   81  -  84   RACK:  48   SLOT:   1   PORT:  13
+DOUT  101  - 112   RACK:  48   SLOT:   1   PORT:   1
+UI[   1] *IMSTP
+UI    1  -   1   RACK:  35   SLOT:   1   PORT:   1
+UI[   2] *Hold
+UI    2  -   2   RACK:  48   SLOT:   1   PORT:  13
+UI[   3] *SFSPD
+UI    3  -   3   RACK:  35   SLOT:   1   PORT:   1
+UI[   4] Cycle stop
+UI    4  -   4   RACK:  48   SLOT:   1   PORT:  14
+UI[   5] Fault reset
+UI    5  -   5   RACK:  48   SLOT:   1   PORT:  14
+UI[   6] Start
+UI    6  -   6   RACK:  48   SLOT:   1   PORT:  15
+UI[   8] Enable
+UI    8  -   8   RACK:  48   SLOT:   1   PORT:  16
+UI[   9] RSR1/PNS1/STYLE1
+UI[  10] RSR2/PNS2/STYLE2
+UI[  11] RSR3/PNS3/STYLE3
+UI[  12] RSR4/PNS4/STYLE4
+UI    9  -  12   RACK:  48   SLOT:   1   PORT:  17
+UI[  17] PNS strobe
+UI   17  -  17   RACK:  48   SLOT:   1   PORT:  15
+UO[   1] Cmd enabled
+UO    1  -   1   RACK:  48   SLOT:   1   PORT:  13
+UO[   6] Fault
+UO    6  -   6   RACK:  48   SLOT:   1   PORT:  14
+UO[   9] Batt alarm
+UO    9  -   9   RACK:  48   SLOT:   1   PORT:  15
+UO[  10] Busy
+UO   10  -  10   RACK:  48   SLOT:   1   PORT:  16
+
+</PRE><H2><A NAME="6">Safety Status Information</A></H2>
+<PRE><A HREF="#TOP">[TOP]</A><P>
+
+STOP SIGNALS::
+
+External ESTOP   FALSE
+SOP Estop        FALSE
+TP ESTOP         FALSE
+Hand Broken      TRUE 
+OverTravel       FALSE
+Low Air Alarm    FALSE
+Fence Open       FALSE
+Belt Broken      FALSE
+TP Enable        FALSE
+TP Deadman       FALSE
+SVOFF Detect     FALSE
+Non Teacher Enb  FALSE
+
+</PRE><H2><A NAME="7">Current Position Information</A></H2>
+<PRE><A HREF="#TOP">[TOP]</A><P>
+
+CURRENT ROBOT POSITION::
+Group #:  1
+ 
+CURRENT JOINT POSITION:
+Joint   1:    179.82
+Joint   2:      -.29
+Joint   3:      5.59
+Joint   4:     27.28
+Joint   5:    -56.20
+Joint   6:      5.18
+
+
+Frame #:   0  Tool #:   1
+CURRENT USER FRAME POSITION:
+CFG: N U T, 0, 0, 0
+X:   -626.56
+Y:    196.20
+Z:    722.08
+W:    143.38
+P:    -31.97
+R:   -156.98
+
+
+Tool #:   1
+CURRENT WORLD POSITION:
+CFG: N U T, 0, 0, 0
+X:   -626.56
+Y:    196.20
+Z:    722.08
+W:    143.38
+P:    -31.97
+R:   -156.98
+
+
+</PRE><H2><A NAME="8">Ethernet Configuration Information</A></H2>
+<PRE><A HREF="#TOP">[TOP]</A><P>
+
+ETHERNET CONFIGURATION::
+
+$HOSTNAME   :ROBCONT2
+TMI_ROUTER  :ROUTER
+TMI_ETHERAD :00:e0:e4:7d:bc:db
+Subnet mask :255.255.255.0
+Host Table [1]:      ros pc addr:192.168.150.10
+Host Table [17]:      QUICC0 addr:192.168.150.2
+Host Table [18]:      QUICC1 addr:  10.10.10.1
+Host Table [19]:      QUICC2
+Host Table [20]:      ROUTER addr:192.168.150.1
+Host Table [21]:       PCJOG
+Host Table [22]:      CAMPRT addr:192.168.1.10
+Host Table [23]:      CAMRTR addr:192.168.1.10
+Host Table [24]:Software Operator Panel addr: 10.10.10.10
+Server [1]:         FTP state: 3
+Server [2]:         FTP state: 3
+
+</PRE><H2><A NAME="9">Port Setup Infromation</A></H2>
+<PRE><A HREF="#TOP">[TOP]</A><P>
+
+SERIAL PORT CONFIGURATION::
+
+DEVICE: JRS16 RS-232-C P2:
+         USAGE     : Maintenance Cons
+         SPEED     : 9600
+         PARITY    : None
+         STOPBITS  : 1bit
+         TIMEOUT   : 0
+         INTERFACE : RS-232-C
+DEVICE: JD17  RS-232-C P3:
+         USAGE     : No Use
+         SPEED     : 9600
+         PARITY    : None
+         STOPBITS  : 1bit
+         TIMEOUT   : 0
+         INTERFACE : RS-232-C
+
+</PRE><H2><A NAME="10">Macro Setup Infromation</A></H2>
+<PRE><A HREF="#TOP">[TOP]</A><P>
+MACRO DEFINIIION::
+
+[  1]NAME       :Vacuum Off
+     PROG NAME  :VACUUM_OFF
+     Assign type:MF
+     Assign ID  :1
+[  2]NAME       :Vacuum On
+     PROG NAME  :VACUUM_ON
+     Assign type:MF
+     Assign ID  :2
+[  3]NAME       :Relax hand 1
+     PROG NAME  : 
+     Assign type:MF
+     Assign ID  :3
+[  4]NAME       :Open hand 2
+     PROG NAME  : 
+     Assign type:MF
+     Assign ID  :11
+[  5]NAME       :Close hand 2
+     PROG NAME  : 
+     Assign type:MF
+     Assign ID  :12
+[  6]NAME       :Relax hand 2
+     PROG NAME  : 
+     Assign type:MF
+     Assign ID  :13
+[109]NAME       :Send Event
+     PROG NAME  :SENDEVNT
+     Assign type:--
+     Assign ID  :0
+     SYSTEM MACRO
+[110]NAME       :Send Data
+     PROG NAME  :SENDDATA
+     Assign type:--
+     Assign ID  :0
+     SYSTEM MACRO
+[111]NAME       :Send SysVar
+     PROG NAME  :SENDSYSV
+     Assign type:--
+     Assign ID  :0
+     SYSTEM MACRO
+[112]NAME       :Get Data
+     PROG NAME  :GETDATA
+     Assign type:--
+     Assign ID  :0
+     SYSTEM MACRO
+[113]NAME       :Request Menu
+     PROG NAME  :REQMENU
+     Assign type:--
+     Assign ID  :0
+     SYSTEM MACRO
+
+</PRE><PRE><A HREF="#TOP"></A><BR>
+</PRE>

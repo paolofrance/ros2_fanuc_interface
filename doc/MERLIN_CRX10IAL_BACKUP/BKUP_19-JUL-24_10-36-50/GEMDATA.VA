@@ -1,0 +1,8 @@
+[GEMDATA]ANSWER_DELAY  Storage: CMOS  Access: RW  : INTEGER = 250
+
+[GEMDATA]DEBUG_MSG  Storage: CMOS  Access: RW  : BOOLEAN = FALSE
+
+[GEMDATA]WAIT_ACT  Storage: CMOS  Access: RW  : INTEGER = 1
+
+[GEMDATA]WAIT_TIME  Storage: CMOS  Access: RW  : INTEGER = 5
+

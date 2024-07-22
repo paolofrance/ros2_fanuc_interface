@@ -1,0 +1,444 @@
+Name: PXNN  PRI: 126   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:   1   LUN:   1  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: PXNN  PRI: 126   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:   2   LUN:   2  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: PXNN  PRI: 126   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:   3   LUN:   3  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: PXNN  PRI: 126   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:   4   LUN:   4  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: PXNN  PRI: 126   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:   5   LUN:   5  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: PXNN  PRI: 126   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:   6   LUN:   6  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: PXNN  PRI: 126   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:   7   LUN:   7  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: PXNN  PRI: 126   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:   8   LUN:   8  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: PXNN  PRI: 126   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:   9   LUN:   9  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: PXNN  PRI: 126   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  10   LUN:  10  Wait ID:   0  Wait Obj: Packet           
+ pkq: 1     pkr: 0     pkh: 255  pkl: 255 
+
+Name: CONS  PRI:  99   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  34   LUN: 206  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: FLTR  PRI:  20   CPU ID:   1    Status: Waiting   Pkt ID: $39a4f070
+ TID:  35   LUN:  33  Wait ID:  35  Wait Obj: Mailbox read     
+ pkq: 1     pkr: 0     pkh: 255  pkl: 255 
+
+Name: PMGR  PRI:  40   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  36   LUN:  34  Wait ID:   8  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: PVAR  PRI:  70   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  37   LUN:  35  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: MEMO  PRI: 140   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  38   LUN:  36  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: UTIL  PRI: 176   CPU ID:   1    Status: Ready     Pkt ID: $3f9ec22c
+ TID:  39   LUN:  37  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 2     pkr: 0     pkh: 255  pkl: 255 
+
+Name: MPTC  PRI: 100   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  40   LUN:  38  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: ELOG  PRI: 130   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  41   LUN:  39  Wait ID:  40  Wait Obj: Packet           
+ pkq: 1     pkr: 0     pkh: 255  pkl: 255 
+
+Name: CHND  PRI:  30   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  42   LUN:  40  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: NULL  PRI: 255   CPU ID:   1    Status: Ready     Pkt ID: $   0
+ TID:  43   LUN:  41  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: MCGR  PRI:  39   CPU ID:   1    Status: Waiting   Pkt ID: $399ae8e0
+ TID:  46   LUN: 229  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: ASBN  PRI: 250   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  47   LUN: 198  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: CHIF  PRI:  60   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  51   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: VMGR  PRI: 140   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  52   LUN:  49  Wait ID:   0  Wait Obj: Packet           
+ pkq: 2     pkr: 0     pkh: 255  pkl: 255 
+
+Name: MMGR  PRI:  44   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  54   LUN:  51  Wait ID:   0  Wait Obj: Packet           
+ pkq: 96    pkr: 0     pkh: 255  pkl: 255 
+
+Name: PLAN  PRI:  70   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  55   LUN:   0  Wait ID:   4  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: INTR  PRI:  50   CPU ID:   1    Status: Waiting   Pkt ID: $39c66780
+ TID:  63   LUN:   0  Wait ID:  62  Wait Obj: Mailbox read     
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: WDVD  PRI: 170   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  71   LUN:  67  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: TPMM  PRI: 170   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  72   LUN:  69  Wait ID:  43  Wait Obj: Packet           
+ pkq: 2     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SMON  PRI:  73   CPU ID:   1    Status: Waiting   Pkt ID: $534d4f4e
+ TID:  73   LUN:  70  Wait ID:   8  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: MJOG  PRI:  75   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  74   LUN:  71  Wait ID:   0  Wait Obj: Packet           
+ pkq: 4     pkr: 0     pkh: 255  pkl: 255 
+
+Name: WDWM  PRI: 150   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  76   LUN:  65  Wait ID:   0  Wait Obj: Packet           
+ pkq: 4     pkr: 0     pkh: 255  pkl: 255 
+
+Name: KCLI  PRI: 150   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  77   LUN:  72  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: AMGR  PRI:  42   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  78   LUN:  74  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: APAX  PRI: 110   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  79   LUN:  75  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: TIMQ  PRI:  25   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID:  99   LUN:  62  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 13    pkr: 0     pkh: 255  pkl: 255 
+
+Name: SHEL  PRI: 100   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 100   LUN:  63  Wait ID:  29  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: DATK  PRI: 140   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 101   LUN: 227  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: TPMM  PRI: 170   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 102   LUN: 109  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: TPMM  PRI: 170   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 103   LUN: 110  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: TPMM  PRI: 170   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 104   LUN: 111  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: TPMM  PRI: 170   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 105   LUN: 112  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: TPMM  PRI: 170   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 106   LUN: 113  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: TPMM  PRI: 170   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 107   LUN: 114  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: TPMM  PRI: 170   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 108   LUN: 115  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: TPMM  PRI: 176   CPU ID:   1    Status: Running   Pkt ID: $4d445339
+ TID: 109   LUN: 116  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 1     pkr: 0     pkh: 255  pkl: 255 
+
+Name: VCAM  PRI:  76   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 111   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: VDAT  PRI: 140   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 112   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: VEXE  PRI:  78   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 113   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: VXMN  PRI:  75   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 114   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: VLOG  PRI: 140   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 115   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: NECA  PRI:  35   CPU ID:   1    Status: Waiting   Pkt ID: $399598c0
+ TID: 119   LUN:   0  Wait ID:  22  Wait Obj: AND Flag         
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: TBI   PRI:  75   CPU ID:   1    Status: Waiting   Pkt ID: $3996f968
+ TID: 125   LUN: 171  Wait ID:   0  Wait Obj: Timeout          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: VTRN  PRI: 170   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 136   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: PMPT  PRI:  69   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 138   LUN: 138  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SRIF  PRI:  67   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 139   LUN: 139  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: HTTP  PRI: 171   CPU ID:   1    Status: Waiting   Pkt ID: $1200a630
+ TID: 150   LUN: 197  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: TCHP  PRI:  74   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 153   LUN:   0  Wait ID:   8  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: FICD  PRI: 175   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 159   LUN: 169  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 1     pkr: 0     pkh: 255  pkl: 255 
+
+Name: UTIL  PRI: 176   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 170   LUN:  64  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: RPCM  PRI: 170   CPU ID:   1    Status: Waiting   Pkt ID: $1200a580
+ TID: 171   LUN: 174  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: PMON  PRI: 170   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 182   LUN: 183  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: HTTP  PRI: 171   CPU ID:   1    Status: Waiting   Pkt ID: $1200a160
+ TID: 186   LUN: 196  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SCCD  PRI:  10   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 188   LUN: 201  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SCCD  PRI:  10   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 189   LUN: 202  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SCCD  PRI:  10   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 190   LUN: 203  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SCCD  PRI:  10   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 191   LUN: 204  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SCCD  PRI:  10   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 193   LUN: 222  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: INTH  PRI:   5   CPU ID:   1    Status: Running   Pkt ID: $12009ad4
+ TID: 196   LUN:   0  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: WDKY  PRI: 170   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 198   LUN:  66  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SCCD  PRI:  10   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 199   LUN: 125  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: MCMD  PRI:  44   CPU ID:   1    Status: Waiting   Pkt ID: $3998f9c4
+ TID: 203   LUN:   0  Wait ID:   0  Wait Obj: Timeout          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: MCOT  PRI:  44   CPU ID:   1    Status: Waiting   Pkt ID: $3997d728
+ TID: 204   LUN:   0  Wait ID:   0  Wait Obj: Timeout          
+ pkq: 4     pkr: 0     pkh: 255  pkl: 255 
+
+Name: IOSC  PRI:  15   CPU ID:   1    Status: Running   Pkt ID: $3990f99c
+ TID: 207   LUN:   0  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: DRSK  PRI: 175   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 209   LUN:   0  Wait ID:   8  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: QRCV  PRI:  75   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 210   LUN:   0  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 1     pkr: 0     pkh: 255  pkl: 255 
+
+Name: BGLG  PRI:  69   CPU ID:   1    Status: Waiting   Pkt ID: $3991f958
+ TID: 211   LUN:   0  Wait ID:  22  Wait Obj: AND Flag         
+ pkq: 1     pkr: 0     pkh: 255  pkl: 255 
+
+Name: ATBT  PRI: 254   CPU ID:   1    Status: Waiting   Pkt ID: $3a79aae4
+ TID: 214   LUN:   0  Wait ID:   8  Wait Obj: Timeout          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: OTTA  PRI: 178   CPU ID:   1    Status: Waiting   Pkt ID: $3999f9cc
+ TID: 217   LUN:   0  Wait ID:   0  Wait Obj: Timeout          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SNPX  PRI: 154   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 221   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 1     pkr: 0     pkh: 255  pkl: 255 
+
+Name: DUMP  PRI:  17   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 224   LUN:   0  Wait ID:   8  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: DIAG  PRI: 250   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 225   LUN:   0  Wait ID:   8  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: CHND  PRI: 120   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 231   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: CHIF  PRI: 150   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 232   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: CETX  PRI: 100   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 239   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: COMT  PRI: 165   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 240   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: GIGE  PRI:  90   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 241   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: RMIT  PRI:  68   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 252   LUN:   0  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SERV  PRI:  49   CPU ID:   1    Status: Ready     Pkt ID: $   0
+ TID: 256   LUN:   0  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SERV  PRI:  49   CPU ID:   1    Status: Ready     Pkt ID: $   0
+ TID: 257   LUN:   0  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SERV  PRI:   1   CPU ID:   1    Status: Ready     Pkt ID: $   0
+ TID: 258   LUN:   0  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SERV  PRI:   1   CPU ID:   1    Status: Ready     Pkt ID: $   0
+ TID: 259   LUN:   0  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SERV  PRI:   1   CPU ID:   1    Status: Ready     Pkt ID: $   0
+ TID: 260   LUN:   0  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SERV  PRI:   1   CPU ID:   1    Status: Ready     Pkt ID: $   0
+ TID: 261   LUN:   0  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SERV  PRI:   1   CPU ID:   1    Status: Ready     Pkt ID: $   0
+ TID: 262   LUN:   0  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SERV  PRI:   1   CPU ID:   1    Status: Ready     Pkt ID: $   0
+ TID: 263   LUN:   0  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SERV  PRI:   1   CPU ID:   1    Status: Ready     Pkt ID: $   0
+ TID: 264   LUN:   0  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SERV  PRI:   1   CPU ID:   1    Status: Ready     Pkt ID: $   0
+ TID: 265   LUN:   0  Wait ID:   0  Wait Obj: Unknown          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: SV3D  PRI: 170   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 297   LUN: 108  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: RMCN  PRI: 176   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 300   LUN:   0  Wait ID:  43  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: UTIL  PRI: 176   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 317   LUN: 248  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: VMGR  PRI: 141   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 322   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: RUTL  PRI: 105   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 323   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: MFRQ  PRI:  58   CPU ID:   1    Status: Waiting   Pkt ID: $399cf9dc
+ TID: 332   LUN: 252  Wait ID:   0  Wait Obj: Timeout          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: UCPY  PRI: 180   CPU ID:   1    Status: Waiting   Pkt ID: $39ca7a24
+ TID: 336   LUN: 172  Wait ID:   0  Wait Obj: Timeout          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: OPCU  PRI: 155   CPU ID:   1    Status: Waiting   Pkt ID: $1200a0b0
+ TID: 337   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: VZDT  PRI: 140   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 341   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: ASBN  PRI:  71   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 347   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: DUMP  PRI:  16   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 498   LUN:   0  Wait ID:   0  Wait Obj: Timeout          
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: QRCV  PRI:  74   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 499   LUN:   0  Wait ID:   0  Wait Obj: Packet           
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+
+Name: CHND  PRI:  29   CPU ID:   1    Status: Waiting   Pkt ID: $   0
+ TID: 500   LUN:   0  Wait ID:  30  Wait Obj: Semaphore        
+ pkq: 0     pkr: 0     pkh: 255  pkl: 255 
+

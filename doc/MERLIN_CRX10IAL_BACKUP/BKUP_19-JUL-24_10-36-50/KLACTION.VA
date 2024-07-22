@@ -1,0 +1,12 @@
+[KLACTION]DATA_TYPE  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[KLACTION]INT_VALUE  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[KLACTION]REAL_VALUE  Storage: DRAM  Access: RW  : REAL = Uninitialized
+
+[KLACTION]STRING_VALUE  Storage: DRAM  Access: RW  : STRING[16] = Uninitialized
+
+[KLACTION]STATUS  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[KLACTION]PARAM_OK  Storage: DRAM  Access: RW  : BOOLEAN = Uninitialized
+

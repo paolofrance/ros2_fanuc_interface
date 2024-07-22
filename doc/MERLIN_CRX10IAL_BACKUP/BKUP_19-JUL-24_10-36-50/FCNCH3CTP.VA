@@ -1,0 +1,26 @@
+[FCNCH3CTP]CTPENB  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FCNCH3CTP]CTPPOSRGN  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FCNCH3CTP]CTPDIST  Storage: DRAM  Access: RW  : REAL = Uninitialized
+
+[FCNCH3CTP]POSVL  Storage: DRAM  Access: RW  : XYZWPREXT = Uninitialized
+
+[FCNCH3CTP]DATA_TYPE  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FCNCH3CTP]INT_VAL  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FCNCH3CTP]REAL_VAL  Storage: DRAM  Access: RW  : REAL = Uninitialized
+
+[FCNCH3CTP]STRING_VAL  Storage: DRAM  Access: RW  : STRING[1] = Uninitialized
+
+[FCNCH3CTP]STATUS  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FCNCH3CTP]ENTRY  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FCNCH3CTP]ARG_CHK  Storage: DRAM  Access: RW  : BOOLEAN = Uninitialized
+
+[FCNCH3CTP]CC_MODE_FC  Storage: DRAM  Access: RW  : BOOLEAN = Uninitialized
+
+[FCNCH3CTP]CTMFLG  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+

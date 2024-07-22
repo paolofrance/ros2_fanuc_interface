@@ -1,0 +1,118 @@
+[*SYSTEM*]$CCSCB_GRP  Storage: CMOS  Access: RW  : ARRAY[1] OF CCSCB_GRP_T
+     Field: $CCSCB_GRP[1].$COMPMATEXP Access: RW: SHORT = 12
+     Field: $CCSCB_GRP[1].$COMPMATRIX  ARRAY[48] OF SHORT
+      [1] = 0
+      [2] = 0
+      [3] = 21500
+      [4] = 0
+      [5] = 0
+      [6] = 0
+      [7] = -21500
+      [8] = 0
+      [9] = -21500
+      [10] = 0
+      [11] = 0
+      [12] = 0
+      [13] = 21500
+      [14] = 0
+      [15] = 0
+      [16] = 0
+      [17] = 0
+      [18] = 25000
+      [19] = 0
+      [20] = 25000
+      [21] = 0
+      [22] = 25000
+      [23] = 0
+      [24] = 25000
+      [25] = 0
+      [26] = 0
+      [27] = 0
+      [28] = 9800
+      [29] = 0
+      [30] = 0
+      [31] = 0
+      [32] = -9800
+      [33] = 0
+      [34] = -9800
+      [35] = 0
+      [36] = 0
+      [37] = 0
+      [38] = 9800
+      [39] = 0
+      [40] = 0
+      [41] = -7200
+      [42] = 0
+      [43] = -7200
+      [44] = 0
+      [45] = -7200
+      [46] = 0
+      [47] = -7200
+      [48] = 0
+     Field: $CCSCB_GRP[1].$INNERTEMP0 Access: RW: SHORT = 1550
+     Field: $CCSCB_GRP[1].$TEMPOFFSET  ARRAY[8] OF SHORT
+      [1] = 0
+      [2] = 0
+      [3] = 0
+      [4] = 0
+      [5] = 0
+      [6] = 0
+      [7] = 0
+      [8] = 0
+     Field: $CCSCB_GRP[1].$TEMPCMPEXP Access: RW: SHORT = 14
+     Field: $CCSCB_GRP[1].$TEMPCMPCOF  ARRAY[8] OF SHORT
+      [1] = 0
+      [2] = 0
+      [3] = 0
+      [4] = 0
+      [5] = 0
+      [6] = 0
+      [7] = 0
+      [8] = 0
+     Field: $CCSCB_GRP[1].$FS_TYP Access: RW: SHORT = 1
+     Field: $CCSCB_GRP[1].$SBFRAME  ARRAY[6] OF REAL
+      [1] = 0.000000e+00
+      [2] = 0.000000e+00
+      [3] = 6.900000e+01
+      [4] = 0.000000e+00
+      [5] = 0.000000e+00
+      [6] = 0.000000e+00
+     Field: $CCSCB_GRP[1].$INIT_TOL  ARRAY[6] OF REAL
+      [1] = 6.000000e+00
+      [2] = 4.000000e+01
+      [3] = 0.000000e+00
+      [4] = 0.000000e+00
+      [5] = 0.000000e+00
+      [6] = 0.000000e+00
+     Field: $CCSCB_GRP[1].$RANGE_F  ARRAY[3] OF REAL
+      [1] = 4.000000e+01
+      [2] = 4.000000e+01
+      [3] = 4.000000e+01
+     Field: $CCSCB_GRP[1].$RANGE_T  ARRAY[3] OF REAL
+      [1] = 4.000000e+02
+      [2] = 4.000000e+02
+      [3] = 4.000000e+02
+     Field: $CCSCB_GRP[1].$FTRATIO  ARRAY[6] OF SHORT
+      [1] = 1
+      [2] = 1
+      [3] = 2
+      [4] = 5
+      [5] = 5
+      [6] = 7
+     Field: $CCSCB_GRP[1].$TEMP_H_LIM Access: RW: REAL = 6.000000e+01
+     Field: $CCSCB_GRP[1].$TEMP_L_LIM Access: RW: REAL = 0.000000e+00
+     Field: $CCSCB_GRP[1].$FSOFST1  ARRAY[6] OF REAL
+      [1] = 0.000000e+00
+      [2] = 0.000000e+00
+      [3] = 0.000000e+00
+      [4] = 0.000000e+00
+      [5] = 0.000000e+00
+      [6] = 0.000000e+00
+     Field: $CCSCB_GRP[1].$FSOFST2  ARRAY[6] OF REAL
+      [1] = 0.000000e+00
+      [2] = 0.000000e+00
+      [3] = 0.000000e+00
+      [4] = 0.000000e+00
+      [5] = 0.000000e+00
+      [6] = 0.000000e+00
+

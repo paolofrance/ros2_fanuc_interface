@@ -1,0 +1,10 @@
+[IPL_FANUC_SYS_ERPOST]PLUGINID  Storage: DRAM  Access: RW  : STRING[20] = Uninitialized
+
+[IPL_FANUC_SYS_ERPOST]ERRORNUMBER  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[IPL_FANUC_SYS_ERPOST]CAUSE_CODE  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[IPL_FANUC_SYS_ERPOST]PARAM_STR  Storage: DRAM  Access: RW  : STRING[50] = Uninitialized
+
+[IPL_FANUC_SYS_ERPOST]IFORMAT  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+

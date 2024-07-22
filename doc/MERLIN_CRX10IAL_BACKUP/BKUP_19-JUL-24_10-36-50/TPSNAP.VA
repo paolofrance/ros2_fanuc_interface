@@ -1,0 +1,46 @@
+[TPSNAP]DAY  Storage: CMOS  Access: RW  : INTEGER = Uninitialized
+
+[TPSNAP]DAY_STR  Storage: CMOS  Access: RW  : STRING[3] = Uninitialized
+
+[TPSNAP]DEV_PATH_STR  Storage: CMOS  Access: RW  : STRING[30] = Uninitialized
+
+[TPSNAP]DEV_STR  Storage: CMOS  Access: RW  : STRING[5] = Uninitialized
+
+[TPSNAP]ENTRY  Storage: CMOS  Access: RW  : INTEGER = Uninitialized
+
+[TPSNAP]HOUR  Storage: CMOS  Access: RW  : INTEGER = Uninitialized
+
+[TPSNAP]HOUR_STR  Storage: CMOS  Access: RW  : STRING[3] = Uninitialized
+
+[TPSNAP]LANG_STR  Storage: CMOS  Access: RW  : STRING[8] = Uninitialized
+
+[TPSNAP]MIN  Storage: CMOS  Access: RW  : INTEGER = Uninitialized
+
+[TPSNAP]MIN_STR  Storage: CMOS  Access: RW  : STRING[3] = Uninitialized
+
+[TPSNAP]MONTH  Storage: CMOS  Access: RW  : INTEGER = Uninitialized
+
+[TPSNAP]MONTH_STR  Storage: CMOS  Access: RW  : STRING[3] = Uninitialized
+
+[TPSNAP]PNG_STR  Storage: CMOS  Access: RW  : STRING[30] = Uninitialized
+
+[TPSNAP]SEC  Storage: CMOS  Access: RW  : INTEGER = Uninitialized
+
+[TPSNAP]SEC_STR  Storage: CMOS  Access: RW  : STRING[3] = Uninitialized
+
+[TPSNAP]STATUS  Storage: CMOS  Access: RW  : INTEGER = Uninitialized
+
+[TPSNAP]TIME_INT  Storage: CMOS  Access: RW  : INTEGER = Uninitialized
+
+[TPSNAP]TIME_STR  Storage: CMOS  Access: RW  : STRING[20] = Uninitialized
+
+[TPSNAP]TIME_STR2  Storage: CMOS  Access: RW  : STRING[20] = Uninitialized
+
+[TPSNAP]T_INT  Storage: CMOS  Access: RW  : INTEGER = Uninitialized
+
+[TPSNAP]T_STR  Storage: CMOS  Access: RW  : STRING[3] = Uninitialized
+
+[TPSNAP]YEAR  Storage: CMOS  Access: RW  : INTEGER = Uninitialized
+
+[TPSNAP]YEAR_STR  Storage: CMOS  Access: RW  : STRING[5] = Uninitialized
+

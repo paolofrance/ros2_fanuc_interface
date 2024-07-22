@@ -1,0 +1,11 @@
+tb_cart 1           -- cartesian 1. cycle priority 2. path priority
+tb_jnt 1            -- joint 1. cycle priority 2. path priority
+angle  0.00000E+00             -- mount angle
+angle2  0.00000E+00            -- inclined direction
+payload 10  -- max payload
+cllb_qstp 0 -- collabolative sudden stop
+cllb_qstpre 0 -- collabolative sudden stop re-confirm
+grease 1            -- 1: Standard Grease 2: Food Grade Grease
+ma_modified 0       -- compatibility flag for mount angle 0: modified
+srvo_off 2          -- 1: Enabled 2: Disabled
+ENDOFL              -- end of the file

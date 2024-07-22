@@ -13,7 +13,17 @@ import xacro
 
 def generate_launch_description():
 
+
     declared_arguments = []
+
+    #declared_arguments.append(
+    #    DeclareLaunchArgument(
+    #        "robot_model",
+    #        default_value="crx20ia_l",
+    #        description="model of the fanuc robot. ",
+    #    )
+    #)
+
     declared_arguments.append(
         DeclareLaunchArgument(
             "use_mock_hardware",
@@ -25,8 +35,8 @@ def generate_launch_description():
     
     declared_arguments.append(
         DeclareLaunchArgument(
-        "controllers_file",
-        default_value="controllers.yaml"
+            "controllers_file",
+            default_value="controllers.yaml"
         )
     )
     
@@ -45,6 +55,7 @@ def generate_launch_description():
             description="if the robot is read only . ",
         )
     )
+
     declared_arguments.append(
         DeclareLaunchArgument(
             "use_rmi",
@@ -54,12 +65,12 @@ def generate_launch_description():
     )
 
     description_package = "crx_description"
+    #robot_model = LaunchConfiguration("robot_model")
     use_mock_hardware = LaunchConfiguration("use_mock_hardware")
     robot_ip = LaunchConfiguration("robot_ip")
     controllers_file = LaunchConfiguration("controllers_file")
     read_only = LaunchConfiguration("read_only")
     use_rmi = LaunchConfiguration("use_rmi")
-    
     
     robot_description_content = Command(
         [

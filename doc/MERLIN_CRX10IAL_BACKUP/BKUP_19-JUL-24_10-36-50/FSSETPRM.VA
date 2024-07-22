@@ -1,0 +1,29 @@
+[FSSETPRM]ENTRY  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSSETPRM]STATUS  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSSETPRM]II  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSSETPRM]DATA_TYPE  Storage: DRAM  Access: RW  : ARRAY[5] OF INTEGER
+  [1] = Uninitialized
+  [2] = Uninitialized
+  [3] = Uninitialized
+  [4] = Uninitialized
+  [5] = Uninitialized
+
+[FSSETPRM]INT_VAL  Storage: DRAM  Access: RW  : ARRAY[5] OF INTEGER
+  [1] = Uninitialized
+  [2] = Uninitialized
+  [3] = Uninitialized
+  [4] = Uninitialized
+  [5] = Uninitialized
+
+[FSSETPRM]REAL_VAL  Storage: DRAM  Access: RW  : ARRAY[5] OF REAL
+  [1] = Uninitialized
+  [2] = Uninitialized
+  [3] = Uninitialized
+  [4] = Uninitialized
+  [5] = Uninitialized
+
+[FSSETPRM]STRING_VAL  Storage: DRAM  Access: RW  : STRING[40] = Uninitialized
+

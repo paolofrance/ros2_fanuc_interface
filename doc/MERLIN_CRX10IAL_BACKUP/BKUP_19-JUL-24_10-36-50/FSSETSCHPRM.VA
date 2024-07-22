@@ -1,0 +1,45 @@
+[FSSETSCHPRM]STATUS  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSSETSCHPRM]ENTRY  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSSETSCHPRM]II  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSSETSCHPRM]JJ  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSSETSCHPRM]MAX_SCH_NUM  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSSETSCHPRM]SCH_NUM  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSSETSCHPRM]PARAM_ID  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSSETSCHPRM]INT_PARAM  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSSETSCHPRM]PARAM_TYPE  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSSETSCHPRM]INS_DIR  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSSETSCHPRM]ABS_INS_DIR  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSSETSCHPRM]REAL_PARAM  Storage: DRAM  Access: RW  : REAL = Uninitialized
+
+[FSSETSCHPRM]ARG_STR  Storage: DRAM  Access: RW  : STRING[80] = Uninitialized
+
+[FSSETSCHPRM]SCH_GRP_STR  Storage: DRAM  Access: RW  : STRING[80] = Uninitialized
+
+[FSSETSCHPRM]INS_DIR_STR  Storage: DRAM  Access: RW  : STRING[10] = Uninitialized
+
+[FSSETSCHPRM]DATA_TYPE  Storage: DRAM  Access: RW  : ARRAY[3] OF INTEGER
+  [1] = Uninitialized
+  [2] = Uninitialized
+  [3] = Uninitialized
+
+[FSSETSCHPRM]ARG_INT  Storage: DRAM  Access: RW  : ARRAY[3] OF INTEGER
+  [1] = Uninitialized
+  [2] = Uninitialized
+  [3] = Uninitialized
+
+[FSSETSCHPRM]ARG_REAL  Storage: DRAM  Access: RW  : ARRAY[3] OF REAL
+  [1] = Uninitialized
+  [2] = Uninitialized
+  [3] = Uninitialized
+

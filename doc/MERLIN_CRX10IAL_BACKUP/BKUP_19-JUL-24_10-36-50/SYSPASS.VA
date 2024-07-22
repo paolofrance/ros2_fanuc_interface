@@ -1,0 +1,105 @@
+[*SYSTEM*]$PASSNAME  Storage: SHADOW  Access: FP  : ARRAY[10] OF PASSNAME_T
+     Field: $PASSNAME[1].$NAME Access: RO: STRING[13] = ''
+     Field: $PASSNAME[1].$LEVEL Access: RO: SHORT = 8
+     Field: $PASSNAME[1].$TIME_OUT Access: RO: SHORT = 0
+     Field: $PASSNAME[2].$NAME Access: RO: STRING[13] = Uninitialized
+     Field: $PASSNAME[2].$LEVEL Access: RO: SHORT = 0
+     Field: $PASSNAME[2].$TIME_OUT Access: RO: SHORT = 0
+     Field: $PASSNAME[3].$NAME Access: RO: STRING[13] = Uninitialized
+     Field: $PASSNAME[3].$LEVEL Access: RO: SHORT = 0
+     Field: $PASSNAME[3].$TIME_OUT Access: RO: SHORT = 0
+     Field: $PASSNAME[4].$NAME Access: RO: STRING[13] = Uninitialized
+     Field: $PASSNAME[4].$LEVEL Access: RO: SHORT = 0
+     Field: $PASSNAME[4].$TIME_OUT Access: RO: SHORT = 0
+     Field: $PASSNAME[5].$NAME Access: RO: STRING[13] = Uninitialized
+     Field: $PASSNAME[5].$LEVEL Access: RO: SHORT = 0
+     Field: $PASSNAME[5].$TIME_OUT Access: RO: SHORT = 0
+     Field: $PASSNAME[6].$NAME Access: RO: STRING[13] = Uninitialized
+     Field: $PASSNAME[6].$LEVEL Access: RO: SHORT = 0
+     Field: $PASSNAME[6].$TIME_OUT Access: RO: SHORT = 0
+     Field: $PASSNAME[7].$NAME Access: RO: STRING[13] = Uninitialized
+     Field: $PASSNAME[7].$LEVEL Access: RO: SHORT = 0
+     Field: $PASSNAME[7].$TIME_OUT Access: RO: SHORT = 0
+     Field: $PASSNAME[8].$NAME Access: RO: STRING[13] = Uninitialized
+     Field: $PASSNAME[8].$LEVEL Access: RO: SHORT = 0
+     Field: $PASSNAME[8].$TIME_OUT Access: RO: SHORT = 0
+     Field: $PASSNAME[9].$NAME Access: RO: STRING[13] = Uninitialized
+     Field: $PASSNAME[9].$LEVEL Access: RO: SHORT = 0
+     Field: $PASSNAME[9].$TIME_OUT Access: RO: SHORT = 0
+     Field: $PASSNAME[10].$NAME Access: RO: STRING[13] = Uninitialized
+     Field: $PASSNAME[10].$LEVEL Access: RO: SHORT = 0
+     Field: $PASSNAME[10].$TIME_OUT Access: RO: SHORT = 0
+
+[*SYSTEM*]$PASSSUPER  Storage: CMOS  Access: FP  : PASSNAME_T = 
+   Field: $PASSSUPER.$NAME Access: RO: STRING[13] = ''
+   Field: $PASSSUPER.$LEVEL Access: RO: SHORT = 8
+   Field: $PASSSUPER.$TIME_OUT Access: RO: SHORT = 0
+
+[*SYSTEM*]$PASSWORD  Storage: CMOS  Access: FP  : PASSWORD_T = 
+   Field: $PASSWORD.$TIME_OUT  ARRAY[8] OF SHORT
+    [1] = 15
+    [2] = 15
+    [3] = 15
+    [4] = 15
+    [5] = 15
+    [6] = 15
+    [7] = 15
+    [8] = 15
+   Field: $PASSWORD.$CURR_LEVEL  ARRAY[8] OF SHORT
+    [1] = 0
+    [2] = 0
+    [3] = 0
+    [4] = 0
+    [5] = 0
+    [6] = 0
+    [7] = 0
+    [8] = 0
+   Field: $PASSWORD.$CURR_USER  ARRAY[8] OF SHORT
+    [1] = 0
+    [2] = 0
+    [3] = 0
+    [4] = 0
+    [5] = 0
+    [6] = 0
+    [7] = 0
+    [8] = 0
+   Field: $PASSWORD.$NUM_USERS Access: RO: SHORT = 10
+   Field: $PASSWORD.$STOP_TPCHG Access: RW: SHORT = 0
+   Field: $PASSWORD.$LOG_EVENTS Access: RO: BOOLEAN = FALSE
+   Field: $PASSWORD.$LEVELS  ARRAY[4] OF INTEGER
+    [1] = 1453939572
+    [2] = 647471210
+    [3] = 7
+    [4] = 0
+   Field: $PASSWORD.$COUNT_DOWN  ARRAY[8] OF INTEGER
+    [1] = 0
+    [2] = 0
+    [3] = 0
+    [4] = 0
+    [5] = 0
+    [6] = 0
+    [7] = 0
+    [8] = 0
+   Field: $PASSWORD.$ENB_PCMPWD Access: RW: BOOLEAN = FALSE
+   Field: $PASSWORD.$DVPCM_LOGIN Access: RW: INTEGER = 2
+   Field: $PASSWORD.$PCM_LOGIN  ARRAY[8] OF SHORT
+    [1] = 0
+    [2] = 0
+    [3] = 0
+    [4] = 0
+    [5] = 0
+    [6] = 0
+    [7] = 0
+    [8] = 0
+   Field: $PASSWORD.$ENB_LVCHK Access: RW: BOOLEAN = TRUE
+   Field: $PASSWORD.$ENB_FULLMN Access: RW: BOOLEAN = TRUE
+   Field: $PASSWORD.$ENB_TIMEXT Access: RW: BOOLEAN = TRUE
+   Field: $PASSWORD.$ENB_CNTDWN Access: RW: BOOLEAN = FALSE
+   Field: $PASSWORD.$ENB_MENU Access: RO: BOOLEAN = TRUE
+   Field: $PASSWORD.$AUTOLOGIN Access: RW: BOOLEAN = FALSE
+   Field: $PASSWORD.$ENB_CFG_DSP Access: RW: BOOLEAN = TRUE
+   Field: $PASSWORD.$ENB_RLS_DSP Access: RW: BOOLEAN = TRUE
+   Field: $PASSWORD.$ULOG_EVENTS Access: RO: BOOLEAN = FALSE
+   Field: $PASSWORD.$BURYBANMENU Access: RW: BOOLEAN = FALSE
+   Field: $PASSWORD.$ENB_GILOGIN Access: RW: BOOLEAN = FALSE
+

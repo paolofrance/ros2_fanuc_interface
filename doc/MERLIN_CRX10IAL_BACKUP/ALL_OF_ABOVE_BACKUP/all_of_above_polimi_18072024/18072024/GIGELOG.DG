@@ -1,0 +1,16 @@
+GigE log
+------------------------------
+18-JUL-24 12:10  : Starting GigE
+18-JUL-24 12:10  : Adding Defn (FR:\B_SCA640.CAM), 0
+18-JUL-24 12:10  : Adding Defn (FR:\D_M640.CAM), 0
+18-JUL-24 12:10  : Adding Defn (FR:\D_M1400.CAM), 0
+18-JUL-24 12:10  : Adding Defn (FR:\B_ACA640.CAM), 0
+18-JUL-24 12:10  : Adding Defn (FR:\B_ACA1300.CAM), 0
+18-JUL-24 12:10  : Adding Defn (FR:\B_SCA640_V3.CAM), 0
+18-JUL-24 12:10  : Adding Defn (FR:\B_ACA1300_75GM.CAM), 0
+18-JUL-24 12:10  : Adding Defn (FR:\B_ACA1920_48GM.CAM), 0
+18-JUL-24 12:10  : Adding Defn (FR:\B_ACA1300_75GC.CAM), 0
+18-JUL-24 12:10  : Adding Defn (FR:\B_ACA1920_48GC.CAM), 0
+18-JUL-24 12:10  : CAM file defn 430108, 302059116, IpxGev_CheetahPregius.xml)
+18-JUL-24 12:10  : Adding Defn (FR:\I_POE_C1911M.CAM), 0
+18-JUL-24 12:10  : RPtr = 39eafa1c, GVCP PCB ptr = 39eb2440, GIGE_ROOT=11fdd370

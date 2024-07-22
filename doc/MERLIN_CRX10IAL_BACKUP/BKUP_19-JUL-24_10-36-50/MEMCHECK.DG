@@ -1,0 +1,2 @@
+No pool diagnostics data, to generate:
+SMON> memchk 0

@@ -1,0 +1,32 @@
+</pre><table width=100%>
+<style>
+table {
+  border-collapse:collapse;
+}
+tr td
+{
+  border-bottom: 2px solid black;
+}
+  .btnTitle {
+    font-size: large;
+    color: black;
+    text-align: left;
+   }
+  .btnTitleGray {
+    font-size: large;
+    color: #d3d3d3;
+    text-align: left;
+   }
+  .btnDesc {
+    font-size: small;
+    color: black;
+    text-align: left;
+  }
+  .btnDescGray {
+    font-size: small;
+    color: #d3d3d3;
+    text-align: left;
+  }
+</style>
+<div>No notifications to report
+<pre>

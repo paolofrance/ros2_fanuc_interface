@@ -1,0 +1,93 @@
+[SYINISUB] restored user device TD:
+[tpnvdt] Formating persistent storage
+[TPSPART] Found KAREL ATMSKCHG 200
+[TPSPART] Found KAREL EOATMENU 216
+[TPSPART] Found KAREL ATPRGADJ 930
+[TPSPART] Found KAREL ATWAITRL 931
+[TPSPART] Found KAREL ATPRSCRN 932
+[TPSPART] Found KAREL ATPASWRD 935
+[TPSPART] Found KAREL ATINSTAL 936
+[TPKSINIT] dname -K943- not found devstat = 0 cfg $139f7328
+[TPSPART] Found KAREL ATCELLIO 955
+[TPKSINIT] dname -K972- not found devstat = 0 cfg $13a569a4
+[TPKSINIT] dname -K973- not found devstat = 0 cfg $ffc8cf0
+[TPSPART] Found KAREL ATSOFTPA 992
+Result size = 596
+[xmlparse_getAttrEnum] fc does not enumerate as PROGRAM
+[vcamdrvr_init_cxp] CXP status(4) : 00000000
+[vcamdrvr_init_cxp] power off
+[vcamdrvr_initialize] time : 13402.904297ms
+[vuifblock_add_vision_commands] get_root_vision_device()=$750062
+[comm_req] WS:47 Open WebSocket for TKEY
+[vmimage_bakfile] FRB:mtparam.PRV at 18-JUL-24 12:11:00  (322)
+[vmfndvar] [*SYSTEM*]$SYSTEM_TIMER truncated to $SYSTEM_TIME
+[syinmpc] received new password config
+[tpmains] Waiting at 54086ms
+[pmon] never found suspend or resume client
+[tpmains] Ready at 54166ms Total Startup Time ~ 61 seconds
+[sfstpsl] init $SEL_HOTSTRT
+[tpmains] ready at 18-JUL-24 12:11:08 
+[syin]status after mktsk = 0
+[sfcgtp] Connect to Tablet TP
+[sfcgtp] Tablet TP is allowed to connect
+[sfcgtp] wait for remote iPendant connection
+[sfcgtp] disconnect local TP
+[ostchp] ignoring disconnect pkt
+[sfcgtp] prepare for remote iPendant connection
+[ostkdisc] prepare for remote iPendant connection
+[ostkdisc] TP is connected
+[ostchp] TP is connected in graphic mode
+[sfstpsl] init $SEL_HOTSTRT
+[tpmains] ready at 18-JUL-24 12:11:16 
+[sfcgtp] request PMON connect to 1.1.0.12:0
+[sfcgtp] ip 101000c, port 0
+[PMON] Connecting to COMET for <001.001.000.012:0>
+[cmt_rpc_connect] New tpmmconn[0] $3b7b91b0
+[pmon] client is remote iPendant
+[PMON] Sent iPendant socket 65776 to TKEY
+[ostkey] recevied iPendant socket 65776 from PMON
+[PMON] Connect ID is 3B7B91B0
+[PMEV_CONNECT_ID]S501 is ordered but pmc_cfg_p was not available.
+[ostkey] Only accepting keys from <001.001.000.012>
+[ostkey_ftpdevice] Connect FTP 
+[sfcgtp] request PMON connect to 1.1.0.12:0
+[sfcgtp] ip 101000c, port 0
+[PMON] Connecting to COMET for <001.001.000.012:0>
+[cmt_rpc_connect] New tpmmconn[1] $3b7b77a8
+[PMON] Connect ID is 3B7B77A8
+[PMEV_CONNECT_ID]S501 is ordered but pmc_cfg_p was not available.
+[cgtpmain] PMON event not handled {"subsys_code":"100","pmev_type":"7","lang":"ENGLISH     ","version":"V9.4341","hostname":"","focusbg":"3881786","startmd":"2","version6":"940341","virtual":"0"}
+[cmt_misc_gtfilist] Failed to get the file list, status: 2a0014
+[cmt_misc_gtfilist] Failed to get the file list, status: 2000a
+[cmt_misc_gtfilist] Failed to get the file list, status: 2a0014
+[cmt_misc_gtfilist] Failed to get the file list, status: 2000a
+[tpnvdt] Failed to get: [*SYSTEM*]$AWSCFG.$WELD_ID_ENA
+[rpcmc] iovalrd 1[0] failed, status 0xd0002
+[rpcmc] iovalrd 1[0] failed, status 0xd0002
+[rpcmc] iovalrd 1[0] failed, status 0xd0002
+[ostksock_recvfrom] starting TP watchdog
+[rpcmc] iovalrd 1[0] failed, status 0xd0002
+[rpcmc] iovalrd 1[0] failed, status 0xd0002
+[TPFBCKUP] Do a part of diagnostic log.
+[TPFBCKUP] Start to save FRA:\RSCH\*.* data.
+[TPFBCKUP] FRA:\RSCH\ is not existed.
+[TPFBCKUP] Start to save MDB:\*.* data. 
+[mdspc] MDS0:\CRSENSPK.ZIP file generation error 0x2000e
+[RCMPLG] cannot open file <MDS6:\RCMCFG.XML>
+[vmisavef] appending segment to MDS2:\SYSVARS.SV
+[RCMPLG] cannot open file <MDS2:\VARCHG.XML>
+[ZIP] INIT
+[TPFBCKUP] Start to save MD:\*.LS data. 
+[TPFBCKUP] Start to save auto backup data. 
+[TPFBCKUP] Done the saving of maintenance data. 
+[vmisavef] appending segment to MDS9:\SYSVARS.SV
+[RCMPLG] cannot open file <MDS7:\RCMCFG.XML>
+[RCMPLG] cannot open file <MDS8:\VARCHG.XML>
+[mdspc] MDS8:\CRSENSPK.ZIP file generation error 0x2000e
+UD1 Removed
+UD1 Inserted
+[fluisoft] must be UIF task
+[owtkwdck] extending jQuery watchdog to 240 ms
+[ostkwdck] TP Communication Error occurred, 120
+[ostkwdck] suspend TP watchdog
+[ostksock_recvfrom] starting TP watchdog

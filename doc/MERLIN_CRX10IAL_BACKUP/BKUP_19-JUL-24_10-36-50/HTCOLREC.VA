@@ -1,0 +1,15 @@
+[HTCOLREC]COL_REC  Storage: CMOS  Access: RW  : BOOLEAN = Uninitialized
+
+[HTCOLREC]COL_RECOV  Storage: CMOS  Access: RW  : AUTO_COL_REC = 
+   Field: COL_RECOV.REG_INDEX Access: RW: INTEGER = Uninitialized
+   Field: COL_RECOV.DO_INDEX Access: RW: INTEGER = Uninitialized
+   Field: COL_RECOV.ERR_DO_INDEX Access: RW: INTEGER = Uninitialized
+   Field: COL_RECOV.RECOVERY_TSK Access: RW: STRING[36] = Uninitialized
+   Field: COL_RECOV.ERR_DELAY Access: RW: INTEGER = Uninitialized
+   Field: COL_RECOV.RESET_DELAY Access: RW: INTEGER = Uninitialized
+   Field: COL_RECOV.USE_REC_TSK Access: RW: BOOLEAN = Uninitialized
+
+[HTCOLREC]COL_DBG  Storage: DRAM  Access: RW  : BOOLEAN = Uninitialized
+
+[HTCOLREC]ABORT_DELAY  Storage: CMOS  Access: RW  : INTEGER = Uninitialized
+

@@ -1,0 +1,30 @@
+!Orderfile Header       - R30iB-R30iB+
+!SOF Ref0: Reference    - V19811
+!SOF Ref1: Request Date - 05/03/2024
+!SOF Ref2: Requested By - 95000060
+!SOF Ref3: Customer     - POLITECNICO DI MILANO
+!SOF Ref4: Ship to      - FRIT
+!SOF Ref5: Deliver Ver  - 940P55
+!SOF Ref6: Robot F/E No - E169511
+!SOF Ref7: SOF Filename - V19811 E169511 CRX10iAL POLITECNICO DI MILANO DynPathModifier RemoteMotion ZeroDownTimeOption
+!Sof Ref8: Mem Detail   - FROM 256MB SRAM 3MB
+!Orderfile Starts
+1A05B-2600-H510 ! Basic Software
+1A05B-2600-H521 ! Basic dictionary(ENGL)
+1A05B-2600-H551 ! LR HandlingTool      
+1A05B-2600-H705 ! CRX-10iA/L
+1A05B-2600-H930 ! Digital servo function
+1A05B-2600-J508 ! Customer Reg
+1A05B-2600-R739 ! Dyn Path Modifier
+1A05B-2600-R651 ! FRL Params
+1A05B-2600-R558 ! Internet Conn/Custo
+1A05B-2600-J766 ! Maint Reminder Plus
+1A05B-2600-S526 ! Mini Controller
+1A05B-2600-R912 ! Remote Motion
+1A05B-2600-R854 ! Zero Down Time Option
+1A05B-2600-R765 ! iRDiagnostics
+!Option Selection Ends
+!Orderfile Ends
+ZZZZZZZZZZ
+BE169511
+! MME

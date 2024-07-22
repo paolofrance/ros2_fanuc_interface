@@ -1,0 +1,39 @@
+<center>
+<font size=+1 face="Arial, Helvetica, sans-serif"><b>Password Configuration for the Current Level</b></font>
+<p><table border=1 width=90%>
+<tr>
+<th width=50%><font size=+1>Description</font></th><th width=25%><font size=+1>File</font></th>
+<th><font size=+1>ASCII Format</font></th>
+</tr>
+<tr>
+<td>Level Name</td>
+<td><a href=/md/passlvl.xml>PASSLVL.XML</a></td>
+<td><a href=/md/passlvl.xma>PASSLVL.XMA</a></td>
+</tr>
+<tr>
+<td>Level Defaults</td>
+<td><a href=/md/passdef.xml>PASSDEF.XML</a></td>
+<td><a href=/md/passdef.xma>PASSDEF.XMA</a></td>
+</tr>
+<tr>
+<td>Current Screen</td>
+<td><a href=/md/passscrn.xml>PASSSCRN.XML</a></td>
+<td><a href=/md/passscrn.xma>PASSSCRN.XMA</a></td>
+</tr>
+<tr>
+<td>FCTN Menu</td>
+<td><a href=/md/passfctn.xml>PASSFCTN.XML</a></td>
+<td><a href=/md/passfctn.xma>PASSFCTN.XMA</a></td>
+</tr>
+<tr>
+<td>Global Labels</td>
+<td><a href=/md/passlbl.xml>PASSLBL.XML</a></td>
+<td><a href=/md/passlbl.xma>PASSLBL.XMA</a></td>
+</tr>
+<tr>
+<td>Features</td>
+<td><a href=/md/passpwd.xml>PASSPWD.XML</a></td>
+<td><a href=/md/passpwd.xma>PASSPWD.XMA</a></td>
+</tr>
+</table>
+</center>

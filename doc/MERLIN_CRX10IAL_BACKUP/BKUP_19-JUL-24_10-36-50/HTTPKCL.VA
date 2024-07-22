@@ -1,0 +1,41 @@
+[HTTPKCL]CMDS  Storage: CMOS  Access: RW  : ARRAY[25] OF STRING[12]
+  [1] = 'MOVE'
+  [2] = 'RECORD'
+  [3] = 'ABORT'
+  [4] = 'CLEAR'
+  [5] = 'CONTNUE'
+  [6] = 'DISMOUNT'
+  [7] = 'EDIT'
+  [8] = 'FORMAT'
+  [9] = 'HOLD'
+  [10] = 'PAUSE'
+  [11] = 'PURGE'
+  [12] = 'RUN'
+  [13] = 'RUNCF'
+  [14] = 'SKIP'
+  [15] = 'STEP'
+  [16] = Uninitialized
+  [17] = Uninitialized
+  [18] = Uninitialized
+  [19] = Uninitialized
+  [20] = Uninitialized
+  [21] = Uninitialized
+  [22] = Uninitialized
+  [23] = Uninitialized
+  [24] = Uninitialized
+  [25] = Uninitialized
+
+[HTTPKCL]URL  Storage: DRAM  Access: RW  : STRING[128] = Uninitialized
+
+[HTTPKCL]NEWCMD  Storage: DRAM  Access: RW  : STRING[128] = Uninitialized
+
+[HTTPKCL]FIRST_TOKEN  Storage: DRAM  Access: RW  : STRING[12] = Uninitialized
+
+[HTTPKCL]STATUS  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[HTTPKCL]FOUND  Storage: DRAM  Access: RW  : BOOLEAN = Uninitialized
+
+[HTTPKCL]ILL_FLG  Storage: DRAM  Access: RW  : BOOLEAN = Uninitialized
+
+[HTTPKCL]I  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+

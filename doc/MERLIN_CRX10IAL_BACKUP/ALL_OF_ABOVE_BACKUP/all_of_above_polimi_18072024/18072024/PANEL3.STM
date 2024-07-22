@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+  <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+  <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-STORE">
+  <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+  <META HTTP-EQUIV="EXPIRES" CONTENT="-1">
+</HEAD>
+<BODY BGCOLOR="#C0C0C0">
+  <DIV ALIGN="center">
+  <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+  <TR>
+    <TD><A HREF="panel2.stm"><IMG SRC="pbutton.gif"></A></TD>
+    <TD WIDTH="500"><IMG SRC="spacer.gif"></TD>
+    <TD><A HREF="panel4.stm"><IMG SRC="nbutton.gif"></A></TD>
+  </TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD ALIGN="center"><FONT SIZE="6">Panel 3 - blank page</FONT></TD>
+    <TD>&nbsp;</TD>
+  </TR>
+  </TABLE>
+  </DIV>
+</BODY>
+</HTML>

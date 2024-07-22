@@ -1,0 +1,14 @@
+[FSINIUTUF]ENTRY  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSINIUTUF]STATUS  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSINIUTUF]CUR_VAL  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSINIUTUF]VAR_STR  Storage: DRAM  Access: RW  : STRING[40] = Uninitialized
+
+[FSINIUTUF]US_INI  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSINIUTUF]US_DELTA  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[FSINIUTUF]SYSVARCHK  Storage: DRAM  Access: RW  : BOOLEAN = Uninitialized
+

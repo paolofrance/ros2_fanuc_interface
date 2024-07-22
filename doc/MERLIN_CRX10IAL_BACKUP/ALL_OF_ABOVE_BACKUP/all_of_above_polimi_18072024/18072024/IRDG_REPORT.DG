@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>iRDiagnostics Report</title>
+</head>
+<body>
+<h1 align=center>iRDiagnostics Report</h1>
+<h3 align=center>Current Time: 2024/07/18 12:28:04</h3>
+<h2>Reducer Condition Detection<h2>
+<table style=width: 100%; margin-right: 0px;>
+<tr><td>Group</td><td>Axis</td><td>Condition</td><td>Last Detecting Date</td></tr>
+<tr><td>1</td><td>1</td><td>********</td><td>****/**/** **:**:**</td></tr>
+<tr><td>1</td><td>2</td><td>********</td><td>****/**/** **:**:**</td></tr>
+<tr><td>1</td><td>3</td><td>********</td><td>****/**/** **:**:**</td></tr>
+<tr><td>1</td><td>4</td><td>********</td><td>****/**/** **:**:**</td></tr>
+<tr><td>1</td><td>5</td><td>********</td><td>****/**/** **:**:**</td></tr>
+<tr><td>1</td><td>6</td><td>********</td><td>****/**/** **:**:**</td></tr>
+</table><br><br>
+<h2>Reducer Load Monitor</h2>
+<h3>Ran at ****/**/**/ **:**:** with speed override 0</h3>
+<table style=width: 100%; margin-right: 0px;>
+<tr><td>Program</td><td>Line</td><td>Condition</td></tr>
+<tr><td colspan=3>No Motion Profiler Data</td></tr>
+<tr><td colspan=3>No aggressive motion detetcted</td></tr>
+</table><br><br>
+<h2>Top 10 Occurence Alarms</h2>
+<table style=width: 100%; margin-right: 0px;>
+<tr><td>Alarm</td><td>Occurence</td></tr>
+<tr><td>SRVO-340 DCS T1 TCP speed</td><td>1</td></tr>
+</table></body></html>

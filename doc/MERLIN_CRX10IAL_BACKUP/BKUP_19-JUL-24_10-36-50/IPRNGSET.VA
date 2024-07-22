@@ -1,0 +1,35 @@
+[IPRNGSET]BOOLVAL  Storage: DRAM  Access: RW  : BOOLEAN = Uninitialized
+
+[IPRNGSET]BYTEVAL  Storage: DRAM  Access: RW  : ARRAY[5] OF BYTE
+  [1] = 255
+  [2] = 255
+  [3] = 255
+  [4] = 255
+  [5] = 255
+
+[IPRNGSET]ENTRY  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[IPRNGSET]IDX  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[IPRNGSET]INTVAL  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[IPRNGSET]PROG_NAME  Storage: DRAM  Access: RW  : STRING[64] = Uninitialized
+
+[IPRNGSET]REALVAL  Storage: DRAM  Access: RW  : REAL = Uninitialized
+
+[IPRNGSET]SETTYPE  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[IPRNGSET]SHORTVAL  Storage: DRAM  Access: RW  : ARRAY[2] OF SHORT
+  [1] = Uninitialized
+  [2] = Uninitialized
+
+[IPRNGSET]SIDX  Storage: DRAM  Access: RW  : STRING[8] = Uninitialized
+
+[IPRNGSET]STATUS  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
+
+[IPRNGSET]STRVAL  Storage: DRAM  Access: RW  : STRING[64] = Uninitialized
+
+[IPRNGSET]VAR_NAME  Storage: DRAM  Access: RW  : STRING[64] = Uninitialized
+
+[IPRNGSET]WHOLE_NAME  Storage: DRAM  Access: RW  : STRING[64] = Uninitialized
+
