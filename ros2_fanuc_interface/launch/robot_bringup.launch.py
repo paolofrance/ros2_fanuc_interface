@@ -5,7 +5,7 @@ from launch.substitutions import Command, FindExecutable, LaunchConfiguration, P
 from launch_ros.actions import Node
 from launch.actions import IncludeLaunchDescription,ExecuteProcess 
 from launch_ros.substitutions import FindPackageShare
-from launch.actions import GroupAction
+from launch.actions import GroupAction, OpaqueFunction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from ament_index_python import get_package_share_directory
 import os
@@ -13,16 +13,15 @@ import xacro
 
 def generate_launch_description():
 
-
     declared_arguments = []
 
-    #declared_arguments.append(
-    #    DeclareLaunchArgument(
-    #        "robot_model",
-    #        default_value="crx20ia_l",
-    #        description="model of the fanuc robot. ",
-    #    )
-    #)
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "robot_type",
+            default_value="crx20ia_l",
+            description="model of the fanuc robot. ",
+        )
+    )
 
     declared_arguments.append(
         DeclareLaunchArgument(
@@ -63,19 +62,27 @@ def generate_launch_description():
             description="if the robot is read only . ",
         )
     )
+    
+    return LaunchDescription( declared_arguments + [OpaqueFunction(function=launch_setup)] )
 
-    description_package = "crx_description"
-    #robot_model = LaunchConfiguration("robot_model")
+def launch_setup(context, *args, **kwargs):
+
+    description_package = "crx_description"    
+    robot_type = LaunchConfiguration("robot_type")
     use_mock_hardware = LaunchConfiguration("use_mock_hardware")
     robot_ip = LaunchConfiguration("robot_ip")
     controllers_file = LaunchConfiguration("controllers_file")
     read_only = LaunchConfiguration("read_only")
     use_rmi = LaunchConfiguration("use_rmi")
-    
+
+    robot_type_str = robot_type.perform(context)
+    print("robot_type", robot_type_str)
+
     robot_description_content = Command(
         [
             PathJoinSubstitution([FindExecutable(name="xacro")]),
-            " ",PathJoinSubstitution([FindPackageShare(description_package), "urdf/crx20ia_l/", "crx20ia_l.xacro"]),
+            " ",PathJoinSubstitution([FindPackageShare(description_package), "urdf", robot_type_str, robot_type_str+".xacro"]),
+            " ", "robot_type:=", robot_type,
             " ", "use_mock_hardware:=", use_mock_hardware,
             " ", "robot_ip:=", robot_ip,
             " ", "read_only:=", read_only,
@@ -124,11 +131,11 @@ def generate_launch_description():
     )
     
     move_group = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('crx20_moveit_config'),'launch', 'move_group.launch.py')]),)
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_type_str+'_moveit_config'),'launch', 'move_group.launch.py')]),)
     
     moveit_rviz = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('crx20_moveit_config'),'launch', 'moveit_rviz.launch.py')]),)
-    
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_type_str+'_moveit_config'),'launch', 'moveit_rviz.launch.py')]),)
+
     nodes_to_start = [
         control_node,
         joint_state_broadcaster_spawner,
@@ -138,7 +145,4 @@ def generate_launch_description():
         moveit_rviz,
     ]
 
-    return LaunchDescription( declared_arguments + nodes_to_start )
-
-
-
+    return nodes_to_start
