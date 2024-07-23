@@ -40,9 +40,7 @@ To check is the EthernetIP module is loaded on your robot, open the FanucTP app 
 | fanuc_eth_ip  | Implementation of the communication via Ethernet/IP between the remote PC and the Fanuc controller. |
 | fanuc_rmi     | Implementation of the communication via Remote Motion Interface (RMI) between the remote PC and the Fanuc controller. RMI is used as an alternative communication channel. From our experience, EthernetIP communication gives the best results in terms of real-time control of the robot. |
 | ros2_fanuc_interface | ROS2 Hardware Interface. Allows for controlling the robot via Ethernet/IP and RMI. |
-| fanuc_srvs | Services to call TP programs and allows for interaction with the Fanuc controller.
-Most of the services require TP programs to be written and running as Background Logics, that read Registers to start an action.
-More details will be added in future releases. |
+| fanuc_srvs | Services to call TP programs and allows for interaction with the Fanuc controller. Most of the services require TP programs to be written and running as Background Logics, that read Registers to start an action. More details will be added in future releases. |
 
 ## Installation on the remote PC <a name="installation"></a>
 
