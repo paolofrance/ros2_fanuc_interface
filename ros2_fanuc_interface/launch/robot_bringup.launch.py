@@ -124,6 +124,7 @@ def launch_setup(context, *args, **kwargs):
         executable="spawner",
         arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
     )
+    
     controller_spawner_started = Node(
         package="controller_manager",
         executable="spawner",
