@@ -1,6 +1,0 @@
-[AAVMFREEPOS]G_NUM_MEASURED  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
-
-[AAVMFREEPOS]USE_AVRG_VFD  Storage: CMOS  Access: RW  : BOOLEAN = Uninitialized
-
-[AAVMFREEPOS]PRE_MAST  Storage: CMOS  Access: RW  : BOOLEAN = Uninitialized
-

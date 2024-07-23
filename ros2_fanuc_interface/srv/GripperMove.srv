@@ -1,5 +1,0 @@
-std_msgs/Int64 position
-std_msgs/Int64 velocity
-std_msgs/Int64 effort
----
-bool success

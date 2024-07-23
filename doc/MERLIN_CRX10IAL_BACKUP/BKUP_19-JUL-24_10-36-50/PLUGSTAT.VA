@@ -1,6 +1,0 @@
-[PLUGSTAT]INS_OPTIONS  Storage: UNINIT_DRAM  Access: RW  : INTEGER = Uninitialized
-
-[PLUGSTAT]ACTION_TYPE  Storage: UNINIT_DRAM  Access: RW  : INTEGER = Uninitialized
-
-[PLUGSTAT]WRITE_MSG  Storage: UNINIT_DRAM  Access: RW  : INTEGER = Uninitialized
-

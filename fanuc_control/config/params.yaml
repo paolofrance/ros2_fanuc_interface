@@ -1,0 +1,9 @@
+fanuc_control:
+  ros__parameters:
+    robot_ip: "192.168.150.2"
+    read_only: false
+
+
+
+
+    

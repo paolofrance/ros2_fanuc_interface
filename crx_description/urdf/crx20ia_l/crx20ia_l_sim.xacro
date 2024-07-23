@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot name="crx20ia_l" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:arg name="use_mock_hardware" default="true" />
+
+  <xacro:include filename="$(find crx_description)/urdf/crx20ia_l/crx20ia_l.urdf.xacro"/>
+  <!-- <xacro:include filename="$(find crx_description)/crx20/urdf/crx20ia_l.ros2_control.xacro"/> -->
+
+  <xacro:crx20ia_l use_mock_hardware="$(arg use_mock_hardware)"/>
+  <!-- <xacro:crx20_ros2_control name="crx20"/> -->
+
+</robot>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="crx20ia_l">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import crx20ia_l urdf file -->
+    <xacro:include filename="$(find crx_description)/urdf/crx20ia_l/crx20ia_l_sim.xacro" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="crx20ia_l.ros2_control.xacro" />
+
+
+    <xacro:crx20ia_l_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

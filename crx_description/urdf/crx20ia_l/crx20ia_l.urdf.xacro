@@ -1,0 +1,278 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+
+  <xacro:macro name="crx20ia_l" 
+               params="robot_ip=192.168.150.2
+               read_only=false 
+               use_rmi=false 
+               use_mock_hardware=false">
+  
+  <xacro:include filename="$(find crx_description)/urdf/crx.ros2_control.xacro"/>  
+  <xacro:crx_ros2_control name="crx20" 
+                          use_mock_hardware="${use_mock_hardware}" 
+                          robot_ip="${robot_ip}"
+                          read_only="${read_only}"
+                          use_rmi="${use_rmi}" />
+  
+    <material name="FANUC_Black">
+      <color rgba="0 0 0 1.0"/>
+    </material>
+    <material name="FANUC_Yellow">
+      <color rgba="1.00 0.84 0.01 1.00"/>
+    </material>
+    <material name="FANUC_Green">
+      <color rgba="0.43 0.68 0.26 1.00"/>
+    </material>
+    <material name="FANUC_White">
+      <color rgba="0.84 0.84 0.82 1.00"/>
+    </material>
+
+    <xacro:property name="l_base" value="0.245"/>
+    <xacro:property name="l_1" value="0.0"/>
+    <xacro:property name="l_2" value="0.710"/>
+    <xacro:property name="l_3" value="0.0"/>
+    <xacro:property name="l_4" value="0.540"/>
+    <xacro:property name="l_5" value="0.150"/>
+    <xacro:property name="l_6" value="0.160"/>
+
+    <xacro:property name="j1_v" value="80"/>
+    <xacro:property name="j2_v" value="80"/>
+    <xacro:property name="j3_v" value="120"/>
+    <xacro:property name="j4_v" value="112.5"/>
+    <xacro:property name="j5_v" value="90"/>
+    <xacro:property name="j6_v" value="112.5"/>
+
+    <xacro:property name="j1_u" value="179.9"/>
+    <xacro:property name="j2_u" value="179.9"/>
+    <xacro:property name="j3_u" value="270"/>
+    <xacro:property name="j4_u" value="190"/>
+    <xacro:property name="j5_u" value="179.9"/>
+    <xacro:property name="j6_u" value="225"/>
+
+    <xacro:property name="j1_l" value="-179.9"/>
+    <xacro:property name="j2_l" value="-179.9"/>
+    <xacro:property name="j3_l" value="-270"/>
+    <xacro:property name="j4_l" value="-190"/>
+    <xacro:property name="j5_l" value="-179.9"/>
+    <xacro:property name="j6_l" value="-225"/>
+
+    <xacro:property name="mz_1" value="0.1277"/>
+    <xacro:property name="mz_2" value="0.245"/>
+    <xacro:property name="mz_3" value="0.955"/>
+    <xacro:property name="mx_1" value="0.540"/>
+    <xacro:property name="mx_2" value="0.700"/>
+    <xacro:property name="my_1" value="-0.150"/>
+
+    <!-- links -->
+    <link name="base_link">
+      <visual>
+      	<origin xyz="0 0 0" rpy="0 0 0"/>
+      	<geometry>
+      	  <mesh filename="package://crx_description/meshes/crx20ia_l/visual/base.stl" scale="0.001 0.001 0.001"/>
+      	</geometry>
+      	<material name="FANUC_Black"/>
+      </visual>
+      <collision>
+      	<origin xyz="0 0 0" rpy="0 0 0"/>
+      	<geometry>
+      	  <mesh filename="package://crx_description/meshes/crx20ia_l/collision/base.stl" scale="0.001 0.001 0.001"/>
+      	</geometry>
+      </collision>
+    </link>
+
+    <link name="J1_link">
+      <visual>
+        <origin xyz="0 0 ${mz_1 - l_base}" rpy="0 0 0"/>
+	       <geometry>
+	         <mesh filename="package://crx_description/meshes/crx20ia_l/visual/j1.stl" scale="0.001 0.001 0.001"/>
+    	   </geometry>
+        <material name="FANUC_White"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 ${mz_1 - l_base}" rpy="0 0 0"/>
+    	  <geometry>
+          <mesh filename="package://crx_description/meshes/crx20ia_l/collision/j1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="J2_link">
+      <visual>
+        <origin xyz="-${l_1} 0 ${mz_2 - l_base}" rpy="0 0 0"/>
+      	<geometry>
+          <mesh filename="package://crx_description/meshes/crx20ia_l/visual/j2.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="FANUC_White"/>
+      </visual>
+      <collision>
+        <origin xyz="-${l_1} 0 ${mz_2 - l_base}" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crx_description/meshes/crx20ia_l/collision/j2.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="J3_link">
+      <visual>
+        <origin xyz="-${l_1} 0 ${mz_3 - l_base - l_2}" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crx_description/meshes/crx20ia_l/visual/j3.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="FANUC_White"/>
+      </visual>
+      <collision>
+        <origin xyz="-${l_1} 0 ${mz_3 - l_base - l_2}" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crx_description/meshes/crx20ia_l/collision/j3.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="J4_link">
+      <visual>
+        <origin xyz="${mx_1 - l_1} 0 ${mz_3 - l_base - l_2 - l_3}" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crx_description/meshes/crx20ia_l/visual/j4.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="FANUC_White"/>
+      </visual>
+      <collision>
+        <origin xyz="${mx_1 - l_1} 0 ${mz_3 - l_base - l_2 - l_3}" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crx_description/meshes/crx20ia_l/collision/j4.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="J5_link">
+      <visual>
+        <origin xyz="${mx_1 -l_1 - l_4} ${my_1} ${mz_3 - l_base - l_2 - l_3}" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crx_description/meshes/crx20ia_l/visual/j5.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="FANUC_White"/>
+      </visual>
+      <collision>
+        <origin xyz="${mx_1 -l_1 - l_4} ${my_1} ${mz_3 - l_base - l_2 - l_3}" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crx_description/meshes/crx20ia_l/collision/j5.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="J6_link">
+      <visual>
+        <origin xyz="${mx_2 -l_1 - l_4} ${my_1 + l_5} ${mz_3 - l_base - l_2 - l_3}" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crx_description/meshes/crx20ia_l/visual/j6.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="FANUC_Black"/>
+      </visual>
+      <collision>
+        <origin xyz="${mx_2 -l_1 - l_4} ${my_1 + l_5} ${mz_3 - l_base - l_2 - l_3}" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://crx_description/meshes/crx20ia_l/collision/j6.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- joints -->
+    <joint name="J1" type="revolute">
+      <origin xyz="0 0 ${l_base}" rpy="0 0 0"/>
+      <parent link="base_link"/>
+      <child link="J1_link"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="${j1_l * pi / 180}" upper="${j1_u * pi / 180}" effort="0" velocity="${j1_v * pi / 180}"/>
+    </joint>
+
+    <joint name="J2" type="revolute">
+      <origin xyz="${l_1} 0 0" rpy="0 0 0"/>
+      <parent link="J1_link"/>
+      <child link="J2_link"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="${j2_l * pi / 180}" upper="${j2_u * pi / 180}" effort="0" velocity="${j2_v * pi / 180}"/>
+    </joint>
+
+    <joint name="J3" type="revolute">
+      <origin xyz="0 0 ${l_2}" rpy="0 0 0"/>
+      <parent link="J2_link"/>
+      <child link="J3_link"/>
+      <axis xyz="0 -1 0"/>
+      <limit lower="${j3_l * pi / 180}" upper="${j3_u * pi / 180}" effort="0" velocity="${j3_v * pi / 180}"/>
+    </joint>
+
+    <joint name="J4" type="revolute">
+      <origin xyz="0 0 ${l_3}" rpy="0 0 0"/>
+      <parent link="J3_link"/>
+      <child link="J4_link"/>
+      <axis xyz="-1 0 0"/>
+      <limit lower="${j4_l * pi / 180}" upper="${j4_u * pi / 180}" effort="0" velocity="${j4_v * pi / 180}"/>
+    </joint>
+
+    <joint name="J5" type="revolute">
+      <origin xyz="${l_4} 0 0" rpy="0 0 0"/>
+      <parent link="J4_link"/>
+      <child link="J5_link"/>
+      <axis xyz="0 -1 0"/>
+      <limit lower="${j5_l * pi / 180}" upper="${j5_u * pi / 180}" effort="0" velocity="${j5_v * pi / 180}"/>
+    </joint>
+
+    <joint name="J6" type="revolute">
+      <origin xyz="0 -${l_5} 0" rpy="0 0 0"/>
+      <parent link="J5_link"/>
+      <child link="J6_link"/>
+      <axis xyz="-1 0 0"/>
+      <limit lower="${j6_l * pi / 180}" upper="${j6_u * pi / 180}" effort="0" velocity="${j6_v * pi / 180}"/>
+    </joint>
+
+    <!-- world coords -->
+    <link name="wbase" />
+    <joint name="base_link-wbase" type="fixed">
+      <origin xyz="0 0 ${l_base}" rpy="0 0 0"/>
+      <parent link="base_link"/>
+      <child link="wbase"/>
+    </joint>
+
+    <!-- flange coords -->
+    <link name="flange" />
+    <joint name="J6-flange" type="fixed">
+      <origin xyz="${l_6} 0 0" rpy="0 0 0" />
+      <parent link="J6_link" />
+      <child link="flange" />
+    </joint>
+    
+    <!-- flange1 coords -->
+    <link name="flange1" />
+    <joint name="flange-flange1" type="fixed">
+      <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+      <parent link="flange" />
+      <child link="flange1" />
+    </joint>
+    
+    <!-- tcp coords -->
+    <link name="tcp" />
+    <joint name="flange1-tcp" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="flange1" />
+      <child link="tcp" />
+    </joint>
+    
+    <!-- tcp right coord -->
+    <link name="tcp_right" />
+    <joint name="tcp-tcp_right" type="fixed">
+      <origin xyz="0 0.012 0.013" rpy="0 0 0" />
+      <parent link="tcp" />
+      <child link="tcp_right" />
+    </joint>
+    
+    <!-- tcp left coord -->
+    <link name="tcp_left" />
+    <joint name="tcp-tcp_left" type="fixed">
+      <origin xyz="0 -0.012 0.013" rpy="0 0 0" />
+      <parent link="tcp" />
+      <child link="tcp_left" />
+    </joint>
+
+  </xacro:macro>
+</robot>

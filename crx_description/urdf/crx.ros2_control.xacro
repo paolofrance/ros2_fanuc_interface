@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="crx_ros2_control" 
+  params="name 
+  robot_ip:=10.11.31.111 
+  use_mock_hardware:=false
+  read_only:=false
+  use_rmi:=false">
+  <!-- Read only parameter should allow to move the robot via manual guidance, jog, etc throu the TP, and makes available the /joint_states topic -->
+
+    <ros2_control name="${name}" type="system">
+
+      <hardware>
+
+        <xacro:if value="${use_mock_hardware}">
+          <plugin>mock_components/GenericSystem</plugin>
+          <!-- <param name="position_state_following_offset">0.1</param> -->
+        </xacro:if>
+        <xacro:unless value="${use_mock_hardware}">
+          <plugin>fanuc/FanucHw</plugin>
+          <param name="robot_ip">${robot_ip}</param>
+          <param name="read_only">${read_only}</param>
+          <param name="use_rmi">${use_rmi}</param>
+        </xacro:unless>
+      </hardware>
+
+      <joint name="J1">
+        <command_interface name="position">
+          <param name="min">{-2*pi}</param>
+          <param name="max">{2*pi}</param>
+        </command_interface>
+        <!-- <command_interface name="velocity">
+          <param name="min">-3.15</param>
+          <param name="max">3.15</param>
+        </command_interface> -->
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+      </joint>
+
+      <joint name="J2">
+        <command_interface name="position">
+          <param name="min">{-2*pi}</param>
+          <param name="max">{2*pi}</param>
+        </command_interface>
+        <!-- <command_interface name="velocity">
+          <param name="min">-3.15</param>
+          <param name="max">3.15</param>
+        </command_interface> -->
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+      </joint>
+
+      <joint name="J3">
+        <command_interface name="position">
+          <param name="min">{-pi}</param>
+          <param name="max">{pi}</param>
+        </command_interface>
+        <!-- <command_interface name="velocity">
+          <param name="min">-3.15</param>
+          <param name="max">3.15</param>
+        </command_interface> -->
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+      </joint>
+
+      <joint name="J4">
+        <command_interface name="position">
+          <param name="min">{-2*pi}</param>
+          <param name="max">{2*pi}</param>
+        </command_interface>
+        <!-- <command_interface name="velocity">
+          <param name="min">-3.2</param>
+          <param name="max">3.2</param>
+        </command_interface> -->
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+      </joint>
+
+      <joint name="J5">
+        <command_interface name="position">
+          <param name="min">{-2*pi}</param>
+          <param name="max">{2*pi}</param>
+        </command_interface>
+        <!-- <command_interface name="velocity">
+          <param name="min">-3.2</param>
+          <param name="max">3.2</param>
+        </command_interface> -->
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+      </joint>
+
+      <joint name="J6">
+        <command_interface name="position">
+          <param name="min">{-2*pi}</param>
+          <param name="max">{2*pi}</param>
+        </command_interface>
+        <!-- <command_interface name="velocity">
+          <param name="min">-3.2</param>
+          <param name="max">3.2</param>
+        </command_interface> -->
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+      </joint>
+
+    </ros2_control>
+
+  </xacro:macro>
+
+</robot>

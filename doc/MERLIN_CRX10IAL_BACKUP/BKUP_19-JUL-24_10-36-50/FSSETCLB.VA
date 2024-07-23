@@ -1,6 +1,0 @@
-[FSSETCLB]TASK_NAME  Storage: DRAM  Access: RW  : STRING[40] = Uninitialized
-
-[FSSETCLB]CURR_NAME  Storage: DRAM  Access: RW  : STRING[40] = Uninitialized
-
-[FSSETCLB]STATUS  Storage: DRAM  Access: RW  : INTEGER = Uninitialized
-

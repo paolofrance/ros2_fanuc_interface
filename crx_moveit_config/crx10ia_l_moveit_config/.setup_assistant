@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: crx_description
+    relative_path: urdf/crx10ia_l/crx10ia_l.xacro
+  srdf:
+    relative_path: config/crx10ia_l.srdf
+  package_settings:
+    author_name: marco.faroni
+    author_email: marco.faroni@polimi.it
+    generated_timestamp: 1719913737
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

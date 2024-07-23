@@ -1,4 +1,4 @@
-# ros2_fanuc_interface
+# Fanuc_CRX_ROS2_Driver
 
 This repository implements a ros2 hardware interface for the CRX family Fanuc robots. 
 The code was tested on real hardware on Fanuc CRX-10iaL and CRX-20iaL with R30iB Mini Plus controller.
@@ -33,8 +33,6 @@ To check is the EthernetIP module is loaded on your robot, open the FanucTP app 
 
 ## Content <a name="content"></a>
 
-
-
 | Function | Description |
 | ------------- | ------------- |
 | fanuc_eth_ip  | Implementation of the communication via Ethernet/IP between the remote PC and the Fanuc controller. |
@@ -66,15 +64,7 @@ sudo apt install ros-<distro>-ros2-control
 sudo apt install ros-<distro>-ros2-controllers
 ```
 
-Install robot description adnd moveit_config packages:
-```console
-git clone https://github.com/paolofrance/crx20_moveit_config
-git clone https://github.com/paolofrance/crx_description
-cd ..
-colcon build --symlink-install
-```
-
-Install the current package:
+Install the current repo:
 ```console
 cd <to-your-src>
 git clone https://github.com/paolofrance/ros2_fanuc_interface
@@ -99,7 +89,7 @@ The robot controller and the external PC must be under the same network:
 ### TP program installation
 
 To actually move the robot, you need a teach-pendant (TP) program running on the robot controller. 
-1. Copy the TP programs from [this folder](https://github.com/paolofrance/ros2_fanuc_interface/tree/main/ros2_fanuc_interface/TP_programs) to your robot controller.
+1. Copy the TP programs from [this folder](https://github.com/paolofrance/ros2_fanuc_interface/tree/main/TP_programs) to your robot controller.
 2. Set the TP to AUTO mode.
 3. Load and run the program ROS2.TP.
 
@@ -115,7 +105,7 @@ To use the DPM (Dynamic Path Modification) module provided by the Fanuc robots, 
 2. Make sure the TP is in AUTO mode.
 3. Launch:
 	```console
-	ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_ip:=your.robot.ip.address robot_type:=crx10ia_l
+	ros2 launch fanuc_control robot_bringup.launch.py robot_ip:=your.robot.ip.address robot_type:=crx10ia_l
 	```
 
 Available parameters:  
@@ -133,7 +123,7 @@ It is sometimes necessary to move the robot from the Teach Pendant, or via manua
 To use it open a terminal and do the following command:
 
 ```console
-ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_ip:=your.robot.ip.address robot_type:=crx10ia_l read_only:=true
+ros2 launch fanuc_control robot_bringup.launch.py robot_ip:=your.robot.ip.address robot_type:=crx10ia_l read_only:=true
 ```
 
 **NOTE**: with some version of the robot controller software we had some issues related to loss of communication. The reason is still unclear. 
@@ -142,7 +132,7 @@ ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_ip:=your.robot.ip
 
 To test this with mock components just add the "use_mock_hardware:=true" param to your launch command
 ```console
-ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_type:=crx10ia_l use_mock_hardware:=true
+ros2 launch fanuc_control robot_bringup.launch.py robot_type:=crx10ia_l use_mock_hardware:=true
 ```
 
 #### Trajectory execution velocity scaling
@@ -155,7 +145,7 @@ To test the velocity scaling controller you have to download the [scaled_fjt_con
 If you want to use the velocity scaler controller, pass the controller configuration to the launcher as follows:
 
 ```console
-ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_type:=crx10ia_l controllers_file:=scaled_velocity_controller.yaml
+ros2 launch fanuc_control robot_bringup.launch.py robot_type:=crx10ia_l controllers_file:=scaled_velocity_controller.yaml
 ```
 
 You should now see the "/speed_ovr" topic, where you can publish the desired velocity (as a percentage of the maximum velocity). See the documentation [here](https://github.com/paolofrance/scaled_fjt_controller).
@@ -174,7 +164,7 @@ In the proposed case, the integers are mapped as 0.01 mm, and a conversion facto
 To run the node
 
 ```console
-ros2 launch ros2_fanuc_interface dpm_example.launch.py
+ros2 launch fanuc_control dpm_example.launch.py
 ```
 
 Then the DPM can be activated via a service [std_srvs/SetBool.srv](https://docs.ros.org/en/noetic/api/std_srvs/html/srv/SetBool.html)
