@@ -4,12 +4,24 @@ This repository implements a ros2 hardware interface for the CRX family Fanuc ro
 The code was tested on real hardware on Fanuc CRX-10iaL and CRX-20iaL with R30iB Mini Plus controller.
 
 **OS: Ubuntu 22.04**
+
 **ROS: Humble** (see the branch _rolling_ for the rolling distro)
 
 <img title="Fanuc CRX robots (credits: Fanuc)" alt="Alt text" src="/doc/crx_robots.jpg">
 
 
-## Prerequisites
+# Outline
+
+
+1. [Prerequisites](#prerequisites)
+2. [Content](#content)
+3. [Installation on the remote PC](#installation)
+4. [Setting up your CRX robot](#setting-up-robot)
+5. [Usage](#usage)
+6. [DPM](#dpm)
+7. [Known issues](#issues)
+
+## Prerequisites <a name="prerequisites"></a>
 
 The communication between ROS and the robot happens via EthernetIP.
 **The EtherNet/IP Adapter option must be loaded on your robot controller to use this package.**
@@ -19,7 +31,20 @@ To check is the EthernetIP module is loaded on your robot, open the FanucTP app 
 <img title="EthernetIP loaded on FANUC controller" alt="Alt text" src="/doc/ethip.jpg" width="200">
 
 
-## Installation on the remote PC
+## Content <a name="content"></a>
+
+
+
+| Function | Description |
+| ------------- | ------------- |
+| fanuc_eth_ip  | Implementation of the communication via Ethernet/IP between the remote PC and the Fanuc controller. |
+| fanuc_rmi     | Implementation of the communication via Remote Motion Interface (RMI) between the remote PC and the Fanuc controller. RMI is used as an alternative communication channel. From our experience, EthernetIP communication gives the best results in terms of real-time control of the robot. |
+| ros2_fanuc_interface | ROS2 Hardware Interface. Allows for controlling the robot via Ethernet/IP and RMI. |
+| fanuc_srvs | Services to call TP programs and allows for interaction with the Fanuc controller.
+Most of the services require TP programs to be written and running as Background Logics, that read Registers to start an action.
+More details will be added in future releases. |
+
+## Installation on the remote PC <a name="installation"></a>
 
 
 ### Install EIPScanner
@@ -59,28 +84,7 @@ cd ..
 colcon build --symlink-install
 ```
 
-## Content
-
-### fanuc_eth_ip
-
-This package contains the implementation of the communication via Ethernet/IP between the remote PC and the Fanuc controller
-
-### fanuc_rmi
-
-This package contains the implementation of the communication via Remote Motion Interface (RMI) between the remote PC and the Fanuc controller. RMI is used as an alternative communication means. From our experience, EthernetIP communication gives the best results in terms of real-time control of the robot.
-
-### ros2_fanuc_interface
-
-This package implements the Hardware Interface compliant with the ROS2 control framework.
-Allows for controlling the robot via Ethernet/IP and RMI.
-
-### fanuc_srvs
-
-This package contains the implementation of services that permit useful calls to TP programs and interaction with the Fanuc controller.
-Most of the services require TP programs to be written and running as Background Logics, that read Registers to start an action.
-More details will be added in future releases.
-
-## Setting up your CRX robot
+## Setting up your CRX robot <a name="setting-up-robot"></a>
 
 **The EtherNet/IP Adapter option must be loaded on your robot controller to use this package.**
 
@@ -91,7 +95,7 @@ The robot controller and the external PC must be under the same network:
 2. On the robot controller, in [MENU]->[SETUP]->[HOSTCOMM]->[TCP/IP], make sure the configuration looks like the image below, where Port#1 IP address must be under the same network of your PC.
 3. Make sure you can ping the robot from your PC.
 
-<img title="TCPIP configuration" alt="Alt text" src="/doc/tcpip_config.jpg">
+<img title="TCPIP configuration" alt="Alt text" src="/doc/tcpip_config.jpg" width="200">
 
 
 ### TP program installation
@@ -105,17 +109,18 @@ To actually move the robot, you need a teach-pendant (TP) program running on the
 
 To use the DPM (Dynamic Path Modification) module provided by the Fanuc robots, it is necessary to configure 6 Group Inputs and map them to the DPM settings. 
 
-## Usage
-
-This section explains what this package allows at the current status
+## Usage <a name="usage"></a>
 
 #### Real robot
 
-```console
-ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_ip:=your.robot.ip.address robot_type:=crx10ia_l
-```
+1. Make sure the program ROS2.TP is running on the robot controller.
+2. Make sure the TP is in AUTO mode.
+3. Launch:
+	```console
+	ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_ip:=your.robot.ip.address robot_type:=crx10ia_l
+	```
 
-Available parameters are:  
+Available parameters:  
 - "robot_type" [crx5ia, crx10ia, crx10ia_l, crx20ia_l, crx25ia_l]: the CRX robot model
 - "use_mock_hardware" [true/false]: if the real robot is controlled or a virtual one   
 - "controllers_file" ["file location"]: where the list of available ros2_controllers is  
@@ -135,7 +140,7 @@ ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_ip:=your.robot.ip
 
 **NOTE**: with some version of the robot controller software we had some issues related to loss of communication. The reason is still unclear. 
 
-#### Fake robot
+#### Simulated robot
 
 To test this with mock components just add the "use_mock_hardware:=true" param to your launch command
 ```console
@@ -157,7 +162,7 @@ ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_type:=crx10ia_l c
 
 You should now see the "/speed_ovr" topic, where you can publish the desired velocity (as a percentage of the maximum velocity). See the documentation [here](https://github.com/paolofrance/scaled_fjt_controller).
 
-## DPM (WiP)
+## DPM (WiP) <a name="dpm"></a>
 
 This package allows the use of the Dynamic Path Modification (DPM) mode from Fanuc.
 
@@ -196,7 +201,7 @@ In the [dpm_params.yaml](https://github.com/paolofrance/ros2_fanuc_interface/blo
 
 **NOTE**: The DPM is not directly integrated into the Ros2 control framework since it requires Cartesian relative commands. If you want to contribute, please let us know. 
 
-## Known issues
+## Known issues <a name="issues"></a>
 1. execution delay of about 0.2 seconds with Ethernet/IP - reduced compared to the previous version with python
 2. execution/feedback delay of about 0.6 seconds with RMI - To be tested
 
@@ -210,7 +215,7 @@ RMI driver: matteo.lavit@stiima.cnr.it
 TP fanuc and services: stefano.baraldo@supsi.ch, andrea.bussolan@supsi.ch  
 Tester and user: vincenzo.pomponi@supsi.ch  
 
-### Acknowledgements
+## Acknowledgements <a name="ack"></a>
 This package is developed by the [ARM (Automation Robotics and Machines Laboratory)](https://sites.supsi.ch/isteps_en/Laboratories/gruppo1.html) at SUPSI, Lugano, CH. 
 This package also uses components developed by CNR-SIIMA, Lecco.   
 The EU project [Fluently](https://www.fluently-horizonproject.eu/) partially funded the development of this package.
