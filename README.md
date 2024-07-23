@@ -6,6 +6,9 @@ The code was tested on real hardware on Fanuc CRX-10iaL and CRX-20iaL with R30iB
 **OS: Ubuntu 22.04**
 **ROS: Humble** (see the branch _rolling_ for the rolling distro)
 
+<img title="Fanuc CRX robots (credits: Fanuc)" alt="Alt text" src="/doc/crx_robots.jpg">
+
+
 ## Prerequisites
 
 The communication between ROS and the robot happens via EthernetIP.
@@ -13,7 +16,7 @@ The communication between ROS and the robot happens via EthernetIP.
 
 To check is the EthernetIP module is loaded on your robot, open the FanucTP app and check that the EthernetIP options shows up as in the image below.
 
-<img title="EthernetIP loaded on FANUC controller" alt="Alt text" src="/doc/ethip.jpeg">
+<img title="EthernetIP loaded on FANUC controller" alt="Alt text" src="/doc/ethip.jpg" width="200">
 
 
 ## Installation on the remote PC
@@ -94,7 +97,7 @@ The robot controller and the external PC must be under the same network:
 ### TP program installation
 
 To actually move the robot, you need a teach-pendant (TP) program running on the robot controller. 
-1. Copy the TP programs from (this folder)[https://github.com/paolofrance/ros2_fanuc_interface/tree/main/ros2_fanuc_interface/TP_programs] to your robot controller.
+1. Copy the TP programs from [this folder](https://github.com/paolofrance/ros2_fanuc_interface/tree/main/ros2_fanuc_interface/TP_programs) to your robot controller.
 2. Set the TP to AUTO mode.
 3. Load and run the program ROS2.TP.
 
@@ -109,7 +112,7 @@ This section explains what this package allows at the current status
 #### Real robot
 
 ```console
-$ ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_ip:=your.robot.ip.address robot_type:=crx10ia_l
+ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_ip:=your.robot.ip.address robot_type:=crx10ia_l
 ```
 
 Available parameters are:  
@@ -127,7 +130,7 @@ It is sometimes necessary to move the robot from the Teach Pendant, or via manua
 To use it open a terminal and do the following command:
 
 ```console
-$ ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_ip:=your.robot.ip.address robot_type:=crx10ia_l read_only:=true
+ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_ip:=your.robot.ip.address robot_type:=crx10ia_l read_only:=true
 ```
 
 **NOTE**: with some version of the robot controller software we had some issues related to loss of communication. The reason is still unclear. 
@@ -136,7 +139,7 @@ $ ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_ip:=your.robot.
 
 To test this with mock components just add the "use_mock_hardware:=true" param to your launch command
 ```console
-$ ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_type:=crx10ia_l use_mock_hardware:=true
+ros2 launch ros2_fanuc_interface robot_bringup.launch.py robot_type:=crx10ia_l use_mock_hardware:=true
 ```
 
 #### Trajectory execution velocity scaling
