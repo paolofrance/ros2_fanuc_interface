@@ -7,12 +7,15 @@
                use_rmi='false' 
                use_mock_hardware=false">
 
-    <xacro:include filename="$(find crx_description)/urdf/crx.ros2_control.xacro" />  
-    <xacro:crx_ros2_control name="crx10" 
+    <!-- <xacro:include filename="$(find crx_description)/urdf/crx.ros2_control.xacro" />  -->
+    <xacro:include filename="$(find crx_description)/urdf/crx.gazebo.xacro" />   
+    <!-- <xacro:crx_ros2_control name="crx10" 
                             use_mock_hardware="${use_mock_hardware}" 
                             robot_ip="${robot_ip}"
                             read_only="${read_only}"
-                            use_rmi="${use_rmi}" />
+                            use_rmi="${use_rmi}" /> -->
+
+    <xacro:crx_ros2_control_gazebo />
   
     <material name="FANUC_Black">
       <color rgba="0 0 0 1.0"/>
@@ -78,6 +81,11 @@
       	  <mesh filename="package://crx_description/meshes/crx10ia_l/collision/base.stl" scale="0.001 0.001 0.001"/>
       	</geometry>
       </collision>
+      <inertial>
+        <origin xyz="-0.00382056 0.00206950 0.01942089"/>
+        <mass value="2.76100000"/>
+        <inertia ixx="0.00700659" ixy="-0.00000203" ixz="0.00008532" iyy="0.00802246" iyz="-0.00000089" izz="0.01189151"/>
+      </inertial>
     </link>
 
     <link name="J1_link">
@@ -94,6 +102,11 @@
           <mesh filename="package://crx_description/meshes/crx10ia_l/collision/j1.stl" scale="0.001 0.001 0.001"/>
       	</geometry>
       </collision>
+      <inertial>
+        <origin xyz="-0.00569797 0.00186743 0.11379122"/>
+        <mass value="7.93600000"/>
+        <inertia ixx="0.05299330" ixy="0.00000055" ixz="0.00000034" iyy="0.04558587" iyz="0.00347809" izz="0.03437197"/>
+      </inertial>
     </link>
 
     <link name="J2_link">
@@ -110,6 +123,11 @@
       	  <mesh filename="package://crx_description/meshes/crx10ia_l/collision/j2.stl" scale="0.001 0.001 0.001"/>
       	</geometry>
       </collision>
+      <inertial>
+        <origin xyz="0.00030878 -0.23265489 0.40597396"/>
+        <mass value="17.57600000"/>
+        <inertia ixx="1.03123975" ixy="0.00000783" ixz="0.00003249" iyy="1.00774475" iyz="-0.03368519" izz="0.07887079"/>
+      </inertial>
     </link>
 
     <link name="J3_link">
@@ -126,6 +144,11 @@
       	  <mesh filename="package://crx_description/meshes/crx10ia_l/collision/j3.stl" scale="0.001 0.001 0.001"/>
       	</geometry>
       </collision>
+      <inertial>
+        <origin xyz="0.02023601 0.02297838 -0.00069627"/>
+        <mass value="4.10700000"/>
+        <inertia ixx="0.00972653" ixy="-0.00068580" ixz="0.00000064" iyy="0.01821673" iyz="-0.00000000" izz="0.01861618"/>
+      </inertial>
     </link>
 
     <link name="J4_link">
@@ -142,6 +165,11 @@
       	  <mesh filename="package://crx_description/meshes/crx10ia_l/collision/j4.stl" scale="0.001 0.001 0.001"/>
       	</geometry>
       </collision>
+      <inertial>
+        <origin xyz="-0.01795465 0.00357090 0.00016217"/>
+        <mass value="4.95900000"/>
+        <inertia ixx="0.00826192" ixy="0.00137701" ixz="-0.00000129" iyy="0.07702783" iyz="0.00000185" izz="0.07766716"/>
+      </inertial>
     </link>
 
     <link name="J5_link">
@@ -158,6 +186,11 @@
       	  <mesh filename="package://crx_description/meshes/crx10ia_l/collision/j5.stl" scale="0.001 0.001 0.001"/>
       	</geometry>
       </collision>
+      <inertial>
+        <origin xyz="0.00186419 0.00283739 -0.00032750"/>
+        <mass value="2.14100000"/>
+        <inertia ixx="0.00413567" ixy="0.00039226" ixz="-0.00000017" iyy="0.00472478" iyz="0.00000006" izz="0.00588804"/>
+      </inertial>
     </link>
 
     <link name="J6_link">
@@ -174,9 +207,21 @@
           <mesh filename="package://crx_description/meshes/crx10ia_l/collision/j6.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
+      <inertial>
+        <origin xyz="-0.01611361 0.00604174 0.00031788"/>
+        <mass value="0.52000000"/>
+        <inertia ixx="0.00057032" ixy="0.00000069" ixz="-0.00000020" iyy="0.00038816" iyz="-0.00000004" izz="0.00045904"/>
+      </inertial>
     </link>
 
     <!-- joints -->
+    <gazebo>
+      <joint name='fixed_base' type='fixed'>
+        <parent>world</parent>
+        <child>base_link</child>
+      </joint>
+    </gazebo>
+
     <joint name="J1" type="revolute">
       <origin xyz="0 0 ${l_base}" rpy="0 0 0"/>
       <parent link="base_link"/>
