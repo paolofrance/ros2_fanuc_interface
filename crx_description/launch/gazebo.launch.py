@@ -16,9 +16,6 @@ from ament_index_python.packages import get_package_share_directory
 ARGUMENTS =[ 
     DeclareLaunchArgument('name',  default_value = '',     description = 'NAME_SPACE'     ),
     DeclareLaunchArgument('model', default_value = 'crx10ia_l',     description = 'ROBOT_MODEL'    ),
-    DeclareLaunchArgument('color', default_value = 'white',     description = 'ROBOT_COLOR'    ),
-    # DeclareLaunchArgument('gui',   default_value = 'false',     description = 'Start RViz2'    ),
-    DeclareLaunchArgument('gz',   default_value = 'true',     description = 'Use Gazebo'    ),
     DeclareLaunchArgument('headless',   default_value = 'false',     description = 'Headless Gazebo'    ),
     DeclareLaunchArgument('x',   default_value = '0',     description = 'Location x on Gazebo '    ),
     DeclareLaunchArgument('y',   default_value = '0',     description = 'Location y on Gazebo'    ),
@@ -26,7 +23,7 @@ ARGUMENTS =[
     DeclareLaunchArgument('R',   default_value = '0',     description = 'Location Roll on Gazebo'    ),
     DeclareLaunchArgument('P',   default_value = '0',     description = 'Location Pitch on Gazebo'    ),
     DeclareLaunchArgument('Y',   default_value = '0',     description = 'Location Yaw on Gazebo'    ),
-    DeclareLaunchArgument('use_sim_time',  default_value='true', description='If true, use simulated clock'),
+    #DeclareLaunchArgument('use_sim_time',  default_value='true', description='If true, use simulated clock'), # Looks like its automatic
 ]
 
 ENVIRONMENT = [SetEnvironmentVariable(name='GAZEBO_MODEL_PATH', value=os.path.dirname(get_package_share_directory("crx_description")))]
@@ -34,7 +31,7 @@ ENVIRONMENT = [SetEnvironmentVariable(name='GAZEBO_MODEL_PATH', value=os.path.di
 def generate_launch_description():
     # Initialize Arguments
     # gui = LaunchConfiguration("gui")
-    # use_sim_time = LaunchConfiguration('use_sim_time', default=True)
+    #use_sim_time = LaunchConfiguration('use_sim_time')
 
 
     # Get URDF via xacro
@@ -52,14 +49,8 @@ def generate_launch_description():
             ),
             ".xacro",
             " ",
-            "use_gazebo:=",
-            LaunchConfiguration('gz'),
-            " ",
-            "color:=",
-            LaunchConfiguration('color'),
-            " ",
-            # "namespace:=",
-            # PathJoinSubstitution([LaunchConfiguration('name'), "gz"])
+            "gz:=true",
+            " "
         ]
     )
     
@@ -79,14 +70,6 @@ def generate_launch_description():
         "ros2_controllers.yaml",
     ]
     )
-    
-    # control_node = Node(
-    #     package="controller_manager",
-    #     executable="ros2_control_node",
-    #     parameters=[robot_controllers],
-    #     output="both",
-    #     remappings=[("/controller_manager/robot_description", "/robot_description")]
-    # )
 
     load_joint_state_broadcaster = ExecuteProcess(
         cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
@@ -136,18 +119,10 @@ def generate_launch_description():
                         output='screen')
     
 
-    #nodes = [node_robot_state_publisher, joint_state_broadcaster_spawner, load_joint_state_broadcaster, gazebo, gz_spawn_entity] #gazebo,
     return LaunchDescription(ENVIRONMENT + ARGUMENTS + [
         node_robot_state_publisher,
         gazebo,
         gz_spawn_entity,
-        # control_node,
-        # RegisterEventHandler(
-        #     event_handler=OnProcessStart(
-        #         target_action=control_node,
-        #         on_start=[gz_spawn_entity],
-        #     )
-        # ),
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=gz_spawn_entity,
@@ -161,59 +136,4 @@ def generate_launch_description():
             )
         ),
     ])
-    
-    rviz_config_file = PathJoinSubstitution(
-        [FindPackageShare("dsr_description2"), "rviz", "default.rviz"]
-    )
-
-
-
-    
-    
-    dsr_position_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        namespace=PathJoinSubstitution([LaunchConfiguration('name'), "gz"]),
-        arguments=["dsr_position_controller", "--controller-manager", "controller_manager"],
-    )
-    rviz_node = Node(
-        package="rviz2",
-        executable="rviz2",
-        name="rviz2",
-        output="log",
-        arguments=["-d", rviz_config_file],
-        condition=IfCondition(gui),
-    )
-
-    # Delay rviz start after `joint_state_broadcaster`
-    delay_rviz_after_joint_state_broadcaster_spawner = RegisterEventHandler(
-        event_handler=OnProcessExit(
-            target_action=joint_state_broadcaster_spawner,
-            on_exit=[rviz_node],
-        )
-    )
-
-    # launch issue position controller
-    dsr_position_controller_spawner_action = TimerAction(
-        period=2.0,
-        actions=[dsr_position_controller_spawner]
-    )
-
-    # Delay start of robot_controller after `joint_state_broadcaster`
-    delay_dsr_position_controller_spawner_after_joint_state_broadcaster_spawner = RegisterEventHandler(
-        event_handler=OnProcessExit(
-            target_action=joint_state_broadcaster_spawner,
-            on_exit=[dsr_position_controller_spawner_action],
-        )
-    )
-
-    nodes = [
-        gazebo,
-        node_robot_state_publisher,
-        gz_spawn_entity,
-        joint_state_broadcaster_spawner,
-        delay_dsr_position_controller_spawner_after_joint_state_broadcaster_spawner
-    ]
-
-    return LaunchDescription(ARGUMENTS + nodes)
 

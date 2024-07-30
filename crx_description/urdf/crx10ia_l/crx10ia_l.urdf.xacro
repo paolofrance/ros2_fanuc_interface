@@ -2,20 +2,28 @@
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
 
   <xacro:macro name="crx10ia_l" 
-               params="robot_ip='10.11.31.121'
-               read_only='false' 
-               use_rmi='false' 
-               use_mock_hardware=false">
+              params="robot_ip:='10.11.31.121'
+              read_only:='false' 
+              use_rmi:='false' 
+              use_mock_hardware:=false 
+              gz:=false">
 
-    <!-- <xacro:include filename="$(find crx_description)/urdf/crx.ros2_control.xacro" />  -->
-    <xacro:include filename="$(find crx_description)/urdf/crx.gazebo.xacro" />   
-    <!-- <xacro:crx_ros2_control name="crx10" 
-                            use_mock_hardware="${use_mock_hardware}" 
-                            robot_ip="${robot_ip}"
-                            read_only="${read_only}"
-                            use_rmi="${use_rmi}" /> -->
+    
+    <xacro:if value="${gz}">
+      <xacro:include filename="$(find crx_description)/urdf/crx.gazebo.xacro" />  
+      <xacro:crx_ros2_control_gazebo />
+    </xacro:if> 
 
-    <xacro:crx_ros2_control_gazebo />
+    <xacro:unless value="${gz}">
+      <xacro:include filename="$(find crx_description)/urdf/crx.ros2_control.xacro" />
+      <xacro:crx_ros2_control name="crx10ia" 
+                use_mock_hardware="${use_mock_hardware}" 
+                robot_ip="${robot_ip}"
+                read_only="${read_only}"
+                use_rmi="${use_rmi}" />
+    </xacro:unless> 
+
+    
   
     <material name="FANUC_Black">
       <color rgba="0 0 0 1.0"/>

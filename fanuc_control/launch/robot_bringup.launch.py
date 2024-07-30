@@ -62,6 +62,22 @@ def generate_launch_description():
             description="if the robot is read only . ",
         )
     )
+
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "gz",
+            default_value="false",
+            description="If mock hardware, simulate using Gazebo ",
+        )
+    )
+
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "gz_headless",
+            default_value="true",
+            description="Use Gazebo in headless mode",
+        )
+    )
     
     return LaunchDescription( declared_arguments + [OpaqueFunction(function=launch_setup)] )
 
@@ -74,6 +90,8 @@ def launch_setup(context, *args, **kwargs):
     controllers_file = LaunchConfiguration("controllers_file")
     read_only = LaunchConfiguration("read_only")
     use_rmi = LaunchConfiguration("use_rmi")
+    gz = LaunchConfiguration("gz")
+    gz_headless = LaunchConfiguration("gz_headless")
 
     robot_type_str = robot_type.perform(context)
     print("robot_type", robot_type_str)
@@ -87,6 +105,7 @@ def launch_setup(context, *args, **kwargs):
             " ", "robot_ip:=", robot_ip,
             " ", "read_only:=", read_only,
             " ", "use_rmi:=", use_rmi,
+            " ", "gz:=", gz
         ]
     )
     
@@ -130,9 +149,15 @@ def launch_setup(context, *args, **kwargs):
         executable="spawner",
         arguments=["manipulator_controller", "-c", "/controller_manager"],
     )
-    
+
     move_group = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_type_str+'_moveit_config'),'launch', 'move_group.launch.py')]),)
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory("crx_description"),'launch', 'my_move_group.launch.py')]),
+        launch_arguments=[("robot_type", robot_type)]
+    )
+
+    print(move_group.describe_sub_entities())
+
+    # move_group.add_action(DeclareLaunchArgument("use_sim_time", default_value=""))
     
     moveit_rviz = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_type_str+'_moveit_config'),'launch', 'moveit_rviz.launch.py')]),)
