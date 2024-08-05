@@ -5,11 +5,14 @@ from launch.substitutions import Command, FindExecutable, LaunchConfiguration, P
 from launch_ros.actions import Node
 from launch.actions import IncludeLaunchDescription,ExecuteProcess 
 from launch_ros.substitutions import FindPackageShare
+from launch.conditions import IfCondition
 from launch.actions import GroupAction, OpaqueFunction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from ament_index_python import get_package_share_directory
 import os
 import xacro
+from launch_ros.actions import SetParameter
+
 
 def generate_launch_description():
 
@@ -62,6 +65,22 @@ def generate_launch_description():
             description="if the robot is read only . ",
         )
     )
+
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "gz",
+            default_value="false",
+            description="If mock hardware, simulate using Gazebo ",
+        )
+    )
+
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "gz_headless",
+            default_value="true",
+            description="Use Gazebo in headless mode",
+        )
+    )
     
     return LaunchDescription( declared_arguments + [OpaqueFunction(function=launch_setup)] )
 
@@ -74,9 +93,16 @@ def launch_setup(context, *args, **kwargs):
     controllers_file = LaunchConfiguration("controllers_file")
     read_only = LaunchConfiguration("read_only")
     use_rmi = LaunchConfiguration("use_rmi")
+    gz = LaunchConfiguration("gz")
+    gz_headless = LaunchConfiguration("gz_headless")
 
     robot_type_str = robot_type.perform(context)
     print("robot_type", robot_type_str)
+
+
+
+    # use_sim_time
+    set_use_sim_time = SetParameter(name='use_sim_time', value=LaunchConfiguration('gz'))
 
     robot_description_content = Command(
         [
@@ -87,6 +113,7 @@ def launch_setup(context, *args, **kwargs):
             " ", "robot_ip:=", robot_ip,
             " ", "read_only:=", read_only,
             " ", "use_rmi:=", use_rmi,
+            " ", "gz:=", gz
         ]
     )
     
@@ -130,20 +157,28 @@ def launch_setup(context, *args, **kwargs):
         executable="spawner",
         arguments=["manipulator_controller", "-c", "/controller_manager"],
     )
-    
+
     move_group = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_type_str+'_moveit_config'),'launch', 'move_group.launch.py')]),)
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_type_str+'_moveit_config'),'launch', 'move_group.launch.py')])
+    )
     
     moveit_rviz = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_type_str+'_moveit_config'),'launch', 'moveit_rviz.launch.py')]),)
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_type_str+'_moveit_config'),'launch', 'moveit_rviz.launch.py')]))
+    
+    gazebo_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('crx_description'),'launch', 'gazebo.launch.py')]),
+        launch_arguments={"headless" : gz_headless}.items(), 
+        condition=IfCondition(gz))
 
     nodes_to_start = [
+        set_use_sim_time,
         control_node,
         joint_state_broadcaster_spawner,
         controller_spawner_started,
         robot_state_publisher_node,
         move_group,
         moveit_rviz,
+        gazebo_launch
     ]
 
     return nodes_to_start

@@ -5,8 +5,9 @@
   <xacro:arg name="read_only" default="false" />
   <xacro:arg name="robot_ip" default="192.168.150.2" />
   <xacro:arg name="use_rmi" default="false" />
+  <xacro:arg name="gz" default="false" />
 
   <xacro:include filename="$(find crx_description)/urdf/crx10ia_l/crx10ia_l.urdf.xacro"/>
-  <xacro:crx10ia_l use_mock_hardware="$(arg use_mock_hardware)" robot_ip="$(arg robot_ip)" read_only="$(arg read_only)" use_rmi="$(arg use_rmi)"/>
+  <xacro:crx10ia_l use_mock_hardware="$(arg use_mock_hardware)" robot_ip="$(arg robot_ip)" read_only="$(arg read_only)" use_rmi="$(arg use_rmi)" gz="$(arg gz)" />
   
 </robot>
