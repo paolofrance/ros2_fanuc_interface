@@ -6,17 +6,17 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.conditions import IfCondition
 
 from launch.event_handlers import OnProcessExit, OnProcessStart
-from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration
+from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration, PythonExpression
 
 from launch_ros.actions import Node
-from launch_ros.substitutions import FindPackageShare
+from launch_ros.substitutions import FindPackageShare 
 from ament_index_python.packages import get_package_share_directory
 
 
 ARGUMENTS =[ 
     DeclareLaunchArgument('name',  default_value = '',     description = 'NAME_SPACE'     ),
     DeclareLaunchArgument('model', default_value = 'crx10ia_l',     description = 'ROBOT_MODEL'    ),
-    DeclareLaunchArgument('headless',   default_value = 'false',     description = 'Headless Gazebo'    ),
+    DeclareLaunchArgument('headless',   default_value = 'true',     description = 'Headless Gazebo'    ),
     DeclareLaunchArgument('x',   default_value = '0',     description = 'Location x on Gazebo '    ),
     DeclareLaunchArgument('y',   default_value = '0',     description = 'Location y on Gazebo'    ),
     DeclareLaunchArgument('z',   default_value = '0',     description = 'Location z on Gazebo'    ),
@@ -89,7 +89,7 @@ def generate_launch_description():
     # gazebo
     gazebo = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([FindPackageShare("gazebo_ros"), '/launch/gazebo.launch.py']),
-                launch_arguments = {"gui" : LaunchConfiguration('headless')}.items()
+                launch_arguments = {"gui" : PythonExpression(["'", LaunchConfiguration('headless'), "'.lower() == 'false'"])}.items()
              )
     
     # ,

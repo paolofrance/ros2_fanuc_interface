@@ -12,8 +12,9 @@
 - [X] Build to Moveit control (See crx_description/urdf/crx.ros2_control.xacro, and [medium](https://kolkemboi.medium.com/simulate-6-dof-robot-arm-in-ros2-gazebo-and-moveit2-a171c7e9b0ad))
 - [X] Integrate with ros2_fanuc_interface! (Robot_bringup.launch)
 - [X] Pass use_sim_time in robot_bringup.launch
-- [ ] Add headless Gazebo mode (Invert argument)
-- [ ] Allow alternate between Gazebo and Fake Controller
+- [X] Add headless Gazebo mode (Invert argument) and base sim_time off whether its real or fake to reduce input args 
+- [X] Allow alternate between Gazebo and Fake Controller
+- [X] Include Gazebo launch description
 - [ ] Web bridge (Grasshopper)
 - [ ] Then ros2_file_server
 
