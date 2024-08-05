@@ -10,6 +10,8 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from ament_index_python import get_package_share_directory
 import os
 import xacro
+from launch_ros.actions import SetParameter
+
 
 def generate_launch_description():
 
@@ -78,6 +80,14 @@ def generate_launch_description():
             description="Use Gazebo in headless mode",
         )
     )
+
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "use_sim_time",
+            default_value="true",
+            description="Use sim time",
+        )
+    )
     
     return LaunchDescription( declared_arguments + [OpaqueFunction(function=launch_setup)] )
 
@@ -95,6 +105,9 @@ def launch_setup(context, *args, **kwargs):
 
     robot_type_str = robot_type.perform(context)
     print("robot_type", robot_type_str)
+
+    # use_sim_time
+    set_use_sim_time = SetParameter(name='use_sim_time', value=LaunchConfiguration('use_sim_time'))
 
     robot_description_content = Command(
         [
@@ -151,11 +164,9 @@ def launch_setup(context, *args, **kwargs):
     )
 
     move_group = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory("crx_description"),'launch', 'my_move_group.launch.py')]),
+        PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_type_str+'_moveit_config'),'launch', 'move_group.launch.py')]),
         launch_arguments=[("robot_type", robot_type)]
     )
-
-    print(move_group.describe_sub_entities())
 
     # move_group.add_action(DeclareLaunchArgument("use_sim_time", default_value=""))
     
@@ -163,12 +174,13 @@ def launch_setup(context, *args, **kwargs):
         PythonLaunchDescriptionSource([os.path.join(get_package_share_directory(robot_type_str+'_moveit_config'),'launch', 'moveit_rviz.launch.py')]),)
 
     nodes_to_start = [
+        set_use_sim_time,
         control_node,
         joint_state_broadcaster_spawner,
         controller_spawner_started,
         robot_state_publisher_node,
         move_group,
-        moveit_rviz,
+        moveit_rviz
     ]
 
     return nodes_to_start
