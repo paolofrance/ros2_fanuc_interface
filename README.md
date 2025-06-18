@@ -3,7 +3,7 @@
 This repository implements a ros2 hardware interface for the CRX family Fanuc robots. 
 The code was tested on real hardware on Fanuc CRX-10iA/L, CRX-20iA/L, and CRX-25iA with R30iB Mini Plus controller.
 
-Additional information regarding implementation and performances evaluation can be found [here](https://arxiv.org/pdf/2506.14487)
+Additional information regarding implementation and performances evaluation can be found [here](https://arxiv.org/abs/2506.14487)
 
 **OS: Ubuntu 22.04**
 
