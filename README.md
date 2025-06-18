@@ -3,6 +3,8 @@
 This repository implements a ros2 hardware interface for the CRX family Fanuc robots. 
 The code was tested on real hardware on Fanuc CRX-10iA/L, CRX-20iA/L, and CRX-25iA with R30iB Mini Plus controller.
 
+Additional information regarding implementation and performances evaluation can be found [here](https://arxiv.org/pdf/2506.14487)
+
 **OS: Ubuntu 22.04**
 
 **ROS: Humble** (see the branch _rolling_ for the rolling distro)
@@ -220,13 +222,14 @@ The EU project [Fluently](https://www.fluently-horizonproject.eu/) partially fun
 If you use this repository, please cite it as:
 
 ```bibtex
-@misc{ros2_fanuc_interface,
-  author = {Paolo Franceschi, Marco Faroni},
-  title = {ros2_fanuc_interface},
-  year = {2024},
-  publisher = {GitHub},
-  journal = {GitHub Repository},
-  howpublished = {\url{https://github.com/paolofrance/ros2_fanuc_interface/}},
+@misc{franceschi2025ros2fanucinterfacedesign,
+      title={ros2 fanuc interface: Design and Evaluation of a Fanuc CRX Hardware Interface in ROS2}, 
+      author={Paolo Franceschi and Marco Faroni and Stefano Baraldo and Anna Valente},
+      year={2025},
+      eprint={2506.14487},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2506.14487}, 
 }
 ```
 
